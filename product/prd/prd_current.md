@@ -729,7 +729,7 @@
   - 妖物简述
 
 ### 16.5.2 敌人维护文件
-- `product/enemy_roster.csv` 为当前版本的敌人主维护文件，使用 Excel 可直接打开。
+- `product/enemies/enemy_roster.csv` 为当前版本的敌人主维护文件，使用 Excel 可直接打开。
 - 文件按“大境界 -> 阶段 -> 关卡 -> 普通怪 / 小Boss / 大Boss”的顺序维护。
 - 每条敌人记录必须包含：
   - 关卡归属
@@ -753,7 +753,7 @@
   - 空
   - `回复气血`
 - 不允许维护敌方攻击、防御、神识等外显展示字段。
-- 若敌人命名、数值或技能需要调整，必须优先修改 `enemy_roster.csv`，再同步代码与图鉴内容。
+- 若敌人命名、数值或技能需要调整，必须优先修改 `enemies/enemy_roster.csv`，再同步代码与图鉴内容。
 - 最低通关门槛按以下优先级反推：
   1. 最低气血
   2. 最少神通数
@@ -1101,7 +1101,7 @@
 - 敌方伤害与神通伤害的时间曲线
 
 ### 21.1.1 数值维护文件
-- `product/balance_formulas.xml` 为当前版本的数值维护与演算工作簿，使用 Excel 可直接打开。
+- `product/balance/balance_formulas.xml` 为当前版本的数值维护与演算工作簿，使用 Excel 可直接打开。
 - 工作簿用于统一维护“当前实现口径”和“调优演算口径”，按“参数页 -> 演算页 -> 结论页”的结构维护，修改基础参数后，分钟、成本、伤害、煞气等演算结果自动联动。
 - 当前工作簿内的主要维护页如下：
   - `ProgressParams` / `ProgressCalc`：维护境界、小境界、XP 与属性成长。
@@ -1109,7 +1109,7 @@
   - `CombatSandbox`：维护并验证攻击、防御、煞气与伤害公式。
   - `ResourceRules`：维护丹药、突破与煞气获取规则。
 - 当工作簿中的调优演算结果与当前实现不一致时，以本章节“当前正式数值表”与代码实现为当前正式口径；工作簿中的建议值仅作为下一轮平衡调优依据。
-- `product/balance_review.csv`、`product/balance_progress.csv`、`product/balance_cave.csv`、`product/balance_combat.csv`、`product/balance_resources.csv` 为便于查看与导出的辅助文件，不作为主维护入口。
+- `product/balance/balance_review.csv`、`product/balance/balance_progress.csv`、`product/balance/balance_cave.csv`、`product/balance/balance_combat.csv`、`product/balance/balance_resources.csv` 为便于查看与导出的辅助文件，不作为主维护入口。
 - 数值修改流程必须遵循：
   1. 先修改 `balance_formulas.xml`
   2. 再确认演算结果是否符合目标节奏
@@ -1143,9 +1143,9 @@
 - 战斗、成长、经济三条公式链必须在同一维护文件中可追溯，禁止只改展示文案不改源公式
 
 ### 21.3 下一版正式建议数值方案
-- `product/balance_formal_proposal.md` 为下一版正式建议数值方案文件。
-- `product/balance_realm_targets.csv` 为玩家成长目标表，维护各境界阶段的目标分钟、属性与推荐神通。
-- `product/balance_enemy_targets.csv` 为敌人数值目标表，维护普通怪 / 小Boss / 大Boss 的目标战斗时长、损血比例、建议气血与建议伤害。
+- `product/balance/balance_formal_proposal.md` 为下一版正式建议数值方案文件。
+- `product/balance/balance_realm_targets.csv` 为玩家成长目标表，维护各境界阶段的目标分钟、属性与推荐神通。
+- `product/balance/balance_enemy_targets.csv` 为敌人数值目标表，维护普通怪 / 小Boss / 大Boss 的目标战斗时长、损血比例、建议气血与建议伤害。
 - 上述文件当前仅作为策划提案，不代表本版本已经正式生效。
 
 ## 22. 异常与边界处理

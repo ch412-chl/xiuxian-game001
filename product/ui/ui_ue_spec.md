@@ -2,7 +2,7 @@
 
 版本：v0.9.7
 日期：2026-03-18
-对应 PRD：[prd_current.md](/Users/cuihua/Documents/git/minigame-1/product/prd_current.md)
+对应 PRD：[prd_current.md](/Users/cuihua/Documents/git/minigame-1/product/prd/prd_current.md)
 用途：用于 UI 绘制、前端实现、交互联调、测试验收
 
 ## 1. 输出范围

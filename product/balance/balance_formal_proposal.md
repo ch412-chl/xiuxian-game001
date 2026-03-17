@@ -59,8 +59,8 @@
 - 前三大境界大 Boss 不应要求额外堆煞气才能通关。
 
 ## 4. 配套目标表
-- 玩家成长目标表：`product/balance_realm_targets.csv`
-- 敌人数值目标表：`product/balance_enemy_targets.csv`
+- 玩家成长目标表：`product/balance/balance_realm_targets.csv`
+- 敌人数值目标表：`product/balance/balance_enemy_targets.csv`
 
 ## 5. 策划判断
 - 这套方案的重点不是单纯提高玩家伤害，而是把成长感、战斗时长、Boss 压力、资源准备统一到一个闭环里。
