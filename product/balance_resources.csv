@@ -1,0 +1,8 @@
+﻿项目,当前规则,建议规则,设计目的
+洞府升级成本,upgradeCost(lv) = floor(2000 * 1.8^(lv - 1)),upgradeCost(lv) = round(stonePerHour(lv) * targetUpgradeHours(lv)),让成本与产出按目标小时数联动，而非各自独立增长
+洞府灵石产出,stonePerHour(lv) = floor(50 * 1.25^(lv - 1)),stonePerHour(lv) = floor(60 * 1.32^(lv - 1)),略提高前中期灵石增长，避免洞府升级失去参与感
+聚灵丹时长,recipeDurationSeconds = outputCount * 1,10 分钟 / 炉,让修为丹形成准备成本
+回灵丹时长,recipeDurationSeconds = outputCount * 1,8 分钟 / 炉,让续航丹可批量准备但不是瞬时产出
+突破丹时长,recipeDurationSeconds = outputCount * 1,30 + realmGroup * 8 分钟 / 炉,让突破前置准备与境界深度挂钩
+煞气获取,每击杀100只怪 +1,普通怪每10杀 +1；首领额外 +2,让煞气能成为可感知成长
+突破成功率,基础10% + 丹50% + 失败累积,基础20% + 丹30% + 每失败+5% 上限75%,降低全靠丹一键通关的感觉，保留保底递进
