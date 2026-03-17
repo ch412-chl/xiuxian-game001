@@ -264,3 +264,9 @@
 - 维护结构升级：工作簿拆分为境界参数/演算、洞府参数/演算、战斗沙盒、资源规则等页，支持修改参数后自动联动演算
 - 辅助文件补充：新增 `balance_review.csv`、`balance_progress.csv`、`balance_cave.csv`、`balance_combat.csv`、`balance_resources.csv` 作为导出与快速查看文件
 - 文档补充：`prd_current.md` 新增“数值维护文件”章节，明确数值修改必须先改维护表，再同步 PRD 与代码
+
+## v0.9.10 | 2026-03-18 04:05:00
+- 敌人维护新增：生成 `product/enemy_roster.csv`，作为当前版本敌人名称、数值与技能的单独维护文件
+- 配置补充：覆盖 14 个大境界 × 3 个阶段 × 普通怪 / 小Boss / 大Boss，共 126 条敌人配置
+- 规则补充：敌人技能效果仅保留空值或“回复气血”，并统一维护气血、煞气、基础伤害、行动 CD、技能伤害与技能 CD
+- 文档补充：`prd_current.md` 新增“敌人维护文件”章节，明确敌人数据优先在 `enemy_roster.csv` 中维护
