@@ -13,6 +13,7 @@ export const storage = {
       name: '凌云子',
       // 境界: 0=练气初,1=练气中,2=练气后...每3个一大境界
       realmIdx: 0,
+      realmLayer: 1,
       xp: 0,
       hp: 300,
       maxHp: 300,
@@ -35,12 +36,12 @@ export const storage = {
       // 背包 [{id, count}]
       bag: [],
 
-      // 神通 [{id, lv, frag}]
+      // 神通 [{id, lv, totalUses}]
       shengtong: [
-        { id: 'thunder', lv: 1, frag: 0 },
+        { id: 'st_guiyuan', lv: 1, totalUses: 0 },
       ],
       // 已装配神通id列表 最多6个
-      equippedSt: ['thunder', null, null, null, null, null],
+      equippedSt: ['st_guiyuan', null, null, null, null, null],
 
       // 已解锁丹方
       recipesKnown: ['juling', 'huiling'],
@@ -73,6 +74,8 @@ export const storage = {
         floor: 0,
       },
       bossDrops: {},
+      achieveClaimed: {},
+      bestiarySeen: {},
 
       titles: [],
       currentTitle: null,

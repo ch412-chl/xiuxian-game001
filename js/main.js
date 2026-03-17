@@ -5,6 +5,7 @@ import { CavePanel } from './ui/cavePanel';
 import { ExplorePanel } from './ui/explorePanel';
 import { BagPanel } from './ui/bagPanel';
 import { AchievePanel } from './ui/achievePanel';
+import { MonsterPanel } from './ui/monsterPanel';
 
 export default class Main {
   constructor() {
@@ -27,10 +28,11 @@ export default class Main {
       explore: new ExplorePanel(this),
       cave: new CavePanel(this),
       bag: new BagPanel(this),
-      achieve: new AchievePanel(this)
+      achieve: new AchievePanel(this),
+      monster: new MonsterPanel(this)
     };
 
-    this.tabs = ['role', 'explore', 'cave', 'bag', 'achieve'];
+    this.tabs = ['role', 'explore', 'cave'];
     this.bindEvents();
     this.loop();
   }
@@ -39,12 +41,7 @@ export default class Main {
     wx.onTouchStart((e) => {
       const { clientX: x, clientY: y } = e.touches[0];
       const NAV_H = 70;
-      const explorePanel = this.panels.explore;
-      const immersiveExplore = this.activeTab === 'explore'
-        && explorePanel
-        && typeof explorePanel.isImmersive === 'function'
-        && explorePanel.isImmersive();
-      if (!immersiveExplore && y > this.H - NAV_H) {
+      if (this.shouldShowBottomNav() && y > this.H - NAV_H) {
         const tabW = this.W / this.tabs.length;
         const idx = Math.min(this.tabs.length - 1, Math.floor(x / tabW));
         this.activeTab = this.tabs[idx] || this.activeTab;
@@ -62,8 +59,11 @@ export default class Main {
   render() {
     const { ctx, W, H } = this;
     
-    // 1. 全局背景：彻底刷黑 (清空上一帧所有残影)
-    ctx.fillStyle = '#111012';
+    // 1. 全局背景：提亮为暖灰渐变，降低压暗感
+    const bg = ctx.createLinearGradient(0, 0, 0, H);
+    bg.addColorStop(0, '#252028');
+    bg.addColorStop(1, '#1d1a1f');
+    ctx.fillStyle = bg;
     ctx.fillRect(0, 0, W, H);
 
     // 实时更新修炼与挂机等逻辑
@@ -74,15 +74,19 @@ export default class Main {
     this.panels[this.activeTab].render(ctx, W, H, this.headerH);
 
     // 3. 渲染底栏导航（探索关卡时进入沉浸模式，不显示底栏）
+    if (this.shouldShowBottomNav()) {
+      this.renderBottomNav();
+    }
+  }
+
+  shouldShowBottomNav() {
+    if (this.activeTab === 'bag' || this.activeTab === 'achieve' || this.activeTab === 'monster') return false;
     const explorePanel = this.panels.explore;
     const immersiveExplore = this.activeTab === 'explore'
       && explorePanel
       && typeof explorePanel.isImmersive === 'function'
       && explorePanel.isImmersive();
-
-    if (!immersiveExplore) {
-      this.renderBottomNav();
-    }
+    return !immersiveExplore;
   }
 
   renderHeader() {
@@ -96,19 +100,19 @@ export default class Main {
     const tabW = W / this.tabs.length;
 
     // 底部线条
-    ctx.strokeStyle = '#1a1a1a';
+    ctx.strokeStyle = '#544b3f';
     ctx.lineWidth = 0.5;
     ctx.beginPath();
     ctx.moveTo(20, y);
     ctx.lineTo(W - 20, y);
     ctx.stroke();
 
-    const labels = { role:'凡身', explore:'历练', cave:'洞府', bag:'纳戒', achieve:'成就' };
+    const labels = { role:'人物', explore:'历练', cave:'洞府' };
 
     this.tabs.forEach((tab, i) => {
       const isAct = this.activeTab === tab;
       ctx.textAlign = 'center';
-      ctx.fillStyle = isAct ? '#f3e2bb' : '#b59f75';
+      ctx.fillStyle = isAct ? '#f4dfb0' : '#c8af86';
       ctx.font = isAct ? 'bold 15px serif' : 'bold 14px serif';
       ctx.fillText(labels[tab], i * tabW + tabW / 2, y + 35);
       

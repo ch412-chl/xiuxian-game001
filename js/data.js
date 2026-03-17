@@ -3,6 +3,22 @@ export const REALM_GROUPS = [
   '炼气', '筑基', '结丹', '元婴', '化神', '炼虚', '合体', '大乘', '渡劫', '真仙', '金仙', '太乙', '大罗', '道祖'
 ];
 export const REALM_STAGES = ['初期', '中期', '后期'];
+export const REALM_LAYER_COUNT = 10;
+export const BASE_XP_PER_HOUR = 100;
+
+const buildRealmStageMinutes = () => {
+  const list = [];
+  const stageMul = [1, 1.2, 1.5];
+  for (let g = 0; g < REALM_GROUPS.length; g++) {
+    const baseMin = 10 * Math.pow(1.28, g);
+    for (let s = 0; s < REALM_STAGES.length; s++) {
+      list.push(Math.round(baseMin * stageMul[s]));
+    }
+  }
+  return list;
+};
+
+export const REALM_STAGE_TIME_MINUTES = buildRealmStageMinutes();
 
 // 副本命名（每个境界三阶段）
 export const REALM_DUNGEON_NAMES = {
@@ -25,14 +41,15 @@ export const REALM_DUNGEON_NAMES = {
 const buildRealms = () => {
   const list = [];
   for (let g = 0; g < REALM_GROUPS.length; g++) {
-    const baseXp = 1000 * Math.pow(2, g);
     for (let s = 0; s < REALM_STAGES.length; s++) {
       const isLast = g === REALM_GROUPS.length - 1 && s === REALM_STAGES.length - 1;
+      const idx = g * REALM_STAGES.length + s;
       list.push({
         name: `${REALM_GROUPS[g]}${REALM_STAGES[s]}`,
-        xpNeed: isLast ? Infinity : baseXp * (s + 1),
+        stageMinutes: isLast ? Infinity : REALM_STAGE_TIME_MINUTES[idx],
         atkBonus: Math.floor(20 * Math.pow(2, g) * (s + 1) * 0.8),
         defBonus: Math.floor(10 * Math.pow(2, g) * (s + 1) * 0.8),
+        hpBonus: Math.floor(90 * Math.pow(1.5, g) * (s + 1)),
       });
     }
   }
@@ -45,7 +62,7 @@ export const REALMS = buildRealms();
 export const CAVE_LEVELS = (() => {
   const list = [];
   for (let lv = 1; lv <= 10; lv++) {
-    const xpPerHour = Math.floor(100 * Math.pow(1.25, lv - 1));
+    const xpPerHour = Math.floor(BASE_XP_PER_HOUR * Math.pow(1.25, lv - 1));
     const stonePerHour = Math.floor(50 * Math.pow(1.25, lv - 1));
     const upgradeCost = Math.floor(2000 * Math.pow(1.8, lv - 1));
     list.push({ lv, xpPerHour, stonePerHour, upgradeCost });
@@ -53,69 +70,136 @@ export const CAVE_LEVELS = (() => {
   return list;
 })();
 
-// 神通配置
+// 神通配置（战斗仅单体结算；特殊效果仅保留“回复气血”）
+export const ST_LEVEL_NAMES = ['入门', '小成', '大成', '圆满', '超越', '仙道'];
+export const ST_LEVEL_UP_USE_NEED = [20, 40, 60, 80, 100];
+export const ST_LEVEL_POWER_MUL = [1, 1.2, 1.44, 2.16, 3.24, 6.48];
 export const SHENGTONG = {
-  thunder: {
-    name: '雷霆诀',
-    desc: '引天雷入体，凝于掌心一击而出，单体目标受到大量雷属性伤害。',
-    icon: '⚡',
-    dmgPct: 3.2,   // 攻击力倍率
-    cdRound: 2,    // 冷却回合
-    type: 'single',
-    elem: '雷',
-    fragNeed: [20, 30, 50, 80, 120], // 每级升级需要碎片
-  },
-  ice: {
-    name: '寒冰掌',
-    desc: '凝水成冰，以掌推出寒冰波动，单体目标受到寒冰伤害。',
-    icon: '🌊',
-    dmgPct: 1.8,
-    cdRound: 2,
-    type: 'single',
-    elem: '水',
-    fragNeed: [20, 30, 50, 80, 120],
-  },
-  fire: {
-    name: '炎阳功',
-    desc: '以真元催动体内阳火，形成持续燃烧场域，对群体造成伤害。',
-    icon: '🔥',
-    dmgPct: 0.6,
-    cdRound: 1,
-    type: 'aoe',
-    elem: '火',
-    fragNeed: [20, 30, 50, 80, 120],
-  },
-  vortex: {
-    name: '混元气旋',
-    desc: '混元一气化三清，气旋吸附周围敌人持续造成伤害。',
-    icon: '🌀',
-    dmgPct: 0.9,
-    cdRound: 3,
-    type: 'aoe',
-    elem: '风',
-    fragNeed: [20, 30, 50, 80, 120],
-  },
-  sword: {
-    name: '御剑术',
-    desc: '以神识御剑，剑气纵横，连续攻击造成单体伤害。',
-    icon: '🗡️',
-    dmgPct: 1.4,
-    cdRound: 2,
-    type: 'single',
-    elem: '金',
-    fragNeed: [20, 30, 50, 80, 120],
-  },
-  shield: {
-    name: '金钟罩',
-    desc: '运转护体真元，形成金色护盾抵挡伤害。',
-    icon: '🛡️',
-    dmgPct: 0,
-    cdRound: 4,
-    type: 'defense',
-    elem: '金',
-    fragNeed: [20, 30, 50, 80, 120],
-  },
+  st_guiyuan: { name: '归元指', icon: '⚡', dmgPct: 1.2, cd: 1.8, skillType: 'direct', realmGroup: 0 },
+  st_qingxin: { name: '清心诀', icon: '✨', dmgPct: 0.7, cd: 1.4, skillType: 'direct', realmGroup: 0 },
+  st_pojia: { name: '破甲掌', icon: '🗡️', dmgPct: 1.4, cd: 2.0, skillType: 'direct', realmGroup: 1 },
+  st_tiegu: { name: '铁骨诀', icon: '🛡️', dmgPct: 0.6, cd: 1.4, skillType: 'direct', realmGroup: 1 },
+  st_fenxin: { name: '焚心焰', icon: '🔥', dmgPct: 0.95, cd: 1.6, skillType: 'direct', realmGroup: 2 },
+  st_ningshen: { name: '凝神印', icon: '🌊', dmgPct: 0.7, cd: 1.5, skillType: 'direct', realmGroup: 2 },
+  st_powang: { name: '破妄斩', icon: '⚔️', dmgPct: 1.7, cd: 2.2, skillType: 'direct', realmGroup: 3 },
+  st_huiyuan: { name: '回元术', icon: '💧', dmgPct: 0.6, cd: 2.0, skillType: 'heal_hit', healPct: 0.15, realmGroup: 3 },
+  st_xuanlei: { name: '玄雷诀', icon: '⚡', dmgPct: 2.0, cd: 2.4, skillType: 'direct', realmGroup: 4 },
+  st_tiangang: { name: '天罡护体', icon: '🍃', dmgPct: 0.8, cd: 1.8, skillType: 'direct', realmGroup: 4 },
+  st_jimie: { name: '寂灭印', icon: '🕳️', dmgPct: 2.3, cd: 2.6, skillType: 'direct', realmGroup: 5 },
+  st_xuying: { name: '虚影步', icon: '👣', dmgPct: 0.8, cd: 1.9, skillType: 'direct', realmGroup: 5 },
+  st_jiuxiao: { name: '九霄雷狱', icon: '⛈️', dmgPct: 2.5, cd: 2.8, skillType: 'direct', realmGroup: 6 },
+  st_heyuan: { name: '合元护心', icon: '🧿', dmgPct: 0.9, cd: 2.1, skillType: 'direct', realmGroup: 6 },
+  st_wanjie: { name: '万劫斩', icon: '⚔️', dmgPct: 2.7, cd: 3.0, skillType: 'direct', realmGroup: 7 },
+  st_wanling: { name: '万灵复元', icon: '🌿', dmgPct: 0.9, cd: 2.3, skillType: 'heal_hit', healPct: 0.2, realmGroup: 7 },
+  st_jiehuo: { name: '劫火噬', icon: '🔥', dmgPct: 1.15, cd: 2.4, skillType: 'direct', realmGroup: 8 },
+  st_jielei: { name: '劫雷护体', icon: '🛡️', dmgPct: 1.0, cd: 2.2, skillType: 'direct', realmGroup: 8 },
+  st_xianyi: { name: '仙意破军', icon: '🌠', dmgPct: 3.0, cd: 3.2, skillType: 'direct', realmGroup: 9 },
+  st_taiqing: { name: '太清心法', icon: '✨', dmgPct: 1.0, cd: 2.3, skillType: 'direct', realmGroup: 9 },
+  st_jinque: { name: '金阙斩', icon: '🗡️', dmgPct: 3.2, cd: 3.3, skillType: 'direct', realmGroup: 10 },
+  st_jinshen: { name: '金身不坏', icon: '🛡️', dmgPct: 1.1, cd: 2.4, skillType: 'direct', realmGroup: 10 },
+  st_taiyi: { name: '太乙诛邪', icon: '⚔️', dmgPct: 3.4, cd: 3.4, skillType: 'direct', realmGroup: 11 },
+  st_xuantian: { name: '玄天护命', icon: '💧', dmgPct: 1.1, cd: 2.6, skillType: 'heal_hit', healPct: 0.25, realmGroup: 11 },
+  st_daluo: { name: '大罗天灾', icon: '☄️', dmgPct: 1.2, cd: 2.6, skillType: 'direct', realmGroup: 12 },
+  st_wanxiang: { name: '万象归元', icon: '🍃', dmgPct: 1.2, cd: 2.6, skillType: 'direct', realmGroup: 12 },
+  st_wandao: { name: '万道归一', icon: '🌌', dmgPct: 3.8, cd: 3.8, skillType: 'direct', realmGroup: 13 },
+  st_guixu: { name: '归墟无相', icon: '🫧', dmgPct: 1.3, cd: 2.8, skillType: 'direct', realmGroup: 13 },
 };
+
+export const MONSTER_CODEX = (() => {
+  const defs = [
+    {
+      chapter: '炼气',
+      regular: { name: '灰鬃狼妖', title: '山谷边缘的噬血妖狼', artType: 'wolf', aura: '灰金', lore: '常年盘踞在野狼谷外围，嗅到血气便会成群扑来。' },
+      boss: { name: '噬月狼王', title: '月下啸聚的狼谷首领', artType: 'wolf_king', aura: '赤金', lore: '吞食同类而成王，利爪与獠牙在夜色中最先显现。' },
+    },
+    {
+      chapter: '筑基',
+      regular: { name: '残剑灵', title: '剑墟中苏醒的残兵之灵', artType: 'sword_spirit', aura: '银青', lore: '剑阁残意化灵，受惊后会催动断剑掠杀来者。' },
+      boss: { name: '断岳剑主', title: '守着旧剑意的墟中剑主', artType: 'sword_lord', aura: '冷银', lore: '其身已灭，唯剑意未灭，仍守在剑墟深处。' },
+    },
+    {
+      chapter: '结丹',
+      regular: { name: '炽骨魔', title: '熔洞中游荡的火骨妖躯', artType: 'flame_fiend', aura: '炎赤', lore: '骨骼如炭，内火不息，所过之处热浪翻卷。' },
+      boss: { name: '熔心魔君', title: '以熔火为心核的洞府魔首', artType: 'flame_lord', aura: '赤橙', lore: '深藏火云洞内，躯体在烈焰中不断重塑。' },
+    },
+    {
+      chapter: '元婴',
+      regular: { name: '霜牙雪魈', title: '冰渊深处的寒魈', artType: 'ice_beast', aura: '霜蓝', lore: '常伏于冰层之后，破冰而出时寒气逼骨。' },
+      boss: { name: '寒魄雪主', title: '凝聚极寒之息的雪魄首领', artType: 'ice_king', aura: '冰白', lore: '其息所过，连法器都能冻结成霜。' },
+    },
+    {
+      chapter: '化神',
+      regular: { name: '雷羽玄鹏', title: '雷泽中盘旋的雷羽异禽', artType: 'thunder_bird', aura: '雷紫', lore: '振翅时电芒缠羽，俯冲速度快若惊雷。' },
+      boss: { name: '天雷鹏王', title: '掌驭雷霆的泽域霸主', artType: 'thunder_king', aura: '明紫', lore: '其啼声能引动天雷，震得山泽俱鸣。' },
+    },
+    {
+      chapter: '炼虚',
+      regular: { name: '裂隙魔眼', title: '虚空裂隙中的窥视者', artType: 'void_eye', aura: '幽蓝', lore: '常以巨眼现身，周围空间会泛起轻微折痕。' },
+      boss: { name: '空冥主眼', title: '深渊尽头的虚空瞳主', artType: 'void_overlord', aura: '幽青', lore: '据说被其注视者，连神魂都会短暂迟滞。' },
+    },
+    {
+      chapter: '合体',
+      regular: { name: '荒原石傀', title: '由万灵原野碎岩凝成的傀身', artType: 'stone_golem', aura: '土褐', lore: '灵气混杂地脉所生，行动迟缓但躯体沉重。' },
+      boss: { name: '归一岩君', title: '将百岩炼为一身的石魁首', artType: 'stone_king', aura: '岩金', lore: '躯壳如岳，举手落地都似山崩。' },
+    },
+    {
+      chapter: '大乘',
+      regular: { name: '星阙灵蛇', title: '游走在天门星辉中的灵蛇', artType: 'celestial_serpent', aura: '星青', lore: '借星辉腾挪，身形修长，常在高空俯视来者。' },
+      boss: { name: '巡天玄螭', title: '天阙深处的古老巡天兽', artType: 'celestial_dragon', aura: '星金', lore: '它盘绕云阙而居，目光如寒星垂落。' },
+    },
+    {
+      chapter: '渡劫',
+      regular: { name: '劫火尸王', title: '在劫云下复苏的尸王', artType: 'corpse_king', aura: '暗赤', lore: '每逢雷霆交击，便从焦土之中站起。' },
+      boss: { name: '天罚尸尊', title: '被雷劫淬炼而不灭的尸尊', artType: 'corpse_emperor', aura: '血紫', lore: '其残躯长期承受天罚，反而孕出异变之力。' },
+    },
+    {
+      chapter: '真仙',
+      regular: { name: '云庭幻狐', title: '仙庭云径中的幻形妖狐', artType: 'spirit_fox', aura: '月白', lore: '善以幻影乱心，真正的身躯往往藏在最后。' },
+      boss: { name: '九尾云尊', title: '披云踏月的仙狐之尊', artType: 'fox_queen', aura: '银白', lore: '九尾齐展时，整片云庭都会泛起月色。' },
+    },
+    {
+      chapter: '金仙',
+      regular: { name: '金乌残灵', title: '坠入金阙的古乌残灵', artType: 'gold_crow', aura: '曜金', lore: '羽端仍带残阳之火，振翅会留下灼热金痕。' },
+      boss: { name: '曜阳乌皇', title: '守着昔日天火的乌皇', artType: 'sun_crow', aura: '灿金', lore: '传闻曾随古日而行，如今只剩一缕天炎未熄。' },
+    },
+    {
+      chapter: '太乙',
+      regular: { name: '太乙莲魄', title: '法阵中凝出的青莲之魄', artType: 'lotus_spirit', aura: '青碧', lore: '看似静止不动，实则每一瓣莲影都暗藏锋芒。' },
+      boss: { name: '玄天莲尊', title: '坐镇万象宫的莲尊化影', artType: 'lotus_queen', aura: '青金', lore: '法阵运转时，它会在莲影中心缓缓睁眼。' },
+    },
+    {
+      chapter: '大罗',
+      regular: { name: '星海古鲸', title: '漂游在寂灭星海的古鲸', artType: 'star_whale', aura: '星蓝', lore: '其影横渡虚空，像是一整片星海在缓缓游动。' },
+      boss: { name: '寂灭鲸祖', title: '深空尽头的古鲸始祖', artType: 'whale_king', aura: '深蓝', lore: '巨躯穿行时，四周星光都会被它吞没。' },
+    },
+    {
+      chapter: '道祖',
+      regular: { name: '混元古龙', title: '万道震荡中诞生的古龙影', artType: 'chaos_dragon', aura: '混金', lore: '身披混元流光，呼吸间似有万道回响。' },
+      boss: { name: '万道龙祖', title: '道场尽头盘踞的龙祖真影', artType: 'dao_dragon', aura: '道金', lore: '传闻其一鳞一爪，皆能映出一条完整大道。' },
+    },
+  ];
+
+  const out = [];
+  defs.forEach((cfg, groupIdx) => {
+    out.push({
+      id: `monster_${groupIdx}_normal`,
+      groupIdx,
+      chapter: cfg.chapter,
+      isBoss: false,
+      habitat: `${cfg.chapter}历练`,
+      ...cfg.regular,
+    });
+    out.push({
+      id: `monster_${groupIdx}_boss`,
+      groupIdx,
+      chapter: cfg.chapter,
+      isBoss: true,
+      habitat: `${cfg.chapter}历练首领层`,
+      ...cfg.boss,
+    });
+  });
+  return out;
+})();
 
 // 装备配置
 export const EQUIPS = {
@@ -132,16 +216,16 @@ export const RECIPES = {
   juling: {
     name: '聚灵丹',
     icon: '💊',
-    desc: '服用后恢复修为，可加速突破进度。',
+    desc: '服用后提升当前重修为。',
     mats: { herb: 2, dew: 1 },
     output: { id: 'juling', count: 2 },
     hours: 2,
-    effect: { xp: 500 },
+    effect: { xpPct: 0.5 },
   },
   huiling: {
     name: '回灵丹',
     icon: '🌿',
-    desc: '战斗中恢复气血法力。',
+    desc: '战斗中恢复气血。',
     mats: { herb: 1, water: 2 },
     output: { id: 'huiling', count: 3 },
     hours: 1,
@@ -189,8 +273,8 @@ export const RECIPE_ITEMS = REALM_GROUPS.map((name, idx) => ({
 
 // 道具配置
 export const ITEMS = {
-  juling:   { name: '聚灵丹',  icon: '💊', type: 'dan',  desc: '恢复500修为' },
-  huiling:  { name: '回灵丹',  icon: '🌿', type: 'dan',  desc: '恢复30%气血法力' },
+  juling:   { name: '聚灵丹',  icon: '💊', type: 'dan',  desc: '提升当前重50%修为' },
+  huiling:  { name: '回灵丹',  icon: '🌿', type: 'dan',  desc: '恢复30%气血' },
   zhujidan: { name: '筑基丹',  icon: '🧪', type: 'dan',  desc: '提升突破成功率50%' },
   jiedandan:{ name: '结丹丹',  icon: '🔮', type: 'dan',  desc: '提升突破成功率60%' },
   teleport: { name: '传送符',  icon: '🪬', type: 'fu',   desc: '立即传送回城，结束本次探索' },
@@ -206,12 +290,6 @@ export const ITEMS = {
   lingzhi:  { name: '千年灵芝',icon: '🍄', type: 'mat',  desc: '稀有炼丹材料' },
   xuanbing: { name: '玄冰精',  icon: '❄️', type: 'mat',  desc: '稀有炼丹材料' },
   huoling:  { name: '火灵石',  icon: '🔥', type: 'mat',  desc: '稀有炼丹材料' },
-  stfrag_thunder: { name: '雷霆碎片', icon: '⚡', type: 'stfrag', stId: 'thunder', desc: '神通碎片' },
-  stfrag_ice:     { name: '寒冰碎片', icon: '🌊', type: 'stfrag', stId: 'ice',     desc: '神通碎片' },
-  stfrag_fire:    { name: '炎阳碎片', icon: '🔥', type: 'stfrag', stId: 'fire',    desc: '神通碎片' },
-  stfrag_vortex:  { name: '气旋碎片', icon: '🌀', type: 'stfrag', stId: 'vortex',  desc: '神通碎片' },
-  stfrag_sword:   { name: '御剑碎片', icon: '🗡️', type: 'stfrag', stId: 'sword',   desc: '神通碎片' },
-  stfrag_shield:  { name: '金钟碎片', icon: '🛡️', type: 'stfrag', stId: 'shield',  desc: '神通碎片' },
 };
 
 BREAK_MATS.forEach((m) => {
@@ -223,7 +301,6 @@ BREAK_DANS.forEach((d) => {
 RECIPE_ITEMS.forEach((r) => {
   ITEMS[r.id] = { name: r.name, icon: '📜', type: 'recipe', recipeId: r.recipeId, desc: '丹方' };
 });
-
 // 灵药种子
 const SEEDS = [
   { id: 'seed_herb', name: '灵草种子', matId: 'herb' },

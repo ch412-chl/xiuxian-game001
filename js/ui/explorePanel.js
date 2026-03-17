@@ -1,6 +1,7 @@
 import { gameState } from '../gameState';
-import { DUNGEONS, SHENGTONG, ITEMS } from '../data';
+import { DUNGEONS, SHENGTONG, ITEMS, MONSTER_CODEX } from '../data';
 import { StPanel } from './stPanel';
+import { drawMonsterIllustration } from './monsterArt';
 
 export class ExplorePanel {
   constructor(main) {
@@ -293,6 +294,7 @@ export class ExplorePanel {
     if (floorType === 'battle' || floorType === 'boss') {
       const enemy = this.makeEnemyPreview(this.buildEnemy(dungeon, this.floorIdx, floorType === 'boss'), floorType === 'boss');
       this.pendingEnemy = enemy;
+      gameState.unlockMonsterCodex(enemy.codexId);
       this.autoStep = false;
       this.enemyMaxHp = enemy.hp;
       this.enemyHp = enemy.hp;
@@ -343,8 +345,15 @@ export class ExplorePanel {
   buildEnemy(dungeon, floorIdx, isBoss) {
     const base = dungeon.enemyBase + floorIdx * 8;
     const skills = isBoss ? ['破甲', '怒击', '震魂'] : ['撕咬', '扑击'];
+    const codex = MONSTER_CODEX.find((row) => row.groupIdx === dungeon.groupIdx && row.isBoss === !!isBoss);
     return {
-      name: isBoss ? `${dungeon.chapter}·首领` : `${dungeon.chapter}·妖物`,
+      codexId: codex?.id || '',
+      name: codex?.name || (isBoss ? `${dungeon.chapter}·首领` : `${dungeon.chapter}·妖物`),
+      title: codex?.title || '',
+      artType: codex?.artType || 'void_eye',
+      aura: codex?.aura || '灰金',
+      habitat: codex?.habitat || `${dungeon.chapter}历练`,
+      lore: codex?.lore || '',
       hp: Math.floor(base * (isBoss ? 6 : 2.2)),
       atk: Math.floor(base * (isBoss ? 1.4 : 0.6)),
       def: Math.floor(base * (isBoss ? 0.7 : 0.35)),
@@ -729,6 +738,12 @@ export class ExplorePanel {
       ctx.font = 'bold 12px serif';
       ctx.fillText(this.sceneLine, centerX, arenaTop + 22);
     }
+    drawMonsterIllustration(ctx, {
+      x: arenaX + 24,
+      y: arenaTop + 28,
+      w: arenaW - 48,
+      h: Math.max(112, arenaH - 34),
+    }, enemy, { alpha: 0.96 });
     ctx.restore();
 
     this.renderCombatHud(ctx, W, H);
@@ -1137,7 +1152,7 @@ export class ExplorePanel {
     const enemy = this.pendingEnemy || this.lastEnemy;
     if (!enemy) return;
     const boxW = Math.min(W - 56, 276);
-    const boxH = 146;
+    const boxH = 228;
     const x = (W - boxW) / 2;
     const y = H / 2 - boxH / 2;
     this.enemyInfoRect = { x1: x, x2: x + boxW, y1: y, y2: y + boxH };
@@ -1152,19 +1167,23 @@ export class ExplorePanel {
     ctx.fillStyle = '#f3e2bb';
     ctx.font = 'bold 13px serif';
     ctx.fillText(enemy.name, W / 2, y + 22);
+    ctx.fillStyle = '#d8c59b';
+    ctx.font = 'bold 11px serif';
+    ctx.fillText(enemy.title || enemy.habitat || '', W / 2, y + 40);
+    drawMonsterIllustration(ctx, { x: x + 24, y: y + 50, w: boxW - 48, h: 68 }, enemy, { alpha: 0.82 });
     ctx.fillStyle = '#e2cfa3';
     ctx.font = 'bold 12px serif';
-    ctx.fillText(`气血 ${this.enemyHp}`, W / 2, y + 46);
-    ctx.fillText(`煞气 ${enemy.shaqi || 0}`, W / 2, y + 64);
+    ctx.fillText(`气血 ${this.enemyHp}`, W / 2, y + 138);
+    ctx.fillText(`煞气 ${enemy.shaqi || 0}`, W / 2, y + 156);
 
     ctx.fillStyle = '#f0ddb1';
     ctx.font = 'bold 12px serif';
-    ctx.fillText('怪物技能', W / 2, y + 84);
+    ctx.fillText('怪物技能', W / 2, y + 178);
     ctx.fillStyle = '#d8c59b';
     ctx.font = 'bold 11px serif';
     const skills = enemy.skillDetails || [];
     skills.slice(0, 2).forEach((sk, idx) => {
-      ctx.fillText(`${sk.name}｜伤害：${sk.dmg}｜CD:${(sk.cd || 2).toFixed(1)}s`, W / 2, y + 102 + idx * 14);
+      ctx.fillText(`${sk.name}｜伤害：${sk.dmg}｜CD:${(sk.cd || 2).toFixed(1)}s`, W / 2, y + 196 + idx * 14);
     });
   }
 
@@ -1192,7 +1211,13 @@ export class ExplorePanel {
 
   makeEnemyPreview(enemyCfg, isBoss) {
     return {
+      codexId: enemyCfg.codexId || '',
       name: enemyCfg.name,
+      title: enemyCfg.title || '',
+      artType: enemyCfg.artType || 'void_eye',
+      aura: enemyCfg.aura || '灰金',
+      habitat: enemyCfg.habitat || '',
+      lore: enemyCfg.lore || '',
       hp: enemyCfg.hp,
       atk: enemyCfg.atk,
       def: enemyCfg.def,
