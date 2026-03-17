@@ -275,3 +275,8 @@
 - 关卡门槛补充：为 `product/enemy_roster.csv` 新增最低通关门槛列，覆盖神通数量、神通组合、组合单次伤害、最低气血、最低煞气与预估通关时间
 - 计算口径补充：最低通关门槛按当前境界已解锁神通顺序反推，并按“最低气血 -> 最少神通数 -> 最低煞气 -> 最短战斗时间”排序选取
 - 文档补充：新增 `product/enemy_requirement_notes.md`，说明关卡最低通关门槛字段的用途与维护口径
+
+## v0.9.12 | 2026-03-18 04:46:00
+- 提案新增：生成 `product/balance_formal_proposal.md`，作为下一版正式建议数值方案
+- 目标表新增：生成 `product/balance_realm_targets.csv` 与 `product/balance_enemy_targets.csv`，分别维护玩家成长目标与敌人数值目标
+- 文档补充：`prd_current.md` 新增“下一版正式建议数值方案”章节，明确提案文件入口与用途

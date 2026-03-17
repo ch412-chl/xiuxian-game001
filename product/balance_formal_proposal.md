@@ -1,0 +1,67 @@
+# 正式建议数值方案
+
+版本：v0.9.12-proposal
+日期：2026-03-18
+状态：建议方案，未正式生效
+
+## 1. 设计目标
+- 让玩家境界成长真实传导到战斗结果。
+- 保证前中期主线可推，不因 Boss 数值硬卡。
+- 让洞府、炼丹、突破形成可感知但不过度拖沓的资源循环。
+- 让煞气回到风险收益系统，而不是隐性硬门槛。
+
+## 2. 正式建议公式
+### 2.1 玩家成长
+- 小境界总分钟：`stageMinutes = round(10 * 1.22^realmGroup * stageTimeMul[stage])`
+- `stageTimeMul = [1.0, 1.2, 1.5]`
+- 攻击加成：`atkBonus = round(20 * 1.35^realmGroup * atkStageMul[stage])`
+- `atkStageMul = [1.0, 1.35, 1.75]`
+- 防御加成：`defBonus = round(10 * 1.33^realmGroup * defStageMul[stage])`
+- `defStageMul = [1.0, 1.30, 1.65]`
+- 气血加成：`hpBonus = round(90 * 1.40^realmGroup * hpStageMul[stage])`
+- `hpStageMul = [1.0, 1.32, 1.72]`
+- 速度加成：`spdBonus = realmGroup * 2 + stageIdx * 2`
+- 气血上限：`maxHp = floor(180 + totalDef * 2 + hpBonus)`
+
+### 2.2 正式战斗
+- 玩家伤害基底：`attackTerm = 40 + totalAtk * 0.9`
+- 玩家技能伤害：`skillBaseDamage = floor(attackTerm * skillDmgPct * stPowerMul)`
+- 敌方隐藏减伤：`enemyDefMitigation = 240 / (240 + enemyDef * 1.6)`
+- 玩家最终伤害：`finalDamage = floor(skillBaseDamage * enemyDefMitigation * critMul)`
+- 玩家承伤减免：`playerDefMitigation = 240 / (240 + totalDef * 1.8)`
+- 敌方最终伤害：`finalEnemyDamage = floor(enemyBaseDamage * playerDefMitigation * enemyCritMul * playerTakenMul)`
+
+### 2.3 煞气
+- 暴击率：`critRate = min(0.6, floor(shaqi / 10) * 0.01)`
+- 额外承伤：`takenDamageMul = 1 + floor(shaqi / 10) * 0.001`
+- 建议：普通怪默认 `0` 煞气，小 Boss 从筑基后期开始少量投放，大 Boss 从筑基中期开始递增。
+
+### 2.4 洞府与炼丹
+- 修为产出：`xpPerHour(lv) = floor(100 * 1.22^(lv - 1))`
+- 灵石产出：`stonePerHour(lv) = floor(60 * 1.32^(lv - 1))`
+- 洞府升级成本：`upgradeCost(lv) = round(stonePerHour(lv) * targetUpgradeHours(lv))`
+- `targetUpgradeHours(lv) = round(0.8 * 1.6^(lv - 1), 2)`
+- 聚灵丹：`10 分钟 / 炉`
+- 回灵丹：`8 分钟 / 炉`
+- 突破丹：`30 + realmGroup * 8 分钟 / 炉`
+
+### 2.5 突破
+- 基础成功率：`20%`
+- 突破丹加成：`30%`
+- 每失败一次额外加成：`5%`
+- 总成功率上限：`75%`
+- 冷却：`30 分钟`，不建议用广告直接清空，建议缩短一半。
+
+## 3. 目标难度
+- 普通怪：3~4 秒，损失 8%~15% 气血
+- 小 Boss：5~8 秒，损失 20%~35% 气血
+- 大 Boss：8~12 秒，损失 40%~60% 气血
+- 前三大境界大 Boss 不应要求额外堆煞气才能通关。
+
+## 4. 配套目标表
+- 玩家成长目标表：`product/balance_realm_targets.csv`
+- 敌人数值目标表：`product/balance_enemy_targets.csv`
+
+## 5. 策划判断
+- 这套方案的重点不是单纯提高玩家伤害，而是把成长感、战斗时长、Boss 压力、资源准备统一到一个闭环里。
+- 若后续继续沿当前正式公式不改，前中期 Boss 仍会偏硬；若直接套用本方案，需同步修改正式战斗公式，否则面板和实战仍会脱节。
