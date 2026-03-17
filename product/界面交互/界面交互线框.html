@@ -239,7 +239,7 @@
 </head>
 <body>
   <h1>修仙版地下城堡 UI/UE 线框稿</h1>
-  <p class="intro">本稿按 `v0.9.16` 规格重排，重点体现去除煞气后的单属性展示、神通 3 槽装配、历练单屏决策与洞府功能中枢结构。</p>
+  <p class="intro">本稿按 `v0.9.17` 规格重排，重点体现战斗中按钮隐藏、历练分区重排、探索底部触控区拉开与洞府功能中枢结构。</p>
   <div class="grid">
     <section class="demo">
       <div class="phone">
@@ -285,22 +285,22 @@
           </div>
           <div class="zone mid-70">
             <div class="zone-tag">中部 70%</div>
-            <div class="panel" style="height:36%;">
-              <div class="label">关卡列表区 36%</div>
+            <div class="panel" style="height:42%;">
+              <div class="label">关卡列表区 42%</div>
               <div class="row">初期 · 野狼谷外围<span>点击探索</span></div>
               <div class="row">中期 · 野狼谷中心<span>未解锁</span></div>
               <div class="row">后期 · 野狼谷深处<span>未解锁</span></div>
             </div>
-            <div class="panel" style="height:14%; margin-top:8px;">
-              <div class="label">装配槽区 14%（左→右出手）</div>
+            <div class="panel" style="height:10%; margin-top:10px;">
+              <div class="label">装配槽区 10%（左→右出手）</div>
               <div class="skills">
                 <div class="skill"><div class="name">1 归元指</div><div class="lv">入门</div></div>
                 <div class="skill"><div class="name">2 空位</div><div class="lv">待装配</div></div>
                 <div class="skill"><div class="name">3 空位</div><div class="lv">待装配</div></div>
               </div>
             </div>
-            <div class="panel scroll" style="height:34%; margin-top:8px;">
-              <div class="label">神通列表区 34%（常规不滚动）</div>
+            <div class="panel scroll" style="height:18%; margin-top:12px;">
+              <div class="label">神通列表区 18%（常规不滚动）</div>
               <div class="skills">
                 <div class="skill"><div class="name">炼气·归元指</div><div class="lv">入门</div></div>
                 <div class="skill"><div class="name">筑基·断岳印</div><div class="lv">可查看</div></div>
@@ -314,7 +314,7 @@
           </div>
         </div>
       </div>
-      <div class="note">历练页：关卡列表、3 槽出手顺序、3 张可选神通卡三段分区。默认高亮当前最高已解锁副本，已解锁关卡整行直达探索，减少解释弹框与多余滚动。</div>
+      <div class="note">历练页：关卡列表区放大，装配槽与可选神通区缩小并明确分隔，避免中部错位和“装配区比关卡区更抢眼”的问题。</div>
     </section>
 
     <section class="demo">
@@ -331,13 +331,13 @@
               <div class="sub">短时文本提示区</div>
             </div>
           </div>
-          <div class="zone bot-36">
-            <div class="zone-tag">底部 36%</div>
+          <div class="zone bot-38">
+            <div class="zone-tag">底部 38%</div>
             <div class="panel">
               <div class="sub">人物信息</div>
               <div class="bar"><span style="width:82%"></span><b>316</b></div>
             </div>
-            <div class="btns3">
+            <div class="btns3" style="margin-top:12px;">
               <div class="btn">自动推进</div>
               <div class="btn">探索</div>
               <div class="btn">储物袋</div>
@@ -345,7 +345,7 @@
           </div>
         </div>
       </div>
-      <div class="note">探索常态：不遇敌时，顶部信息收缩，中部作为提示区/留白区，下部稳定保留人物信息和 3 个按钮，保证触达区始终一致。</div>
+      <div class="note">探索常态：底部人物信息与按钮区拉开，避免气血条、标题和按钮贴得过紧，保证单手点击舒适度。</div>
     </section>
 
     <section class="demo">
@@ -358,8 +358,8 @@
             <div class="sub">炼气·首领</div>
             <div class="bar"><span style="width:86%"></span><b>600</b></div>
           </div>
-          <div class="zone mid-44">
-            <div class="zone-tag">中部 44%</div>
+          <div class="zone mid-48">
+            <div class="zone-tag">中部 48%</div>
             <div class="panel" style="height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;">
               <div class="sub">巨大妖影盘踞中央</div>
               <div style="width:74%; height:52%; border-radius:50%; border:1px solid rgba(143,120,85,0.35); display:flex; align-items:center; justify-content:center; margin-top:10px; background:radial-gradient(circle, rgba(78,66,52,0.24) 0%, rgba(0,0,0,0) 72%);">
@@ -367,18 +367,13 @@
               </div>
             </div>
           </div>
-          <div class="zone bot-36">
-            <div class="zone-tag">底部 36%</div>
+          <div class="zone bot-32">
+            <div class="zone-tag">底部 32%</div>
             <div class="panel">
               <div class="sub">我方</div>
               <div class="bar"><span style="width:72%"></span><b>281</b></div>
             </div>
-            <div class="btns3">
-              <div class="btn">撤离</div>
-              <div class="btn">战斗</div>
-              <div class="btn">储物袋</div>
-            </div>
-            <div class="skills" style="margin-top:8px;">
+            <div class="skills" style="margin-top:12px;">
               <div class="skill"><div class="name">归元指</div><div class="bar"><span style="width:42%"></span><b></b></div></div>
               <div class="skill"><div class="name">清心诀</div><div class="bar"><span style="width:74%"></span><b></b></div></div>
               <div class="skill"><div class="name">破甲掌</div><div class="bar"><span style="width:62%"></span><b></b></div></div>
@@ -386,7 +381,7 @@
           </div>
         </div>
       </div>
-      <div class="note">探索遇敌：顶部聚焦敌方信息，中部改为战斗舞台，下部集中我方气血、操作按钮与 3 个神通格，和历练页装配顺序保持一致。</div>
+      <div class="note">探索战斗中：进入即时战斗后隐藏撤离、战斗、储物袋按钮，只保留我方血条与神通格，降低底部拥挤与误触。</div>
     </section>
 
     <section class="demo">
