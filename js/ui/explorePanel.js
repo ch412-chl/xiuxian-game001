@@ -621,27 +621,28 @@ export class ExplorePanel {
     ctx.font = 'bold 12px serif';
     ctx.fillText(`层数 ${this.runDepth}/${this.stageSteps}`, W / 2, startY + 20);
     if (this.pendingEnemy && enemy) {
-      const barW = Math.min(W - 72, 292);
+      const barW = Math.min(W - 88, 276);
       const barX = (W - barW) / 2;
-      const barY = startY + 44;
+      const nameY = startY + 42;
+      const barY = startY + 58;
       const ePct = Math.max(0, Math.min(1, this.enemyHp / Math.max(1, this.enemyMaxHp)));
       const eLagPct = Math.max(0, Math.min(1, this.enemyHpLag / Math.max(1, this.enemyMaxHp)));
       const shakeX = this.enemyShake > 0 ? ((this.enemyShake % 2 === 0) ? -2 : 2) : 0;
       ctx.fillStyle = '#caa566';
-      ctx.font = 'bold 12px serif';
-      ctx.fillText(`${enemy.name}`, W / 2, barY - 8);
+      ctx.font = 'bold 13px serif';
+      ctx.fillText(`${enemy.name}`, W / 2, nameY);
       ctx.fillStyle = 'rgba(26,22,18,0.85)';
-      ctx.fillRect(barX + shakeX, barY, barW, 10);
+      ctx.fillRect(barX + shakeX, barY, barW, 12);
       ctx.fillStyle = '#8f6f43';
-      ctx.fillRect(barX + shakeX, barY, Math.max(1, barW * eLagPct), 10);
+      ctx.fillRect(barX + shakeX, barY, Math.max(1, barW * eLagPct), 12);
       ctx.fillStyle = '#dfb36e';
-      ctx.fillRect(barX + shakeX, barY, Math.max(1, barW * ePct), 10);
+      ctx.fillRect(barX + shakeX, barY, Math.max(1, barW * ePct), 12);
       ctx.strokeStyle = '#8a7357';
-      ctx.strokeRect(barX + shakeX, barY, barW, 10);
+      ctx.strokeRect(barX + shakeX, barY, barW, 12);
       ctx.fillStyle = '#1f1b16';
       ctx.font = 'bold 11px serif';
-      ctx.fillText(`${this.enemyHp}`, W / 2, barY + 8);
-      this.buttons.push({ type: 'enemyInfo', x1: barX - 8, x2: barX + barW + 8, y1: barY - 20, y2: barY + 18 });
+      ctx.fillText(`${this.enemyHp}`, W / 2, barY + 9);
+      this.buttons.push({ type: 'enemyInfo', x1: barX - 8, x2: barX + barW + 8, y1: nameY - 14, y2: barY + 20 });
     }
 
     // 简单转场遮罩
@@ -687,13 +688,13 @@ export class ExplorePanel {
   }
 
   renderCombatScene(ctx, W, H, startY, enemy) {
-    const arenaTop = startY + 76;
-    const arenaBottom = H - 208;
+    const arenaTop = startY + 104;
+    const arenaBottom = H - 276;
     const arenaH = Math.max(150, arenaBottom - arenaTop);
     const arenaX = 18;
     const arenaW = W - 36;
     const centerX = W / 2;
-    const centerY = arenaTop + arenaH * 0.58;
+    const centerY = arenaTop + arenaH * 0.56;
 
     ctx.save();
     const glow = ctx.createRadialGradient(centerX, centerY, 20, centerX, centerY, arenaW * 0.5);
@@ -703,30 +704,30 @@ export class ExplorePanel {
     ctx.fillStyle = glow;
     ctx.fillRect(arenaX, arenaTop, arenaW, arenaH);
 
-    ctx.fillStyle = 'rgba(16,14,12,0.42)';
+    ctx.fillStyle = 'rgba(16,14,12,0.36)';
     ctx.beginPath();
-    ctx.ellipse(centerX, centerY + 10, arenaW * 0.36, arenaH * 0.28, 0, 0, Math.PI * 2);
+    ctx.ellipse(centerX, centerY + 6, arenaW * 0.28, arenaH * 0.18, 0, 0, Math.PI * 2);
     ctx.fill();
 
     ctx.strokeStyle = 'rgba(184,156,105,0.24)';
-    ctx.lineWidth = 1.2;
+    ctx.lineWidth = 1;
     ctx.beginPath();
-    ctx.arc(centerX, centerY, Math.min(arenaW, arenaH) * 0.16, 0, Math.PI * 2);
+    ctx.arc(centerX, centerY, Math.min(arenaW, arenaH) * 0.13, 0, Math.PI * 2);
     ctx.stroke();
     ctx.beginPath();
-    ctx.arc(centerX, centerY, Math.min(arenaW, arenaH) * 0.24, 0, Math.PI * 2);
+    ctx.arc(centerX, centerY, Math.min(arenaW, arenaH) * 0.2, 0, Math.PI * 2);
     ctx.stroke();
 
     ctx.textAlign = 'center';
-    ctx.fillStyle = 'rgba(243,226,187,0.12)';
-    ctx.font = 'bold 48px serif';
-    ctx.fillText('战', centerX, centerY + 14);
+    ctx.fillStyle = 'rgba(243,226,187,0.1)';
+    ctx.font = 'bold 40px serif';
+    ctx.fillText('战', centerX, centerY + 11);
 
     if (this.sceneLine) {
       const alpha = Math.max(0.24, this.sceneLineTimer / 90);
       ctx.fillStyle = `rgba(243,226,187,${alpha})`;
       ctx.font = 'bold 12px serif';
-      ctx.fillText(this.sceneLine, centerX, arenaTop + 36);
+      ctx.fillText(this.sceneLine, centerX, arenaTop + 22);
     }
     ctx.restore();
 
@@ -735,8 +736,11 @@ export class ExplorePanel {
 
   renderCombatHud(ctx, W, H) {
     const s = gameState.state;
-    const infoY = H - 196;
-    const hpBlockW = Math.min(172, W - 132);
+    const deckH = 110;
+    const deckTop = H - deckH - 18;
+    const actionY = deckTop - 40;
+    const infoY = actionY - 58;
+    const hpBlockW = Math.min(188, W - 124);
     const hpBlockX = (W - hpBlockW) / 2;
     const hpPct = Math.max(0, Math.min(1, this.playerHp / Math.max(1, this.playerMaxHp)));
 
@@ -757,10 +761,10 @@ export class ExplorePanel {
 
     ctx.fillStyle = '#d8c59b';
     ctx.font = 'bold 11px serif';
-    ctx.fillText(`煞气 ${s.shaqi || 0}`, W / 2, infoY + 42);
+    ctx.fillText(`煞气 ${s.shaqi || 0}`, W / 2, infoY + 40);
 
-    this.renderCombatActionRow(ctx, W, H, infoY + 56);
-    this.renderPlayerSkillDeck(ctx, W, H - 126, 108);
+    this.renderCombatActionRow(ctx, W, H, actionY);
+    this.renderPlayerSkillDeck(ctx, W, deckTop, deckH);
   }
 
   renderCombatActionRow(ctx, W, H, y) {
@@ -801,7 +805,7 @@ export class ExplorePanel {
     const gap = 8;
     const btnW = (rowW - gap * 2) / 3;
     const x = 20;
-    const h = 28;
+    const h = 24;
     actions.forEach((action, idx) => {
       const bx = x + idx * (btnW + gap);
       ctx.fillStyle = action.tone === 'strong' ? 'rgba(112,86,52,0.88)' : 'rgba(44,37,31,0.78)';
@@ -811,8 +815,8 @@ export class ExplorePanel {
       ctx.strokeRect(bx, y, btnW, h);
       ctx.textAlign = 'center';
       ctx.fillStyle = action.tone === 'mute' ? '#8d7d62' : '#f3e2bb';
-      ctx.font = 'bold 12px serif';
-      ctx.fillText(action.label, bx + btnW / 2, y + 18);
+      ctx.font = 'bold 11px serif';
+      ctx.fillText(action.label, bx + btnW / 2, y + 16);
       if (action.type) {
         this.buttons.push({ type: action.type, x1: bx, x2: bx + btnW, y1: y, y2: y + h });
       }
@@ -841,7 +845,7 @@ export class ExplorePanel {
     const x = 20;
     const totalW = W - 40;
     const cellW = (totalW - gap * 2) / cols;
-    const cellH = Math.max(46, Math.min(54, (maxH - gap) / 2));
+    const cellH = Math.max(46, Math.min(51, (maxH - gap) / 2));
     cells.forEach((cell, idx) => {
       const col = idx % cols;
       const row = Math.floor(idx / cols);
@@ -863,8 +867,8 @@ export class ExplorePanel {
 
       ctx.textAlign = 'center';
       ctx.fillStyle = '#f3e2bb';
-      ctx.font = 'bold 12px serif';
-      ctx.fillText(this.trimText(ctx, cell.name, cellW - 12), cx + cellW / 2, cy + 22);
+      ctx.font = 'bold 11px serif';
+      ctx.fillText(this.trimText(ctx, cell.name, cellW - 12), cx + cellW / 2, cy + 20);
 
       if (cell.ready !== null) {
         ctx.fillStyle = 'rgba(28,24,20,0.94)';
