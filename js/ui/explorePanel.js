@@ -9,6 +9,8 @@ export class ExplorePanel {
     this.currentStageId = null;
     this.transitionTick = 0;
     this.logs = [];
+    this.sceneLine = '';
+    this.sceneLineTimer = 0;
     this.buttons = [];
     this.autoStep = false;
     this.pendingEnemy = null;
@@ -22,6 +24,10 @@ export class ExplorePanel {
     this.floorPlan = [];
     this.floorIdx = 0;
     this.exitPrompt = null;
+    this.enemyInfoOpen = false;
+    this.enemyInfoRect = null;
+    this.storageOpen = false;
+    this.storageButtons = [];
     this.pageGroup = 0;
 
     // 探索中的实时状态（沉浸式，不写入存档）
@@ -29,12 +35,14 @@ export class ExplorePanel {
     this.playerHp = 0;
     this.enemyMaxHp = 0;
     this.enemyHp = 0;
+    this.enemyHpLag = 0;
     this.playerShake = 0;
     this.enemyShake = 0;
 
-    // 战斗播放队列（逐条播放，不一次性刷日志）
+    // 战斗播放队列（仅状态播放，不展示战斗日志）
     this.battle = null; // { events:[], idx:number, tick:number, interval:number, done:boolean }
-    this.battleLogs = [];
+    this.battleCdView = null;
+    this.cdRenderView = null;
 
     // 每关探索仅掉落一次传送符（本次进入该关的探索期间）
     this.tpDropped = false;
@@ -55,6 +63,10 @@ export class ExplorePanel {
 
     if (this.playerShake > 0) this.playerShake--;
     if (this.enemyShake > 0) this.enemyShake--;
+    if (this.enemyHpLag > this.enemyHp) {
+      const drop = Math.max(1, Math.floor((this.enemyHpLag - this.enemyHp) * 0.12));
+      this.enemyHpLag = Math.max(this.enemyHp, this.enemyHpLag - drop);
+    }
 
     // 战斗逐条播放
     if (this.mode === 'explore' && this.battle && !this.battle.done) {
@@ -68,9 +80,15 @@ export class ExplorePanel {
     if (this._clearBattleTick && this._clearBattleTick > 0) {
       this._clearBattleTick -= 1;
       if (this._clearBattleTick === 0) {
-        this.battleLogs = [];
         this.battle = null;
+        this.battleCdView = null;
+        this.cdRenderView = null;
       }
+    }
+    this.updateCdRender();
+    if (this.sceneLineTimer > 0) {
+      this.sceneLineTimer -= 1;
+      if (this.sceneLineTimer === 0) this.sceneLine = '';
     }
   }
 
@@ -90,10 +108,12 @@ export class ExplorePanel {
       }
       if (hit.type === 'prevChapter') {
         this.pageGroup = Math.max(0, (this.pageGroup || 0) - 1);
+        this.stPanel.gridScrollY = 0;
       }
       if (hit.type === 'nextChapter') {
         const maxGroup = Math.floor((DUNGEONS.length - 1) / 3);
         this.pageGroup = Math.min(maxGroup, (this.pageGroup || 0) + 1);
+        this.stPanel.gridScrollY = 0;
       }
       if (this.stArea && y >= this.stArea.y1 && y <= this.stArea.y2) {
         this.stPanel.onTouch(x, y);
@@ -102,22 +122,46 @@ export class ExplorePanel {
     }
 
     if (this.mode === 'explore') {
+      if (this.storageOpen) {
+        const hitStorage = this.storageButtons.find(
+          (b) => x >= b.x1 && x <= b.x2 && y >= b.y1 && y <= b.y2
+        );
+        if (!hitStorage) return;
+        if (hitStorage.type === 'closeStorage') {
+          this.storageOpen = false;
+          return;
+        }
+        if (hitStorage.type === 'useDan') {
+          this.useHealingDan();
+          return;
+        }
+        if (hitStorage.type === 'useTp') {
+          this.useTeleport();
+          return;
+        }
+        return;
+      }
+      if (this.enemyInfoOpen) {
+        if (!this.enemyInfoRect || x < this.enemyInfoRect.x1 || x > this.enemyInfoRect.x2 || y < this.enemyInfoRect.y1 || y > this.enemyInfoRect.y2) {
+          this.enemyInfoOpen = false;
+        }
+        return;
+      }
       const hit = this.buttons.find(
         (b) => x >= b.x1 && x <= b.x2 && y >= b.y1 && y <= b.y2
       );
       if (!hit) return;
-      // 战斗播放中禁止其它交互
+      if (hit.type === 'openStorage') {
+        this.storageOpen = true;
+        return;
+      }
+      if (hit.type === 'enemyInfo') {
+        this.enemyInfoOpen = true;
+        return;
+      }
+
+      // 战斗播放中禁止除查看信息外的其它交互
       if (this.battle && !this.battle.done) return;
-
-      if (hit.type === 'useDan') {
-        this.useHealingDan();
-        return;
-      }
-
-      if (hit.type === 'useTp') {
-        this.useTeleport();
-        return;
-      }
 
 
       if (this.dead) {
@@ -173,7 +217,8 @@ export class ExplorePanel {
     // 延长转场时间，让文字可以看清楚
     this.transitionTick = 60;
     this.logs = [];
-    this.battleLogs = [];
+    this.sceneLine = '';
+    this.sceneLineTimer = 0;
     this.battle = null;
     this.pendingEnemy = null;
     this.tpDropped = false;
@@ -186,15 +231,17 @@ export class ExplorePanel {
     this.floorPlan = [];
     this.floorIdx = 0;
     this.exitPrompt = null;
+    this.storageOpen = false;
+    this.battleCdView = null;
+    this.cdRenderView = null;
 
     // 初始化本次探索血量（持久化到角色）
     const s = gameState.state;
-    const realmIdx = s.realmIdx || 0;
-    const maxHp = 200 + (s.totalDef || s.def || 50) * 2 + realmIdx * 20;
-    s.maxHp = Math.max(1, Math.floor(maxHp));
-    if (!s.hp || s.hp > s.maxHp) s.hp = s.maxHp;
+    gameState.refreshDerived();
+    s.hp = s.maxHp;
     this.playerMaxHp = s.maxHp;
     this.playerHp = s.hp;
+    this.enemyHpLag = 0;
 
     const dungeon = DUNGEONS.find(d => d.id === stageId);
     this.stageSteps = (dungeon && dungeon.floors) || 10;
@@ -213,7 +260,7 @@ export class ExplorePanel {
     this.autoStep = false;
     this.pendingEnemy = null;
     this.battle = null;
-    this.battleLogs = [];
+    this.battleCdView = null;
     this.dead = false;
     this.adReviveUsed = false;
     this.bossDefeated = false;
@@ -223,6 +270,12 @@ export class ExplorePanel {
     this.floorPlan = [];
     this.floorIdx = 0;
     this.exitPrompt = null;
+    this.enemyInfoOpen = false;
+    this.enemyInfoRect = null;
+    this.storageOpen = false;
+    this.storageButtons = [];
+    this.battleCdView = null;
+    this.cdRenderView = null;
   }
 
   doExploreStep(fromAuto) {
@@ -243,6 +296,7 @@ export class ExplorePanel {
       this.autoStep = false;
       this.enemyMaxHp = enemy.hp;
       this.enemyHp = enemy.hp;
+      this.enemyHpLag = enemy.hp;
       this.exitPrompt = false;
       this.pushExploreLog(floorType === 'boss' ? `一股压迫扑面而来，${enemy.name}现身！` : `你遭遇了「${enemy.name}」。`);
     } else {
@@ -255,7 +309,7 @@ export class ExplorePanel {
       if (Math.random() < chance) {
         this.tpDropped = true;
         gameState.addItem('teleport', 1);
-        this.pushExploreLog('你在角落拾起一张残破符箓：传送符（下方格子可用）。');
+        this.pushExploreLog('你在角落拾起一张残破符箓：传送符（可在储物袋使用）。');
       }
     }
 
@@ -265,13 +319,8 @@ export class ExplorePanel {
   }
 
   pushExploreLog(text) {
-    this.logs.push(text);
-    if (this.logs.length > 80) this.logs.shift();
-  }
-
-  pushBattleLog(text) {
-    this.battleLogs.push(text);
-    if (this.battleLogs.length > 8) this.battleLogs.shift();
+    this.sceneLine = text;
+    this.sceneLineTimer = 90;
   }
 
   buildFloorPlan(floors) {
@@ -293,6 +342,7 @@ export class ExplorePanel {
 
   buildEnemy(dungeon, floorIdx, isBoss) {
     const base = dungeon.enemyBase + floorIdx * 8;
+    const skills = isBoss ? ['破甲', '怒击', '震魂'] : ['撕咬', '扑击'];
     return {
       name: isBoss ? `${dungeon.chapter}·首领` : `${dungeon.chapter}·妖物`,
       hp: Math.floor(base * (isBoss ? 6 : 2.2)),
@@ -300,9 +350,21 @@ export class ExplorePanel {
       def: Math.floor(base * (isBoss ? 0.7 : 0.35)),
       spd: Math.floor(50 + dungeon.groupIdx * 8 + (isBoss ? 10 : 0)),
       shaqi: isBoss ? 10 + dungeon.groupIdx * 2 : 0,
-      skills: isBoss ? ['破甲', '怒击', '震魂'] : ['撕咬', '扑击'],
+      skills,
+      skillDetails: skills.map(name => this.getEnemySkillMeta(name)),
       isBoss,
     };
+  }
+
+  getEnemySkillMeta(name) {
+    const map = {
+      撕咬: { name: '撕咬', dmg: 58, cd: 1.6, effect: '' },
+      扑击: { name: '扑击', dmg: 72, cd: 2.0, effect: '' },
+      破甲: { name: '破甲', dmg: 90, cd: 2.8, effect: '' },
+      怒击: { name: '怒击', dmg: 105, cd: 3.2, effect: '' },
+      震魂: { name: '震魂', dmg: 66, cd: 2.6, effect: '' },
+    };
+    return map[name] || { name, dmg: 60, cd: 2.2, effect: '' };
   }
 
   handleEvent() {
@@ -353,11 +415,6 @@ export class ExplorePanel {
     const dungeon = DUNGEONS.find(d => d.id === this.currentStageId);
     if (!dungeon) return null;
     return `recipe_break_dan_${dungeon.groupIdx}`;
-  }
-
-  rollStFragDrop() {
-    const pool = ['stfrag_thunder', 'stfrag_ice', 'stfrag_fire', 'stfrag_vortex', 'stfrag_sword', 'stfrag_shield'];
-    return pool[Math.floor(Math.random() * pool.length)];
   }
 
   syncPlayerHp() {
@@ -498,8 +555,6 @@ export class ExplorePanel {
       const rowX = W * 0.08;
       const rowW = W * 0.84;
 
-      ctx.fillStyle = st.canChallenge ? 'rgba(48,40,32,0.7)' : 'rgba(32,28,24,0.6)';
-      ctx.fillRect(rowX, rowY, rowW, rowH);
       ctx.strokeStyle = '#3a332d';
       ctx.lineWidth = 0.5;
       ctx.strokeRect(rowX, rowY, rowW, rowH);
@@ -532,7 +587,7 @@ export class ExplorePanel {
     const navGap = 86;
     const maxH = Math.max(200, H - listBottom - navGap);
     this.stArea = { y1: listBottom, y2: listBottom + maxH };
-    this.stPanel.renderEmbedded(ctx, W, H, listBottom, maxH);
+    this.stPanel.renderEmbedded(ctx, W, H, listBottom, maxH, groupIdx);
   }
 
   drawNavButton(ctx, cx, cy, label, type) {
@@ -541,8 +596,6 @@ export class ExplorePanel {
     const x = cx - w / 2;
     const y = cy - h / 2;
     const disabled = !type;
-    ctx.fillStyle = disabled ? 'rgba(28,24,20,0.45)' : 'rgba(42,36,30,0.7)';
-    ctx.fillRect(x, y, w, h);
     ctx.strokeStyle = '#3a332d';
     ctx.lineWidth = 0.5;
     ctx.strokeRect(x, y, w, h);
@@ -558,11 +611,38 @@ export class ExplorePanel {
   renderExplore(ctx, W, H, startY) {
     const dungeon = DUNGEONS.find(d => d.id === this.currentStageId);
     const title = dungeon ? dungeon.name : '未知之地';
+    const enemy = this.pendingEnemy || this.lastEnemy;
 
     ctx.textAlign = 'center';
     ctx.fillStyle = '#f3e2bb';
     ctx.font = 'bold 16px serif';
     ctx.fillText(`【 ${title} 】`, W / 2, startY);
+    ctx.fillStyle = '#d8c59b';
+    ctx.font = 'bold 12px serif';
+    ctx.fillText(`层数 ${this.runDepth}/${this.stageSteps}`, W / 2, startY + 20);
+    if (this.pendingEnemy && enemy) {
+      const barW = Math.min(W - 72, 292);
+      const barX = (W - barW) / 2;
+      const barY = startY + 44;
+      const ePct = Math.max(0, Math.min(1, this.enemyHp / Math.max(1, this.enemyMaxHp)));
+      const eLagPct = Math.max(0, Math.min(1, this.enemyHpLag / Math.max(1, this.enemyMaxHp)));
+      const shakeX = this.enemyShake > 0 ? ((this.enemyShake % 2 === 0) ? -2 : 2) : 0;
+      ctx.fillStyle = '#caa566';
+      ctx.font = 'bold 12px serif';
+      ctx.fillText(`${enemy.name}`, W / 2, barY - 8);
+      ctx.fillStyle = 'rgba(26,22,18,0.85)';
+      ctx.fillRect(barX + shakeX, barY, barW, 10);
+      ctx.fillStyle = '#8f6f43';
+      ctx.fillRect(barX + shakeX, barY, Math.max(1, barW * eLagPct), 10);
+      ctx.fillStyle = '#dfb36e';
+      ctx.fillRect(barX + shakeX, barY, Math.max(1, barW * ePct), 10);
+      ctx.strokeStyle = '#8a7357';
+      ctx.strokeRect(barX + shakeX, barY, barW, 10);
+      ctx.fillStyle = '#1f1b16';
+      ctx.font = 'bold 11px serif';
+      ctx.fillText(`${this.enemyHp}`, W / 2, barY + 8);
+      this.buttons.push({ type: 'enemyInfo', x1: barX - 8, x2: barX + barW + 8, y1: barY - 20, y2: barY + 18 });
+    }
 
     // 简单转场遮罩
     if (this.mode === 'transition' && this.transitionTick > 0) {
@@ -575,214 +655,513 @@ export class ExplorePanel {
       return;
     }
 
-    // 上半：探索日志
-    const lowerH = 240;
-    const splitY = Math.max(startY + 120, H - lowerH);
-    const logTop = startY + 25;
-    const logBottom = splitY - 12;
-    ctx.fillStyle = 'rgba(40,34,28,0.65)';
-    ctx.fillRect(14, logTop - 12, W - 28, logBottom - logTop + 20);
-    ctx.textAlign = 'left';
-    ctx.font = 'bold 12px serif';
+    if (this.pendingEnemy && enemy) {
+      this.renderCombatScene(ctx, W, H, startY, enemy);
+    } else {
+      const lowerH = 192;
+      const splitY = Math.max(startY + 156, H - lowerH);
+      const logTop = startY + 48;
+      const logBottom = splitY - 12;
+      if (this.sceneLine) {
+        const alpha = Math.max(0.2, this.sceneLineTimer / 90);
+        ctx.textAlign = 'center';
+        ctx.fillStyle = `rgba(243,226,187,${alpha})`;
+        ctx.font = 'bold 14px serif';
+        ctx.fillText(this.sceneLine, W / 2, logTop + (logBottom - logTop) * 0.5);
+      }
 
-    const maxLines = Math.floor((logBottom - logTop) / 16);
-    const startIdx = Math.max(0, this.logs.length - maxLines);
-    const visible = this.logs.slice(startIdx);
-    visible.forEach((line, i) => {
-      const y = logTop + i * 16;
-      const alpha = Math.max(0.35, 1 - (visible.length - 1 - i) * 0.08);
-      ctx.fillStyle = `rgba(243,226,187,${alpha})`;
-      ctx.fillText(`· ${line}`, 20, y);
-    });
-
-    // 分割线
-    ctx.strokeStyle = '#3a332d';
-    ctx.lineWidth = 0.5;
-    ctx.beginPath();
-    ctx.moveTo(16, splitY);
-    ctx.lineTo(W - 16, splitY);
-    ctx.stroke();
-
-    ctx.fillStyle = 'rgba(28,24,20,0.7)';
-    ctx.fillRect(0, splitY, W, H - splitY);
-    this.renderLowerPanel(ctx, W, H, splitY);
-    if (this.battleLogs.length > 0) {
-      this.renderBattleOverlay(ctx, W, H);
+      ctx.strokeStyle = '#7a6a51';
+      ctx.lineWidth = 0.5;
+      ctx.beginPath();
+      ctx.moveTo(16, splitY);
+      ctx.lineTo(W - 16, splitY);
+      ctx.stroke();
+      this.renderLowerPanel(ctx, W, H, splitY);
+    }
+    if (this.enemyInfoOpen) {
+      this.renderEnemyInfoModal(ctx, W, H);
+    }
+    if (this.storageOpen) {
+      this.renderStoragePage(ctx, W, H, startY);
     }
   }
 
-  renderLowerPanel(ctx, W, H, topY) {
-    const pad = 16;
-    const gap = 18;
-    const s = gameState.state;
-    const colW = (W - pad * 2 - gap) / 2;
-    const leftX = pad;
-    const rightX = pad + colW + gap;
-    const lineH = 16;
-    const enemy = this.pendingEnemy || this.lastEnemy;
-    const hasEnemy = !!this.pendingEnemy;
+  renderCombatScene(ctx, W, H, startY, enemy) {
+    const arenaTop = startY + 76;
+    const arenaBottom = H - 208;
+    const arenaH = Math.max(150, arenaBottom - arenaTop);
+    const arenaX = 18;
+    const arenaW = W - 36;
+    const centerX = W / 2;
+    const centerY = arenaTop + arenaH * 0.58;
 
-    // 头部对比标题
-    let y = topY + 18;
-    ctx.textAlign = 'left';
-    ctx.fillStyle = '#d8c59b';
-    ctx.font = 'bold 12px serif';
-    ctx.fillText('我方', leftX, y);
-    ctx.fillText(hasEnemy ? `敌方：${enemy.name}` : '敌方：未遭遇', rightX, y);
+    ctx.save();
+    const glow = ctx.createRadialGradient(centerX, centerY, 20, centerX, centerY, arenaW * 0.5);
+    glow.addColorStop(0, 'rgba(96,72,52,0.18)');
+    glow.addColorStop(0.55, 'rgba(40,30,24,0.10)');
+    glow.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = glow;
+    ctx.fillRect(arenaX, arenaTop, arenaW, arenaH);
 
-    // 对齐对比数值
-    y += lineH;
-    const rows = [
-      { label: '气血', p: `${this.playerHp}/${this.playerMaxHp}`, e: hasEnemy ? `${this.enemyHp}/${this.enemyMaxHp}` : '--' },
-      { label: '攻击', p: s.totalAtk, e: hasEnemy ? enemy.atk : '--' },
-      { label: '防御', p: s.totalDef, e: hasEnemy ? enemy.def : '--' },
-      { label: '神识', p: s.totalSpd || s.spd, e: hasEnemy ? (enemy.spd || 60) : '--' },
-      { label: '煞气', p: `${s.shaqi || 0}%`, e: hasEnemy ? `${enemy.shaqi || 0}%` : '--' },
-    ];
-    rows.forEach((r, idx) => {
-      const ry = y + idx * lineH;
-      ctx.fillStyle = '#f0ddb1';
+    ctx.fillStyle = 'rgba(16,14,12,0.42)';
+    ctx.beginPath();
+    ctx.ellipse(centerX, centerY + 10, arenaW * 0.36, arenaH * 0.28, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.strokeStyle = 'rgba(184,156,105,0.24)';
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, Math.min(arenaW, arenaH) * 0.16, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, Math.min(arenaW, arenaH) * 0.24, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.textAlign = 'center';
+    ctx.fillStyle = 'rgba(243,226,187,0.12)';
+    ctx.font = 'bold 48px serif';
+    ctx.fillText('战', centerX, centerY + 14);
+
+    if (this.sceneLine) {
+      const alpha = Math.max(0.24, this.sceneLineTimer / 90);
+      ctx.fillStyle = `rgba(243,226,187,${alpha})`;
       ctx.font = 'bold 12px serif';
-      ctx.fillText(`${r.label}：${r.p}`, leftX, ry);
-      ctx.fillText(`${r.label}：${r.e}`, rightX, ry);
-    });
+      ctx.fillText(this.sceneLine, centerX, arenaTop + 36);
+    }
+    ctx.restore();
 
-    const infoY = y + rows.length * lineH + 6;
-    ctx.fillStyle = '#e7d3a7';
+    this.renderCombatHud(ctx, W, H);
+  }
+
+  renderCombatHud(ctx, W, H) {
+    const s = gameState.state;
+    const infoY = H - 196;
+    const hpBlockW = Math.min(172, W - 132);
+    const hpBlockX = (W - hpBlockW) / 2;
+    const hpPct = Math.max(0, Math.min(1, this.playerHp / Math.max(1, this.playerMaxHp)));
+
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#f0ddb1';
     ctx.font = 'bold 12px serif';
-    ctx.fillText(`层数：${this.runDepth}/${this.stageSteps}`, leftX, infoY);
-    ctx.fillText(`战利品：灵石 ${this.runLoot.stone}`, leftX, infoY + lineH);
-    if (hasEnemy) {
-      const skills = (enemy.skills || []).join('、') || '无';
-      ctx.fillText(`技能：${skills}`, rightX, infoY);
+    ctx.fillText('我方', W / 2, infoY);
+
+    ctx.fillStyle = 'rgba(26,22,18,0.88)';
+    ctx.fillRect(hpBlockX, infoY + 10, hpBlockW, 12);
+    ctx.fillStyle = '#e8cd87';
+    ctx.fillRect(hpBlockX, infoY + 10, Math.max(2, hpBlockW * hpPct), 12);
+    ctx.strokeStyle = '#8a7357';
+    ctx.strokeRect(hpBlockX, infoY + 10, hpBlockW, 12);
+    ctx.fillStyle = '#1f1b16';
+    ctx.font = 'bold 11px serif';
+    ctx.fillText(`${this.playerHp}`, W / 2, infoY + 20);
+
+    ctx.fillStyle = '#d8c59b';
+    ctx.font = 'bold 11px serif';
+    ctx.fillText(`煞气 ${s.shaqi || 0}`, W / 2, infoY + 42);
+
+    this.renderCombatActionRow(ctx, W, H, infoY + 56);
+    this.renderPlayerSkillDeck(ctx, W, H - 126, 108);
+  }
+
+  renderCombatActionRow(ctx, W, H, y) {
+    const actions = [];
+    if (this.dead) {
+      actions.push({
+        label: !this.adReviveUsed ? '广告复活' : '复活已用',
+        type: !this.adReviveUsed ? 'adRevive' : null,
+        tone: !this.adReviveUsed ? 'strong' : 'mute',
+      });
+      actions.push({ label: '认命离开', type: 'giveUp', tone: 'normal' });
+      actions.push({ label: '储物袋', type: 'openStorage', tone: 'normal' });
+    } else if (this.pendingEnemy) {
+      if (this.exitPrompt === 'tp') {
+        actions.push({ label: '返回', type: 'exitCancel', tone: 'normal' });
+        actions.push({ label: '使用传送符', type: 'exitUseTp', tone: 'strong' });
+        actions.push({ label: '储物袋', type: 'openStorage', tone: 'normal' });
+      } else if (this.exitPrompt === 'noTp') {
+        actions.push({ label: '返回', type: 'exitCancel', tone: 'normal' });
+        actions.push({ label: '放弃战利品', type: 'exitConfirmAbandon', tone: 'normal' });
+        actions.push({ label: '广告撤离', type: 'exitConfirmAd', tone: 'strong' });
+      } else if (this.battle && !this.battle.done) {
+        actions.push({ label: '自动', type: null, tone: 'mute' });
+        actions.push({ label: '战斗中', type: null, tone: 'strong' });
+        actions.push({ label: '储物袋', type: 'openStorage', tone: 'normal' });
+      } else {
+        actions.push({ label: '撤离', type: 'exitEnemy', tone: 'normal' });
+        actions.push({ label: '战斗', type: 'fightEnemy', tone: 'strong' });
+        actions.push({ label: '储物袋', type: 'openStorage', tone: 'normal' });
+      }
+    } else {
+      actions.push({ label: this.autoStep ? '自动中' : '自动推进', type: 'auto', tone: this.autoStep ? 'strong' : 'normal' });
+      actions.push({ label: '探索', type: 'step', tone: 'strong' });
+      actions.push({ label: '储物袋', type: 'openStorage', tone: 'normal' });
     }
 
-    // 丹药 / 传送符
-    const barY = H - 64;
-    const slotW = colW;
-    const slotH = 40;
-    let slotY = infoY + lineH * 2 + 8;
-    if (slotY + slotH > barY - 8) slotY = barY - slotH - 8;
+    const rowW = W - 40;
+    const gap = 8;
+    const btnW = (rowW - gap * 2) / 3;
+    const x = 20;
+    const h = 28;
+    actions.forEach((action, idx) => {
+      const bx = x + idx * (btnW + gap);
+      ctx.fillStyle = action.tone === 'strong' ? 'rgba(112,86,52,0.88)' : 'rgba(44,37,31,0.78)';
+      ctx.fillRect(bx, y, btnW, h);
+      ctx.strokeStyle = action.tone === 'mute' ? '#655743' : '#b89c69';
+      ctx.lineWidth = 0.8;
+      ctx.strokeRect(bx, y, btnW, h);
+      ctx.textAlign = 'center';
+      ctx.fillStyle = action.tone === 'mute' ? '#8d7d62' : '#f3e2bb';
+      ctx.font = 'bold 12px serif';
+      ctx.fillText(action.label, bx + btnW / 2, y + 18);
+      if (action.type) {
+        this.buttons.push({ type: action.type, x1: bx, x2: bx + btnW, y1: y, y2: y + h });
+      }
+    });
+  }
 
-    const danCount = this.getBagCount('huiling');
-    const tpCount = this.getBagCount('teleport');
-    this.drawSlot(ctx, leftX, slotY, slotW, slotH, '丹药', danCount > 0 ? `回灵丹×${danCount}` : '空', danCount > 0);
-    this.buttons.push({ type: 'useDan', x1: leftX, x2: leftX + slotW, y1: slotY, y2: slotY + slotH });
+  renderPlayerSkillDeck(ctx, W, topY, maxH) {
+    const equipped = (gameState.state.equippedSt || []).filter(Boolean).slice(0, 6);
+    const view = this.cdRenderView || this.battleCdView;
+    const byName = new Map(((view && view.player) || []).map((item) => [item.name, item]));
+    const cells = Array.from({ length: 6 }, (_, idx) => {
+      const stId = equipped[idx] || null;
+      if (!stId) return { empty: true };
+      const st = SHENGTONG[stId];
+      const row = byName.get(st?.name || stId);
+      return {
+        name: st?.name || stId,
+        total: row ? row.total : null,
+        remain: row ? row.remain : null,
+        ready: row ? Math.max(0, 1 - Math.min(1, row.remain / Math.max(0.1, row.total || 1))) : null,
+      };
+    });
 
-    this.drawSlot(ctx, rightX, slotY, slotW, slotH, '传送符', tpCount > 0 ? `传送符×${tpCount}` : '空', tpCount > 0);
-    this.buttons.push({ type: 'useTp', x1: rightX, x2: rightX + slotW, y1: slotY, y2: slotY + slotH });
+    const cols = 3;
+    const gap = 8;
+    const x = 20;
+    const totalW = W - 40;
+    const cellW = (totalW - gap * 2) / cols;
+    const cellH = Math.max(46, Math.min(54, (maxH - gap) / 2));
+    cells.forEach((cell, idx) => {
+      const col = idx % cols;
+      const row = Math.floor(idx / cols);
+      const cx = x + col * (cellW + gap);
+      const cy = topY + row * (cellH + gap);
+      ctx.fillStyle = 'rgba(23,20,17,0.94)';
+      ctx.fillRect(cx, cy, cellW, cellH);
+      ctx.strokeStyle = cell.empty ? '#5c5140' : '#d9c198';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(cx, cy, cellW, cellH);
 
-    // 底部三按钮（沉浸模式唯一按钮）
+      if (cell.empty) {
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#7d6e58';
+        ctx.font = 'bold 11px serif';
+        ctx.fillText('空位', cx + cellW / 2, cy + cellH / 2 + 4);
+        return;
+      }
+
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#f3e2bb';
+      ctx.font = 'bold 12px serif';
+      ctx.fillText(this.trimText(ctx, cell.name, cellW - 12), cx + cellW / 2, cy + 22);
+
+      if (cell.ready !== null) {
+        ctx.fillStyle = 'rgba(28,24,20,0.94)';
+        ctx.fillRect(cx + 8, cy + cellH - 14, cellW - 16, 6);
+        ctx.fillStyle = cell.remain > 0 ? '#b08b57' : '#dfb36e';
+        ctx.fillRect(cx + 8, cy + cellH - 14, Math.max(0, (cellW - 16) * cell.ready), 6);
+        ctx.strokeStyle = '#8a7357';
+        ctx.strokeRect(cx + 8, cy + cellH - 14, cellW - 16, 6);
+      }
+    });
+  }
+
+  renderLowerPanel(ctx, W, H, topY) {
+    const s = gameState.state;
+    const enemy = this.pendingEnemy || this.lastEnemy;
+
+    const barY = H - 54;
+
+    let y = topY + 14;
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#f0ddb1';
+    ctx.font = 'bold 12px serif';
+    ctx.fillText('人物信息', W / 2, y);
+
+    const hpPct = Math.max(0, Math.min(1, this.playerHp / Math.max(1, this.playerMaxHp)));
+    const hpBarW = Math.min(W - 84, 288);
+    const hpBarH = 10;
+    const hpBarX = (W - hpBarW) / 2;
+    y += 14;
+    ctx.fillStyle = 'rgba(26,22,18,0.85)';
+    ctx.fillRect(hpBarX, y, hpBarW, hpBarH);
+    ctx.fillStyle = '#e8cd87';
+    ctx.fillRect(hpBarX, y, Math.max(2, hpBarW * hpPct), hpBarH);
+    ctx.strokeStyle = '#8a7357';
+    ctx.strokeRect(hpBarX, y, hpBarW, hpBarH);
+    ctx.fillStyle = '#1f1b16';
+    ctx.font = 'bold 11px serif';
+    ctx.fillText(`${this.playerHp}`, hpBarX + hpBarW / 2, y + 8);
+    ctx.fillStyle = '#d8c59b';
+    ctx.font = 'bold 11px serif';
+    ctx.fillText(`煞气 ${s.shaqi || 0}`, W / 2, y + 42);
+
     const btnW = W / 3;
     ctx.textAlign = 'center';
     ctx.font = 'bold 13px serif';
 
-    // 撤离提示（放到底部按钮上方，避免与数值重叠）
     if (this.exitPrompt) {
-      ctx.textAlign = 'center';
       ctx.fillStyle = '#e7d3a7';
       ctx.font = 'bold 12px serif';
       const msg = this.exitPrompt === 'tp' ? '使用传送符可带走战利品' : '无传送符将损失战利品';
-      ctx.fillText(msg, W / 2, barY - 10);
+      ctx.fillText(msg, W / 2, barY - 8);
     }
 
     if (this.dead) {
       if (!this.adReviveUsed) {
         ctx.fillStyle = '#f0d8a8';
-        ctx.fillText('广告复活', btnW * 0.5, barY + 22);
-        this.buttons.push({ type: 'adRevive', x1: 0, x2: btnW, y1: barY - 10, y2: barY + 30 });
+        ctx.fillText('广告复活', btnW * 0.5, barY + 20);
+        this.buttons.push({ type: 'adRevive', x1: 0, x2: btnW, y1: barY - 12, y2: barY + 26 });
       }
       ctx.fillStyle = '#cdb88a';
-      ctx.fillText('认命离开', btnW * 1.5, barY + 22);
-      this.buttons.push({ type: 'giveUp', x1: btnW, x2: btnW * 2, y1: barY - 10, y2: barY + 30 });
+      ctx.fillText('认命离开', btnW * 1.5, barY + 20);
+      this.buttons.push({ type: 'giveUp', x1: btnW, x2: btnW * 2, y1: barY - 12, y2: barY + 26 });
+      ctx.fillStyle = '#e7d3a7';
+      ctx.fillText('储物袋', btnW * 2.5, barY + 20);
+      this.buttons.push({ type: 'openStorage', x1: btnW * 2, x2: btnW * 3, y1: barY - 12, y2: barY + 26 });
     } else if (this.pendingEnemy) {
       if (this.exitPrompt === 'tp') {
         ctx.fillStyle = '#cdb88a';
-        ctx.fillText('返回', btnW * 0.5, barY + 22);
-        this.buttons.push({ type: 'exitCancel', x1: 0, x2: btnW, y1: barY - 10, y2: barY + 30 });
-
+        ctx.fillText('返回', btnW * 0.5, barY + 20);
+        this.buttons.push({ type: 'exitCancel', x1: 0, x2: btnW, y1: barY - 12, y2: barY + 26 });
         ctx.fillStyle = '#f3e2bb';
-        ctx.fillText('使用传送符', btnW * 1.5, barY + 22);
-        this.buttons.push({ type: 'exitUseTp', x1: btnW, x2: btnW * 2, y1: barY - 10, y2: barY + 30 });
+        ctx.fillText('使用传送符', btnW * 1.5, barY + 20);
+        this.buttons.push({ type: 'exitUseTp', x1: btnW, x2: btnW * 2, y1: barY - 12, y2: barY + 26 });
       } else if (this.exitPrompt === 'noTp') {
         ctx.fillStyle = '#cdb88a';
-        ctx.fillText('返回', btnW * 0.5, barY + 22);
-        this.buttons.push({ type: 'exitCancel', x1: 0, x2: btnW, y1: barY - 10, y2: barY + 30 });
-
+        ctx.fillText('返回', btnW * 0.5, barY + 20);
+        this.buttons.push({ type: 'exitCancel', x1: 0, x2: btnW, y1: barY - 12, y2: barY + 26 });
         ctx.fillStyle = '#cdb88a';
-        ctx.fillText('放弃战利品', btnW * 1.5, barY + 22);
-        this.buttons.push({ type: 'exitConfirmAbandon', x1: btnW, x2: btnW * 2, y1: barY - 10, y2: barY + 30 });
-
+        ctx.fillText('放弃战利品', btnW * 1.5, barY + 20);
+        this.buttons.push({ type: 'exitConfirmAbandon', x1: btnW, x2: btnW * 2, y1: barY - 12, y2: barY + 26 });
         ctx.fillStyle = '#f3e2bb';
-        ctx.fillText('广告撤离', btnW * 2.5, barY + 22);
-        this.buttons.push({ type: 'exitConfirmAd', x1: btnW * 2, x2: btnW * 3, y1: barY - 10, y2: barY + 30 });
+        ctx.fillText('广告撤离', btnW * 2.5, barY + 20);
+        this.buttons.push({ type: 'exitConfirmAd', x1: btnW * 2, x2: btnW * 3, y1: barY - 12, y2: barY + 26 });
       } else {
-        ctx.fillStyle = '#f3e2bb';
-        ctx.fillText('战斗', btnW * 1.5, barY + 22);
-        this.buttons.push({ type: 'fightEnemy', x1: btnW, x2: btnW * 2, y1: barY - 10, y2: barY + 30 });
-
         ctx.fillStyle = '#cdb88a';
-        ctx.fillText('撤离', btnW * 2.5, barY + 22);
-        this.buttons.push({ type: 'exitEnemy', x1: btnW * 2, x2: btnW * 3, y1: barY - 10, y2: barY + 30 });
+        ctx.fillText('撤离', btnW * 0.5, barY + 20);
+        this.buttons.push({ type: 'exitEnemy', x1: 0, x2: btnW, y1: barY - 12, y2: barY + 26 });
+        ctx.fillStyle = '#f3e2bb';
+        ctx.fillText('战斗', btnW * 1.5, barY + 20);
+        this.buttons.push({ type: 'fightEnemy', x1: btnW, x2: btnW * 2, y1: barY - 12, y2: barY + 26 });
+        ctx.fillStyle = '#e7d3a7';
+        ctx.fillText('储物袋', btnW * 2.5, barY + 20);
+        this.buttons.push({ type: 'openStorage', x1: btnW * 2, x2: btnW * 3, y1: barY - 12, y2: barY + 26 });
       }
     } else {
       ctx.fillStyle = this.autoStep ? '#f0d8a8' : '#cdb88a';
-      ctx.fillText('自动推进', btnW * 0.5, barY + 22);
-      this.buttons.push({ type: 'auto', x1: 0, x2: btnW, y1: barY - 10, y2: barY + 30 });
-
+      ctx.fillText('自动推进', btnW * 0.5, barY + 20);
+      this.buttons.push({ type: 'auto', x1: 0, x2: btnW, y1: barY - 12, y2: barY + 26 });
       ctx.fillStyle = '#f0d8a8';
-      ctx.fillText('探索', btnW * 1.5, barY + 22);
-      this.buttons.push({ type: 'step', x1: btnW, x2: btnW * 2, y1: barY - 10, y2: barY + 30 });
+      ctx.fillText('探索', btnW * 1.5, barY + 20);
+      this.buttons.push({ type: 'step', x1: btnW, x2: btnW * 2, y1: barY - 12, y2: barY + 26 });
+      ctx.fillStyle = '#e7d3a7';
+      ctx.fillText('储物袋', btnW * 2.5, barY + 20);
+      this.buttons.push({ type: 'openStorage', x1: btnW * 2, x2: btnW * 3, y1: barY - 12, y2: barY + 26 });
     }
 
-    // 自动推进节流：每 18 帧推进一次（遇敌/战斗时会停下）
     if (this.autoStep && !this.dead && !this.pendingEnemy && (!this.battle || this.battle.done)) {
       this._autoTick += 1;
-      if (this._autoTick >= 18) {
+      if (this._autoTick >= 24) {
         this._autoTick = 0;
         this.doExploreStep(true);
       }
     }
   }
 
-  renderBattleOverlay(ctx, W, H) {
-    const boxW = Math.min(W - 40, 320);
-    const boxH = 120;
-    const boxX = (W - boxW) / 2;
-    const maxY = H - boxH - 90;
-    const boxY = Math.min(maxY, Math.max(120, (H - boxH) / 2));
+  renderCenterCdBoard(ctx, W, top, bottom) {
+    if (!this.battleCdView) return;
+    const h = Math.max(116, Math.min(152, bottom - top));
+    const y = top + Math.max(0, (bottom - top - h) / 2);
+    const x = 18;
+    const w = W - 36;
+    ctx.fillStyle = 'rgba(78,66,52,0.68)';
+    ctx.fillRect(x, y, w, h);
+    ctx.strokeStyle = '#b89c69';
+    ctx.lineWidth = 0.7;
+    ctx.strokeRect(x, y, w, h);
+    this.renderCdPanels(ctx, x + 10, y + 10, w - 20, h - 20);
+  }
 
-    ctx.fillStyle = 'rgba(22,18,14,0.9)';
-    ctx.fillRect(boxX, boxY, boxW, boxH);
-    ctx.strokeStyle = '#2a2622';
-    ctx.lineWidth = 0.5;
-    ctx.strokeRect(boxX, boxY, boxW, boxH);
-
-    ctx.textAlign = 'center';
-    ctx.fillStyle = '#e2cfa3';
-    ctx.font = 'bold 12px serif';
-    ctx.fillText('战斗', W / 2, boxY + 16);
-
+  renderStoragePage(ctx, W, H, startY) {
+    this.storageButtons = [];
+    const x = 20;
+    const y = startY + 2;
+    const w = W - 40;
+    const h = H - y - 8;
+    ctx.fillStyle = '#11100d';
+    ctx.fillRect(x, y, w, h);
+    ctx.strokeStyle = '#b89c69';
+    ctx.lineWidth = 0.8;
+    ctx.strokeRect(x, y, w, h);
+    this.drawBack(ctx, x + 12, y + 10, 52, 22, this.storageButtons, 'closeStorage');
     ctx.textAlign = 'left';
-      ctx.fillStyle = 'rgba(243,226,187,0.98)';
-    ctx.font = 'bold 12px serif';
-    const lines = this.battleLogs.slice(-5);
-    lines.forEach((t, i) => {
-      ctx.fillText(`· ${t}`, boxX + 12, boxY + 36 + i * 16);
+    ctx.fillStyle = '#f3e2bb';
+    ctx.font = 'bold 14px serif';
+    ctx.fillText('储物袋', x + 76, y + 26);
+
+    const rows = [];
+    const dan = this.getBagCount('huiling');
+    const tp = this.getBagCount('teleport');
+    if (dan > 0) rows.push({ label: '回灵丹', value: `数量 ${dan}`, type: 'useDan', active: true });
+    if (tp > 0) rows.push({ label: '传送符', value: `数量 ${tp}`, type: 'useTp', active: true });
+    rows.push({ label: '灵石', value: `本层 ${this.runLoot.stone}`, type: null, active: false });
+    Object.keys(this.runLoot.items || {}).forEach((id) => {
+      const c = this.runLoot.items[id] || 0;
+      if (c <= 0) return;
+      rows.push({ label: ITEMS[id]?.name || id, value: `数量 ${c}`, type: null, active: false });
+    });
+    if (rows.length <= 1) rows.push({ label: '暂无额外战利品', value: '', type: null, active: false });
+
+    const listTop = y + 56;
+    rows.slice(0, 10).forEach((r, idx) => {
+      const ry = listTop + idx * 32;
+      ctx.textAlign = 'left';
+      ctx.fillStyle = r.active ? '#f0ddb1' : '#d8c59b';
+      ctx.font = 'bold 12px serif';
+      ctx.fillText(`· ${r.label}`, x + 16, ry);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = '#bca680';
+      ctx.fillText(r.value, x + w - 16, ry);
+      ctx.strokeStyle = '#3a332d';
+      ctx.lineWidth = 0.5;
+      ctx.beginPath();
+      ctx.moveTo(x + 12, ry + 10);
+      ctx.lineTo(x + w - 12, ry + 10);
+      ctx.stroke();
+      if (r.type && r.active) {
+        this.storageButtons.push({ type: r.type, x1: x + 8, x2: x + w - 8, y1: ry - 16, y2: ry + 10 });
+      }
     });
   }
 
-  drawSlot(ctx, x, y, w, h, title, value, active) {
-    ctx.strokeStyle = '#2a2622';
-    ctx.lineWidth = 0.5;
-    ctx.strokeRect(x, y, w, h);
-    ctx.textAlign = 'left';
+  renderCdPanels(ctx, x, y, w, h) {
+    const view = this.cdRenderView || this.battleCdView;
+    if (!view) return;
+    const playerRows = (view.player || []).slice(0, 6);
+    const enemyRows = (view.enemy || []).slice(0, 6);
+    const cols = 3;
+    const gap = 6;
+    const rowGap = 8;
+    const cellW = (w - gap * (cols - 1)) / cols;
+    const rowsPerSide = Math.max(1, Math.ceil(Math.max(playerRows.length, enemyRows.length) / cols));
+    const totalRows = rowsPerSide * 2;
+    const cellH = Math.max(32, Math.min(42, (h - rowGap * (totalRows - 1)) / totalRows));
+    const playerTop = y + Math.max(0, (h - (cellH * totalRows + rowGap * (totalRows - 1))) / 2);
+    const enemyTop = playerTop + rowsPerSide * (cellH + rowGap);
+    this.drawCdGridBlock(ctx, x, playerTop, cellW, cellH, gap, rowGap, cols, playerRows);
+    this.drawCdGridBlock(ctx, x, enemyTop, cellW, cellH, gap, rowGap, cols, enemyRows);
+  }
+
+  drawCdGridBlock(ctx, x, y, cellW, cellH, gap, rowGap, cols, rows) {
+    const list = (rows || []).filter(Boolean);
+    list.forEach((r, idx) => {
+      const col = idx % cols;
+      const row = Math.floor(idx / cols);
+      const cx = x + col * (cellW + gap);
+      const cy = y + row * (cellH + rowGap);
+      const total = Math.max(0.1, r.total || 1);
+      const remain = Math.max(0, r.remain || 0);
+      const readyPct = 1 - Math.min(1, remain / total);
+      ctx.strokeStyle = '#8e7a5b';
+      ctx.lineWidth = 0.5;
+      ctx.strokeRect(cx, cy, cellW, cellH);
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#f0ddb1';
+      ctx.font = 'bold 10px serif';
+      ctx.fillText(this.trimText(ctx, r.name, cellW - 10), cx + cellW / 2, cy + 14);
+      ctx.fillStyle = 'rgba(26,22,18,0.85)';
+      ctx.fillRect(cx + 6, cy + cellH - 14, cellW - 12, 6);
+      ctx.fillStyle = remain > 0 ? '#b49364' : '#e8cd87';
+      ctx.fillRect(cx + 6, cy + cellH - 14, Math.max(0, (cellW - 12) * readyPct), 6);
+      ctx.strokeStyle = '#8a7357';
+      ctx.strokeRect(cx + 6, cy + cellH - 14, cellW - 12, 6);
+    });
+  }
+
+  updateCdRender() {
+    if (!this.battleCdView) {
+      this.cdRenderView = null;
+      return;
+    }
+    if (!this.cdRenderView) {
+      this.cdRenderView = {
+        player: (this.battleCdView.player || []).map(r => ({ ...r })),
+        enemy: (this.battleCdView.enemy || []).map(r => ({ ...r })),
+      };
+      return;
+    }
+    const step = 1 / 60;
+    ['player', 'enemy'].forEach((side) => {
+      const target = this.battleCdView[side] || [];
+      const current = this.cdRenderView[side] || [];
+      const next = target.map((t) => {
+        const c = current.find((x) => x.name === t.name);
+        if (!c) return { ...t };
+        const remain = c.remain > t.remain ? Math.max(t.remain, c.remain - step) : t.remain;
+        return { name: t.name, total: t.total, remain };
+      });
+      this.cdRenderView[side] = next;
+    });
+  }
+
+  trimText(ctx, text, maxW) {
+    if (ctx.measureText(text).width <= maxW) return text;
+    const dots = '...';
+    let out = '';
+    const chars = text.split('');
+    for (let i = 0; i < chars.length; i++) {
+      const next = out + chars[i];
+      if (ctx.measureText(next + dots).width > maxW) break;
+      out = next;
+    }
+    return out + dots;
+  }
+
+  renderEnemyInfoModal(ctx, W, H) {
+    const enemy = this.pendingEnemy || this.lastEnemy;
+    if (!enemy) return;
+    const boxW = Math.min(W - 56, 276);
+    const boxH = 146;
+    const x = (W - boxW) / 2;
+    const y = H / 2 - boxH / 2;
+    this.enemyInfoRect = { x1: x, x2: x + boxW, y1: y, y2: y + boxH };
+
+    ctx.fillStyle = 'rgba(78,66,52,0.96)';
+    ctx.fillRect(x, y, boxW, boxH);
+    ctx.strokeStyle = '#b89c69';
+    ctx.lineWidth = 0.8;
+    ctx.strokeRect(x, y, boxW, boxH);
+
+    ctx.textAlign = 'center';
     ctx.fillStyle = '#f3e2bb';
-    ctx.font = 'bold 11px serif';
-    ctx.fillText(title, x + 8, y + 14);
-    ctx.fillStyle = active ? '#f3dda8' : '#bda577';
+    ctx.font = 'bold 13px serif';
+    ctx.fillText(enemy.name, W / 2, y + 22);
+    ctx.fillStyle = '#e2cfa3';
     ctx.font = 'bold 12px serif';
-    ctx.fillText(value, x + 8, y + 32);
+    ctx.fillText(`气血 ${this.enemyHp}`, W / 2, y + 46);
+    ctx.fillText(`煞气 ${enemy.shaqi || 0}`, W / 2, y + 64);
+
+    ctx.fillStyle = '#f0ddb1';
+    ctx.font = 'bold 12px serif';
+    ctx.fillText('怪物技能', W / 2, y + 84);
+    ctx.fillStyle = '#d8c59b';
+    ctx.font = 'bold 11px serif';
+    const skills = enemy.skillDetails || [];
+    skills.slice(0, 2).forEach((sk, idx) => {
+      ctx.fillText(`${sk.name}｜伤害：${sk.dmg}｜CD:${(sk.cd || 2).toFixed(1)}s`, W / 2, y + 102 + idx * 14);
+    });
   }
 
   getBagCount(id) {
@@ -816,15 +1195,37 @@ export class ExplorePanel {
       spd: enemyCfg.spd || 60,
       shaqi: enemyCfg.shaqi || 0,
       skills: enemyCfg.skills || ['撕咬', '扑击'],
+      skillDetails: enemyCfg.skillDetails || [],
       isBoss: !!isBoss,
     };
+  }
+
+  makeInitialCdView() {
+    const s = gameState.state;
+    const stIds = (s.equippedSt || []).filter(Boolean);
+    const pSpd = s.totalSpd || s.spd || 80;
+    const player = stIds.map((id) => {
+      const st = SHENGTONG[id];
+      const stState = (s.shengtong || []).find(t => t.id === id) || { lv: 1 };
+      return {
+        name: st?.name || id,
+        total: this.getPlayerSkillCdSec(st, stState.lv, pSpd),
+        remain: 0,
+      };
+    });
+    const enemySkills = (this.pendingEnemy?.skills || this.lastEnemy?.skills || []);
+    const enemy = enemySkills.map((name) => {
+      const meta = this.getEnemySkillMeta(name);
+      return { name: meta.name, total: meta.cd || 2.0, remain: 0 };
+    });
+    return { player, enemy };
   }
 
   startBattleWithPending() {
     if (!this.pendingEnemy) return;
     this.enemyMaxHp = this.pendingEnemy.hp;
     this.enemyHp = this.pendingEnemy.hp;
-    this.battleLogs = [];
+    this.enemyHpLag = this.pendingEnemy.hp;
     this.lastEnemy = this.pendingEnemy;
 
     const events = this.buildBattleEvents({
@@ -834,14 +1235,15 @@ export class ExplorePanel {
       enemyDef: this.pendingEnemy.def,
       enemySpd: this.pendingEnemy.spd || 60,
       enemyShaqi: this.pendingEnemy.shaqi || 0,
+      enemySkills: this.pendingEnemy.skills || [],
     });
 
-    this.battle = { events, idx: 0, tick: 0, interval: 30, done: false };
-    this.pushBattleLog('战斗开始。');
+    this.battle = { events, idx: 0, tick: 0, interval: 64, done: false };
+    this.battleCdView = null;
+    this.cdRenderView = null;
     const s = gameState.state;
     if (!s.guide.firstBattle) {
       s.guide.firstBattle = true;
-      this.pushBattleLog('首次战斗：神通将按顺序循环释放。');
       gameState.save();
     }
   }
@@ -849,75 +1251,164 @@ export class ExplorePanel {
   buildBattleEvents(enemy) {
     const s = gameState.state;
     const stIds = (s.equippedSt || []).filter(Boolean);
-    let stPtr = 0;
-
-    const pAtk = s.totalAtk || s.atk || 50;
-    const pDef = s.totalDef || s.def || 20;
     const pSpd = s.totalSpd || s.spd || 80;
+    const pShaqi = Math.max(0, s.shaqi || 0);
+    const eShaqi = Math.max(0, enemy.enemyShaqi || 0);
+    const pCritRateBase = Math.min(1, pShaqi / 1000);
+    const eCritRate = Math.min(1, eShaqi / 1000);
+    const pTakenMul = 1 + pShaqi * 0.0001;
+    const eTakenMul = 1 + eShaqi * 0.0001;
+    const pCritDmgMult = 1.5;
+    const dodgeBase = 0.08;
+    const basePlayerDodge = Math.min(0.3, Math.max(0.05, dodgeBase + (pSpd - (enemy.enemySpd || 60)) * 0.001));
+    const eDodge = Math.min(0.25, Math.max(0.05, dodgeBase + ((enemy.enemySpd || 60) - pSpd) * 0.001));
 
     let pHp = this.playerHp;
     let eHp = enemy.enemyHp;
-
     const events = [];
-    const maxRounds = 12;
-    const pCritRateRaw = (s.shaqi || 0) / 100;
-    const pCritRate = Math.min(1, pCritRateRaw);
-    const pCritOverflow = Math.max(0, (s.shaqi || 0) - 100);
-    const pCritDmgMult = 1.5 + pCritOverflow / 100;
-    const eCritRate = Math.min(0.5, (enemy.enemyShaqi || 0) / 100);
-    const dodgeBase = 0.08;
-    const pDodge = Math.min(0.3, Math.max(0.05, dodgeBase + (pSpd - (enemy.enemySpd || 60)) * 0.001));
-    const eDodge = Math.min(0.25, Math.max(0.05, dodgeBase + ((enemy.enemySpd || 60) - pSpd) * 0.001));
+    const enemySkillPool = (enemy.enemySkills || []).length
+      ? enemy.enemySkills
+      : (enemy.enemySkillDetails || []).map(sk => sk.name);
+    const stCdReady = {};
+    const enemyCdReady = {};
+    let playerPtr = 0;
+    let enemyPtr = 0;
+    let playerNextAt = 0;
+    let enemyNextAt = 0;
+    let simTime = 0;
+    const maxActions = 120;
+    const buildCdView = (nowSec) => {
+      const player = stIds.map((id) => {
+        const cfg = SHENGTONG[id];
+        const stState = (s.shengtong || []).find(t => t.id === id) || { lv: 1 };
+        const total = this.getPlayerSkillCdSec(cfg, stState.lv, pSpd);
+        const readyAt = stCdReady[id] || 0;
+        return { name: cfg?.name || id, total, remain: Math.max(0, readyAt - nowSec) };
+      });
+      const enemyRows = enemySkillPool.map((name) => {
+        const meta = this.getEnemySkillMeta(name);
+        const total = meta.cd || 2.0;
+        const readyAt = enemyCdReady[name] || 0;
+        return { name: meta.name, total, remain: Math.max(0, readyAt - nowSec) };
+      });
+      return { player, enemy: enemyRows };
+    };
 
-    for (let r = 1; r <= maxRounds; r++) {
+    for (let act = 0; act < maxActions; act++) {
       if (pHp <= 0 || eHp <= 0) break;
+      const playerTurn = playerNextAt <= enemyNextAt;
+      simTime = playerTurn ? playerNextAt : enemyNextAt;
 
-      // 玩家出手：按顺序循环神通
-      let stName = '平常一击';
-      let mult = 1;
-      if (stIds.length > 0) {
-        const pickId = stIds[stPtr % stIds.length];
-        stPtr += 1;
-        const stCfg = SHENGTONG[pickId];
-        if (stCfg) {
-          stName = stCfg.name;
-          mult = stCfg.dmgPct || 1.2;
+      if (playerTurn) {
+        let pickedStId = null;
+        let pickedCfg = null;
+        let pickedState = null;
+        if (stIds.length) {
+          for (let i = 0; i < stIds.length; i++) {
+            const idx = (playerPtr + i) % stIds.length;
+            const candId = stIds[idx];
+            const readyAt = stCdReady[candId] || 0;
+            if (readyAt <= simTime) {
+              pickedStId = candId;
+              pickedCfg = SHENGTONG[candId];
+              pickedState = (s.shengtong || []).find(t => t.id === candId) || null;
+              playerPtr = (idx + 1) % stIds.length;
+              break;
+            }
+          }
         }
-      }
 
-      const enemyDodge = Math.random() < eDodge;
-      if (enemyDodge) {
-        events.push({ type: 'log', text: `你施展「${stName}」，却被${enemy.enemyName}闪身避过。` });
+        const stLv = pickedState?.lv || 1;
+        const lvMul = gameState.getStPowerMul(stLv);
+        const stName = pickedCfg?.name || '平常一击';
+        const stType = pickedCfg?.skillType || 'direct';
+        const pCritRate = pCritRateBase;
+        const upMsgs = pickedStId ? gameState.recordStUse(pickedStId, 1) : [];
+        if (pickedStId) {
+          stCdReady[pickedStId] = simTime + this.getPlayerSkillCdSec(pickedCfg, stLv, pSpd);
+        }
+
+        const enemyDodge = Math.random() < eDodge;
+        if (enemyDodge) {
+          events.push({ type: 'log', text: `「${stName}」落空`, cdView: buildCdView(simTime) });
+        } else {
+          const baseDamage = Math.max(1, Math.floor((pickedCfg?.dmgPct || 1) * 100 * lvMul));
+          let dmg = this.calcSkillDamage(baseDamage);
+          const crit = Math.random() < pCritRate;
+          if (crit) dmg = Math.max(1, Math.floor(dmg * pCritDmgMult));
+          dmg = Math.max(1, Math.floor(dmg * eTakenMul));
+          eHp = Math.max(0, eHp - dmg);
+          events.push({ type: 'hitEnemy', dmg, crit, enemyHp: eHp, text: `你发动「${stName}」，造成 `, cdView: buildCdView(simTime) });
+
+          if (stType === 'heal_hit' && pickedCfg?.healPct) {
+            const heal = Math.max(1, Math.floor(this.playerMaxHp * pickedCfg.healPct * lvMul));
+            pHp = Math.min(this.playerMaxHp, pHp + heal);
+            events.push({ type: 'log', text: `回复 ${heal} 气血`, cdView: buildCdView(simTime) });
+          }
+        }
+        if (upMsgs.length) upMsgs.forEach(msg => events.push({ type: 'log', text: msg, cdView: buildCdView(simTime) }));
+
+        playerNextAt = simTime + this.getActorActionCdSec(pSpd);
       } else {
-        let base = Math.max(1, pAtk * mult - enemy.enemyDef * 0.6);
-        let dmg = Math.max(1, Math.floor(base * (0.9 + Math.random() * 0.2)));
-        const crit = Math.random() < pCritRate;
-        if (crit) dmg = Math.floor(dmg * pCritDmgMult);
-        events.push({ type: 'log', text: crit ? `你催动「${stName}」打出暴击！` : `你施展「${stName}」。` });
-        eHp = Math.max(0, eHp - dmg);
-        events.push({ type: 'hitEnemy', dmg, enemyHp: eHp, text: `${enemy.enemyName}损失 ${dmg} 气血。` });
+        let pickedEnemySkill = null;
+        let pickedMeta = null;
+        if (enemySkillPool.length) {
+          for (let i = 0; i < enemySkillPool.length; i++) {
+            const idx = (enemyPtr + i) % enemySkillPool.length;
+            const cand = enemySkillPool[idx];
+            const readyAt = enemyCdReady[cand] || 0;
+            if (readyAt <= simTime) {
+              pickedEnemySkill = cand;
+              pickedMeta = this.getEnemySkillMeta(cand);
+              enemyPtr = (idx + 1) % enemySkillPool.length;
+              break;
+            }
+          }
+        }
+        if (!pickedMeta) pickedMeta = { name: '扑杀', dmg: Math.max(1, Math.floor((enemy.enemyAtk || 50) * 0.9)), cd: 1.6, effect: '' };
+        if (pickedEnemySkill) {
+          enemyCdReady[pickedEnemySkill] = simTime + (pickedMeta.cd || 2.0);
+        }
+
+        const playerDodge = Math.random() < Math.min(0.45, basePlayerDodge);
+        if (playerDodge) {
+          events.push({ type: 'log', text: '你闪避了敌方攻击', cdView: buildCdView(simTime) });
+        } else {
+          const enemyBaseDamage = Math.max(1, Math.floor(pickedMeta.dmg || (enemy.enemyAtk || 50) * 0.9));
+          let dmg = this.calcEnemyDamage(enemyBaseDamage);
+          const crit = Math.random() < eCritRate;
+          if (crit) dmg = Math.max(1, Math.floor(dmg * 1.5));
+          dmg = Math.max(1, Math.floor(dmg * pTakenMul));
+          pHp = Math.max(0, pHp - dmg);
+          events.push({ type: 'hitPlayer', dmg, crit, playerHp: pHp, text: `${enemy.enemyName}发动「${pickedMeta.name}」，造成 `, cdView: buildCdView(simTime) });
+        }
+
+        enemyNextAt = simTime + this.getActorActionCdSec(enemy.enemySpd || 60);
       }
-
-      if (eHp <= 0) break;
-
-      // 敌人反击
-      const playerDodge = Math.random() < pDodge;
-      if (playerDodge) {
-        events.push({ type: 'log', text: `你侧身一闪，躲开了${enemy.enemyName}的攻击。` });
-      } else {
-        let base = Math.max(1, enemy.enemyAtk - pDef * 0.4);
-        let dmg = Math.max(1, Math.floor(base * (0.9 + Math.random() * 0.2)));
-        const crit = Math.random() < eCritRate;
-        if (crit) dmg = Math.floor(dmg * 1.5);
-        pHp = Math.max(0, pHp - dmg);
-        events.push({ type: 'hitPlayer', dmg, playerHp: pHp, text: `你受到 ${dmg} 伤害。` });
-      }
-
-      if (pHp <= 0) break;
     }
 
     events.push({ type: 'end', win: eHp <= 0 && pHp > 0, playerHp: pHp, enemyHp: eHp });
     return events;
+  }
+
+  getActorActionCdSec(spd) {
+    const s = Math.max(30, spd || 60);
+    return Math.max(0.5, 1.35 * (100 / (100 + s * 0.6)));
+  }
+
+  getPlayerSkillCdSec(stCfg, stLv, spd) {
+    const base = Math.max(0.9, stCfg?.cd || 1.8);
+    const lvAdj = Math.max(0.82, 1 - (Math.max(1, stLv) - 1) * 0.03);
+    const spdAdj = Math.max(0.75, 1.2 - Math.max(30, spd || 60) / 400);
+    return Math.max(0.9, base * lvAdj * spdAdj);
+  }
+
+  calcSkillDamage(baseDamage) {
+    return Math.max(1, Math.floor(baseDamage * (0.92 + Math.random() * 0.16)));
+  }
+
+  calcEnemyDamage(baseDamage) {
+    return Math.max(1, Math.floor(baseDamage * (0.92 + Math.random() * 0.16)));
   }
 
   handleBattleEnd(win, enemy) {
@@ -974,8 +1465,6 @@ export class ExplorePanel {
       const recipeItem = `recipe_break_dan_${groupIdx}`;
       this.addRunLoot(recipeItem, 1);
     }
-    const fragId = this.rollStFragDrop();
-    if (fragId) this.addRunLoot(fragId, 1);
     this.runLoot.stone += 120 + groupIdx * 60;
 
     if (isFinalBoss) {
@@ -989,23 +1478,22 @@ export class ExplorePanel {
     const ev = this.battle.events[this.battle.idx];
     if (!ev) return;
     this.battle.idx += 1;
+    if (ev.cdView) this.battleCdView = ev.cdView;
 
     if (ev.type === 'log') {
-      this.pushBattleLog(ev.text);
       return;
     }
 
     if (ev.type === 'hitEnemy') {
       this.enemyHp = ev.enemyHp;
+      if (this.enemyHpLag < this.enemyHp) this.enemyHpLag = this.enemyHp;
       this.enemyShake = 10;
-      this.pushBattleLog(ev.text);
       return;
     }
 
     if (ev.type === 'hitPlayer') {
       this.playerHp = ev.playerHp;
       this.playerShake = 10;
-      this.pushBattleLog(ev.text);
       this.syncPlayerHp();
       return;
     }
@@ -1014,15 +1502,26 @@ export class ExplorePanel {
       this.battle.done = true;
       this.playerHp = ev.playerHp;
       this.enemyHp = ev.enemyHp;
+      this.enemyHpLag = Math.max(this.enemyHpLag, this.enemyHp);
       this.syncPlayerHp();
-      this.pushBattleLog(ev.win ? '战斗胜利。' : '战斗失败。');
 
-      // 战斗结束后清空战斗日志并回到探索（留一点点停留）
       this.pendingEnemy = null;
-      // 用 tick 延迟清空
-      this._clearBattleTick = 120;
+      this._clearBattleTick = 48;
       this.handleBattleEnd(ev.win, this.lastEnemy);
       return;
     }
+  }
+
+  drawBack(ctx, x, y, w, h, buttonPool, type) {
+    ctx.fillStyle = 'rgba(76,64,50,0.85)';
+    ctx.fillRect(x, y, w, h);
+    ctx.strokeStyle = '#b79b67';
+    ctx.lineWidth = 0.8;
+    ctx.strokeRect(x, y, w, h);
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#f3e2bb';
+    ctx.font = 'bold 11px serif';
+    ctx.fillText('←', x + w / 2, y + 15);
+    buttonPool.push({ type, x1: x, x2: x + w, y1: y, y2: y + h });
   }
 }
