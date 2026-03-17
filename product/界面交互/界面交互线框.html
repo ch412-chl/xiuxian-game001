@@ -239,7 +239,7 @@
 </head>
 <body>
   <h1>修仙版地下城堡 UI/UE 线框稿</h1>
-  <p class="intro">本稿按 `v0.9.4` 规格重排，重点体现页面上下分区比例、固定区与滚动区、以及探索/历练/洞府的空间利用规则。</p>
+  <p class="intro">本稿按 `v0.9.15` 规格重排，重点体现神通 3 槽装配、每境界 1 神通、洞府功能中枢与探索战斗场景的空间利用规则。</p>
   <div class="grid">
     <section class="demo">
       <div class="phone">
@@ -247,8 +247,8 @@
           <div class="zone top-24">
             <div class="zone-tag">顶部 24%</div>
             <div class="title">凌云子</div>
-            <div class="sub">炼气初期一重</div>
-            <div class="sub">修为：一重 40% · 本境 10 分</div>
+            <div class="sub">炼气初期</div>
+            <div class="sub">修为：48 / 120</div>
           </div>
           <div class="zone mid-52">
             <div class="zone-tag">中部 52%</div>
@@ -268,13 +268,12 @@
             <div class="zone-tag">底部 24%</div>
             <div class="tabs">
               <div class="tab">纳戒</div>
-              <div class="tab">成就</div>
               <div class="tab">破境</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="note">人物页：上部承载身份与修为，中部承载属性与装备，底部承载强操作入口，避免把破境和纳戒入口塞进同一信息层。</div>
+      <div class="note">人物页：上部承载身份与修为，中部承载属性与装备，底部只保留纳戒与破境强操作，成就与图鉴改由洞府承接。</div>
     </section>
 
     <section class="demo">
@@ -293,26 +292,20 @@
               <div class="row">中期 · 野狼谷中心<span>未解锁</span></div>
               <div class="row">后期 · 野狼谷深处<span>未解锁</span></div>
             </div>
-            <div class="panel" style="height:18%; margin-top:8px;">
-              <div class="label">装配槽区 18%</div>
-              <div class="skills-2">
-                <div class="skill"><div class="name">归元指</div><div class="lv">入门</div></div>
-                <div class="skill"><div class="name">清心诀</div><div class="lv">入门</div></div>
-                <div class="skill"><div class="name">空位</div></div>
-                <div class="skill"><div class="name">空位</div></div>
-                <div class="skill"><div class="name">空位</div></div>
-                <div class="skill"><div class="name">空位</div></div>
+            <div class="panel" style="height:14%; margin-top:8px;">
+              <div class="label">装配槽区 14%</div>
+              <div class="skills">
+                <div class="skill"><div class="name">1 归元指</div><div class="lv">入门</div></div>
+                <div class="skill"><div class="name">2 空位</div><div class="lv">待装配</div></div>
+                <div class="skill"><div class="name">3 空位</div><div class="lv">待装配</div></div>
               </div>
             </div>
-            <div class="panel scroll" style="height:42%; margin-top:8px;">
-              <div class="label">神通列表区 42%（独立滚动）</div>
+            <div class="panel scroll" style="height:34%; margin-top:8px;">
+              <div class="label">神通列表区 34%（按需滚动）</div>
               <div class="skills">
-                <div class="skill"><div class="name">归元指</div><div class="lv">入门</div></div>
-                <div class="skill"><div class="name">清心诀</div><div class="lv">入门</div></div>
-                <div class="skill"><div class="name">破甲掌</div><div class="lv">可查看</div></div>
-                <div class="skill"><div class="name">铁骨诀</div><div class="lv">可查看</div></div>
-                <div class="skill"><div class="name">焚心焰</div><div class="lv">可查看</div></div>
-                <div class="skill"><div class="name">凝神印</div><div class="lv">可查看</div></div>
+                <div class="skill"><div class="name">炼气·归元指</div><div class="lv">入门</div></div>
+                <div class="skill"><div class="name">筑基·断岳印</div><div class="lv">可查看</div></div>
+                <div class="skill"><div class="name">结丹·裂魂斩</div><div class="lv">未解锁</div></div>
               </div>
             </div>
           </div>
@@ -322,7 +315,7 @@
           </div>
         </div>
       </div>
-      <div class="note">历练页：关卡列表、装配槽、神通列表三段强分区。神通列表允许滚动，装配槽绝不参与滚动，防止装配操作区域被挤压。</div>
+      <div class="note">历练页：关卡列表、3 槽出手顺序、神通列表三段分区。每个大境界只保留 1 个神通，列表重点从“收藏陈列”改为“顺序决策”。</div>
     </section>
 
     <section class="demo">
@@ -388,51 +381,40 @@
               <div class="btn">战斗</div>
               <div class="btn">储物袋</div>
             </div>
-            <div class="skills-2" style="margin-top:8px;">
+            <div class="skills" style="margin-top:8px;">
               <div class="skill"><div class="name">归元指</div><div class="bar"><span style="width:42%"></span><b></b></div></div>
               <div class="skill"><div class="name">清心诀</div><div class="bar"><span style="width:74%"></span><b></b></div></div>
-              <div class="skill"><div class="name">空位</div></div>
               <div class="skill"><div class="name">破甲掌</div><div class="bar"><span style="width:62%"></span><b></b></div></div>
-              <div class="skill"><div class="name">怒击</div><div class="bar"><span style="width:24%"></span><b></b></div></div>
-              <div class="skill"><div class="name">震魂</div><div class="bar"><span style="width:18%"></span><b></b></div></div>
             </div>
           </div>
         </div>
       </div>
-      <div class="note">探索遇敌：顶部聚焦敌方信息，中部改为战斗舞台，下部集中我方气血、操作按钮与神通格，整体结构更接近正式战斗场景而不是信息列表页。</div>
+      <div class="note">探索遇敌：顶部聚焦敌方信息，中部改为战斗舞台，下部集中我方气血、操作按钮与 3 个神通格，和历练页装配顺序保持一致。</div>
     </section>
 
     <section class="demo">
       <div class="phone">
         <div class="frame">
-          <div class="zone top-20">
-            <div class="zone-tag">顶部 20%</div>
-            <div class="title">洞府 · 1阶</div>
-            <div class="sub">修为 +100/h　灵石 +50/h</div>
-            <div class="tabs">
-              <div class="tab">灵矿</div>
-              <div class="tab">药园</div>
-              <div class="tab">丹房</div>
-            </div>
+          <div class="zone top-18">
+            <div class="zone-tag">顶部 18%</div>
+            <div class="title">洞府</div>
+            <div class="sub">阶段信息 / 功能中枢</div>
           </div>
-          <div class="zone mid-64">
-            <div class="zone-tag">中部 64%</div>
+          <div class="zone mid-70">
+            <div class="zone-tag">中部 70%</div>
             <div class="scroll" style="height:100%;">
-              <div class="card-like row"><span>聚灵丹</span><span>炼制</span></div>
-              <div class="row compact"><span>灵草×2 灵露×1</span><span></span></div>
-              <div class="row" style="margin-top:8px;"><span>回灵丹</span><span>材料不足</span></div>
-              <div class="row compact"><span>灵草×1 清泉水×2</span><span></span></div>
-              <div class="row" style="margin-top:8px;"><span>筑基丹</span><span>未解锁</span></div>
-              <div class="row compact"><span>千年灵芝×1 玄冰精×1</span><span></span></div>
+              <div class="row"><span>成就</span><span>查看进度</span></div>
+              <div class="row" style="margin-top:8px;"><span>妖物图鉴</span><span>已解锁 6 / 28</span></div>
+              <div class="row" style="margin-top:8px;"><span>阶段目标</span><span>查看当前引导</span></div>
             </div>
           </div>
-          <div class="zone bot-16">
-            <div class="zone-tag">底部 16%</div>
-            <div class="btn" style="width:100%;">领取洞府产出</div>
+          <div class="zone bot-12">
+            <div class="zone-tag">底部 12%</div>
+            <div class="sub">主导航固定，不参与滚动</div>
           </div>
         </div>
       </div>
-      <div class="note">洞府页：顶部概览和页签固定，中部给子页内容区，底部领取区固定不滚动。丹房、药园库存都只能在中部内部滚动，不能挤压领取按钮。</div>
+      <div class="note">洞府页：当前版本仅作为功能中枢，承接成就、图鉴与阶段目标，不再展示挂机产出与生产链结构。</div>
     </section>
 
     <section class="demo">
