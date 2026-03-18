@@ -1,0 +1,14 @@
+﻿uiKey,分类,资源名称,文件名,状态
+ui_back_arrow,图标,返回箭头,ui_back_arrow.png,待生成
+ui_nav_active_dot,图标,底部导航激活点,ui_nav_active_dot.png,待生成
+ui_bag_icon,图标,储物袋图标,ui_bag_icon.png,待生成
+ui_achievement_icon,图标,成就入口图标,ui_achievement_icon.png,待生成
+ui_codex_icon,图标,图鉴入口图标,ui_codex_icon.png,待生成
+ui_primary_button_frame,边框,主按钮边框,ui_primary_button_frame.png,待生成
+ui_secondary_button_frame,边框,次按钮边框,ui_secondary_button_frame.png,待生成
+ui_skill_card_frame,边框,神通卡框,ui_skill_card_frame.png,待生成
+ui_dialog_frame,边框,弹框边框,ui_dialog_frame.png,待生成
+ui_title_divider,边框,标题分隔装饰,ui_title_divider.png,待生成
+ui_hp_bar_frame,血条,气血条底框,ui_hp_bar_frame.png,待生成
+ui_hp_bar_fill,血条,气血条填充,ui_hp_bar_fill.png,待生成
+ui_skill_cd_fill,血条,神通CD填充条,ui_skill_cd_fill.png,待生成
