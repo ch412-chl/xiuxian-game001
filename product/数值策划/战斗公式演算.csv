@@ -1,7 +1,0 @@
-﻿项目,当前公式,建议公式,设计目的
-玩家伤害基底,skillBaseDamage = floor(skillDmgPct * 100 * stPowerMul),attackTerm = 40 + totalAtk * 0.9; skillBaseDamage = floor(attackTerm * skillDmgPct * stPowerMul),把 totalAtk 正式接入输出链路
-敌方减伤,未使用 enemyDef,enemyDefMitigation = 240 / (240 + enemyDef * 1.6),敌方防御参与承伤，不再只有血量膨胀
-我方减伤,finalEnemyDamage = enemyCritDamage * playerTakenDamageMul,playerDefMitigation = 240 / (240 + totalDef * 1.8); finalEnemyDamage = enemyCritDamage * playerTakenDamageMul * playerDefMitigation,让防御对战斗结果有实际价值
-煞气暴击,"critRate = min(1, shaqi / 1000)","critRate = min(0.6, floor(shaqi / 10) * 0.01)",与产品文案一致，避免 1000 煞气才满暴击
-煞气承伤,takenDamageMul = 1 + shaqi * 0.0001,takenDamageMul = 1 + floor(shaqi / 10) * 0.001,与“每10点煞气额外承伤0.1%”一致
-行动速度,"actorActionCd = max(0.5, 1.35 * (100 / (100 + spd * 0.6)))",保留现公式,速度已经形成有效收益，可先保留

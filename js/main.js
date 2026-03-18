@@ -66,7 +66,7 @@ export default class Main {
     ctx.fillStyle = bg;
     ctx.fillRect(0, 0, W, H);
 
-    // 实时更新修炼与挂机等逻辑
+    // 实时更新当前页状态与全局派生数据
     gameState.update();
 
     // 2. 渲染面板内容
