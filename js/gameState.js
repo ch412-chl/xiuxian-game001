@@ -28,7 +28,18 @@ export const gameState = {
 
   refreshDerived() {
     const s = this.state;
-    if (!s.bag) s.bag = [];
+    if (!Array.isArray(s.inventory)) {
+      s.inventory = Array.isArray(s.bag) ? s.bag : [];
+    }
+    delete s.bag;
+    if (!s.runBag || typeof s.runBag !== 'object') {
+      s.runBag = { active: false, stageId: null, floor: 0, stone: 0, items: [] };
+    }
+    if (!Array.isArray(s.runBag.items)) s.runBag.items = [];
+    s.runBag.active = !!s.runBag.active;
+    s.runBag.stageId = s.runBag.stageId || null;
+    s.runBag.floor = Math.max(0, Math.floor(s.runBag.floor || 0));
+    s.runBag.stone = Math.max(0, Math.floor(s.runBag.stone || 0));
     if (!s.equip) s.equip = { weapon: null, robe: null, ring: null };
     if (!Array.isArray(s.shengtong)) s.shengtong = [{ id: 'st_guiyuan', lv: 1, totalUses: 0 }];
     if (!Array.isArray(s.equippedSt)) s.equippedSt = ['st_guiyuan', null, null];
@@ -51,6 +62,8 @@ export const gameState = {
     s.atk = Math.max(1, Math.floor(s.atk || 100));
     s.def = Math.max(0, Math.floor(s.def || 50));
     s.spd = Math.max(1, Math.floor(s.spd || 80));
+    s.inventory = this.normalizeItemList(s.inventory);
+    s.runBag.items = this.normalizeItemList(s.runBag.items);
 
     const realm = REALMS[s.realmIdx];
     const realmGroup = realm.groupIdx;
@@ -181,26 +194,146 @@ export const gameState = {
     }));
   },
 
-  addItem(id, count) {
-    const s = this.state;
+  normalizeItemList(items) {
+    const merged = new Map();
+    (items || []).forEach((item) => {
+      if (!item?.id) return;
+      const count = Math.max(0, Math.floor(item.count || 0));
+      if (count <= 0) return;
+      merged.set(item.id, (merged.get(item.id) || 0) + count);
+    });
+    return Array.from(merged.entries()).map(([id, count]) => ({ id, count }));
+  },
+
+  addListItem(list, id, count) {
     if (!id || !count) return;
-    const existing = s.bag.find((i) => i.id === id);
-    if (existing) existing.count += count;
-    else s.bag.push({ id, count });
+    const safeCount = Math.max(0, Math.floor(count));
+    if (safeCount <= 0) return;
+    const existing = list.find((i) => i.id === id);
+    if (existing) existing.count += safeCount;
+    else list.push({ id, count: safeCount });
+  },
+
+  useListItem(list, id, count) {
+    const safeCount = Math.max(0, Math.floor(count));
+    const existing = list.find((i) => i.id === id);
+    if (!existing || existing.count < safeCount) return false;
+    existing.count -= safeCount;
+    if (existing.count <= 0) {
+      const idx = list.indexOf(existing);
+      if (idx >= 0) list.splice(idx, 1);
+    }
+    return true;
+  },
+
+  getInventoryItems() {
+    return [...(this.state?.inventory || [])];
+  },
+
+  getInventoryCount(id) {
+    const item = (this.state?.inventory || []).find((row) => row.id === id);
+    return item ? item.count : 0;
+  },
+
+  addItem(id, count) {
+    this.addListItem(this.state.inventory, id, count);
   },
 
   useItem(id, count) {
+    return this.useListItem(this.state.inventory, id, count);
+  },
+
+  getRunBag() {
+    const runBag = this.state?.runBag || { active: false, stageId: null, floor: 0, stone: 0, items: [] };
+    return {
+      active: !!runBag.active,
+      stageId: runBag.stageId || null,
+      floor: Math.max(0, Math.floor(runBag.floor || 0)),
+      stone: Math.max(0, Math.floor(runBag.stone || 0)),
+      items: [...(runBag.items || [])],
+    };
+  },
+
+  getRunBagCount(id) {
+    const item = (this.state?.runBag?.items || []).find((row) => row.id === id);
+    return item ? item.count : 0;
+  },
+
+  getConsumableCount(id) {
+    return this.getRunBagCount(id) + this.getInventoryCount(id);
+  },
+
+  startRun(stageId) {
     const s = this.state;
-    const existing = s.bag.find((i) => i.id === id);
-    if (!existing || existing.count < count) return false;
-    existing.count -= count;
-    if (existing.count <= 0) s.bag = s.bag.filter((i) => i.id !== id);
+    s.runBag = {
+      active: true,
+      stageId,
+      floor: 0,
+      stone: 0,
+      items: [],
+    };
+    this.save();
+  },
+
+  updateRunProgress(floor) {
+    const s = this.state;
+    if (!s.runBag) return;
+    s.runBag.active = true;
+    s.runBag.floor = Math.max(0, Math.floor(floor || 0));
+  },
+
+  addRunItem(id, count) {
+    this.addListItem(this.state.runBag.items, id, count);
+  },
+
+  addRunStone(amount) {
+    this.state.runBag.stone = Math.max(0, Math.floor((this.state.runBag.stone || 0) + (amount || 0)));
+  },
+
+  useConsumableInRun(id, count = 1) {
+    if (!this.state?.runBag?.active) return false;
+    let need = Math.max(0, Math.floor(count || 0));
+    if (!need) return false;
+    const runUse = Math.min(need, this.getRunBagCount(id));
+    if (runUse > 0) {
+      this.useListItem(this.state.runBag.items, id, runUse);
+      need -= runUse;
+    }
+    if (need > 0) {
+      const ok = this.useItem(id, need);
+      if (!ok) {
+        this.addRunItem(id, runUse);
+        return false;
+      }
+    }
     return true;
+  },
+
+  settleRun(success) {
+    const s = this.state;
+    const runBag = s.runBag || { stone: 0, items: [] };
+    const summary = {
+      stone: Math.max(0, Math.floor(runBag.stone || 0)),
+      items: [...(runBag.items || [])],
+    };
+    if (success) {
+      s.stone += summary.stone;
+      summary.items.forEach((item) => this.addItem(item.id, item.count));
+    }
+    s.runBag = {
+      active: false,
+      stageId: null,
+      floor: 0,
+      stone: 0,
+      items: [],
+    };
+    this.save();
+    return summary;
   },
 
   useDanItem(itemId) {
     if (itemId.startsWith('break_dan_')) return { ok: false, msg: '突破丹需在破境时使用' };
-    if (itemId === 'huiling') return { ok: false, msg: '回灵丹需在探索或战斗中使用' };
+    if (itemId === 'huiling') return { ok: false, msg: '回灵丹需在探索储物袋中使用' };
     return { ok: false, msg: '当前无法直接使用该物品' };
   },
 
@@ -289,6 +422,56 @@ export const gameState = {
     return { ok: true, msg: `领取成功，灵石+${row.rewardStone}` };
   },
 
+  getStageGoals() {
+    const s = this.state;
+    const available = this.getAvailableDungeons();
+    const nextDungeon = available.find((row) => !row.isCleared && row.canChallenge) || available[available.length - 1];
+    const currentGroup = REALMS[s.realmIdx]?.groupIdx || 0;
+    const chapterRows = this.getMonsterCodexRows().filter((row) => row.groupIdx === currentGroup);
+    const unlockedChapter = chapterRows.filter((row) => row.unlocked).length;
+    const achRows = this.getAchievementDefs();
+    const nextAchievement = achRows
+      .filter((row) => !s.achieveClaimed[row.id] && row.cur < row.need)
+      .sort((a, b) => ((a.need - a.cur) - (b.need - b.cur)))[0];
+    const claimableCount = achRows.filter((row) => row.cur >= row.need && !s.achieveClaimed[row.id]).length;
+    const danId = this.getBreakDanId();
+    const danName = ITEMS[danId]?.name || '突破丹';
+    const needXp = Math.max(0, (s.xpNeed || 0) - (s.xp || 0));
+    const canBreakNow = s.canBreak && this.getInventoryCount(danId) > 0;
+
+    return {
+      title: `${s.realmDisplayName}阶段目标`,
+      focus: canBreakNow ? '破境条件已满足，优先返回人物页完成突破。' : '先完成当前境界推进，再收口资源与收集目标。',
+      cards: [
+        {
+          title: '境界推进',
+          lines: canBreakNow
+            ? ['修为已满，纳戒内突破丹充足', '下一步：人物页点击「破境」']
+            : [
+              needXp > 0 ? `还需修为 ${needXp}` : `缺少 ${danName}`,
+              needXp > 0 ? '继续击败敌人积累修为经验' : `继续通关 ${nextDungeon?.stage || '当前'} 关卡首领获取突破丹`,
+            ],
+        },
+        {
+          title: '历练主线',
+          lines: nextDungeon
+            ? [
+              `当前主推：${nextDungeon.stage}·${nextDungeon.name}`,
+              nextDungeon.isCleared ? '已通关，可回刷材料与突破丹' : '目标：完成通关并解锁下一关',
+            ]
+            : ['当前暂无更多关卡', '保持回刷以补足成长资源'],
+        },
+        {
+          title: '洞府收口',
+          lines: [
+            claimableCount > 0 ? `有 ${claimableCount} 个成就奖励待领取` : (nextAchievement ? `最近成就：${nextAchievement.name} ${nextAchievement.cur}/${nextAchievement.need}` : '成就已基本清空'),
+            `本境图鉴：${unlockedChapter}/${chapterRows.length} 已解锁`,
+          ],
+        },
+      ],
+    };
+  },
+
   getStTierName(lv) {
     return ST_LEVEL_NAMES[Math.max(1, Math.min(ST_LEVEL_NAMES.length, lv || 1)) - 1];
   },
@@ -350,7 +533,7 @@ export const gameState = {
     if (!s.canBreak) return { ok: false, msg: '当前修为未满' };
     if (s.breakCooldownUntil && Date.now() < s.breakCooldownUntil) return { ok: false, msg: '突破冷却中' };
     const danId = this.getBreakDanId();
-    if (!danId || !s.bag.find((i) => i.id === danId)) return { ok: false, msg: '缺少突破丹' };
+    if (!danId || this.getInventoryCount(danId) <= 0) return { ok: false, msg: '纳戒中缺少突破丹' };
     let baseRate = 0.1 + s.breakFailCount * 0.05;
     baseRate = Math.min(baseRate, 0.5);
     const rate = Math.min(baseRate + 0.5, 1);

@@ -6,7 +6,7 @@ import { drawMonsterIllustration } from './monsterArt';
 export class ExplorePanel {
   constructor(main) {
     this.main = main;
-    this.mode = 'stageList'; // 'stageList' | 'explore' | 'transition'
+    this.mode = 'stageList'; // 'stageList' | 'transition' | 'explore' | 'storage'
     this.currentStageId = null;
     this.transitionTick = 0;
     this.logs = [];
@@ -20,14 +20,12 @@ export class ExplorePanel {
     this.bossDefeated = false;
     this.runDepth = 0;
     this.stageSteps = 0;
-    this.runLoot = { stone: 0, items: {} };
     this.lastEnemy = null;
     this.floorPlan = [];
     this.floorIdx = 0;
     this.exitPrompt = null;
     this.enemyInfoOpen = false;
     this.enemyInfoRect = null;
-    this.storageOpen = false;
     this.storageButtons = [];
     this.pageGroup = 0;
 
@@ -122,26 +120,27 @@ export class ExplorePanel {
       return;
     }
 
-    if (this.mode === 'explore') {
-      if (this.storageOpen) {
-        const hitStorage = this.storageButtons.find(
-          (b) => x >= b.x1 && x <= b.x2 && y >= b.y1 && y <= b.y2
-        );
-        if (!hitStorage) return;
-        if (hitStorage.type === 'closeStorage') {
-          this.storageOpen = false;
-          return;
-        }
-        if (hitStorage.type === 'useDan') {
-          this.useHealingDan();
-          return;
-        }
-        if (hitStorage.type === 'useTp') {
-          this.useTeleport();
-          return;
-        }
+    if (this.mode === 'storage') {
+      const hitStorage = this.storageButtons.find(
+        (b) => x >= b.x1 && x <= b.x2 && y >= b.y1 && y <= b.y2
+      );
+      if (!hitStorage) return;
+      if (hitStorage.type === 'closeStorage') {
+        this.mode = 'explore';
         return;
       }
+      if (hitStorage.type === 'useDan') {
+        this.useHealingDan();
+        return;
+      }
+      if (hitStorage.type === 'useTp') {
+        this.useTeleport();
+        return;
+      }
+      return;
+    }
+
+    if (this.mode === 'explore') {
       if (this.enemyInfoOpen) {
         if (!this.enemyInfoRect || x < this.enemyInfoRect.x1 || x > this.enemyInfoRect.x2 || y < this.enemyInfoRect.y1 || y > this.enemyInfoRect.y2) {
           this.enemyInfoOpen = false;
@@ -153,7 +152,7 @@ export class ExplorePanel {
       );
       if (!hit) return;
       if (hit.type === 'openStorage') {
-        this.storageOpen = true;
+        this.mode = 'storage';
         return;
       }
       if (hit.type === 'enemyInfo') {
@@ -228,13 +227,13 @@ export class ExplorePanel {
     this.adReviveUsed = false;
     this.bossDefeated = false;
     this.runDepth = 0;
-    this.runLoot = { stone: 0, items: {} };
     this.floorPlan = [];
     this.floorIdx = 0;
     this.exitPrompt = null;
-    this.storageOpen = false;
+    this.storageButtons = [];
     this.battleCdView = null;
     this.cdRenderView = null;
+    gameState.startRun(stageId);
 
     // 初始化本次探索血量（持久化到角色）
     const s = gameState.state;
@@ -267,13 +266,11 @@ export class ExplorePanel {
     this.bossDefeated = false;
     this.runDepth = 0;
     this.stageSteps = 0;
-    this.runLoot = { stone: 0, items: {} };
     this.floorPlan = [];
     this.floorIdx = 0;
     this.exitPrompt = null;
     this.enemyInfoOpen = false;
     this.enemyInfoRect = null;
-    this.storageOpen = false;
     this.storageButtons = [];
     this.battleCdView = null;
     this.cdRenderView = null;
@@ -288,6 +285,7 @@ export class ExplorePanel {
     // 推进一层
     this.floorIdx += 1;
     this.runDepth = this.floorIdx;
+    gameState.updateRunProgress(this.floorIdx);
     this.pushExploreLog(`你沿着阴冷石阶前行至第 ${this.runDepth} 层。`);
 
     const floorType = this.floorPlan[this.floorIdx - 1];
@@ -310,7 +308,7 @@ export class ExplorePanel {
       const chance = Math.min(1, this.floorIdx * 0.1);
       if (Math.random() < chance) {
         this.tpDropped = true;
-        gameState.addItem('teleport', 1);
+        gameState.addRunItem('teleport', 1);
         this.pushExploreLog('你在角落拾起一张残破符箓：传送符（可在储物袋使用）。');
       }
     }
@@ -323,6 +321,18 @@ export class ExplorePanel {
   pushExploreLog(text) {
     this.sceneLine = text;
     this.sceneLineTimer = 90;
+  }
+
+  getRunStone() {
+    return gameState.getRunBag().stone || 0;
+  }
+
+  getRunItems() {
+    const out = {};
+    gameState.getRunBag().items.forEach((item) => {
+      out[item.id] = item.count;
+    });
+    return out;
   }
 
   buildFloorPlan(floors) {
@@ -384,7 +394,7 @@ export class ExplorePanel {
       this.pushExploreLog(`你脚下一空，险些跌入暗坑，损失 ${trapDmg} 点气血。`);
     } else if (r < 0.6) {
       const stoneGain = 25 + Math.floor(Math.random() * 50);
-      this.runLoot.stone += stoneGain;
+      gameState.addRunStone(stoneGain);
       this.pushExploreLog(`你在碎石堆中翻找片刻，意外摸出一袋灵石（+${stoneGain}）。`);
     } else if (r < 0.78) {
       const matItem = this.rollCommonMat();
@@ -399,8 +409,7 @@ export class ExplorePanel {
   }
 
   addRunLoot(id, count) {
-    if (!this.runLoot.items[id]) this.runLoot.items[id] = 0;
-    this.runLoot.items[id] += count;
+    gameState.addRunItem(id, count);
   }
 
   rollCommonMat() {
@@ -461,17 +470,13 @@ export class ExplorePanel {
 
   endRun({ success, cleared, reason }) {
     const s = gameState.state;
+    const settlement = gameState.settleRun(success);
     if (success) {
-      if (this.runLoot.stone > 0) {
-        s.stone += this.runLoot.stone;
-        this.pushExploreLog(`你带回灵石 ${this.runLoot.stone} 枚。`);
+      if (settlement.stone > 0) {
+        this.pushExploreLog(`你带回灵石 ${settlement.stone} 枚。`);
       }
-      Object.keys(this.runLoot.items).forEach((id) => {
-        const c = this.runLoot.items[id];
-        if (c > 0) {
-          gameState.addItem(id, c);
-          this.pushExploreLog(`带回「${ITEMS[id]?.name || id}」×${c}。`);
-        }
+      settlement.items.forEach((item) => {
+        this.pushExploreLog(`带回「${ITEMS[item.id]?.name || item.id}」×${item.count}。`);
       });
     } else {
       this.pushExploreLog('本次探索损失全部战利品。');
@@ -500,6 +505,8 @@ export class ExplorePanel {
 
     if (this.mode === 'stageList') {
       this.renderStageList(ctx, W, H, startY);
+    } else if (this.mode === 'storage') {
+      this.renderStoragePage(ctx, W, H, startY);
     } else {
       this.renderExplore(ctx, W, H, startY);
     }
@@ -677,9 +684,6 @@ export class ExplorePanel {
     }
     if (this.enemyInfoOpen) {
       this.renderEnemyInfoModal(ctx, W, H);
-    }
-    if (this.storageOpen) {
-      this.renderStoragePage(ctx, W, H, startY);
     }
   }
 
@@ -1000,28 +1004,31 @@ export class ExplorePanel {
     ctx.font = 'bold 14px serif';
     ctx.fillText('储物袋', x + 76, y + 26);
 
+    const runItems = this.getRunItems();
     const rows = [];
+    rows.push({ label: '随身物资', value: '来自纳戒与本次掉落', type: null, active: false, header: true });
     const dan = this.getBagCount('huiling');
     const tp = this.getBagCount('teleport');
-    if (dan > 0) rows.push({ label: '回灵丹', value: `数量 ${dan}`, type: 'useDan', active: true });
-    if (tp > 0) rows.push({ label: '传送符', value: `数量 ${tp}`, type: 'useTp', active: true });
-    rows.push({ label: '灵石', value: `本层 ${this.runLoot.stone}`, type: null, active: false });
-    Object.keys(this.runLoot.items || {}).forEach((id) => {
-      const c = this.runLoot.items[id] || 0;
+    if (dan > 0) rows.push({ label: '回灵丹', value: `可用 ${dan}`, type: 'useDan', active: true });
+    if (tp > 0) rows.push({ label: '传送符', value: `可用 ${tp}`, type: 'useTp', active: true });
+    rows.push({ label: '本次战利品', value: '成功撤离或通关后写入纳戒', type: null, active: false, header: true });
+    rows.push({ label: '灵石', value: `本次 ${this.getRunStone()}`, type: null, active: false });
+    Object.keys(runItems).forEach((id) => {
+      const c = runItems[id] || 0;
       if (c <= 0) return;
       rows.push({ label: ITEMS[id]?.name || id, value: `数量 ${c}`, type: null, active: false });
     });
-    if (rows.length <= 1) rows.push({ label: '暂无额外战利品', value: '', type: null, active: false });
+    if (rows.length <= 4) rows.push({ label: '暂无额外战利品', value: '', type: null, active: false });
 
     const listTop = y + 56;
     rows.slice(0, 10).forEach((r, idx) => {
       const ry = listTop + idx * 32;
       ctx.textAlign = 'left';
-      ctx.fillStyle = r.active ? '#f0ddb1' : '#d8c59b';
-      ctx.font = 'bold 12px serif';
+      ctx.fillStyle = r.header ? '#f3e2bb' : (r.active ? '#f0ddb1' : '#d8c59b');
+      ctx.font = r.header ? 'bold 11px serif' : 'bold 12px serif';
       ctx.fillText(`· ${r.label}`, x + 16, ry);
       ctx.textAlign = 'right';
-      ctx.fillStyle = '#bca680';
+      ctx.fillStyle = r.header ? '#8f7b58' : '#bca680';
       ctx.fillText(r.value, x + w - 16, ry);
       ctx.strokeStyle = '#3a332d';
       ctx.lineWidth = 0.5;
@@ -1157,13 +1164,11 @@ export class ExplorePanel {
   }
 
   getBagCount(id) {
-    const s = gameState.state;
-    const it = (s.bag || []).find(x => x.id === id);
-    return it ? it.count : 0;
+    return gameState.getConsumableCount(id);
   }
 
   useHealingDan() {
-    const ok = gameState.useItem('huiling', 1);
+    const ok = gameState.useConsumableInRun('huiling', 1);
     if (!ok) return;
     const heal = Math.max(1, Math.floor(this.playerMaxHp * 0.3));
     this.playerHp = Math.min(this.playerMaxHp, this.playerHp + heal);
@@ -1172,7 +1177,7 @@ export class ExplorePanel {
   }
 
   useTeleport() {
-    const ok = gameState.useItem('teleport', 1);
+    const ok = gameState.useConsumableInRun('teleport', 1);
     if (!ok) return;
     this.pushExploreLog('你捏碎传送符，空间扭曲，眨眼便回到宗门。');
     this.endRun({ success: true, cleared: false, reason: 'teleport' });
@@ -1438,7 +1443,7 @@ export class ExplorePanel {
     }
 
     const stoneGain = 20 + Math.floor(Math.random() * 30);
-    this.runLoot.stone += stoneGain;
+    gameState.addRunStone(stoneGain);
     if (Math.random() < 0.3) {
       const mat = this.rollCommonMat();
       this.addRunLoot(mat, 1);
@@ -1461,7 +1466,7 @@ export class ExplorePanel {
       const danId = `break_dan_${groupIdx}`;
       this.addRunLoot(danId, 1);
     }
-    this.runLoot.stone += 120 + groupIdx * 60;
+    gameState.addRunStone(120 + groupIdx * 60);
 
     if (isFinalBoss) {
       const title = `${dungeon.chapter}·征服者`;

@@ -57,16 +57,17 @@ export class BagPanel {
     ctx.font = 'bold 14px serif';
     ctx.fillText('纳戒', 88, startY + 4);
 
-    if (s.bag.length === 0) {
+    const items = gameState.getInventoryItems();
+    if (items.length === 0) {
       ctx.textAlign = 'center';
       ctx.fillStyle = '#4a3a28';
-      ctx.fillText("空无一物，唯有清风", W / 2, H / 2);
+      ctx.fillText('暂无物品', W / 2, H / 2);
       return;
     }
 
     // 列表排版
     const listY = startY + 50;
-    s.bag.forEach((item, i) => {
+    items.forEach((item, i) => {
       const cfg = ITEMS[item.id];
       const y = listY + i * 40;
       const name = cfg ? cfg.name : item.id;

@@ -19,7 +19,14 @@ export const storage = {
       def: 50,
       spd: 80,
       equip: { weapon: null, robe: null, ring: null },
-      bag: [],
+      inventory: [],
+      runBag: {
+        active: false,
+        stageId: null,
+        floor: 0,
+        stone: 0,
+        items: [],
+      },
       shengtong: [{ id: 'st_guiyuan', lv: 1, totalUses: 0 }],
       equippedSt: ['st_guiyuan', null, null],
       guide: {
