@@ -14,6 +14,10 @@ export class BagPanel {
       (b) => x >= b.x1 && x <= b.x2 && y >= b.y1 && y <= b.y2
     );
     if (!hit) return;
+    if (hit.type === 'back') {
+      this.main.activeTab = 'role';
+      return;
+    }
     const item = hit.item;
     const cfg = ITEMS[item.id];
     if (!cfg) return;
@@ -44,22 +48,24 @@ export class BagPanel {
 
   render(ctx, W, H, headerH) {
     const s = gameState.state;
-    const startY = headerH + 60;
+    const startY = headerH + 44;
     this.buttons = [];
 
-    ctx.textAlign = 'center';
-    ctx.fillStyle = '#6a5a40';
-    ctx.font = '14px serif';
-    ctx.fillText("—— 纳 戒 ——", W / 2, startY);
+    this.drawBack(ctx, 26, startY - 12, 52, 22);
+    ctx.textAlign = 'left';
+    ctx.fillStyle = '#d8c59b';
+    ctx.font = 'bold 14px serif';
+    ctx.fillText('纳戒', 88, startY + 4);
 
     if (s.bag.length === 0) {
+      ctx.textAlign = 'center';
       ctx.fillStyle = '#4a3a28';
       ctx.fillText("空无一物，唯有清风", W / 2, H / 2);
       return;
     }
 
     // 列表排版
-    const listY = startY + 60;
+    const listY = startY + 50;
     s.bag.forEach((item, i) => {
       const cfg = ITEMS[item.id];
       const y = listY + i * 40;
@@ -107,5 +113,18 @@ export class BagPanel {
 
   update() {
     if (this.msgTimer > 0) this.msgTimer--;
+  }
+
+  drawBack(ctx, x, y, w, h) {
+    ctx.fillStyle = 'rgba(76,64,50,0.85)';
+    ctx.fillRect(x, y, w, h);
+    ctx.strokeStyle = '#b79b67';
+    ctx.lineWidth = 0.8;
+    ctx.strokeRect(x, y, w, h);
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#f3e2bb';
+    ctx.font = 'bold 11px serif';
+    ctx.fillText('←', x + w / 2, y + 15);
+    this.buttons.push({ type: 'back', x1: x, x2: x + w, y1: y, y2: y + h });
   }
 }
