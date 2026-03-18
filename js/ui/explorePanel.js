@@ -536,10 +536,14 @@ export class ExplorePanel {
     const groupStart = groupIdx * 3;
     const groupStages = stages.filter(st => st.id > groupStart && st.id <= groupStart + 3);
     const title = groupStages[0] ? groupStages[0].chapter : '境界';
+    const recommended = [...groupStages].reverse().find((row) => row.canChallenge) || groupStages[0];
 
     ctx.fillStyle = '#e2cfa3';
     ctx.font = 'bold 13px serif';
     ctx.fillText(`【 ${title} 】`, W / 2, listY - 14);
+    ctx.fillStyle = '#bca680';
+    ctx.font = 'bold 10px serif';
+    ctx.fillText('先选关卡，再确定 1~3 出手顺序', W / 2, listY + 2);
     if (groupIdx > 0) {
       this.drawNavButton(ctx, W * 0.2, listY - 16, '上一境', 'prevChapter');
     } else {
@@ -553,11 +557,14 @@ export class ExplorePanel {
     }
 
     groupStages.forEach((st, idx) => {
-      const rowY = listY + 18 + idx * 52;
-      const rowH = 42;
+      const rowY = listY + 24 + idx * 56;
+      const rowH = 46;
       const rowX = W * 0.08;
       const rowW = W * 0.84;
+      const isRecommended = recommended && recommended.id === st.id && st.canChallenge && !st.isCleared;
 
+      ctx.fillStyle = isRecommended ? 'rgba(83,67,46,0.34)' : 'rgba(0,0,0,0)';
+      ctx.fillRect(rowX, rowY, rowW, rowH);
       ctx.strokeStyle = '#3a332d';
       ctx.lineWidth = 0.5;
       ctx.strokeRect(rowX, rowY, rowW, rowH);
@@ -570,7 +577,7 @@ export class ExplorePanel {
       ctx.textAlign = 'right';
       ctx.fillStyle = st.isCleared ? '#b59f75' : (st.canChallenge ? '#f0d8a8' : '#8e7b5a');
       ctx.font = 'bold 12px serif';
-      const label = st.isCleared ? '已通关' : (st.canChallenge ? '点击探索' : '未解锁');
+      const label = st.isCleared ? '已通关' : (isRecommended ? '主推探索' : (st.canChallenge ? '点击探索' : '未解锁'));
       ctx.fillText(label, rowX + rowW - 12, rowY + 26);
 
       if (st.canChallenge) {
@@ -586,9 +593,9 @@ export class ExplorePanel {
     });
 
     // 神通嵌入区（历练页下方）
-    const listBottom = listY + 18 + groupStages.length * 52 + 8;
-    const navGap = 86;
-    const maxH = Math.max(200, H - listBottom - navGap);
+    const listBottom = listY + 24 + groupStages.length * 56 + 10;
+    const navGap = 84;
+    const maxH = Math.max(184, H - listBottom - navGap);
     this.stArea = { y1: listBottom, y2: listBottom + maxH };
     this.stPanel.renderEmbedded(ctx, W, H, listBottom, maxH, groupIdx);
   }

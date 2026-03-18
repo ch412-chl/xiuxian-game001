@@ -11,6 +11,7 @@ export class StPanel {
     this.modalRect = null;
     this.modalStId = null;
     this.modalSlotIdx = null;
+    this.selectedSlotIdx = 0;
     this.msg = null;
     this.msgTimer = 0;
   }
@@ -22,11 +23,6 @@ export class StPanel {
         return;
       }
       const btn = this.buttons.find((b) => x >= b.x1 && x <= b.x2 && y >= b.y1 && y <= b.y2);
-      if (btn?.type === 'equip' && this.modalStId) {
-        const res = gameState.equipStToSlot(this.modalStId, this.modalSlotIdx);
-        if (!res.ok) this.showMsg(res.msg);
-        this.modalOpen = false;
-      }
       if (btn?.type === 'remove' && this.modalSlotIdx !== null) {
         const res = gameState.removeStFromSlot(this.modalSlotIdx);
         if (!res.ok) this.showMsg(res.msg);
@@ -37,16 +33,32 @@ export class StPanel {
 
     const slotHit = this.slotItems.find((r) => x >= r.x1 && x <= r.x2 && y >= r.y1 && y <= r.y2);
     if (slotHit) {
-      this.modalOpen = true;
-      this.modalStId = slotHit.id;
-      this.modalSlotIdx = slotHit.slotIdx;
+      if (this.selectedSlotIdx === slotHit.slotIdx && slotHit.id) {
+        this.modalOpen = true;
+        this.modalStId = slotHit.id;
+        this.modalSlotIdx = slotHit.slotIdx;
+        return;
+      }
+      this.selectedSlotIdx = slotHit.slotIdx;
+      this.showMsg(`已选中第 ${slotHit.slotIdx + 1} 位，点击下方神通直接替换`);
       return;
     }
     const listHit = this.listItems.find((r) => x >= r.x1 && x <= r.x2 && y >= r.y1 && y <= r.y2);
     if (listHit) {
+      const currentIdx = gameState.state.equippedSt.findIndex((id) => id === listHit.id);
+      if (listHit.unlocked && currentIdx !== this.selectedSlotIdx) {
+        const slotIdx = Math.max(0, Math.min(2, this.selectedSlotIdx ?? 0));
+        const res = gameState.equipStToSlot(listHit.id, slotIdx);
+        if (res.ok) {
+          this.showMsg(`已装配到第 ${slotIdx + 1} 位`);
+        } else {
+          this.showMsg(res.msg);
+        }
+        return;
+      }
       this.modalOpen = true;
       this.modalStId = listHit.id;
-      this.modalSlotIdx = this.slotItems.find((item) => item.active)?.slotIdx ?? 0;
+      this.modalSlotIdx = gameState.state.equippedSt.findIndex((id) => id === listHit.id);
     }
   }
 
@@ -56,7 +68,7 @@ export class StPanel {
     this.listItems = [];
     this.slotItems = [];
 
-    const areaH = Math.max(196, maxH || 220);
+    const areaH = Math.max(184, Math.min(222, maxH || 220));
     const areaX = W * 0.06;
     const areaW = W * 0.88;
     ctx.strokeStyle = '#9c8764';
@@ -70,7 +82,7 @@ export class StPanel {
     ctx.fillText(`—— ${realmName}神通 ——`, W / 2, startY + 18);
     ctx.fillStyle = '#bca680';
     ctx.font = 'bold 10px serif';
-    ctx.fillText('1~3 槽为出手顺序', W / 2, startY + 34);
+    ctx.fillText(`1~3 槽为出手顺序 · 当前选择第 ${Math.max(1, (this.selectedSlotIdx ?? 0) + 1)} 位`, W / 2, startY + 34);
 
     const slotY = startY + 48;
     const slotGap = 8;
@@ -79,11 +91,14 @@ export class StPanel {
     (s.equippedSt || []).slice(0, 3).forEach((stId, i) => {
       const x = areaX + i * (slotW + slotGap);
       const y = slotY;
-      ctx.strokeStyle = '#8e7a5b';
+      const selected = i === this.selectedSlotIdx;
+      ctx.fillStyle = selected ? 'rgba(83,67,46,0.45)' : 'rgba(0,0,0,0)';
+      ctx.fillRect(x, y, slotW, slotH);
+      ctx.strokeStyle = selected ? '#e4c891' : '#8e7a5b';
       ctx.lineWidth = 0.5;
       ctx.strokeRect(x, y, slotW, slotH);
       ctx.textAlign = 'center';
-      ctx.fillStyle = '#d8c59b';
+      ctx.fillStyle = selected ? '#f3e2bb' : '#d8c59b';
       ctx.font = 'bold 10px serif';
       ctx.fillText(`${i + 1}`, x + slotW / 2, y + 12);
       if (stId) {
@@ -99,7 +114,7 @@ export class StPanel {
         ctx.font = 'bold 11px serif';
         ctx.fillText('空位', x + slotW / 2, y + 29);
       }
-      this.slotItems.push({ id: stId, active: !stId, slotIdx: i, x1: x, x2: x + slotW, y1: y, y2: y + slotH });
+      this.slotItems.push({ id: stId, slotIdx: i, x1: x, x2: x + slotW, y1: y, y2: y + slotH });
     });
 
     const focusIds = Object.keys(SHENGTONG)
@@ -110,26 +125,37 @@ export class StPanel {
       .sort((a, b) => SHENGTONG[a].realmGroup - SHENGTONG[b].realmGroup);
 
     const listTop = slotY + slotH + 18;
-    const cellH = 52;
+    const cardGap = 8;
+    const cardW = (areaW - cardGap * 2 - 20) / 3;
+    const cardH = 72;
     focusIds.slice(0, 3).forEach((stId, idx) => {
-      const x = areaX + 10;
-      const y = listTop + idx * (cellH + 8);
-      const w = areaW - 20;
+      const x = areaX + 10 + idx * (cardW + cardGap);
+      const y = listTop;
+      const w = cardW;
       const st = SHENGTONG[stId];
       const unlocked = !!s.shengtong.find((item) => item.id === stId);
       const stState = s.shengtong.find((item) => item.id === stId) || { lv: 1, totalUses: 0 };
       const progress = gameState.getStUseProgress(stState);
-      ctx.strokeStyle = '#8e7a5b';
+      const equipped = gameState.state.equippedSt.includes(stId);
+      ctx.fillStyle = equipped ? 'rgba(83,67,46,0.35)' : 'rgba(0,0,0,0)';
+      ctx.fillRect(x, y, w, cardH);
+      ctx.strokeStyle = equipped ? '#e4c891' : '#8e7a5b';
       ctx.lineWidth = 0.5;
-      ctx.strokeRect(x, y, w, cellH);
-      ctx.textAlign = 'left';
+      ctx.strokeRect(x, y, w, cardH);
+      ctx.textAlign = 'center';
       ctx.fillStyle = unlocked ? '#f0ddb1' : '#9b8667';
+      ctx.font = 'bold 11px serif';
+      ctx.fillText(REALM_GROUPS[st.realmGroup], x + w / 2, y + 18);
+      ctx.fillStyle = unlocked ? '#f3e2bb' : '#a79270';
       ctx.font = 'bold 12px serif';
-      ctx.fillText(`${REALM_GROUPS[st.realmGroup]}·${st.name}`, x + 10, y + 18);
+      ctx.fillText(st.name, x + w / 2, y + 38);
       ctx.fillStyle = '#c8af86';
       ctx.font = 'bold 10px serif';
-      ctx.fillText(unlocked ? `${gameState.getStTierName(stState.lv)}  ${progress.done ? '已满' : `${progress.cur}/${progress.need}`}` : '入门 · 可查看', x + 10, y + 36);
-      this.listItems.push({ id: stId, x1: x, x2: x + w, y1: y, y2: y + cellH });
+      const foot = unlocked
+        ? `${gameState.getStTierName(stState.lv)}${equipped ? ' · 已装配' : progress.done ? ' · 已满' : ` · ${progress.cur}/${progress.need}`}`
+        : '入门 · 可查看';
+      ctx.fillText(foot, x + w / 2, y + 58);
+      this.listItems.push({ id: stId, unlocked, equipped, x1: x, x2: x + w, y1: y, y2: y + cardH });
     });
 
     if (this.msgTimer > 0) {
@@ -169,11 +195,13 @@ export class StPanel {
     const equippedCount = gameState.state.equippedSt.filter(Boolean).length;
     const equipped = gameState.state.equippedSt.includes(stId);
     const btnY = y + 116;
-    if (!equipped) {
-      this.drawModalBtn(ctx, W / 2, btnY, 88, 22, '装配', 'equip');
-    } else {
+    if (equipped) {
       this.drawModalBtn(ctx, W / 2, btnY, 88, 22, equippedCount <= 1 ? '不可移除' : '移除', equippedCount <= 1 ? null : 'remove');
       this.modalSlotIdx = slotIdx ?? gameState.state.equippedSt.findIndex((id) => id === stId);
+    } else {
+      ctx.fillStyle = '#8e7b5a';
+      ctx.font = 'bold 11px serif';
+      ctx.fillText('点外层槽位后，直接点神通替换', W / 2, btnY + 4);
     }
   }
 
