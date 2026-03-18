@@ -358,7 +358,7 @@ export class ExplorePanel {
       atk: Math.floor(base * (isBoss ? 1.4 : 0.6)),
       def: Math.floor(base * (isBoss ? 0.7 : 0.35)),
       spd: Math.floor(50 + dungeon.groupIdx * 8 + (isBoss ? 10 : 0)),
-      shaqi: isBoss ? 10 + dungeon.groupIdx * 2 : 0,
+      xpReward: Math.floor(base * (isBoss ? 3.2 : 0.9)),
       skills,
       skillDetails: skills.map(name => this.getEnemySkillMeta(name)),
       isBoss,
@@ -393,13 +393,7 @@ export class ExplorePanel {
     } else if (r < 0.9) {
       this.pushExploreLog('你在潮湿的石壁上发现一行模糊古篆，似乎指向更深处。');
     } else {
-      const seedDrop = this.rollSeedDrop();
-      if (seedDrop) {
-        this.addRunLoot(seedDrop, 1);
-        this.pushExploreLog(`你拾起一枚种子：「${ITEMS[seedDrop]?.name || seedDrop}」。`);
-      } else {
-        this.pushExploreLog('一缕清凉灵气拂过，你只觉心神宁定。');
-      }
+      this.pushExploreLog('一缕清凉灵气拂过，你只觉心神宁定。');
     }
     this.syncPlayerHp();
   }
@@ -415,15 +409,11 @@ export class ExplorePanel {
   }
 
   rollSeedDrop() {
-    const pool = ['seed_herb', 'seed_dew', 'seed_water', 'seed_lingzhi', 'seed_xuanbing', 'seed_huoling'];
-    if (Math.random() < 0.2) return pool[Math.floor(Math.random() * pool.length)];
     return null;
   }
 
   rollRecipeDrop() {
-    const dungeon = DUNGEONS.find(d => d.id === this.currentStageId);
-    if (!dungeon) return null;
-    return `recipe_break_dan_${dungeon.groupIdx}`;
+    return null;
   }
 
   syncPlayerHp() {
@@ -483,8 +473,6 @@ export class ExplorePanel {
           this.pushExploreLog(`带回「${ITEMS[id]?.name || id}」×${c}。`);
         }
       });
-      const xpGain = Math.max(5, Math.floor(this.runLoot.stone * 0.3));
-      s.xp += xpGain;
     } else {
       this.pushExploreLog('本次探索损失全部战利品。');
     }
@@ -500,7 +488,6 @@ export class ExplorePanel {
     s.hp = s.maxHp;
     this.playerHp = s.hp;
 
-    gameState.tryAutoBreak();
     gameState.refreshDerived();
     gameState.save();
     this.backToList();
@@ -750,11 +737,11 @@ export class ExplorePanel {
   }
 
   renderCombatHud(ctx, W, H) {
-    const s = gameState.state;
     const deckH = 110;
+    const showActions = this.dead || (!this.pendingEnemy || !(this.battle && !this.battle.done));
     const deckTop = H - deckH - 18;
     const actionY = deckTop - 40;
-    const infoY = actionY - 58;
+    const infoY = (showActions ? actionY : deckTop) - 58;
     const hpBlockW = Math.min(188, W - 124);
     const hpBlockX = (W - hpBlockW) / 2;
     const hpPct = Math.max(0, Math.min(1, this.playerHp / Math.max(1, this.playerMaxHp)));
@@ -774,12 +761,8 @@ export class ExplorePanel {
     ctx.font = 'bold 11px serif';
     ctx.fillText(`${this.playerHp}`, W / 2, infoY + 20);
 
-    ctx.fillStyle = '#d8c59b';
-    ctx.font = 'bold 11px serif';
-    ctx.fillText(`煞气 ${s.shaqi || 0}`, W / 2, infoY + 40);
-
-    this.renderCombatActionRow(ctx, W, H, actionY);
-    this.renderPlayerSkillDeck(ctx, W, deckTop, deckH);
+    if (showActions) this.renderCombatActionRow(ctx, W, H, actionY);
+    this.renderPlayerSkillDeck(ctx, W, showActions ? deckTop : deckTop - 12, deckH);
   }
 
   renderCombatActionRow(ctx, W, H, y) {
@@ -801,11 +784,7 @@ export class ExplorePanel {
         actions.push({ label: '返回', type: 'exitCancel', tone: 'normal' });
         actions.push({ label: '放弃战利品', type: 'exitConfirmAbandon', tone: 'normal' });
         actions.push({ label: '广告撤离', type: 'exitConfirmAd', tone: 'strong' });
-      } else if (this.battle && !this.battle.done) {
-        actions.push({ label: '自动', type: null, tone: 'mute' });
-        actions.push({ label: '战斗中', type: null, tone: 'strong' });
-        actions.push({ label: '储物袋', type: 'openStorage', tone: 'normal' });
-      } else {
+      } else if (!(this.battle && !this.battle.done)) {
         actions.push({ label: '撤离', type: 'exitEnemy', tone: 'normal' });
         actions.push({ label: '战斗', type: 'fightEnemy', tone: 'strong' });
         actions.push({ label: '储物袋', type: 'openStorage', tone: 'normal' });
@@ -839,10 +818,10 @@ export class ExplorePanel {
   }
 
   renderPlayerSkillDeck(ctx, W, topY, maxH) {
-    const equipped = (gameState.state.equippedSt || []).filter(Boolean).slice(0, 6);
+    const equipped = (gameState.state.equippedSt || []).filter(Boolean).slice(0, 3);
     const view = this.cdRenderView || this.battleCdView;
     const byName = new Map(((view && view.player) || []).map((item) => [item.name, item]));
-    const cells = Array.from({ length: 6 }, (_, idx) => {
+    const cells = Array.from({ length: 3 }, (_, idx) => {
       const stId = equipped[idx] || null;
       if (!stId) return { empty: true };
       const st = SHENGTONG[stId];
@@ -860,12 +839,10 @@ export class ExplorePanel {
     const x = 20;
     const totalW = W - 40;
     const cellW = (totalW - gap * 2) / cols;
-    const cellH = Math.max(46, Math.min(51, (maxH - gap) / 2));
+    const cellH = Math.max(46, Math.min(54, maxH));
     cells.forEach((cell, idx) => {
-      const col = idx % cols;
-      const row = Math.floor(idx / cols);
-      const cx = x + col * (cellW + gap);
-      const cy = topY + row * (cellH + gap);
+      const cx = x + idx * (cellW + gap);
+      const cy = topY;
       ctx.fillStyle = 'rgba(23,20,17,0.94)';
       ctx.fillRect(cx, cy, cellW, cellH);
       ctx.strokeStyle = cell.empty ? '#5c5140' : '#d9c198';
@@ -897,9 +874,6 @@ export class ExplorePanel {
   }
 
   renderLowerPanel(ctx, W, H, topY) {
-    const s = gameState.state;
-    const enemy = this.pendingEnemy || this.lastEnemy;
-
     const barY = H - 54;
 
     let y = topY + 14;
@@ -922,10 +896,6 @@ export class ExplorePanel {
     ctx.fillStyle = '#1f1b16';
     ctx.font = 'bold 11px serif';
     ctx.fillText(`${this.playerHp}`, hpBarX + hpBarW / 2, y + 8);
-    ctx.fillStyle = '#d8c59b';
-    ctx.font = 'bold 11px serif';
-    ctx.fillText(`煞气 ${s.shaqi || 0}`, W / 2, y + 42);
-
     const btnW = W / 3;
     ctx.textAlign = 'center';
     ctx.font = 'bold 13px serif';
@@ -951,12 +921,12 @@ export class ExplorePanel {
       this.buttons.push({ type: 'openStorage', x1: btnW * 2, x2: btnW * 3, y1: barY - 12, y2: barY + 26 });
     } else if (this.pendingEnemy) {
       if (this.exitPrompt === 'tp') {
-        ctx.fillStyle = '#cdb88a';
-        ctx.fillText('返回', btnW * 0.5, barY + 20);
-        this.buttons.push({ type: 'exitCancel', x1: 0, x2: btnW, y1: barY - 12, y2: barY + 26 });
-        ctx.fillStyle = '#f3e2bb';
-        ctx.fillText('使用传送符', btnW * 1.5, barY + 20);
-        this.buttons.push({ type: 'exitUseTp', x1: btnW, x2: btnW * 2, y1: barY - 12, y2: barY + 26 });
+      ctx.fillStyle = '#cdb88a';
+      ctx.fillText('返回', btnW * 0.5, barY + 20);
+      this.buttons.push({ type: 'exitCancel', x1: 0, x2: btnW, y1: barY - 12, y2: barY + 26 });
+      ctx.fillStyle = '#f3e2bb';
+      ctx.fillText('使用传送符', btnW * 1.5, barY + 20);
+      this.buttons.push({ type: 'exitUseTp', x1: btnW, x2: btnW * 2, y1: barY - 12, y2: barY + 26 });
       } else if (this.exitPrompt === 'noTp') {
         ctx.fillStyle = '#cdb88a';
         ctx.fillText('返回', btnW * 0.5, barY + 20);
@@ -1152,7 +1122,7 @@ export class ExplorePanel {
     const enemy = this.pendingEnemy || this.lastEnemy;
     if (!enemy) return;
     const boxW = Math.min(W - 56, 276);
-    const boxH = 228;
+    const boxH = 208;
     const x = (W - boxW) / 2;
     const y = H / 2 - boxH / 2;
     this.enemyInfoRect = { x1: x, x2: x + boxW, y1: y, y2: y + boxH };
@@ -1174,16 +1144,15 @@ export class ExplorePanel {
     ctx.fillStyle = '#e2cfa3';
     ctx.font = 'bold 12px serif';
     ctx.fillText(`气血 ${this.enemyHp}`, W / 2, y + 138);
-    ctx.fillText(`煞气 ${enemy.shaqi || 0}`, W / 2, y + 156);
 
     ctx.fillStyle = '#f0ddb1';
     ctx.font = 'bold 12px serif';
-    ctx.fillText('怪物技能', W / 2, y + 178);
+    ctx.fillText('怪物技能', W / 2, y + 160);
     ctx.fillStyle = '#d8c59b';
     ctx.font = 'bold 11px serif';
     const skills = enemy.skillDetails || [];
     skills.slice(0, 2).forEach((sk, idx) => {
-      ctx.fillText(`${sk.name}｜伤害：${sk.dmg}｜CD:${(sk.cd || 2).toFixed(1)}s`, W / 2, y + 196 + idx * 14);
+      ctx.fillText(`${sk.name}｜伤害：${sk.dmg}｜CD:${(sk.cd || 2).toFixed(1)}s`, W / 2, y + 178 + idx * 14);
     });
   }
 
@@ -1222,7 +1191,7 @@ export class ExplorePanel {
       atk: enemyCfg.atk,
       def: enemyCfg.def,
       spd: enemyCfg.spd || 60,
-      shaqi: enemyCfg.shaqi || 0,
+      xpReward: enemyCfg.xpReward || 0,
       skills: enemyCfg.skills || ['撕咬', '扑击'],
       skillDetails: enemyCfg.skillDetails || [],
       isBoss: !!isBoss,
@@ -1263,7 +1232,7 @@ export class ExplorePanel {
       enemyAtk: this.pendingEnemy.atk,
       enemyDef: this.pendingEnemy.def,
       enemySpd: this.pendingEnemy.spd || 60,
-      enemyShaqi: this.pendingEnemy.shaqi || 0,
+      enemyXpReward: this.pendingEnemy.xpReward || 0,
       enemySkills: this.pendingEnemy.skills || [],
     });
 
@@ -1281,12 +1250,12 @@ export class ExplorePanel {
     const s = gameState.state;
     const stIds = (s.equippedSt || []).filter(Boolean);
     const pSpd = s.totalSpd || s.spd || 80;
-    const pShaqi = Math.max(0, s.shaqi || 0);
-    const eShaqi = Math.max(0, enemy.enemyShaqi || 0);
-    const pCritRateBase = Math.min(1, pShaqi / 1000);
-    const eCritRate = Math.min(1, eShaqi / 1000);
-    const pTakenMul = 1 + pShaqi * 0.0001;
-    const eTakenMul = 1 + eShaqi * 0.0001;
+    const pAtk = s.totalAtk || s.atk || 100;
+    const pDef = s.totalDef || s.def || 50;
+    const pCritRateBase = 0.08;
+    const eCritRate = enemy.isBoss ? 0.12 : 0.06;
+    const pTakenMul = 1;
+    const eTakenMul = 1;
     const pCritDmgMult = 1.5;
     const dodgeBase = 0.08;
     const basePlayerDodge = Math.min(0.3, Math.max(0.05, dodgeBase + (pSpd - (enemy.enemySpd || 60)) * 0.001));
@@ -1361,8 +1330,9 @@ export class ExplorePanel {
         if (enemyDodge) {
           events.push({ type: 'log', text: `「${stName}」落空`, cdView: buildCdView(simTime) });
         } else {
-          const baseDamage = Math.max(1, Math.floor((pickedCfg?.dmgPct || 1) * 100 * lvMul));
-          let dmg = this.calcSkillDamage(baseDamage);
+          const skillBase = pickedCfg?.dmgPct || 1;
+          const baseDamage = Math.max(1, Math.floor(pAtk * skillBase * lvMul));
+          let dmg = this.calcSkillDamage(baseDamage, enemy.enemyDef || 0);
           const crit = Math.random() < pCritRate;
           if (crit) dmg = Math.max(1, Math.floor(dmg * pCritDmgMult));
           dmg = Math.max(1, Math.floor(dmg * eTakenMul));
@@ -1404,7 +1374,7 @@ export class ExplorePanel {
           events.push({ type: 'log', text: '你闪避了敌方攻击', cdView: buildCdView(simTime) });
         } else {
           const enemyBaseDamage = Math.max(1, Math.floor(pickedMeta.dmg || (enemy.enemyAtk || 50) * 0.9));
-          let dmg = this.calcEnemyDamage(enemyBaseDamage);
+          let dmg = this.calcEnemyDamage(enemyBaseDamage, pDef);
           const crit = Math.random() < eCritRate;
           if (crit) dmg = Math.max(1, Math.floor(dmg * 1.5));
           dmg = Math.max(1, Math.floor(dmg * pTakenMul));
@@ -1432,12 +1402,16 @@ export class ExplorePanel {
     return Math.max(0.9, base * lvAdj * spdAdj);
   }
 
-  calcSkillDamage(baseDamage) {
-    return Math.max(1, Math.floor(baseDamage * (0.92 + Math.random() * 0.16)));
+  calcSkillDamage(baseDamage, enemyDef = 0) {
+    const swing = 0.92 + Math.random() * 0.16;
+    const reduced = baseDamage * (100 / (100 + Math.max(0, enemyDef) * 0.7));
+    return Math.max(1, Math.floor(reduced * swing));
   }
 
-  calcEnemyDamage(baseDamage) {
-    return Math.max(1, Math.floor(baseDamage * (0.92 + Math.random() * 0.16)));
+  calcEnemyDamage(baseDamage, playerDef = 0) {
+    const swing = 0.92 + Math.random() * 0.16;
+    const reduced = baseDamage * (100 / (100 + Math.max(0, playerDef) * 0.7));
+    return Math.max(1, Math.floor(reduced * swing));
   }
 
   handleBattleEnd(win, enemy) {
@@ -1448,6 +1422,10 @@ export class ExplorePanel {
     }
 
     gameState.addKill(1);
+    if (enemy.xpReward) {
+      gameState.gainXp(enemy.xpReward);
+      this.pushExploreLog(`获得修为经验 ${enemy.xpReward}。`);
+    }
 
     if (enemy.isBoss) {
       this.handleBossDrops();
@@ -1465,10 +1443,6 @@ export class ExplorePanel {
       const mat = this.rollCommonMat();
       this.addRunLoot(mat, 1);
     }
-    if (Math.random() < 0.08) {
-      const recipeItem = this.rollRecipeDrop();
-      if (recipeItem) this.addRunLoot(recipeItem, 1);
-    }
   }
 
   handleBossDrops() {
@@ -1483,16 +1457,9 @@ export class ExplorePanel {
       this.addRunLoot(matId, 1);
       s.bossDrops[bossKey] = true;
     }
-    if (!isFinalBoss && dungeon.stageIdx === 2) {
-      const recipeKey = `recipe_${dungeon.groupIdx}`;
-      if (!s.bossDrops[recipeKey]) {
-        const recipeItem = `recipe_break_dan_${groupIdx}`;
-        this.addRunLoot(recipeItem, 1);
-        s.bossDrops[recipeKey] = true;
-      }
-    } else if (Math.random() < 0.35) {
-      const recipeItem = `recipe_break_dan_${groupIdx}`;
-      this.addRunLoot(recipeItem, 1);
+    if (isFinalBoss && Math.random() < 0.35) {
+      const danId = `break_dan_${groupIdx}`;
+      this.addRunLoot(danId, 1);
     }
     this.runLoot.stone += 120 + groupIdx * 60;
 

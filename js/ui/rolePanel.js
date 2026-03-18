@@ -6,36 +6,23 @@ export class RolePanel {
     this.main = main;
     this.msg = null;
     this.msgTimer = 0;
-    this.statButtons = [];
-    this.infoOpen = false;
-    this.infoRect = null;
-    this.infoText = '';
     this.entryButtons = [];
     this.tribulationFx = 0;
   }
 
-  // 接收 Main.js 传来的 headerH，确保文字位置正确
   render(ctx, W, H, headerH) {
     const s = gameState.state;
-    // 这里的 contentY 决定了文字起始高度，避开顶部胶囊
-    const contentY = headerH + 30; 
-    this.statButtons = [];
+    const contentY = headerH + 30;
     this.entryButtons = [];
 
-    // --- 1. 彻底清除背景 ---
-    // 只要 Main.js 里画了黑底，这里就不需要再画任何背景色块
-
-    // --- 2. 角色名与头衔 ---
     ctx.textAlign = 'center';
     ctx.fillStyle = '#f3e2bb';
     ctx.font = 'bold 28px serif';
     ctx.fillText(s.name, W / 2, contentY + 50);
-    
     ctx.fillStyle = '#d8c59b';
     ctx.font = 'bold 14px serif';
-    ctx.fillText("「 仙道漫漫，唯道是从 」", W / 2, contentY + 85);
+    ctx.fillText('「 仙道漫漫，唯道是从 」', W / 2, contentY + 85);
 
-    // --- 3. 境界文字 (取代原本的发光进度条) ---
     ctx.strokeStyle = '#3a332d';
     ctx.lineWidth = 0.5;
     ctx.beginPath();
@@ -46,44 +33,31 @@ export class RolePanel {
     ctx.fillStyle = s.canBreak ? '#8b5bff' : '#f0d8a8';
     ctx.font = 'bold 22px serif';
     ctx.fillText(s.realmDisplayName || s.realmName, W / 2, contentY + 175);
-    
+
     ctx.fillStyle = '#d8c59b';
     ctx.font = 'bold 12px serif';
-    const stageTimeText = s.stageMinutes === Infinity ? '已抵万道尽头' : `本小境界约${s.stageMinutes}分钟`;
-    ctx.fillText(`修为：${s.realmLayerName}${Math.floor(s.xpPct)}%  ·  ${stageTimeText}`, W / 2, contentY + 200);
+    ctx.fillText(`修为：${s.xp}/${s.xpNeed}（${s.xpPct}%）`, W / 2, contentY + 200);
 
-    // --- 4. 命籍属性 (取代原本的蓝色方块) ---
-    const stats = [
-      { key: 'hp', l: '气 · 血', v: `${s.maxHp}`, desc: '角色生命值，归零则战斗失败。' },
-      { key: 'shaqi', l: '煞 · 气', v: `${s.shaqi}`, desc: '每10点煞气增加1%暴击率，但受到伤害增加0.1%，死亡损失10点煞气。' }
-    ];
+    const barW = 210;
+    const barH = 12;
+    const barX = (W - barW) / 2;
+    const barY = contentY + 236;
+    const hpPct = Math.max(0, Math.min(1, s.hp / Math.max(1, s.maxHp)));
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#d8c59b';
+    ctx.font = 'bold 12px serif';
+    ctx.fillText('气血', W / 2, barY - 10);
+    ctx.fillStyle = 'rgba(26,22,18,0.85)';
+    ctx.fillRect(barX, barY, barW, barH);
+    ctx.fillStyle = '#e8cd87';
+    ctx.fillRect(barX, barY, Math.max(2, barW * hpPct), barH);
+    ctx.strokeStyle = '#8a7357';
+    ctx.strokeRect(barX, barY, barW, barH);
+    ctx.fillStyle = '#1f1b16';
+    ctx.font = 'bold 11px serif';
+    ctx.fillText(`${s.hp}`, W / 2, barY + 10);
 
-    const statsY = contentY + 260;
-    stats.forEach((st, i) => {
-      const y = statsY + i * 40;
-      const centerX = W * 0.35;
-      const textW = ctx.measureText(st.l).width;
-      const labelW = Math.max(70, textW + 20);
-      const labelH = 18;
-      const labelX = centerX - labelW / 2;
-
-      ctx.textAlign = 'center';
-      ctx.fillStyle = 'rgba(42,36,30,0.7)';
-      ctx.fillRect(labelX, y - 12, labelW, labelH);
-      ctx.strokeStyle = '#3a332d';
-      ctx.lineWidth = 0.5;
-      ctx.strokeRect(labelX, y - 12, labelW, labelH);
-      ctx.fillStyle = '#d8c59b';
-      ctx.fillText(st.l, centerX, y + 2);
-      this.statButtons.push({ key: st.key, text: st.desc, x1: labelX, x2: labelX + labelW, y1: y - 12, y2: y - 12 + labelH });
-      
-      ctx.textAlign = 'right';
-      ctx.fillStyle = '#f3e2bb';
-      ctx.fillText(st.v, W * 0.65, y);
-    });
-
-    // --- 5. 装备栏 ---
-    const equipY = statsY + 230;
+    const equipY = barY + 76;
     const equip = s.equip || {};
     const equipList = [
       { label: '兵器', id: equip.weapon },
@@ -101,11 +75,9 @@ export class RolePanel {
       ctx.fillText(eq.label, W * 0.28, y);
       ctx.textAlign = 'right';
       ctx.fillStyle = '#f3e2bb';
-      const name = eq.id ? (ITEMS[eq.id]?.name || eq.id) : '无';
-      ctx.fillText(name, W * 0.72, y);
+      ctx.fillText(eq.id ? (ITEMS[eq.id]?.name || eq.id) : '无', W * 0.72, y);
     });
 
-    // 称号
     if (s.currentTitle) {
       ctx.textAlign = 'center';
       ctx.fillStyle = '#e2cfa3';
@@ -113,74 +85,43 @@ export class RolePanel {
       ctx.fillText(`称号：${s.currentTitle}`, W / 2, equipY + 80);
     }
 
-    // 入口迁移：纳戒 / 成就
-    const entryY = equipY + 110;
-    const btnW = 78;
-    const btnH = 24;
-    this.drawEntry(ctx, W * 0.22 - btnW / 2, entryY, btnW, btnH, '纳戒', 'bag');
-    this.drawEntry(ctx, W * 0.5 - btnW / 2, entryY, btnW, btnH, '成就', 'achieve');
-    this.drawEntry(ctx, W * 0.78 - btnW / 2, entryY, btnW, btnH, '图鉴', 'monster');
+    const entryY = equipY + 118;
+    this.drawEntry(ctx, W / 2 - 40, entryY, 80, 24, '纳戒', 'bag');
 
-    // --- 6. 交互文字 (取代原本的深蓝色按钮) ---
     const cooldown = s.breakCooldownUntil && Date.now() < s.breakCooldownUntil;
-    if (s.canBreak) {
+    if (s.canBreak || cooldown) {
       ctx.textAlign = 'center';
       ctx.fillStyle = cooldown ? '#b59f75' : '#8b5bff';
       ctx.font = 'bold 20px serif';
-      ctx.fillText(cooldown ? '「 冷 却 中 」' : "「 破 境 」", W / 2, H - 180);
-      
+      ctx.fillText(cooldown ? '「 冷 却 中 」' : '「 破 境 」', W / 2, H - 180);
       ctx.fillStyle = '#d0bd94';
       ctx.font = 'bold 12px serif';
-      ctx.fillText(cooldown ? "—— 可看广告清除冷却 ——" : "—— 灵气已盈，可窥后境 ——", W / 2, H - 150);
+      ctx.fillText(cooldown ? '—— 可看广告清除冷却 ——' : '—— 修为已满，可窥后境 ——', W / 2, H - 150);
     }
 
-    // 消息提示
     if (this.msgTimer > 0) {
       ctx.textAlign = 'center';
-      ctx.fillStyle = `rgba(212, 184, 138, ${this.msgTimer / 100})`;
+      ctx.fillStyle = `rgba(212,184,138,${this.msgTimer / 100})`;
       ctx.fillText(this.msg, W / 2, H / 2);
     }
-
-    if (this.infoOpen) {
-      this.renderInfoModal(ctx, W, H);
-    }
-    if (this.tribulationFx > 0) {
-      this.renderTribulationFx(ctx, W, H, contentY);
-    }
+    if (this.tribulationFx > 0) this.renderTribulationFx(ctx, W, H, contentY);
   }
 
   onTouch(x, y) {
-    const { W, H } = this.main;
+    const { H } = this.main;
     const s = gameState.state;
-    if (this.infoOpen) {
-      if (!this.infoRect || x < this.infoRect.x1 || x > this.infoRect.x2 || y < this.infoRect.y1 || y > this.infoRect.y2) {
-        this.infoOpen = false;
-      }
-      return;
-    }
-    const hit = this.statButtons.find(b => x >= b.x1 && x <= b.x2 && y >= b.y1 && y <= b.y2);
-    if (hit) {
-      this.infoText = hit.text;
-      this.infoOpen = true;
-      return;
-    }
-    const entryHit = this.entryButtons.find(b => x >= b.x1 && x <= b.x2 && y >= b.y1 && y <= b.y2);
+    const entryHit = this.entryButtons.find((b) => x >= b.x1 && x <= b.x2 && y >= b.y1 && y <= b.y2);
     if (entryHit) {
       this.main.activeTab = entryHit.tab;
       return;
     }
-    // 点击“破境”文字区域触发
-    if (s.canBreak && y > H - 220 && y < H - 140) {
+    if ((s.canBreak || (s.breakCooldownUntil && Date.now() < s.breakCooldownUntil)) && y > H - 220 && y < H - 140) {
       if (s.breakCooldownUntil && Date.now() < s.breakCooldownUntil) {
-        gameState.skipBreakCooldownWithAd((ok, msg) => {
-          this.showMsg(msg);
-        });
+        gameState.skipBreakCooldownWithAd((ok, msg) => this.showMsg(msg));
       } else {
         const result = gameState.breakThrough();
         this.showMsg(result.msg);
-        if (result.ok) {
-          this.tribulationFx = 70;
-        }
+        if (result.ok) this.tribulationFx = 70;
       }
     }
   }
@@ -193,44 +134,6 @@ export class RolePanel {
   update() {
     if (this.msgTimer > 0) this.msgTimer--;
     if (this.tribulationFx > 0) this.tribulationFx--;
-  }
-
-  renderInfoModal(ctx, W, H) {
-    const boxW = Math.min(W - 60, 220);
-    const text = this.infoText || '';
-    const maxTextW = boxW - 24;
-    const lines = [];
-    let line = '';
-    for (const ch of text) {
-      const next = line + ch;
-      if (ctx.measureText(next).width > maxTextW && line) {
-        lines.push(line);
-        line = ch;
-      } else {
-        line = next;
-      }
-    }
-    if (line) lines.push(line);
-    const lineH = 18;
-    const textTopPad = 16;
-    const textBottomPad = 14;
-    const boxH = Math.max(70, textTopPad + lines.length * lineH + textBottomPad);
-    const x = (W - boxW) / 2;
-    const y = H / 2 - boxH / 2;
-    this.infoRect = { x1: x, y1: y, x2: x + boxW, y2: y + boxH };
-
-    ctx.fillStyle = 'rgba(82,70,56,0.96)';
-    ctx.fillRect(x, y, boxW, boxH);
-    ctx.strokeStyle = '#b79b67';
-    ctx.lineWidth = 0.8;
-    ctx.strokeRect(x, y, boxW, boxH);
-
-    ctx.textAlign = 'center';
-    ctx.fillStyle = '#f3e2bb';
-    ctx.font = 'bold 13px serif';
-    const contentH = lines.length * lineH;
-    const startY = y + (boxH - contentH) / 2 + 12;
-    lines.forEach((ln, idx) => ctx.fillText(ln, W / 2, startY + idx * lineH));
   }
 
   drawEntry(ctx, x, y, w, h, label, tab) {
@@ -253,22 +156,18 @@ export class RolePanel {
     ctx.fillRect(0, 0, W, H);
     const bolts = 3 + (t % 3);
     for (let i = 0; i < bolts; i++) {
-      let x = W * (0.2 + Math.random() * 0.6);
-      let y = contentY + 90;
+      let px = W * (0.2 + Math.random() * 0.6);
+      let py = contentY + 90;
       ctx.beginPath();
-      ctx.moveTo(x, y);
+      ctx.moveTo(px, py);
       for (let s = 0; s < 6; s++) {
-        x += (Math.random() - 0.5) * 26;
-        y += 20 + Math.random() * 16;
-        ctx.lineTo(x, y);
+        px += (Math.random() - 0.5) * 24;
+        py += 20 + Math.random() * 22;
+        ctx.lineTo(px, py);
       }
-      ctx.strokeStyle = `rgba(185,210,255,${0.45 + Math.random() * 0.35})`;
-      ctx.lineWidth = 1 + Math.random() * 1.2;
+      ctx.strokeStyle = `rgba(191,162,255,${Math.min(0.7, t / 80)})`;
+      ctx.lineWidth = 1.2;
       ctx.stroke();
     }
-    ctx.textAlign = 'center';
-    ctx.fillStyle = `rgba(220,235,255,${0.35 + alpha})`;
-    ctx.font = 'bold 14px serif';
-    ctx.fillText('雷劫降世，破境而升', W / 2, contentY + 126);
   }
 }

@@ -24,7 +24,7 @@ export class MonsterPanel {
     const hit = this.buttons.find((b) => x >= b.x1 && x <= b.x2 && y >= b.y1 && y <= b.y2);
     if (hit) {
       if (hit.type === 'back') {
-        this.main.activeTab = 'role';
+        this.main.activeTab = 'cave';
         return;
       }
       if (hit.type === 'open') {
@@ -123,7 +123,6 @@ export class MonsterPanel {
 
     const lines = [
       monster.title,
-      `气息：${monster.aura}`,
       `出没：${monster.habitat}`,
       monster.lore,
     ];
