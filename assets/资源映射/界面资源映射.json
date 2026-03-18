@@ -1,5 +1,123 @@
 {
-  "version": 1,
-  "updatedAt": "",
-  "items": []
+  "version": 2,
+  "updatedAt": "2026-03-18 08:03:55",
+  "items": [
+    {
+      "uiKey": "ui_back_arrow",
+      "category": "图标",
+      "name": "返回箭头",
+      "filePath": "assets/界面/图标/ui_back_arrow.png",
+      "status": "待生成",
+      "recommendedSize": "512x512",
+      "prompt": "中式修仙风格的横向返回箭头图标，古朴金色描边，透明背景，适合深色界面，简洁清晰。"
+    },
+    {
+      "uiKey": "ui_nav_active_dot",
+      "category": "图标",
+      "name": "底部导航激活点",
+      "filePath": "assets/界面/图标/ui_nav_active_dot.png",
+      "status": "待生成",
+      "recommendedSize": "256x256",
+      "prompt": "修仙题材底部导航激活点图标，细小金色发光点，透明背景，适合深色界面。"
+    },
+    {
+      "uiKey": "ui_bag_icon",
+      "category": "图标",
+      "name": "储物袋图标",
+      "filePath": "assets/界面/图标/ui_bag_icon.png",
+      "status": "待生成",
+      "recommendedSize": "512x512",
+      "prompt": "修仙题材储物袋图标，古朴布袋与细金边，透明背景，适合微信小游戏界面。"
+    },
+    {
+      "uiKey": "ui_achievement_icon",
+      "category": "图标",
+      "name": "成就入口图标",
+      "filePath": "assets/界面/图标/ui_achievement_icon.png",
+      "status": "待生成",
+      "recommendedSize": "512x512",
+      "prompt": "修仙题材成就图标，卷轴与小印记组合，透明背景，金色描边，简洁。"
+    },
+    {
+      "uiKey": "ui_codex_icon",
+      "category": "图标",
+      "name": "图鉴入口图标",
+      "filePath": "assets/界面/图标/ui_codex_icon.png",
+      "status": "待生成",
+      "recommendedSize": "512x512",
+      "prompt": "修仙题材妖物图鉴图标，古籍与封纹组合，透明背景，金色描边。"
+    },
+    {
+      "uiKey": "ui_primary_button_frame",
+      "category": "边框",
+      "name": "主按钮边框",
+      "filePath": "assets/界面/边框/ui_primary_button_frame.png",
+      "status": "待生成",
+      "recommendedSize": "1024x256",
+      "prompt": "修仙题材主按钮边框，横向长按钮，古朴金边，深色内底，透明背景，适合文字居中。"
+    },
+    {
+      "uiKey": "ui_secondary_button_frame",
+      "category": "边框",
+      "name": "次按钮边框",
+      "filePath": "assets/界面/边框/ui_secondary_button_frame.png",
+      "status": "待生成",
+      "recommendedSize": "1024x256",
+      "prompt": "修仙题材次按钮边框，横向按钮，描边较轻，深色内底，透明背景。"
+    },
+    {
+      "uiKey": "ui_skill_card_frame",
+      "category": "边框",
+      "name": "神通卡框",
+      "filePath": "assets/界面/边框/ui_skill_card_frame.png",
+      "status": "待生成",
+      "recommendedSize": "1024x768",
+      "prompt": "修仙题材神通技能卡边框，矩形卡框，古朴金边，适合深色背景，透明背景。"
+    },
+    {
+      "uiKey": "ui_dialog_frame",
+      "category": "边框",
+      "name": "弹框边框",
+      "filePath": "assets/界面/边框/ui_dialog_frame.png",
+      "status": "待生成",
+      "recommendedSize": "1024x1024",
+      "prompt": "修仙题材通用弹框边框，方正稳重，古朴金边，深色半透明内底，透明背景。"
+    },
+    {
+      "uiKey": "ui_title_divider",
+      "category": "边框",
+      "name": "标题分隔装饰",
+      "filePath": "assets/界面/边框/ui_title_divider.png",
+      "status": "待生成",
+      "recommendedSize": "1024x256",
+      "prompt": "修仙题材标题装饰分隔线，左右对称，细金线，透明背景。"
+    },
+    {
+      "uiKey": "ui_hp_bar_frame",
+      "category": "血条",
+      "name": "气血条底框",
+      "filePath": "assets/界面/血条/ui_hp_bar_frame.png",
+      "status": "待生成",
+      "recommendedSize": "1024x128",
+      "prompt": "修仙题材气血条底框，横向长条，古朴金色边框，透明背景。"
+    },
+    {
+      "uiKey": "ui_hp_bar_fill",
+      "category": "血条",
+      "name": "气血条填充",
+      "filePath": "assets/界面/血条/ui_hp_bar_fill.png",
+      "status": "待生成",
+      "recommendedSize": "1024x128",
+      "prompt": "修仙题材气血条填充贴图，温暖金黄到浅白渐变，适合深色界面。"
+    },
+    {
+      "uiKey": "ui_skill_cd_fill",
+      "category": "血条",
+      "name": "神通CD填充条",
+      "filePath": "assets/界面/血条/ui_skill_cd_fill.png",
+      "status": "待生成",
+      "recommendedSize": "1024x128",
+      "prompt": "修仙题材技能CD填充条，低饱和金色渐变，适合神通卡底部短条显示。"
+    }
+  ]
 }

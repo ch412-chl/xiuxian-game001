@@ -1,0 +1,14 @@
+﻿uiKey,分类,资源名称,文件名,推荐尺寸,提示词,状态
+ui_back_arrow,图标,返回箭头,ui_back_arrow.png,512x512,中式修仙风格的横向返回箭头图标，古朴金色描边，透明背景，适合深色界面，简洁清晰。,待生成
+ui_nav_active_dot,图标,底部导航激活点,ui_nav_active_dot.png,256x256,修仙题材底部导航激活点图标，细小金色发光点，透明背景，适合深色界面。,待生成
+ui_bag_icon,图标,储物袋图标,ui_bag_icon.png,512x512,修仙题材储物袋图标，古朴布袋与细金边，透明背景，适合微信小游戏界面。,待生成
+ui_achievement_icon,图标,成就入口图标,ui_achievement_icon.png,512x512,修仙题材成就图标，卷轴与小印记组合，透明背景，金色描边，简洁。,待生成
+ui_codex_icon,图标,图鉴入口图标,ui_codex_icon.png,512x512,修仙题材妖物图鉴图标，古籍与封纹组合，透明背景，金色描边。,待生成
+ui_primary_button_frame,边框,主按钮边框,ui_primary_button_frame.png,1024x256,修仙题材主按钮边框，横向长按钮，古朴金边，深色内底，透明背景，适合文字居中。,待生成
+ui_secondary_button_frame,边框,次按钮边框,ui_secondary_button_frame.png,1024x256,修仙题材次按钮边框，横向按钮，描边较轻，深色内底，透明背景。,待生成
+ui_skill_card_frame,边框,神通卡框,ui_skill_card_frame.png,1024x768,修仙题材神通技能卡边框，矩形卡框，古朴金边，适合深色背景，透明背景。,待生成
+ui_dialog_frame,边框,弹框边框,ui_dialog_frame.png,1024x1024,修仙题材通用弹框边框，方正稳重，古朴金边，深色半透明内底，透明背景。,待生成
+ui_title_divider,边框,标题分隔装饰,ui_title_divider.png,1024x256,修仙题材标题装饰分隔线，左右对称，细金线，透明背景。,待生成
+ui_hp_bar_frame,血条,气血条底框,ui_hp_bar_frame.png,1024x128,修仙题材气血条底框，横向长条，古朴金色边框，透明背景。,待生成
+ui_hp_bar_fill,血条,气血条填充,ui_hp_bar_fill.png,1024x128,修仙题材气血条填充贴图，温暖金黄到浅白渐变，适合深色界面。,待生成
+ui_skill_cd_fill,血条,神通CD填充条,ui_skill_cd_fill.png,1024x128,修仙题材技能CD填充条，低饱和金色渐变，适合神通卡底部短条显示。,待生成
