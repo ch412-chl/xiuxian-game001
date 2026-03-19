@@ -1,0 +1,9 @@
+﻿事件ID,事件类型,事件标题,事件文案,效果类型,效果参数,适用范围,可重复触发,排序,备注
+evt_clue_common,线索文本,前路微光,你在地面与石壁间看到零碎痕迹，意识到更深处仍有未知。,none,-,全关卡,是,10,基础叙事事件
+evt_stone_small,灵石事件,碎石藏辉,你在碎石间摸到一小包灵石。,grant_stone,baseStone*0.20,全关卡,是,20,基础灵石收益事件
+evt_trap_minor,陷阱事件,灵压逆冲,你误触残阵，体内灵息一滞，气血受到冲击。,lose_hp_pct,0.08,全关卡,是,30,基础伤害型事件
+evt_mat_small,材料事件,角落残材,你在昏暗角落拾到一份可带走的材料。,grant_material,currentDungeonMaterial*1,全关卡,是,40,基础材料事件
+evt_stone_large,灵石事件,暗匣开裂,你打开尘封暗匣，得到一批灵石。,grant_stone,baseStone*0.35,全关卡,是,50,较高收益事件
+evt_mat_rare,材料事件,异色灵植,你在罅隙中发现一株异色灵植。,grant_material,currentDungeonRareMaterial*1,结丹及以上,是,60,稀有材料事件
+evt_trap_heavy,陷阱事件,禁制反噬,地面禁制骤然反噬，你强行稳住心神。,lose_hp_pct,0.15,元婴及以上,是,70,高压陷阱事件
+evt_talisman,材料事件,残符未尽,你拾到一枚未耗尽灵气的符箓。,grant_item,teleport*1,化神及以上,是,80,稀有功能道具事件

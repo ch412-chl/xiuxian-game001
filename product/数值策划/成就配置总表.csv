@@ -1,0 +1,13 @@
+﻿成就ID,分类,成就名称,描述,统计键,目标值,奖励类型,奖励ID,奖励数量,排序,显示规则
+ach_kill_100,击杀,初试锋芒,累计击败100名敌人,kill_total,100,stone,,300,10,always
+ach_kill_500,击杀,百人敌,累计击败500名敌人,kill_total,500,stone,,1200,20,always
+ach_kill_1000,击杀,千斩,累计击败1000名敌人,kill_total,1000,stone,,3000,30,always
+ach_clear_1,历练通关,首通一关,累计成功通关1次副本,clear_total,1,stone,,300,40,always
+ach_clear_10,历练通关,连破十关,累计成功通关10次副本,clear_total,10,stone,,1800,50,always
+ach_clear_100,历练通关,百关试炼,累计成功通关100次副本,clear_total,100,stone,,10000,60,always
+ach_realm_1,境界成长,迈入筑基,首次突破至筑基初期,realm_group_reached,1,item,break_dan_1,1,70,always
+ach_realm_2,境界成长,踏入结丹,首次突破至结丹初期,realm_group_reached,2,item,break_dan_2,1,80,always
+ach_realm_4,境界成长,窥见化神,首次突破至化神初期,realm_group_reached,4,item,break_dan_4,1,90,always
+ach_stone_10000,资源积累,灵石小成,累计获得10000灵石,stone_total_gained,10000,item,huiling,2,100,always
+ach_stone_50000,资源积累,灵石丰藏,累计获得50000灵石,stone_total_gained,50000,stone,,2500,110,always
+ach_stone_100000,资源积累,灵石如潮,累计获得100000灵石,stone_total_gained,100000,item,teleport,2,120,always
