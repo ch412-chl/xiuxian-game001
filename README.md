@@ -9,10 +9,11 @@
 1. `CODEX_RULES.md`
 2. `HANDOFF.md`
 3. `README.md`
-4. 目标目录下的 `README.md`
-5. 对应真源文件
-6. 若任务涉及编码，先读 `product/实现规范/实现前自检流程.md`
-7. 再看相关代码文件
+4. `product/产品需求/模块需求导航.md`
+5. 目标目录下的 `README.md`
+6. 对应真源文件
+7. 若任务涉及编码，先读 `product/实现规范/实现前自检流程.md`
+8. 再看相关代码文件
 
 说明：
 - `CODEX_RULES.md`：项目级长期规范
