@@ -1,4 +1,4 @@
 ﻿广告位ID,广告类型,业务场景,触发页面,触发条件,展示文案,奖励类型,奖励值,每日上限,单局上限,失败兜底,开发广告位ID,正式广告位ID,启用状态,备注
 ad_break_cd_skip,rewarded,突破冷却跳过,人物页,突破失败且存在冷却,观看广告立即清除本次突破冷却,skip_break_cooldown,1次,5,-,广告失败则保持原冷却,TODO_DEV_BREAK_CD,TODO_PROD_BREAK_CD,on,当前版本唯一的破境广告位
-ad_run_revive,rewarded,历练广告复活,探索页,本次历练战斗失败且本次未复活,观看广告后原地复活并回到遇敌待战,revive_once,1次,3,1,广告失败则停留死亡待确认,TODO_DEV_RUN_REVIVE,TODO_PROD_RUN_REVIVE,on,每次历练最多1次
-ad_run_retreat,rewarded,历练广告撤离,探索页,无传送符且主动撤离,观看广告后保留当前储物袋战利品并撤离,safe_retreat,1次,5,1,广告失败则留在撤离确认层,TODO_DEV_RUN_RETREAT,TODO_PROD_RUN_RETREAT,on,仅在无传送符时出现
+ad_run_revive,rewarded,历练广告复活,轻肉鸽战场页,本局战斗失败且本局尚未使用广告复活,观看广告后回到死亡前主战斗态，并恢复部分气血,revive_once,1次,3,1,广告失败则停留失败预览态，不返还本局死亡前状态,TODO_DEV_RUN_REVIVE,TODO_PROD_RUN_REVIVE,on,每次历练最多1次
+ad_run_retreat,rewarded,历练广告撤离,轻肉鸽战场页,无传送符且当前状态允许主动撤离,观看广告后保留本局 runBag 战利品并安全撤离,safe_retreat,1次,5,1,广告失败则回到当前主战斗态，不结算本局战利品,TODO_DEV_RUN_RETREAT,TODO_PROD_RUN_RETREAT,on,仅在无传送符时出现
