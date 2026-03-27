@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>修仙版地下城堡 · 页面视觉深化稿</title>
+  <style>
+    :root {
+      --bg-0: #0d1115;
+      --bg-1: #141a20;
+      --bg-2: #1b2329;
+      --panel: rgba(23, 29, 34, 0.82);
+      --panel-2: rgba(18, 23, 28, 0.92);
+      --text: #e7e2d6;
+      --muted: #b7b0a2;
+      --jade: #7ea598;
+      --jade-2: #9fc0b5;
+      --gold: #d1be86;
+      --gold-2: #bda463;
+      --fire: #d38756;
+      --red: #a44f45;
+      --line: rgba(209, 190, 134, 0.20);
+      --line-2: rgba(126, 165, 152, 0.24);
+      --shadow: 0 22px 46px rgba(0, 0, 0, 0.42);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 26px;
+      font-family: "PingFang SC", "Songti SC", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(126,165,152,0.13), transparent 22%),
+        radial-gradient(circle at 20% 80%, rgba(159,192,181,0.05), transparent 24%),
+        linear-gradient(180deg, #171d22 0%, #0d1115 100%);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      letter-spacing: 1px;
+    }
+    .intro {
+      margin: 0 0 24px;
+      max-width: 1080px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    .tips {
+      margin: 0 0 28px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(22,27,33,0.92), rgba(14,18,22,0.96));
+      box-shadow: var(--shadow);
+    }
+    .tips strong { color: var(--gold); }
+    .tips ul { margin: 10px 0 0; padding-left: 20px; line-height: 1.9; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 28px;
+      align-items: start;
+    }
+    .panel {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+    .panel-title {
+      color: var(--gold);
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+    .panel-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .phone {
+      width: 360px;
+      height: 760px;
+      border-radius: 34px;
+      overflow: hidden;
+      border: 1px solid rgba(209,190,134,0.22);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(159,192,181,0.12), transparent 24%),
+        linear-gradient(180deg, #182026 0%, #0e1216 100%);
+      box-shadow: 0 22px 46px rgba(0,0,0,0.45);
+      position: relative;
+      padding: 22px 16px 18px;
+    }
+    .mist, .mist-2 {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .mist {
+      background:
+        radial-gradient(circle at 18% 16%, rgba(159,192,181,0.08), transparent 16%),
+        radial-gradient(circle at 72% 28%, rgba(126,165,152,0.07), transparent 20%),
+        radial-gradient(circle at 50% 86%, rgba(159,192,181,0.05), transparent 22%);
+    }
+    .mist-2 {
+      background:
+        linear-gradient(180deg, rgba(231,226,214,0.02), transparent 20%, transparent 78%, rgba(231,226,214,0.02));
+    }
+    .moon {
+      position: absolute;
+      top: 76px;
+      right: 26px;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(231,226,214,0.23), rgba(231,226,214,0.06) 58%, transparent 60%);
+      filter: blur(0.2px);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    .mountains {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 124px;
+      height: 180px;
+      background:
+        radial-gradient(ellipse at 30% 100%, rgba(36,45,52,0.92), transparent 42%),
+        radial-gradient(ellipse at 70% 100%, rgba(28,35,40,0.88), transparent 44%),
+        radial-gradient(ellipse at 50% 100%, rgba(22,28,33,0.94), transparent 48%);
+      pointer-events: none;
+      opacity: 0.95;
+    }
+    .header {
+      position: relative;
+      z-index: 2;
+      margin-top: 18px;
+      text-align: center;
+    }
+    .header .line {
+      width: 120px;
+      height: 1px;
+      margin: 0 auto 10px;
+      background: linear-gradient(90deg, transparent, rgba(209,190,134,0.7), transparent);
+    }
+    .title {
+      font-size: 23px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    .sub {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .section {
+      position: relative;
+      z-index: 2;
+      margin-top: 22px;
+    }
+    .section-label {
+      color: var(--gold);
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+    .list {
+      display: grid;
+      gap: 10px;
+    }
+    .route {
+      position: relative;
+      min-height: 56px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(25,32,38,0.88), rgba(15,19,23,0.96));
+      padding: 0 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .route::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 74px;
+      background: linear-gradient(90deg, rgba(126,165,152,0.10), transparent);
+    }
+    .route .name {
+      position: relative;
+      z-index: 1;
+      font-size: 14px;
+    }
+    .route .state {
+      position: relative;
+      z-index: 1;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .route.main .state { color: var(--gold); }
+    .formation {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .seal {
+      min-height: 84px;
+      border: 1px solid rgba(209,190,134,0.18);
+      background:
+        radial-gradient(circle at top, rgba(126,165,152,0.10), transparent 38%),
+        linear-gradient(180deg, rgba(14,18,22,0.95), rgba(10,13,16,0.98));
+      border-radius: 16px;
+      padding: 10px 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .seal::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(126,165,152,0.10);
+      border-radius: 12px;
+      pointer-events: none;
+    }
+    .seal .idx {
+      color: var(--gold);
+      font-size: 11px;
+      text-align: center;
+    }
+    .seal .skill-name {
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.3;
+    }
+    .seal .mark {
+      height: 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(126,165,152,0.20);
+      background: rgba(9,12,15,0.98);
+      overflow: hidden;
+      position: relative;
+    }
+    .seal .mark span {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 44%;
+      background: linear-gradient(90deg, var(--jade), var(--jade-2));
+    }
+    .footer-note {
+      margin-top: 12px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+    .enemy-area {
+      position: relative;
+      z-index: 2;
+      margin-top: 18px;
+      text-align: center;
+    }
+    .enemy-name {
+      font-size: 22px;
+      letter-spacing: 2px;
+      margin-top: 10px;
+    }
+    .bar {
+      width: 100%;
+      height: 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(209,190,134,0.22);
+      background: rgba(8,11,14,0.92);
+      position: relative;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .bar > span {
+      position: absolute;
+      inset: 0 auto 0 0;
+    }
+    .bar > b {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #11161a;
+    }
+    .stage {
+      position: relative;
+      z-index: 2;
+      margin-top: 22px;
+      height: 300px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(209,190,134,0.14);
+      background:
+        radial-gradient(circle at 50% 68%, rgba(169,200,190,0.07), transparent 18%),
+        linear-gradient(180deg, rgba(18,23,28,0.56), rgba(8,11,14,0.90));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .stage .ring {
+      width: 174px;
+      height: 174px;
+      border-radius: 50%;
+      border: 1px solid rgba(209,190,134,0.16);
+      box-shadow:
+        0 0 0 18px rgba(126,165,152,0.04),
+        0 0 0 46px rgba(169,200,190,0.025);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 58px;
+      color: rgba(231,226,214,0.26);
+    }
+    .stage .glow {
+      position: absolute;
+      width: 280px;
+      height: 120px;
+      border-radius: 50%;
+      bottom: 40px;
+      background: radial-gradient(ellipse at center, rgba(159,192,181,0.09), transparent 60%);
+      filter: blur(8px);
+    }
+    .combat-bottom {
+      position: relative;
+      z-index: 2;
+      margin-top: 18px;
+      border-top: 1px solid rgba(209,190,134,0.16);
+      padding-top: 12px;
+    }
+    .combat-bottom .who {
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .battle-card {
+      min-height: 74px;
+      border: 1px solid rgba(209,190,134,0.15);
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at top, rgba(126,165,152,0.08), transparent 34%),
+        linear-gradient(180deg, rgba(13,17,21,0.96), rgba(9,12,15,0.98));
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .battle-card::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(126,165,152,0.09);
+      border-radius: 12px;
+    }
+    .battle-card .name {
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.3;
+      position: relative;
+      z-index: 1;
+    }
+    .battle-card .cd {
+      position: relative;
+      z-index: 1;
+      height: 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(126,165,152,0.22);
+      background: rgba(8,11,14,0.98);
+      overflow: hidden;
+    }
+    .battle-card .cd span {
+      position: absolute;
+      inset: 0 auto 0 0;
+      background: linear-gradient(90deg, var(--jade), var(--jade-2));
+    }
+    .battle-card.fire .cd span {
+      background: linear-gradient(90deg, var(--red), var(--fire));
+    }
+    .compare {
+      margin-top: 30px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(16,20,24,0.92);
+      padding: 20px;
+    }
+    .compare h2 {
+      margin: 0 0 10px;
+      color: var(--gold);
+      font-size: 18px;
+    }
+    .compare ul {
+      margin: 0;
+      padding-left: 20px;
+      line-height: 1.9;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <h1>修仙版地下城堡 · 页面视觉深化稿</h1>
+  <p class="intro">
+    这一版不再停留在抽象调色，而是把“仙门清修”和“秘境道场”真正落到页面里。重点不只是颜色，而是轮廓、留白、意象、材质和页面气口。
+  </p>
+
+  <section class="tips">
+    <strong>本轮强化目标</strong>
+    <ul>
+      <li>历练页不再像后台列表，而像将行前的山门路书。</li>
+      <li>探索战斗页不再是黑框 + 表单组件，而像夜雾中的阵场对峙。</li>
+      <li>神通格从“表单卡”改成“术法刻印”。</li>
+      <li>把仙气和险气分层：常态清修，遇敌压场。</li>
+    </ul>
+  </section>
+
+  <section class="grid">
+    <div class="panel">
+      <div class="panel-title">历练页 · 仙门清修</div>
+      <div class="panel-sub">关键词：将行、择路、观势、玉简、路书</div>
+      <div class="phone">
+        <div class="mist"></div>
+        <div class="mist-2"></div>
+        <div class="moon"></div>
+        <div class="header">
+          <div class="line"></div>
+          <div class="title">历练山路</div>
+          <div class="sub">炼气境 · 云气浮松，道踪未远</div>
+        </div>
+
+        <div class="section">
+          <div class="section-label">宜往之地</div>
+          <div class="list">
+            <div class="route main">
+              <div class="name">初期 · 野狼谷外圃</div>
+              <div class="state">主推探索</div>
+            </div>
+            <div class="route">
+              <div class="name">中期 · 青云剑墟</div>
+              <div class="state">天机未启</div>
+            </div>
+            <div class="route">
+              <div class="name">后期 · 火云古洞</div>
+              <div class="state">天机未启</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" style="margin-top: 30px;">
+          <div class="section-label">战前整备</div>
+          <div class="formation">
+            <div class="seal">
+              <div class="idx">第一式</div>
+              <div class="skill-name">归元指</div>
+              <div class="mark"><span></span></div>
+            </div>
+            <div class="seal">
+              <div class="idx">第二式</div>
+              <div class="skill-name">清心诀</div>
+              <div class="mark"><span style="width:28%;"></span></div>
+            </div>
+            <div class="seal">
+              <div class="idx">第三式</div>
+              <div class="skill-name">破甲掌</div>
+              <div class="mark"><span style="width:56%;"></span></div>
+            </div>
+          </div>
+          <div class="footer-note">整备区不再像库存格，而像出行前摆开的三枚术印。</div>
+        </div>
+
+        <div class="mountains"></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">探索战斗页 · 秘境道场</div>
+      <div class="panel-sub">关键词：夜行、阵压、妖雾、月轮、朱砂一点</div>
+      <div class="phone">
+        <div class="mist"></div>
+        <div class="mist-2"></div>
+        <div class="enemy-area">
+          <div class="section-label" style="margin-bottom: 6px;">野狼谷外圃 · 第五层</div>
+          <div class="enemy-name">炼气 · 首狼</div>
+          <div class="bar">
+            <span style="width:74%; background: linear-gradient(90deg, #a44f45, #d38756);"></span>
+            <b>720</b>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="glow"></div>
+          <div class="ring">战</div>
+        </div>
+
+        <div class="combat-bottom">
+          <div class="who">我方</div>
+          <div class="bar">
+            <span style="width:68%; background: linear-gradient(90deg, #d1be86, #9fc0b5);"></span>
+            <b>316</b>
+          </div>
+
+          <div class="skills">
+            <div class="battle-card">
+              <div class="name">归元指</div>
+              <div class="cd"><span style="width:52%;"></span></div>
+            </div>
+            <div class="battle-card">
+              <div class="name">清心诀</div>
+              <div class="cd"><span style="width:22%;"></span></div>
+            </div>
+            <div class="battle-card fire">
+              <div class="name">破甲掌</div>
+              <div class="cd"><span style="width:64%;"></span></div>
+            </div>
+          </div>
+          <div class="footer-note">战斗页不再是空黑面板，而像一处被阵势压住的雾夜道场。</div>
+        </div>
+
+        <div class="mountains" style="bottom: 188px; opacity: 0.72;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="compare">
+    <h2>这一版相比上一版多了什么</h2>
+    <ul>
+      <li>多了“形”：不是普通卡片堆叠，而是路书、术印、道场、月轮。</li>
+      <li>多了“气”：页面里有聚散、雾层、冷暖变化，不再是平均配色。</li>
+      <li>多了“仙”与“险”的张力：历练清修，战斗压场，两者不再同一张脸。</li>
+      <li>多了“世界观母语”：玉简、山门、阵场，而不是后台组件换色。</li>
+    </ul>
+  </section>
+</body>
+</html>
