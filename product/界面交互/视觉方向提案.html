@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>修仙版地下城堡 · 视觉方向提案</title>
+  <style>
+    :root {
+      --bg: #0f1317;
+      --panel: #171d22;
+      --panel-2: #1d252b;
+      --text: #e7e2d6;
+      --muted: #b8b2a5;
+      --jade: #7fa99b;
+      --jade-light: #a9c8be;
+      --gold: #d6c07a;
+      --fire: #d98a4e;
+      --red: #a94d43;
+      --line: rgba(214, 192, 122, 0.24);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 28px;
+      font-family: "PingFang SC", "Songti SC", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(127, 169, 155, 0.12), transparent 28%),
+        linear-gradient(180deg, #1a2127 0%, #0f1317 100%);
+    }
+    h1 { margin: 0 0 10px; font-size: 28px; }
+    .intro { margin: 0 0 28px; color: var(--muted); line-height: 1.7; max-width: 980px; }
+    .section-title {
+      font-size: 18px;
+      margin: 0 0 14px;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(23,29,34,0.9), rgba(15,19,23,0.95));
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+    }
+    .tag {
+      display: inline-block;
+      border: 1px solid rgba(214, 192, 122, 0.35);
+      color: var(--gold);
+      padding: 4px 10px;
+      font-size: 12px;
+      margin-bottom: 10px;
+      border-radius: 999px;
+    }
+    .name { font-size: 22px; margin-bottom: 8px; }
+    .desc { color: var(--muted); line-height: 1.7; min-height: 72px; }
+    .palette { display: flex; gap: 8px; margin: 14px 0; }
+    .swatch {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .pros { margin: 0; padding-left: 18px; color: var(--text); line-height: 1.8; }
+    .reco {
+      border: 1px solid rgba(127, 169, 155, 0.35);
+      background:
+        radial-gradient(circle at top, rgba(127, 169, 155, 0.12), transparent 30%),
+        linear-gradient(180deg, rgba(24,31,36,0.94), rgba(15,19,23,0.96));
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 28px;
+    }
+    .reco h2 { margin: 0 0 8px; color: var(--jade-light); }
+    .reco p { margin: 0; color: var(--text); line-height: 1.8; }
+    .mockups {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 22px;
+    }
+    .phone-wrap { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+    .phone-title { color: var(--muted); font-size: 13px; }
+    .phone {
+      width: 320px;
+      height: 640px;
+      border-radius: 30px;
+      border: 1px solid rgba(214, 192, 122, 0.22);
+      background:
+        radial-gradient(circle at top, rgba(127,169,155,0.10), transparent 22%),
+        linear-gradient(180deg, #1a2127 0%, #11161b 100%);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+      padding: 22px 16px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mist {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 18%, rgba(169,200,190,0.08), transparent 18%),
+        radial-gradient(circle at 70% 36%, rgba(127,169,155,0.06), transparent 24%);
+      pointer-events: none;
+    }
+    .title {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 24px;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .bar {
+      margin-top: 14px;
+      height: 12px;
+      border: 1px solid rgba(214, 192, 122, 0.28);
+      background: rgba(14,18,22,0.9);
+      position: relative;
+      overflow: hidden;
+    }
+    .bar span {
+      position: absolute;
+      inset: 0 auto 0 0;
+    }
+    .bar b {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #161a1e;
+    }
+    .list {
+      margin-top: 24px;
+      display: grid;
+      gap: 8px;
+    }
+    .row {
+      height: 48px;
+      border: 1px solid rgba(214, 192, 122, 0.2);
+      background: linear-gradient(180deg, rgba(29,37,43,0.86), rgba(20,24,28,0.96));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+      font-size: 13px;
+    }
+    .stage {
+      margin-top: 24px;
+      height: 250px;
+      border: 1px solid rgba(214,192,122,0.16);
+      background:
+        radial-gradient(circle at 50% 70%, rgba(169,200,190,0.06), transparent 20%),
+        linear-gradient(180deg, rgba(22,28,33,0.78), rgba(10,13,16,0.92));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(231,226,214,0.4);
+      font-size: 48px;
+    }
+    .bottom-box {
+      margin-top: 18px;
+      border-top: 1px solid rgba(214,192,122,0.18);
+      padding-top: 12px;
+    }
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .skill {
+      border: 1px solid rgba(214, 192, 122, 0.16);
+      background: linear-gradient(180deg, rgba(17,22,27,0.96), rgba(12,16,20,0.98));
+      min-height: 64px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .skill .n {
+      text-align: center;
+      font-size: 12px;
+    }
+    .skill .cd {
+      height: 8px;
+      border: 1px solid rgba(127,169,155,0.25);
+      background: rgba(9,12,15,0.95);
+      position: relative;
+      overflow: hidden;
+    }
+    .skill .cd span {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 45%;
+      background: linear-gradient(90deg, var(--jade), var(--jade-light));
+    }
+    .tips {
+      margin-top: 28px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+      background: rgba(18,22,27,0.92);
+    }
+    .tips ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+      line-height: 1.9;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <h1>修仙版地下城堡 · 视觉方向提案</h1>
+  <p class="intro">
+    当前画面的问题不是“暗”本身，而是暗得太平、太木、太像棕黑工具界面。修仙感应该来自山雾、玉青、松烟、月白、灵火与局部冷金，而不是整页厚重棕黑块。
+  </p>
+
+  <h2 class="section-title">三个方向</h2>
+  <section class="cards">
+    <article class="card">
+      <div class="tag">推荐主方向</div>
+      <div class="name">清岚灵谷</div>
+      <div class="desc">以玉青、月白、松烟灰和淡金为主。整体像山门夜色中的薄雾与灵气，适合人物、历练、洞府与图鉴这些长时间停留页面。</div>
+      <div class="palette">
+        <span class="swatch" style="background:#14171C"></span>
+        <span class="swatch" style="background:#20262B"></span>
+        <span class="swatch" style="background:#7FA99B"></span>
+        <span class="swatch" style="background:#A9C8BE"></span>
+        <span class="swatch" style="background:#D6C07A"></span>
+      </div>
+      <ul class="pros">
+        <li>最有灵气与道法自然感</li>
+        <li>长期观看不压抑</li>
+        <li>适合做全局基底</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="tag">战斗辅方向</div>
+      <div class="name">玄岳夜行</div>
+      <div class="desc">以玄青、冷雾、朱砂和残金构成高压秘境感。适合探索遇敌、首领对峙、渡劫节点，不适合覆盖全部页面。</div>
+      <div class="palette">
+        <span class="swatch" style="background:#101419"></span>
+        <span class="swatch" style="background:#1A232B"></span>
+        <span class="swatch" style="background:#556A78"></span>
+        <span class="swatch" style="background:#A94D43"></span>
+        <span class="swatch" style="background:#C8AE67"></span>
+      </div>
+      <ul class="pros">
+        <li>压迫感强</li>
+        <li>遇敌与首领更有张力</li>
+        <li>适合作为战斗态局部强化</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="tag">不推荐做主方向</div>
+      <div class="name">白玉松烟</div>
+      <div class="desc">米白、银青、淡墨的仙门清修感。好看，但会把地下城堡的秘境与危机感冲淡，容易变轻飘。</div>
+      <div class="palette">
+        <span class="swatch" style="background:#EEE6D8"></span>
+        <span class="swatch" style="background:#D4D0C8"></span>
+        <span class="swatch" style="background:#AFBCBD"></span>
+        <span class="swatch" style="background:#6F757C"></span>
+        <span class="swatch" style="background:#B8A77D"></span>
+      </div>
+      <ul class="pros">
+        <li>清雅</li>
+        <li>仙门味足</li>
+        <li>但不适合当前主循环</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="reco">
+    <h2>最终建议：A 为主，B 为辅</h2>
+    <p>常态页面采用“清岚灵谷”，战斗、首领、渡劫等高压节点局部借“玄岳夜行”。这样既有修仙气，又保留地下城堡式秘境压迫感，不会再是现在这种一整页棕黑、重线、死板的感觉。</p>
+  </section>
+
+  <h2 class="section-title">推荐方向落地示意</h2>
+  <section class="mockups">
+    <div class="phone-wrap">
+      <div class="phone-title">历练选关页：清岚灵谷</div>
+      <div class="phone">
+        <div class="mist"></div>
+        <div class="title">一历练关卡一</div>
+        <div class="subtitle">【炼气】 山中雾起，道踪未绝</div>
+        <div class="list">
+          <div class="row"><span>初期 · 野狼谷外圃</span><span style="color:#d6c07a">主推探索</span></div>
+          <div class="row"><span>中期 · 青云剑墟</span><span style="color:#b8b2a5">待解锁</span></div>
+          <div class="row"><span>后期 · 火云古洞</span><span style="color:#b8b2a5">待解锁</span></div>
+        </div>
+        <div class="bottom-box">
+          <div style="text-align:center;color:#d6c07a;font-size:13px;">战前整备</div>
+          <div class="skills">
+            <div class="skill"><div class="n">归元指</div><div class="cd"><span></span></div></div>
+            <div class="skill"><div class="n">清心诀</div><div class="cd"><span style="width:28%"></span></div></div>
+            <div class="skill"><div class="n">破甲掌</div><div class="cd"><span style="width:56%"></span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phone-wrap">
+      <div class="phone-title">探索遇敌页：A 主 + B 辅</div>
+      <div class="phone">
+        <div class="mist"></div>
+        <div class="title">【野狼谷外圃】</div>
+        <div class="subtitle">层数 5/10 · 妖狼现身</div>
+        <div class="bar"><span style="width:72%; background:linear-gradient(90deg,#a94d43,#d98a4e);"></span><b>妖狼首领 · 720</b></div>
+        <div class="stage">战</div>
+        <div class="bottom-box">
+          <div style="text-align:center;font-size:13px;margin-bottom:8px;">我方</div>
+          <div class="bar"><span style="width:66%; background:linear-gradient(90deg,#d6c07a,#a9c8be);"></span><b>316</b></div>
+          <div class="skills">
+            <div class="skill"><div class="n">归元指</div><div class="cd"><span></span></div></div>
+            <div class="skill"><div class="n">清心诀</div><div class="cd"><span style="width:20%"></span></div></div>
+            <div class="skill"><div class="n">破甲掌</div><div class="cd"><span style="width:40%"></span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tips">
+    <div class="section-title" style="margin:0;">当前必须立刻改掉的视觉问题</div>
+    <ul>
+      <li>去掉大面积棕黑底 + 粗金线，改成墨青雾底 + 轻淡金点睛。</li>
+      <li>去掉“所有卡片同亮度同材质”，改成背景、面板、操作卡三层亮度。</li>
+      <li>探索战斗舞台不能再是空黑框，必须有雾层、气场或暗部空间感。</li>
+      <li>血条不能继续一律死黄，要统一结构但区分我方灵气感与敌方危险感。</li>
+      <li>标题与次级文字必须拉开层级，不能全都像一块木牌。</li>
+    </ul>
+  </section>
+</body>
+</html>
