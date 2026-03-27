@@ -1,0 +1,7 @@
+upgradeId,upgradeType,rarity,displayName,targetType,targetId,description,maxStack,canRepeat,unlockCondition,valueA,valueB,valueC
+UPG_SWORD_COUNT_01,skill_upgrade,common,御剑增锋,skill,yujianshu,飞剑数量+1,3,true,default,1,0,0
+UPG_FIRE_SPLASH_01,skill_upgrade,common,火弹扩散,skill,huodan,爆炸范围提升,3,true,default,0.15,0,0
+UPG_ICE_SLOW_01,skill_upgrade,common,寒意蔓延,skill,bingzhui,减速效果提升,3,true,default,0.12,0,0
+UPG_THUNDER_CHAIN_01,skill_upgrade,rare,雷引连劫,skill,tianlei,连锁目标+1,2,true,realm_ge_zhuji,1,0,0
+UPG_GLOBAL_CDR_01,passive,common,气机流转,global,all,全部神通冷却缩短,4,true,default,0.08,0,0
+UPG_AURA_HEAL_01,support,rare,清心回元,skill,qingxinjue,回复量提升并扩大生效范围,2,true,default,0.18,0.2,0

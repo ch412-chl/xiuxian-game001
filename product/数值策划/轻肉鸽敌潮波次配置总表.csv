@@ -1,0 +1,6 @@
+stageId,waveId,waveType,startSecond,endSecond,spawnPattern,enemyGroupId,spawnIntervalSec,maxAliveCount,eliteId,rewardNode
+LQ_EARLY_01,W1,normal,0,35,edge_ring,lq_wolf_pack_a,1.8,18,,
+LQ_EARLY_01,W2,elite,35,55,front_pressure,lq_wolf_pack_b,2.2,14,elite_lq_bonewolf_01,upgrade_1
+LQ_EARLY_01,W3,normal,55,110,edge_mix,lq_mixed_pack_a,1.6,22,,
+LQ_EARLY_01,W4,elite,110,130,cross_pressure,lq_mixed_pack_b,2.0,18,elite_lq_bladehound_01,upgrade_2
+LQ_EARLY_01,BOSS,boss,130,210,boss_entry,lq_boss_arena,3.5,10,boss_lq_langwang_01,clear

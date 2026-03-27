@@ -1,0 +1,7 @@
+skillId,displayName,realm,school,baseType,baseBehavior,baseCooldownSec,baseDamageFactor,baseRange,projectileCount,pierceCount,aoeRadius,healFactor,unlockRule,notes
+yujianshu,御剑术,炼气,御剑,active,auto_track,1.2,1.0,mid,1,1,0,0,realm_lianqi,基础追踪飞剑
+huodan,火弹术,筑基,火法,active,projectile_explode,1.6,1.4,mid,1,0,1.8,0,realm_zhuji,命中后小范围爆炸
+bingzhui,冰锥术,结丹,冰法,active,fan_pierce,2.0,1.1,mid,3,1,0,0,realm_jiedan,扇形冰锥并附带减速
+jianqi,剑气斩,元婴,御剑,active,line_slash,2.4,1.8,far,1,99,0,0,realm_yuanying,直线长距离穿透剑气
+tianlei,天雷引,化神,雷法,active,chain_strike,3.0,2.2,global,1,0,0,0,realm_huashen,优先打击高威胁目标并连锁
+qingxinjue,清心诀,炼气,心法,support,pulse_heal,8.0,0,near,0,0,0,0.12,default,周期性回复当前气血

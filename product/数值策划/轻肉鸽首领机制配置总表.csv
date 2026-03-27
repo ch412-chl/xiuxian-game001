@@ -1,0 +1,3 @@
+bossId,stageId,bossName,realm,mechanic1Name,mechanic1Desc,mechanic2Name,mechanic2Desc,enrageThreshold,rewardDropGroup
+boss_lq_langwang_01,LQ_EARLY_01,噬月狼王,炼气,扑月,短时间高速突进并撕咬前方区域,狼群召引,周期性召唤两侧狼妖协同压场,0.3,lq_boss_drop_01
+boss_zj_jianzhu_01,ZJ_EARLY_01,断岳剑主,筑基,残阵剑潮,持续释放扇形剑气压缩安全区,御剑归鞘,短暂蓄力后向中心爆发多段穿透剑气,0.35,zj_boss_drop_01
