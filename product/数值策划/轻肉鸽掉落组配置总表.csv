@@ -1,211 +1,253 @@
-﻿dropGroupId,stageId,triggerNode,rewardSlot1Type,rewardSlot1Id,rewardSlot1Min,rewardSlot1Max,rewardSlot2Type,rewardSlot2Id,rewardSlot2Min,rewardSlot2Max,rewardSlot2Chance,rewardSlot3Type,rewardSlot3Id,rewardSlot3Min,rewardSlot3Max,rewardSlot3Chance,writebackRule,notes
-drop_lq_early_01_normal,LQ_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,6,10,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_lq_early_01_elite_base,LQ_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,19,27,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_lq_early_01_elite_1,LQ_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,19,27,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_lq_early_01_elite_2,LQ_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,30,43,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+dropGroupId,stageId,triggerNode,rewardSlot1Type,rewardSlot1Id,rewardSlot1Min,rewardSlot1Max,rewardSlot2Type,rewardSlot2Id,rewardSlot2Min,rewardSlot2Max,rewardSlot2Chance,rewardSlot3Type,rewardSlot3Id,rewardSlot3Min,rewardSlot3Max,rewardSlot3Chance,writebackRule,notes
+drop_lq_early_01_normal,LQ_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,6,10,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_lq_early_01_elite_base,LQ_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,18,27,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_lq_early_01_elite_1,LQ_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,18,27,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_lq_early_01_elite_2,LQ_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,24,35,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_lq_early_01_elite_3,LQ_EARLY_01,elite_3_clear,currency_spirit_stone,spirit_stone,30,43,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
 drop_lq_early_01_boss_clear,LQ_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,63,90,item,break_dan_0,0,1,0.55,item,break_mat_0,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_lq_mid_01_normal,LQ_MID_01,normal_clear,currency_spirit_stone,spirit_stone,7,11,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_lq_mid_01_elite_base,LQ_MID_01,elite_base,currency_spirit_stone,spirit_stone,23,31,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_lq_mid_01_elite_1,LQ_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,23,31,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_lq_mid_01_elite_2,LQ_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,35,50,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_lq_mid_01_boss_clear,LQ_MID_01,boss_clear,currency_spirit_stone,spirit_stone,73,105,item,break_dan_0,0,1,0.55,item,break_mat_0,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_lq_late_01_normal,LQ_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,8,13,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_lq_late_01_elite_base,LQ_LATE_01,elite_base,currency_spirit_stone,spirit_stone,26,36,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_lq_late_01_elite_1,LQ_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,26,36,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_lq_late_01_elite_2,LQ_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,40,57,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_lq_late_01_boss_clear,LQ_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,84,120,item,break_dan_0,0,1,0.55,item,break_mat_0,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_zj_early_01_normal,ZJ_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,9,14,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_zj_early_01_elite_base,ZJ_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,29,40,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_zj_early_01_elite_1,ZJ_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,29,40,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_zj_early_01_elite_2,ZJ_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,45,64,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_zj_early_01_boss_clear,ZJ_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,94,135,item,break_dan_1,0,1,0.55,item,break_mat_1,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_zj_mid_01_normal,ZJ_MID_01,normal_clear,currency_spirit_stone,spirit_stone,10,16,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_zj_mid_01_elite_base,ZJ_MID_01,elite_base,currency_spirit_stone,spirit_stone,33,45,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_zj_mid_01_elite_1,ZJ_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,33,45,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_zj_mid_01_elite_2,ZJ_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,51,72,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_zj_mid_01_boss_clear,ZJ_MID_01,boss_clear,currency_spirit_stone,spirit_stone,105,150,item,break_dan_1,0,1,0.55,item,break_mat_1,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_zj_late_01_normal,ZJ_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,11,18,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_zj_late_01_elite_base,ZJ_LATE_01,elite_base,currency_spirit_stone,spirit_stone,37,51,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_zj_late_01_elite_1,ZJ_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,37,51,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_zj_late_01_elite_2,ZJ_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,57,81,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_zj_late_01_boss_clear,ZJ_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,119,170,item,break_dan_1,0,1,0.55,item,break_mat_1,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_jd_early_01_normal,JD_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,12,20,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_jd_early_01_elite_base,JD_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,40,55,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_jd_early_01_elite_1,JD_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,40,55,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_jd_early_01_elite_2,JD_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,62,88,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_jd_early_01_boss_clear,JD_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,129,185,item,break_dan_2,0,1,0.55,item,break_mat_2,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_jd_mid_01_normal,JD_MID_01,normal_clear,currency_spirit_stone,spirit_stone,14,22,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_jd_mid_01_elite_base,JD_MID_01,elite_base,currency_spirit_stone,spirit_stone,44,60,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_jd_mid_01_elite_1,JD_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,44,60,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_jd_mid_01_elite_2,JD_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,68,96,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_jd_mid_01_boss_clear,JD_MID_01,boss_clear,currency_spirit_stone,spirit_stone,140,200,item,break_dan_2,0,1,0.55,item,break_mat_2,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_jd_late_01_normal,JD_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,15,23,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_jd_late_01_elite_base,JD_LATE_01,elite_base,currency_spirit_stone,spirit_stone,47,64,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_jd_late_01_elite_1,JD_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,47,64,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_jd_late_01_elite_2,JD_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,73,103,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_jd_late_01_boss_clear,JD_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,150,215,item,break_dan_2,0,1,0.55,item,break_mat_2,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_yy_early_01_normal,YY_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,16,25,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_yy_early_01_elite_base,YY_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,51,70,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_yy_early_01_elite_1,YY_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,51,70,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_yy_early_01_elite_2,YY_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,79,112,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_yy_early_01_boss_clear,YY_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,164,235,item,break_dan_3,0,1,0.55,item,break_mat_3,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_yy_mid_01_normal,YY_MID_01,normal_clear,currency_spirit_stone,spirit_stone,17,27,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_yy_mid_01_elite_base,YY_MID_01,elite_base,currency_spirit_stone,spirit_stone,55,75,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_yy_mid_01_elite_1,YY_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,55,75,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_yy_mid_01_elite_2,YY_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,85,120,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_yy_mid_01_boss_clear,YY_MID_01,boss_clear,currency_spirit_stone,spirit_stone,175,250,item,break_dan_3,0,1,0.55,item,break_mat_3,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_yy_late_01_normal,YY_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,18,29,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_yy_late_01_elite_base,YY_LATE_01,elite_base,currency_spirit_stone,spirit_stone,58,79,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_yy_late_01_elite_1,YY_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,58,79,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_yy_late_01_elite_2,YY_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,90,127,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_yy_late_01_boss_clear,YY_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,185,265,item,break_dan_3,0,1,0.55,item,break_mat_3,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_hs_early_01_normal,HS_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,19,30,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_hs_early_01_elite_base,HS_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,61,84,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_hs_early_01_elite_1,HS_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,61,84,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_hs_early_01_elite_2,HS_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,95,134,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_hs_early_01_boss_clear,HS_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,196,280,item,break_dan_4,0,1,0.55,item,break_mat_4,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_hs_mid_01_normal,HS_MID_01,normal_clear,currency_spirit_stone,spirit_stone,21,33,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_hs_mid_01_elite_base,HS_MID_01,elite_base,currency_spirit_stone,spirit_stone,66,90,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_hs_mid_01_elite_1,HS_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,66,90,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_hs_mid_01_elite_2,HS_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,102,144,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_hs_mid_01_boss_clear,HS_MID_01,boss_clear,currency_spirit_stone,spirit_stone,210,300,item,break_dan_4,0,1,0.55,item,break_mat_4,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_hs_late_01_normal,HS_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,22,34,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_hs_late_01_elite_base,HS_LATE_01,elite_base,currency_spirit_stone,spirit_stone,69,94,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_hs_late_01_elite_1,HS_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,69,94,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_hs_late_01_elite_2,HS_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,107,151,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_hs_late_01_boss_clear,HS_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,220,315,item,break_dan_4,0,1,0.55,item,break_mat_4,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_lx_early_01_normal,LX_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,23,36,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_lx_early_01_elite_base,LX_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,72,99,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_lx_early_01_elite_1,LX_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,72,99,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_lx_early_01_elite_2,LX_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,112,158,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_lx_early_01_boss_clear,LX_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,231,330,item,break_dan_5,0,1,0.55,item,break_mat_5,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_lx_mid_01_normal,LX_MID_01,normal_clear,currency_spirit_stone,spirit_stone,24,37,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_lx_mid_01_elite_base,LX_MID_01,elite_base,currency_spirit_stone,spirit_stone,75,103,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_lx_mid_01_elite_1,LX_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,75,103,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_lx_mid_01_elite_2,LX_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,117,165,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_lx_mid_01_boss_clear,LX_MID_01,boss_clear,currency_spirit_stone,spirit_stone,241,345,item,break_dan_5,0,1,0.55,item,break_mat_5,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_lx_late_01_normal,LX_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,25,40,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_lx_late_01_elite_base,LX_LATE_01,elite_base,currency_spirit_stone,spirit_stone,80,109,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_lx_late_01_elite_1,LX_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,80,109,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_lx_late_01_elite_2,LX_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,124,175,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_lx_late_01_boss_clear,LX_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,255,365,item,break_dan_5,0,1,0.55,item,break_mat_5,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_ht_early_01_normal,HT_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,26,41,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_ht_early_01_elite_base,HT_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,83,114,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_ht_early_01_elite_1,HT_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,83,114,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_ht_early_01_elite_2,HT_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,129,182,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_ht_early_01_boss_clear,HT_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,266,380,item,break_dan_6,0,1,0.55,item,break_mat_6,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_ht_mid_01_normal,HT_MID_01,normal_clear,currency_spirit_stone,spirit_stone,27,43,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_ht_mid_01_elite_base,HT_MID_01,elite_base,currency_spirit_stone,spirit_stone,86,118,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_ht_mid_01_elite_1,HT_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,86,118,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_ht_mid_01_elite_2,HT_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,134,189,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_ht_mid_01_boss_clear,HT_MID_01,boss_clear,currency_spirit_stone,spirit_stone,276,395,item,break_dan_6,0,1,0.55,item,break_mat_6,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_ht_late_01_normal,HT_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,28,45,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_ht_late_01_elite_base,HT_LATE_01,elite_base,currency_spirit_stone,spirit_stone,90,123,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_ht_late_01_elite_1,HT_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,90,123,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_ht_late_01_elite_2,HT_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,139,196,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_ht_late_01_boss_clear,HT_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,287,410,item,break_dan_6,0,1,0.55,item,break_mat_6,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_dc_early_01_normal,DC_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,30,47,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_dc_early_01_elite_base,DC_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,94,129,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_dc_early_01_elite_1,DC_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,94,129,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_dc_early_01_elite_2,DC_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,146,206,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_dc_early_01_boss_clear,DC_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,301,430,item,break_dan_7,0,1,0.55,item,break_mat_7,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_dc_mid_01_normal,DC_MID_01,normal_clear,currency_spirit_stone,spirit_stone,31,48,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_dc_mid_01_elite_base,DC_MID_01,elite_base,currency_spirit_stone,spirit_stone,97,133,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_dc_mid_01_elite_1,DC_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,97,133,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_dc_mid_01_elite_2,DC_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,151,213,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_dc_mid_01_boss_clear,DC_MID_01,boss_clear,currency_spirit_stone,spirit_stone,311,445,item,break_dan_7,0,1,0.55,item,break_mat_7,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_dc_late_01_normal,DC_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,32,50,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_dc_late_01_elite_base,DC_LATE_01,elite_base,currency_spirit_stone,spirit_stone,101,138,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_dc_late_01_elite_1,DC_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,101,138,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_dc_late_01_elite_2,DC_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,156,220,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_dc_late_01_boss_clear,DC_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,322,460,item,break_dan_7,0,1,0.55,item,break_mat_7,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_dj_early_01_normal,DJ_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,33,52,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_dj_early_01_elite_base,DJ_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,104,142,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_dj_early_01_elite_1,DJ_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,104,142,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_dj_early_01_elite_2,DJ_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,161,228,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_dj_early_01_boss_clear,DJ_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,332,475,item,break_dan_8,0,1,0.55,item,break_mat_8,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_dj_mid_01_normal,DJ_MID_01,normal_clear,currency_spirit_stone,spirit_stone,34,54,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_dj_mid_01_elite_base,DJ_MID_01,elite_base,currency_spirit_stone,spirit_stone,108,148,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_dj_mid_01_elite_1,DJ_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,108,148,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_dj_mid_01_elite_2,DJ_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,168,237,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_dj_mid_01_boss_clear,DJ_MID_01,boss_clear,currency_spirit_stone,spirit_stone,346,495,item,break_dan_8,0,1,0.55,item,break_mat_8,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_dj_late_01_normal,DJ_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,35,56,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_dj_late_01_elite_base,DJ_LATE_01,elite_base,currency_spirit_stone,spirit_stone,112,153,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_dj_late_01_elite_1,DJ_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,112,153,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_dj_late_01_elite_2,DJ_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,173,244,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_dj_late_01_boss_clear,DJ_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,357,510,item,break_dan_8,0,1,0.55,item,break_mat_8,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_zx_early_01_normal,ZX_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,36,57,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_zx_early_01_elite_base,ZX_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,115,157,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_zx_early_01_elite_1,ZX_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,115,157,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_zx_early_01_elite_2,ZX_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,178,252,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_zx_early_01_boss_clear,ZX_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,367,525,item,break_dan_9,0,1,0.55,item,break_mat_9,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_zx_mid_01_normal,ZX_MID_01,normal_clear,currency_spirit_stone,spirit_stone,37,59,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_zx_mid_01_elite_base,ZX_MID_01,elite_base,currency_spirit_stone,spirit_stone,118,162,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_zx_mid_01_elite_1,ZX_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,118,162,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_zx_mid_01_elite_2,ZX_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,183,259,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_zx_mid_01_boss_clear,ZX_MID_01,boss_clear,currency_spirit_stone,spirit_stone,378,540,item,break_dan_9,0,1,0.55,item,break_mat_9,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_zx_late_01_normal,ZX_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,38,61,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_zx_late_01_elite_base,ZX_LATE_01,elite_base,currency_spirit_stone,spirit_stone,122,166,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_zx_late_01_elite_1,ZX_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,122,166,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_zx_late_01_elite_2,ZX_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,188,266,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_zx_late_01_boss_clear,ZX_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,388,555,item,break_dan_9,0,1,0.55,item,break_mat_9,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_jx_early_01_normal,JX_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,40,63,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_jx_early_01_elite_base,JX_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,126,172,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_jx_early_01_elite_1,JX_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,126,172,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_jx_early_01_elite_2,JX_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,195,276,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_jx_early_01_boss_clear,JX_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,402,575,item,break_dan_10,0,1,0.55,item,break_mat_10,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_jx_mid_01_normal,JX_MID_01,normal_clear,currency_spirit_stone,spirit_stone,41,64,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_jx_mid_01_elite_base,JX_MID_01,elite_base,currency_spirit_stone,spirit_stone,129,177,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_jx_mid_01_elite_1,JX_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,129,177,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_jx_mid_01_elite_2,JX_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,200,283,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_jx_mid_01_boss_clear,JX_MID_01,boss_clear,currency_spirit_stone,spirit_stone,413,590,item,break_dan_10,0,1,0.55,item,break_mat_10,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_jx_late_01_normal,JX_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,42,66,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_jx_late_01_elite_base,JX_LATE_01,elite_base,currency_spirit_stone,spirit_stone,133,181,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_jx_late_01_elite_1,JX_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,133,181,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_jx_late_01_elite_2,JX_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,205,290,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_jx_late_01_boss_clear,JX_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,423,605,item,break_dan_10,0,1,0.55,item,break_mat_10,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_ty_early_01_normal,TY_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,43,68,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_ty_early_01_elite_base,TY_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,136,186,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_ty_early_01_elite_1,TY_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,136,186,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_ty_early_01_elite_2,TY_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,210,297,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_ty_early_01_boss_clear,TY_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,434,620,item,break_dan_11,0,1,0.55,item,break_mat_11,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_ty_mid_01_normal,TY_MID_01,normal_clear,currency_spirit_stone,spirit_stone,44,70,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_ty_mid_01_elite_base,TY_MID_01,elite_base,currency_spirit_stone,spirit_stone,140,192,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_ty_mid_01_elite_1,TY_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,140,192,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_ty_mid_01_elite_2,TY_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,217,307,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_ty_mid_01_boss_clear,TY_MID_01,boss_clear,currency_spirit_stone,spirit_stone,448,640,item,break_dan_11,0,1,0.55,item,break_mat_11,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_ty_late_01_normal,TY_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,45,72,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_ty_late_01_elite_base,TY_LATE_01,elite_base,currency_spirit_stone,spirit_stone,144,196,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_ty_late_01_elite_1,TY_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,144,196,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_ty_late_01_elite_2,TY_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,222,314,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_ty_late_01_boss_clear,TY_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,458,655,item,break_dan_11,0,1,0.55,item,break_mat_11,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_dl_early_01_normal,DL_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,46,73,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_dl_early_01_elite_base,DL_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,147,201,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_dl_early_01_elite_1,DL_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,147,201,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_dl_early_01_elite_2,DL_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,227,321,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_dl_early_01_boss_clear,DL_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,469,670,item,break_dan_12,0,1,0.55,item,break_mat_12,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_dl_mid_01_normal,DL_MID_01,normal_clear,currency_spirit_stone,spirit_stone,47,75,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_dl_mid_01_elite_base,DL_MID_01,elite_base,currency_spirit_stone,spirit_stone,150,205,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_dl_mid_01_elite_1,DL_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,150,205,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_dl_mid_01_elite_2,DL_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,232,328,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_dl_mid_01_boss_clear,DL_MID_01,boss_clear,currency_spirit_stone,spirit_stone,479,685,item,break_dan_12,0,1,0.55,item,break_mat_12,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_dl_late_01_normal,DL_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,49,77,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_dl_late_01_elite_base,DL_LATE_01,elite_base,currency_spirit_stone,spirit_stone,155,211,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_dl_late_01_elite_1,DL_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,155,211,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_dl_late_01_elite_2,DL_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,239,338,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_dl_late_01_boss_clear,DL_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,493,705,item,break_dan_12,0,1,0.55,item,break_mat_12,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_dz_early_01_normal,DZ_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,50,79,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_dz_early_01_elite_base,DZ_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,158,216,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_dz_early_01_elite_1,DZ_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,158,216,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_dz_early_01_elite_2,DZ_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,244,345,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_dz_early_01_boss_clear,DZ_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,504,720,item,break_dan_13,0,1,0.55,item,break_mat_13,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_dz_mid_01_normal,DZ_MID_01,normal_clear,currency_spirit_stone,spirit_stone,51,80,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_dz_mid_01_elite_base,DZ_MID_01,elite_base,currency_spirit_stone,spirit_stone,161,220,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_dz_mid_01_elite_1,DZ_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,161,220,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_dz_mid_01_elite_2,DZ_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,249,352,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_dz_mid_01_boss_clear,DZ_MID_01,boss_clear,currency_spirit_stone,spirit_stone,514,735,item,break_dan_13,0,1,0.55,item,break_mat_13,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
-drop_dz_late_01_normal,DZ_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,52,82,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通敌潮基础掉落。
-drop_dz_late_01_elite_base,DZ_LATE_01,elite_base,currency_spirit_stone,spirit_stone,165,225,item,huiling,0,1,0.30,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
-drop_dz_late_01_elite_1,DZ_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,165,225,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
-drop_dz_late_01_elite_2,DZ_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,255,360,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
-drop_dz_late_01_boss_clear,DZ_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,525,750,item,break_dan_13,0,1,0.55,item,break_mat_13,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_lq_mid_01_normal,LQ_MID_01,normal_clear,currency_spirit_stone,spirit_stone,7,11,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_lq_mid_01_elite_base,LQ_MID_01,elite_base,currency_spirit_stone,spirit_stone,21,31,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_lq_mid_01_elite_1,LQ_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,21,31,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_lq_mid_01_elite_2,LQ_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,28,40,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_lq_mid_01_elite_3,LQ_MID_01,elite_3_clear,currency_spirit_stone,spirit_stone,35,49,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_lq_mid_01_boss_clear,LQ_MID_01,boss_clear,currency_spirit_stone,spirit_stone,73,104,item,break_dan_0,0,1,0.55,item,break_mat_0,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_lq_late_01_normal,LQ_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,8,12,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_lq_late_01_elite_base,LQ_LATE_01,elite_base,currency_spirit_stone,spirit_stone,24,35,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_lq_late_01_elite_1,LQ_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,24,35,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_lq_late_01_elite_2,LQ_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,32,45,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_lq_late_01_elite_3,LQ_LATE_01,elite_3_clear,currency_spirit_stone,spirit_stone,40,55,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_lq_late_01_boss_clear,LQ_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,83,118,item,break_dan_0,0,1,0.55,item,break_mat_0,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_zj_early_01_normal,ZJ_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,9,13,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_zj_early_01_elite_base,ZJ_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,27,39,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_zj_early_01_elite_1,ZJ_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,27,39,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_zj_early_01_elite_2,ZJ_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,36,50,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_zj_early_01_elite_3,ZJ_EARLY_01,elite_3_clear,currency_spirit_stone,spirit_stone,45,61,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_zj_early_01_boss_clear,ZJ_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,93,132,item,break_dan_1,0,1,0.55,item,break_mat_1,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_zj_mid_01_normal,ZJ_MID_01,normal_clear,currency_spirit_stone,spirit_stone,10,14,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_zj_mid_01_elite_base,ZJ_MID_01,elite_base,currency_spirit_stone,spirit_stone,30,43,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_zj_mid_01_elite_1,ZJ_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,30,43,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_zj_mid_01_elite_2,ZJ_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,40,55,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_zj_mid_01_elite_3,ZJ_MID_01,elite_3_clear,currency_spirit_stone,spirit_stone,50,67,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_zj_mid_01_boss_clear,ZJ_MID_01,boss_clear,currency_spirit_stone,spirit_stone,103,146,item,break_dan_1,0,1,0.55,item,break_mat_1,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_zj_late_01_normal,ZJ_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,11,15,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_zj_late_01_elite_base,ZJ_LATE_01,elite_base,currency_spirit_stone,spirit_stone,33,47,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_zj_late_01_elite_1,ZJ_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,33,47,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_zj_late_01_elite_2,ZJ_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,44,60,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_zj_late_01_elite_3,ZJ_LATE_01,elite_3_clear,currency_spirit_stone,spirit_stone,55,73,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_zj_late_01_boss_clear,ZJ_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,113,160,item,break_dan_1,0,1,0.55,item,break_mat_1,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_jd_early_01_normal,JD_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,12,16,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_jd_early_01_elite_base,JD_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,36,51,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_jd_early_01_elite_1,JD_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,36,51,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_jd_early_01_elite_2,JD_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,48,65,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_jd_early_01_elite_3,JD_EARLY_01,elite_3_clear,currency_spirit_stone,spirit_stone,60,79,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_jd_early_01_boss_clear,JD_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,123,174,item,break_dan_2,0,1,0.55,item,break_mat_2,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_jd_mid_01_normal,JD_MID_01,normal_clear,currency_spirit_stone,spirit_stone,13,17,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_jd_mid_01_elite_base,JD_MID_01,elite_base,currency_spirit_stone,spirit_stone,39,55,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_jd_mid_01_elite_1,JD_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,39,55,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_jd_mid_01_elite_2,JD_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,52,70,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_jd_mid_01_elite_3,JD_MID_01,elite_3_clear,currency_spirit_stone,spirit_stone,65,85,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_jd_mid_01_boss_clear,JD_MID_01,boss_clear,currency_spirit_stone,spirit_stone,133,188,item,break_dan_2,0,1,0.55,item,break_mat_2,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_jd_late_01_normal,JD_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,14,18,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_jd_late_01_elite_base,JD_LATE_01,elite_base,currency_spirit_stone,spirit_stone,42,59,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_jd_late_01_elite_1,JD_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,42,59,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_jd_late_01_elite_2,JD_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,56,75,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_jd_late_01_elite_3,JD_LATE_01,elite_3_clear,currency_spirit_stone,spirit_stone,70,91,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_jd_late_01_boss_clear,JD_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,143,202,item,break_dan_2,0,1,0.55,item,break_mat_2,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_yy_early_01_normal,YY_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,15,19,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_yy_early_01_elite_base,YY_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,45,63,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_yy_early_01_elite_1,YY_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,45,63,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_yy_early_01_elite_2,YY_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,60,80,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_yy_early_01_elite_3,YY_EARLY_01,elite_3_clear,currency_spirit_stone,spirit_stone,75,97,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_yy_early_01_boss_clear,YY_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,153,216,item,break_dan_3,0,1,0.55,item,break_mat_3,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_yy_mid_01_normal,YY_MID_01,normal_clear,currency_spirit_stone,spirit_stone,16,20,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_yy_mid_01_elite_base,YY_MID_01,elite_base,currency_spirit_stone,spirit_stone,48,67,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_yy_mid_01_elite_1,YY_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,48,67,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_yy_mid_01_elite_2,YY_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,64,85,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_yy_mid_01_elite_3,YY_MID_01,elite_3_clear,currency_spirit_stone,spirit_stone,80,103,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_yy_mid_01_boss_clear,YY_MID_01,boss_clear,currency_spirit_stone,spirit_stone,163,230,item,break_dan_3,0,1,0.55,item,break_mat_3,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_yy_late_01_normal,YY_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,17,21,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_yy_late_01_elite_base,YY_LATE_01,elite_base,currency_spirit_stone,spirit_stone,51,71,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_yy_late_01_elite_1,YY_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,51,71,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_yy_late_01_elite_2,YY_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,68,90,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_yy_late_01_elite_3,YY_LATE_01,elite_3_clear,currency_spirit_stone,spirit_stone,85,109,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_yy_late_01_boss_clear,YY_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,173,244,item,break_dan_3,0,1,0.55,item,break_mat_3,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_hs_early_01_normal,HS_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,18,22,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_hs_early_01_elite_base,HS_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,54,75,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_hs_early_01_elite_1,HS_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,54,75,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_hs_early_01_elite_2,HS_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,72,95,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_hs_early_01_elite_3,HS_EARLY_01,elite_3_clear,currency_spirit_stone,spirit_stone,90,115,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_hs_early_01_boss_clear,HS_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,183,258,item,break_dan_4,0,1,0.55,item,break_mat_4,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_hs_mid_01_normal,HS_MID_01,normal_clear,currency_spirit_stone,spirit_stone,19,23,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_hs_mid_01_elite_base,HS_MID_01,elite_base,currency_spirit_stone,spirit_stone,57,79,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_hs_mid_01_elite_1,HS_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,57,79,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_hs_mid_01_elite_2,HS_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,76,100,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_hs_mid_01_elite_3,HS_MID_01,elite_3_clear,currency_spirit_stone,spirit_stone,95,121,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_hs_mid_01_boss_clear,HS_MID_01,boss_clear,currency_spirit_stone,spirit_stone,193,272,item,break_dan_4,0,1,0.55,item,break_mat_4,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_hs_late_01_normal,HS_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,20,24,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_hs_late_01_elite_base,HS_LATE_01,elite_base,currency_spirit_stone,spirit_stone,60,83,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_hs_late_01_elite_1,HS_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,60,83,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_hs_late_01_elite_2,HS_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,80,105,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_hs_late_01_elite_3,HS_LATE_01,elite_3_clear,currency_spirit_stone,spirit_stone,100,127,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_hs_late_01_boss_clear,HS_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,203,286,item,break_dan_4,0,1,0.55,item,break_mat_4,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_lx_early_01_normal,LX_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,21,25,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_lx_early_01_elite_base,LX_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,63,87,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_lx_early_01_elite_1,LX_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,63,87,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_lx_early_01_elite_2,LX_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,84,110,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_lx_early_01_elite_3,LX_EARLY_01,elite_3_clear,currency_spirit_stone,spirit_stone,105,133,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_lx_early_01_boss_clear,LX_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,213,300,item,break_dan_5,0,1,0.55,item,break_mat_5,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_lx_mid_01_normal,LX_MID_01,normal_clear,currency_spirit_stone,spirit_stone,22,26,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_lx_mid_01_elite_base,LX_MID_01,elite_base,currency_spirit_stone,spirit_stone,66,91,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_lx_mid_01_elite_1,LX_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,66,91,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_lx_mid_01_elite_2,LX_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,88,115,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_lx_mid_01_elite_3,LX_MID_01,elite_3_clear,currency_spirit_stone,spirit_stone,110,139,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_lx_mid_01_boss_clear,LX_MID_01,boss_clear,currency_spirit_stone,spirit_stone,223,314,item,break_dan_5,0,1,0.55,item,break_mat_5,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_lx_late_01_normal,LX_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,23,27,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_lx_late_01_elite_base,LX_LATE_01,elite_base,currency_spirit_stone,spirit_stone,69,95,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_lx_late_01_elite_1,LX_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,69,95,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_lx_late_01_elite_2,LX_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,92,120,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_lx_late_01_elite_3,LX_LATE_01,elite_3_clear,currency_spirit_stone,spirit_stone,115,145,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_lx_late_01_boss_clear,LX_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,233,328,item,break_dan_5,0,1,0.55,item,break_mat_5,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_ht_early_01_normal,HT_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,24,28,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_ht_early_01_elite_base,HT_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,72,99,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_ht_early_01_elite_1,HT_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,72,99,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_ht_early_01_elite_2,HT_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,96,125,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_ht_early_01_elite_3,HT_EARLY_01,elite_3_clear,currency_spirit_stone,spirit_stone,120,151,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_ht_early_01_boss_clear,HT_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,243,342,item,break_dan_6,0,1,0.55,item,break_mat_6,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_ht_mid_01_normal,HT_MID_01,normal_clear,currency_spirit_stone,spirit_stone,25,29,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_ht_mid_01_elite_base,HT_MID_01,elite_base,currency_spirit_stone,spirit_stone,75,103,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_ht_mid_01_elite_1,HT_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,75,103,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_ht_mid_01_elite_2,HT_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,100,130,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_ht_mid_01_elite_3,HT_MID_01,elite_3_clear,currency_spirit_stone,spirit_stone,125,157,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_ht_mid_01_boss_clear,HT_MID_01,boss_clear,currency_spirit_stone,spirit_stone,253,356,item,break_dan_6,0,1,0.55,item,break_mat_6,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_ht_late_01_normal,HT_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,26,30,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_ht_late_01_elite_base,HT_LATE_01,elite_base,currency_spirit_stone,spirit_stone,78,107,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_ht_late_01_elite_1,HT_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,78,107,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_ht_late_01_elite_2,HT_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,104,135,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_ht_late_01_elite_3,HT_LATE_01,elite_3_clear,currency_spirit_stone,spirit_stone,130,163,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_ht_late_01_boss_clear,HT_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,263,370,item,break_dan_6,0,1,0.55,item,break_mat_6,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_dc_early_01_normal,DC_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,27,31,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_dc_early_01_elite_base,DC_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,81,111,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_dc_early_01_elite_1,DC_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,81,111,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_dc_early_01_elite_2,DC_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,108,140,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_dc_early_01_elite_3,DC_EARLY_01,elite_3_clear,currency_spirit_stone,spirit_stone,135,169,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_dc_early_01_boss_clear,DC_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,273,384,item,break_dan_7,0,1,0.55,item,break_mat_7,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_dc_mid_01_normal,DC_MID_01,normal_clear,currency_spirit_stone,spirit_stone,28,32,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_dc_mid_01_elite_base,DC_MID_01,elite_base,currency_spirit_stone,spirit_stone,84,115,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_dc_mid_01_elite_1,DC_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,84,115,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_dc_mid_01_elite_2,DC_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,112,145,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_dc_mid_01_elite_3,DC_MID_01,elite_3_clear,currency_spirit_stone,spirit_stone,140,175,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_dc_mid_01_boss_clear,DC_MID_01,boss_clear,currency_spirit_stone,spirit_stone,283,398,item,break_dan_7,0,1,0.55,item,break_mat_7,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_dc_late_01_normal,DC_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,29,33,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_dc_late_01_elite_base,DC_LATE_01,elite_base,currency_spirit_stone,spirit_stone,87,119,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_dc_late_01_elite_1,DC_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,87,119,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_dc_late_01_elite_2,DC_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,116,150,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_dc_late_01_elite_3,DC_LATE_01,elite_3_clear,currency_spirit_stone,spirit_stone,145,181,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_dc_late_01_boss_clear,DC_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,293,412,item,break_dan_7,0,1,0.55,item,break_mat_7,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_dj_early_01_normal,DJ_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,30,34,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_dj_early_01_elite_base,DJ_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,90,123,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_dj_early_01_elite_1,DJ_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,90,123,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_dj_early_01_elite_2,DJ_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,120,155,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_dj_early_01_elite_3,DJ_EARLY_01,elite_3_clear,currency_spirit_stone,spirit_stone,150,187,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_dj_early_01_boss_clear,DJ_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,303,426,item,break_dan_8,0,1,0.55,item,break_mat_8,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_dj_mid_01_normal,DJ_MID_01,normal_clear,currency_spirit_stone,spirit_stone,31,35,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_dj_mid_01_elite_base,DJ_MID_01,elite_base,currency_spirit_stone,spirit_stone,93,127,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_dj_mid_01_elite_1,DJ_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,93,127,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_dj_mid_01_elite_2,DJ_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,124,160,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_dj_mid_01_elite_3,DJ_MID_01,elite_3_clear,currency_spirit_stone,spirit_stone,155,193,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_dj_mid_01_boss_clear,DJ_MID_01,boss_clear,currency_spirit_stone,spirit_stone,313,440,item,break_dan_8,0,1,0.55,item,break_mat_8,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_dj_late_01_normal,DJ_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,32,36,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_dj_late_01_elite_base,DJ_LATE_01,elite_base,currency_spirit_stone,spirit_stone,96,131,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_dj_late_01_elite_1,DJ_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,96,131,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_dj_late_01_elite_2,DJ_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,128,165,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_dj_late_01_elite_3,DJ_LATE_01,elite_3_clear,currency_spirit_stone,spirit_stone,160,199,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_dj_late_01_boss_clear,DJ_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,323,454,item,break_dan_8,0,1,0.55,item,break_mat_8,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_zx_early_01_normal,ZX_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,33,37,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_zx_early_01_elite_base,ZX_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,99,135,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_zx_early_01_elite_1,ZX_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,99,135,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_zx_early_01_elite_2,ZX_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,132,170,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_zx_early_01_elite_3,ZX_EARLY_01,elite_3_clear,currency_spirit_stone,spirit_stone,165,205,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_zx_early_01_boss_clear,ZX_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,333,468,item,break_dan_9,0,1,0.55,item,break_mat_9,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_zx_mid_01_normal,ZX_MID_01,normal_clear,currency_spirit_stone,spirit_stone,34,38,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_zx_mid_01_elite_base,ZX_MID_01,elite_base,currency_spirit_stone,spirit_stone,102,139,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_zx_mid_01_elite_1,ZX_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,102,139,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_zx_mid_01_elite_2,ZX_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,136,175,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_zx_mid_01_elite_3,ZX_MID_01,elite_3_clear,currency_spirit_stone,spirit_stone,170,211,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_zx_mid_01_boss_clear,ZX_MID_01,boss_clear,currency_spirit_stone,spirit_stone,343,482,item,break_dan_9,0,1,0.55,item,break_mat_9,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_zx_late_01_normal,ZX_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,35,39,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_zx_late_01_elite_base,ZX_LATE_01,elite_base,currency_spirit_stone,spirit_stone,105,143,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_zx_late_01_elite_1,ZX_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,105,143,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_zx_late_01_elite_2,ZX_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,140,180,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_zx_late_01_elite_3,ZX_LATE_01,elite_3_clear,currency_spirit_stone,spirit_stone,175,217,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_zx_late_01_boss_clear,ZX_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,353,496,item,break_dan_9,0,1,0.55,item,break_mat_9,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_jx_early_01_normal,JX_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,36,40,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_jx_early_01_elite_base,JX_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,108,147,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_jx_early_01_elite_1,JX_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,108,147,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_jx_early_01_elite_2,JX_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,144,185,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_jx_early_01_elite_3,JX_EARLY_01,elite_3_clear,currency_spirit_stone,spirit_stone,180,223,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_jx_early_01_boss_clear,JX_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,363,510,item,break_dan_10,0,1,0.55,item,break_mat_10,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_jx_mid_01_normal,JX_MID_01,normal_clear,currency_spirit_stone,spirit_stone,37,41,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_jx_mid_01_elite_base,JX_MID_01,elite_base,currency_spirit_stone,spirit_stone,111,151,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_jx_mid_01_elite_1,JX_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,111,151,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_jx_mid_01_elite_2,JX_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,148,190,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_jx_mid_01_elite_3,JX_MID_01,elite_3_clear,currency_spirit_stone,spirit_stone,185,229,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_jx_mid_01_boss_clear,JX_MID_01,boss_clear,currency_spirit_stone,spirit_stone,373,524,item,break_dan_10,0,1,0.55,item,break_mat_10,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_jx_late_01_normal,JX_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,38,42,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_jx_late_01_elite_base,JX_LATE_01,elite_base,currency_spirit_stone,spirit_stone,114,155,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_jx_late_01_elite_1,JX_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,114,155,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_jx_late_01_elite_2,JX_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,152,195,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_jx_late_01_elite_3,JX_LATE_01,elite_3_clear,currency_spirit_stone,spirit_stone,190,235,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_jx_late_01_boss_clear,JX_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,383,538,item,break_dan_10,0,1,0.55,item,break_mat_10,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_ty_early_01_normal,TY_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,39,43,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_ty_early_01_elite_base,TY_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,117,159,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_ty_early_01_elite_1,TY_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,117,159,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_ty_early_01_elite_2,TY_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,156,200,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_ty_early_01_elite_3,TY_EARLY_01,elite_3_clear,currency_spirit_stone,spirit_stone,195,241,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_ty_early_01_boss_clear,TY_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,393,552,item,break_dan_11,0,1,0.55,item,break_mat_11,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_ty_mid_01_normal,TY_MID_01,normal_clear,currency_spirit_stone,spirit_stone,40,44,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_ty_mid_01_elite_base,TY_MID_01,elite_base,currency_spirit_stone,spirit_stone,120,163,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_ty_mid_01_elite_1,TY_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,120,163,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_ty_mid_01_elite_2,TY_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,160,205,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_ty_mid_01_elite_3,TY_MID_01,elite_3_clear,currency_spirit_stone,spirit_stone,200,247,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_ty_mid_01_boss_clear,TY_MID_01,boss_clear,currency_spirit_stone,spirit_stone,403,566,item,break_dan_11,0,1,0.55,item,break_mat_11,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_ty_late_01_normal,TY_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,41,45,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_ty_late_01_elite_base,TY_LATE_01,elite_base,currency_spirit_stone,spirit_stone,123,167,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_ty_late_01_elite_1,TY_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,123,167,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_ty_late_01_elite_2,TY_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,164,210,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_ty_late_01_elite_3,TY_LATE_01,elite_3_clear,currency_spirit_stone,spirit_stone,205,253,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_ty_late_01_boss_clear,TY_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,413,580,item,break_dan_11,0,1,0.55,item,break_mat_11,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_dl_early_01_normal,DL_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,42,46,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_dl_early_01_elite_base,DL_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,126,171,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_dl_early_01_elite_1,DL_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,126,171,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_dl_early_01_elite_2,DL_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,168,215,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_dl_early_01_elite_3,DL_EARLY_01,elite_3_clear,currency_spirit_stone,spirit_stone,210,259,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_dl_early_01_boss_clear,DL_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,423,594,item,break_dan_12,0,1,0.55,item,break_mat_12,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_dl_mid_01_normal,DL_MID_01,normal_clear,currency_spirit_stone,spirit_stone,43,47,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_dl_mid_01_elite_base,DL_MID_01,elite_base,currency_spirit_stone,spirit_stone,129,175,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_dl_mid_01_elite_1,DL_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,129,175,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_dl_mid_01_elite_2,DL_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,172,220,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_dl_mid_01_elite_3,DL_MID_01,elite_3_clear,currency_spirit_stone,spirit_stone,215,265,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_dl_mid_01_boss_clear,DL_MID_01,boss_clear,currency_spirit_stone,spirit_stone,433,608,item,break_dan_12,0,1,0.55,item,break_mat_12,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_dl_late_01_normal,DL_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,44,48,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_dl_late_01_elite_base,DL_LATE_01,elite_base,currency_spirit_stone,spirit_stone,132,179,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_dl_late_01_elite_1,DL_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,132,179,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_dl_late_01_elite_2,DL_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,176,225,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_dl_late_01_elite_3,DL_LATE_01,elite_3_clear,currency_spirit_stone,spirit_stone,220,271,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_dl_late_01_boss_clear,DL_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,443,622,item,break_dan_12,0,1,0.55,item,break_mat_12,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_dz_early_01_normal,DZ_EARLY_01,normal_clear,currency_spirit_stone,spirit_stone,45,49,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_dz_early_01_elite_base,DZ_EARLY_01,elite_base,currency_spirit_stone,spirit_stone,135,183,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_dz_early_01_elite_1,DZ_EARLY_01,elite_1_clear,currency_spirit_stone,spirit_stone,135,183,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_dz_early_01_elite_2,DZ_EARLY_01,elite_2_clear,currency_spirit_stone,spirit_stone,180,230,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_dz_early_01_elite_3,DZ_EARLY_01,elite_3_clear,currency_spirit_stone,spirit_stone,225,277,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_dz_early_01_boss_clear,DZ_EARLY_01,boss_clear,currency_spirit_stone,spirit_stone,453,636,item,break_dan_13,0,1,0.55,item,break_mat_13,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_dz_mid_01_normal,DZ_MID_01,normal_clear,currency_spirit_stone,spirit_stone,46,50,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_dz_mid_01_elite_base,DZ_MID_01,elite_base,currency_spirit_stone,spirit_stone,138,187,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_dz_mid_01_elite_1,DZ_MID_01,elite_1_clear,currency_spirit_stone,spirit_stone,138,187,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_dz_mid_01_elite_2,DZ_MID_01,elite_2_clear,currency_spirit_stone,spirit_stone,184,235,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_dz_mid_01_elite_3,DZ_MID_01,elite_3_clear,currency_spirit_stone,spirit_stone,230,283,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_dz_mid_01_boss_clear,DZ_MID_01,boss_clear,currency_spirit_stone,spirit_stone,463,650,item,break_dan_13,0,1,0.55,item,break_mat_13,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。
+drop_dz_late_01_normal,DZ_LATE_01,normal_clear,currency_spirit_stone,spirit_stone,47,51,,,,,,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,普通波次基础掉落。
+drop_dz_late_01_elite_base,DZ_LATE_01,elite_base,currency_spirit_stone,spirit_stone,141,191,item,huiling,0,1,0.3,,,,,,作为精英模板继承默认掉落，仅用于战场精英模板回链。,不直接在主流程显示，供精英继承。
+drop_dz_late_01_elite_1,DZ_LATE_01,elite_1_clear,currency_spirit_stone,spirit_stone,141,191,item,huiling,0,1,0.35,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第一精英清场奖励。
+drop_dz_late_01_elite_2,DZ_LATE_01,elite_2_clear,currency_spirit_stone,spirit_stone,188,240,item,teleport,0,1,0.18,,,,,,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第二精英清场奖励。
+drop_dz_late_01_elite_3,DZ_LATE_01,elite_3_clear,currency_spirit_stone,spirit_stone,235,289,item,huiling,0,1,0.5,item,teleport,0,1,0.25,进入runBag，通关或成功撤离后写入纳戒；死亡或认命离开丢失。,第三精英清场奖励。
+drop_dz_late_01_boss_clear,DZ_LATE_01,boss_clear,currency_spirit_stone,spirit_stone,473,664,item,break_dan_13,0,1,0.55,item,break_mat_13,1,2,1.0,先进入runBag，在 settle_commit 中统一写入纳戒；不允许首领死亡同帧直接写回永久库存。,首领首通/清场奖励主包。

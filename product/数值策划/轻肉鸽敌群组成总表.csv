@@ -1,211 +1,715 @@
-﻿enemyGroupId,stageId,groupName,themeTag,groupRole,normalEnemyRef,supportEnemyRef,spawnBatchSize,spawnOriginRule,maxAliveNormal,maxAliveSupport,pressureIntent,notes
-lq_early_01_w1_pack,LQ_EARLY_01,开场围压群,wolf_hunt,opening,灰鬃狼妖,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lq_early_01_w2_support,LQ_EARLY_01,精英前压迫群,wolf_hunt,elite_support_1,灰鬃狼妖,铜爪狼将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lq_early_01_w3_pressure,LQ_EARLY_01,第二轮主压群,wolf_hunt,mid_pressure,灰鬃狼妖,铜爪狼将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lq_early_01_w4_support,LQ_EARLY_01,首领前压测群,wolf_hunt,elite_support_2,灰鬃狼妖,铜爪狼将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lq_early_01_boss_support,LQ_EARLY_01,首领伴生群,wolf_hunt,boss_support,灰鬃狼妖,铜爪狼将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lq_mid_01_w1_pack,LQ_MID_01,开场围压群,wolf_hunt,opening,裂齿狼妖,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lq_mid_01_w2_support,LQ_MID_01,精英前压迫群,wolf_hunt,elite_support_1,裂齿狼妖,啸风狼将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lq_mid_01_w3_pressure,LQ_MID_01,第二轮主压群,wolf_hunt,mid_pressure,裂齿狼妖,啸风狼将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lq_mid_01_w4_support,LQ_MID_01,首领前压测群,wolf_hunt,elite_support_2,裂齿狼妖,啸风狼将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lq_mid_01_boss_support,LQ_MID_01,首领伴生群,wolf_hunt,boss_support,裂齿狼妖,啸风狼将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lq_late_01_w1_pack,LQ_LATE_01,开场围压群,wolf_hunt,opening,血鬃狼妖,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lq_late_01_w2_support,LQ_LATE_01,精英前压迫群,wolf_hunt,elite_support_1,血鬃狼妖,赤瞳狼将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lq_late_01_w3_pressure,LQ_LATE_01,第二轮主压群,wolf_hunt,mid_pressure,血鬃狼妖,赤瞳狼将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lq_late_01_w4_support,LQ_LATE_01,首领前压测群,wolf_hunt,elite_support_2,血鬃狼妖,赤瞳狼将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lq_late_01_boss_support,LQ_LATE_01,首领伴生群,wolf_hunt,boss_support,血鬃狼妖,赤瞳狼将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zj_early_01_w1_pack,ZJ_EARLY_01,开场围压群,sword_pressure,opening,残剑灵,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zj_early_01_w2_support,ZJ_EARLY_01,精英前压迫群,sword_pressure,elite_support_1,残剑灵,断岳剑侍,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zj_early_01_w3_pressure,ZJ_EARLY_01,第二轮主压群,sword_pressure,mid_pressure,残剑灵,断岳剑侍,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zj_early_01_w4_support,ZJ_EARLY_01,首领前压测群,sword_pressure,elite_support_2,残剑灵,断岳剑侍,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zj_early_01_boss_support,ZJ_EARLY_01,首领伴生群,sword_pressure,boss_support,残剑灵,断岳剑侍,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zj_mid_01_w1_pack,ZJ_MID_01,开场围压群,sword_pressure,opening,回廊剑魂,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zj_mid_01_w2_support,ZJ_MID_01,精英前压迫群,sword_pressure,elite_support_1,回廊剑魂,锁廊剑将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zj_mid_01_w3_pressure,ZJ_MID_01,第二轮主压群,sword_pressure,mid_pressure,回廊剑魂,锁廊剑将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zj_mid_01_w4_support,ZJ_MID_01,首领前压测群,sword_pressure,elite_support_2,回廊剑魂,锁廊剑将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zj_mid_01_boss_support,ZJ_MID_01,首领伴生群,sword_pressure,boss_support,回廊剑魂,锁廊剑将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zj_late_01_w1_pack,ZJ_LATE_01,开场围压群,sword_pressure,opening,裂锋剑魄,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zj_late_01_w2_support,ZJ_LATE_01,精英前压迫群,sword_pressure,elite_support_1,裂锋剑魄,埋锋剑侯,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zj_late_01_w3_pressure,ZJ_LATE_01,第二轮主压群,sword_pressure,mid_pressure,裂锋剑魄,埋锋剑侯,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zj_late_01_w4_support,ZJ_LATE_01,首领前压测群,sword_pressure,elite_support_2,裂锋剑魄,埋锋剑侯,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zj_late_01_boss_support,ZJ_LATE_01,首领伴生群,sword_pressure,boss_support,裂锋剑魄,埋锋剑侯,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jd_early_01_w1_pack,JD_EARLY_01,开场围压群,fire_burn,opening,炽骨魔,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jd_early_01_w2_support,JD_EARLY_01,精英前压迫群,fire_burn,elite_support_1,炽骨魔,焚血魔将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jd_early_01_w3_pressure,JD_EARLY_01,第二轮主压群,fire_burn,mid_pressure,炽骨魔,焚血魔将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jd_early_01_w4_support,JD_EARLY_01,首领前压测群,fire_burn,elite_support_2,炽骨魔,焚血魔将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jd_early_01_boss_support,JD_EARLY_01,首领伴生群,fire_burn,boss_support,炽骨魔,焚血魔将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jd_mid_01_w1_pack,JD_MID_01,开场围压群,fire_burn,opening,熔火魔躯,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jd_mid_01_w2_support,JD_MID_01,精英前压迫群,fire_burn,elite_support_1,熔火魔躯,熔炉魔尉,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jd_mid_01_w3_pressure,JD_MID_01,第二轮主压群,fire_burn,mid_pressure,熔火魔躯,熔炉魔尉,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jd_mid_01_w4_support,JD_MID_01,首领前压测群,fire_burn,elite_support_2,熔火魔躯,熔炉魔尉,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jd_mid_01_boss_support,JD_MID_01,首领伴生群,fire_burn,boss_support,熔火魔躯,熔炉魔尉,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jd_late_01_w1_pack,JD_LATE_01,开场围压群,fire_burn,opening,灼心炎魔,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jd_late_01_w2_support,JD_LATE_01,精英前压迫群,fire_burn,elite_support_1,灼心炎魔,渊火魔将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jd_late_01_w3_pressure,JD_LATE_01,第二轮主压群,fire_burn,mid_pressure,灼心炎魔,渊火魔将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jd_late_01_w4_support,JD_LATE_01,首领前压测群,fire_burn,elite_support_2,灼心炎魔,渊火魔将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jd_late_01_boss_support,JD_LATE_01,首领伴生群,fire_burn,boss_support,灼心炎魔,渊火魔将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-yy_early_01_w1_pack,YY_EARLY_01,开场围压群,ice_control,opening,霜牙雪魈,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-yy_early_01_w2_support,YY_EARLY_01,精英前压迫群,ice_control,elite_support_1,霜牙雪魈,寒魄魈将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-yy_early_01_w3_pressure,YY_EARLY_01,第二轮主压群,ice_control,mid_pressure,霜牙雪魈,寒魄魈将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-yy_early_01_w4_support,YY_EARLY_01,首领前压测群,ice_control,elite_support_2,霜牙雪魈,寒魄魈将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-yy_early_01_boss_support,YY_EARLY_01,首领伴生群,ice_control,boss_support,霜牙雪魈,寒魄魈将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-yy_mid_01_w1_pack,YY_MID_01,开场围压群,ice_control,opening,玄冰雪魈,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-yy_mid_01_w2_support,YY_MID_01,精英前压迫群,ice_control,elite_support_1,玄冰雪魈,踏冰魈将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-yy_mid_01_w3_pressure,YY_MID_01,第二轮主压群,ice_control,mid_pressure,玄冰雪魈,踏冰魈将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-yy_mid_01_w4_support,YY_MID_01,首领前压测群,ice_control,elite_support_2,玄冰雪魈,踏冰魈将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-yy_mid_01_boss_support,YY_MID_01,首领伴生群,ice_control,boss_support,玄冰雪魈,踏冰魈将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-yy_late_01_w1_pack,YY_LATE_01,开场围压群,ice_control,opening,霜魂妖魈,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-yy_late_01_w2_support,YY_LATE_01,精英前压迫群,ice_control,elite_support_1,霜魂妖魈,禁地主魈,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-yy_late_01_w3_pressure,YY_LATE_01,第二轮主压群,ice_control,mid_pressure,霜魂妖魈,禁地主魈,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-yy_late_01_w4_support,YY_LATE_01,首领前压测群,ice_control,elite_support_2,霜魂妖魈,禁地主魈,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-yy_late_01_boss_support,YY_LATE_01,首领伴生群,ice_control,boss_support,霜魂妖魈,禁地主魈,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-hs_early_01_w1_pack,HS_EARLY_01,开场围压群,thunder_chain,opening,雷羽玄鹏,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-hs_early_01_w2_support,HS_EARLY_01,精英前压迫群,thunder_chain,elite_support_1,雷羽玄鹏,逐雷鹏将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-hs_early_01_w3_pressure,HS_EARLY_01,第二轮主压群,thunder_chain,mid_pressure,雷羽玄鹏,逐雷鹏将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-hs_early_01_w4_support,HS_EARLY_01,首领前压测群,thunder_chain,elite_support_2,雷羽玄鹏,逐雷鹏将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-hs_early_01_boss_support,HS_EARLY_01,首领伴生群,thunder_chain,boss_support,雷羽玄鹏,逐雷鹏将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-hs_mid_01_w1_pack,HS_MID_01,开场围压群,thunder_chain,opening,裂电玄鹏,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-hs_mid_01_w2_support,HS_MID_01,精英前压迫群,thunder_chain,elite_support_1,裂电玄鹏,雷泽鹏侯,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-hs_mid_01_w3_pressure,HS_MID_01,第二轮主压群,thunder_chain,mid_pressure,裂电玄鹏,雷泽鹏侯,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-hs_mid_01_w4_support,HS_MID_01,首领前压测群,thunder_chain,elite_support_2,裂电玄鹏,雷泽鹏侯,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-hs_mid_01_boss_support,HS_MID_01,首领伴生群,thunder_chain,boss_support,裂电玄鹏,雷泽鹏侯,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-hs_late_01_w1_pack,HS_LATE_01,开场围压群,thunder_chain,opening,祭坛雷鹏,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-hs_late_01_w2_support,HS_LATE_01,精英前压迫群,thunder_chain,elite_support_1,祭坛雷鹏,祭坛镇鹏,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-hs_late_01_w3_pressure,HS_LATE_01,第二轮主压群,thunder_chain,mid_pressure,祭坛雷鹏,祭坛镇鹏,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-hs_late_01_w4_support,HS_LATE_01,首领前压测群,thunder_chain,elite_support_2,祭坛雷鹏,祭坛镇鹏,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-hs_late_01_boss_support,HS_LATE_01,首领伴生群,thunder_chain,boss_support,祭坛雷鹏,祭坛镇鹏,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lx_early_01_w1_pack,LX_EARLY_01,开场围压群,void_distort,opening,裂隙魔眼,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lx_early_01_w2_support,LX_EARLY_01,精英前压迫群,void_distort,elite_support_1,裂隙魔眼,虚窥魔将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lx_early_01_w3_pressure,LX_EARLY_01,第二轮主压群,void_distort,mid_pressure,裂隙魔眼,虚窥魔将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lx_early_01_w4_support,LX_EARLY_01,首领前压测群,void_distort,elite_support_2,裂隙魔眼,虚窥魔将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lx_early_01_boss_support,LX_EARLY_01,首领伴生群,void_distort,boss_support,裂隙魔眼,虚窥魔将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lx_mid_01_w1_pack,LX_MID_01,开场围压群,void_distort,opening,折光魔眼,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lx_mid_01_w2_support,LX_MID_01,精英前压迫群,void_distort,elite_support_1,折光魔眼,折界瞳将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lx_mid_01_w3_pressure,LX_MID_01,第二轮主压群,void_distort,mid_pressure,折光魔眼,折界瞳将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lx_mid_01_w4_support,LX_MID_01,首领前压测群,void_distort,elite_support_2,折光魔眼,折界瞳将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lx_mid_01_boss_support,LX_MID_01,首领伴生群,void_distort,boss_support,折光魔眼,折界瞳将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lx_late_01_w1_pack,LX_LATE_01,开场围压群,void_distort,opening,空冥魔眼,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lx_late_01_w2_support,LX_LATE_01,精英前压迫群,void_distort,elite_support_1,空冥魔眼,空冥瞳将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lx_late_01_w3_pressure,LX_LATE_01,第二轮主压群,void_distort,mid_pressure,空冥魔眼,空冥瞳将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lx_late_01_w4_support,LX_LATE_01,首领前压测群,void_distort,elite_support_2,空冥魔眼,空冥瞳将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-lx_late_01_boss_support,LX_LATE_01,首领伴生群,void_distort,boss_support,空冥魔眼,空冥瞳将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ht_early_01_w1_pack,HT_EARLY_01,开场围压群,stone_crush,opening,荒原石傀,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ht_early_01_w2_support,HT_EARLY_01,精英前压迫群,stone_crush,elite_support_1,荒原石傀,碎岳石将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ht_early_01_w3_pressure,HT_EARLY_01,第二轮主压群,stone_crush,mid_pressure,荒原石傀,碎岳石将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ht_early_01_w4_support,HT_EARLY_01,首领前压测群,stone_crush,elite_support_2,荒原石傀,碎岳石将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ht_early_01_boss_support,HT_EARLY_01,首领伴生群,stone_crush,boss_support,荒原石傀,碎岳石将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ht_mid_01_w1_pack,HT_MID_01,开场围压群,stone_crush,opening,合元石傀,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ht_mid_01_w2_support,HT_MID_01,精英前压迫群,stone_crush,elite_support_1,合元石傀,合元石侯,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ht_mid_01_w3_pressure,HT_MID_01,第二轮主压群,stone_crush,mid_pressure,合元石傀,合元石侯,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ht_mid_01_w4_support,HT_MID_01,首领前压测群,stone_crush,elite_support_2,合元石傀,合元石侯,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ht_mid_01_boss_support,HT_MID_01,首领伴生群,stone_crush,boss_support,合元石傀,合元石侯,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ht_late_01_w1_pack,HT_LATE_01,开场围压群,stone_crush,opening,归一石傀,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ht_late_01_w2_support,HT_LATE_01,精英前压迫群,stone_crush,elite_support_1,归一石傀,归殿石君,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ht_late_01_w3_pressure,HT_LATE_01,第二轮主压群,stone_crush,mid_pressure,归一石傀,归殿石君,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ht_late_01_w4_support,HT_LATE_01,首领前压测群,stone_crush,elite_support_2,归一石傀,归殿石君,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ht_late_01_boss_support,HT_LATE_01,首领伴生群,stone_crush,boss_support,归一石傀,归殿石君,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dc_early_01_w1_pack,DC_EARLY_01,开场围压群,celestial_snake,opening,星阙灵蛇,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dc_early_01_w2_support,DC_EARLY_01,精英前压迫群,celestial_snake,elite_support_1,星阙灵蛇,巡星蛇将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dc_early_01_w3_pressure,DC_EARLY_01,第二轮主压群,celestial_snake,mid_pressure,星阙灵蛇,巡星蛇将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dc_early_01_w4_support,DC_EARLY_01,首领前压测群,celestial_snake,elite_support_2,星阙灵蛇,巡星蛇将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dc_early_01_boss_support,DC_EARLY_01,首领伴生群,celestial_snake,boss_support,星阙灵蛇,巡星蛇将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dc_mid_01_w1_pack,DC_MID_01,开场围压群,celestial_snake,opening,桥巡灵蛇,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dc_mid_01_w2_support,DC_MID_01,精英前压迫群,celestial_snake,elite_support_1,桥巡灵蛇,长桥蛇侯,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dc_mid_01_w3_pressure,DC_MID_01,第二轮主压群,celestial_snake,mid_pressure,桥巡灵蛇,长桥蛇侯,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dc_mid_01_w4_support,DC_MID_01,首领前压测群,celestial_snake,elite_support_2,桥巡灵蛇,长桥蛇侯,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dc_mid_01_boss_support,DC_MID_01,首领伴生群,celestial_snake,boss_support,桥巡灵蛇,长桥蛇侯,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dc_late_01_w1_pack,DC_LATE_01,开场围压群,celestial_snake,opening,神庭灵蛇,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dc_late_01_w2_support,DC_LATE_01,精英前压迫群,celestial_snake,elite_support_1,神庭灵蛇,神庭玄螭,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dc_late_01_w3_pressure,DC_LATE_01,第二轮主压群,celestial_snake,mid_pressure,神庭灵蛇,神庭玄螭,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dc_late_01_w4_support,DC_LATE_01,首领前压测群,celestial_snake,elite_support_2,神庭灵蛇,神庭玄螭,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dc_late_01_boss_support,DC_LATE_01,首领伴生群,celestial_snake,boss_support,神庭灵蛇,神庭玄螭,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dj_early_01_w1_pack,DJ_EARLY_01,开场围压群,tribulation_corpse,opening,劫火尸王,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dj_early_01_w2_support,DJ_EARLY_01,精英前压迫群,tribulation_corpse,elite_support_1,劫火尸王,劫雷尸将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dj_early_01_w3_pressure,DJ_EARLY_01,第二轮主压群,tribulation_corpse,mid_pressure,劫火尸王,劫雷尸将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dj_early_01_w4_support,DJ_EARLY_01,首领前压测群,tribulation_corpse,elite_support_2,劫火尸王,劫雷尸将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dj_early_01_boss_support,DJ_EARLY_01,首领伴生群,tribulation_corpse,boss_support,劫火尸王,劫雷尸将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dj_mid_01_w1_pack,DJ_MID_01,开场围压群,tribulation_corpse,opening,断界尸王,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dj_mid_01_w2_support,DJ_MID_01,精英前压迫群,tribulation_corpse,elite_support_1,断界尸王,雷断尸侯,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dj_mid_01_w3_pressure,DJ_MID_01,第二轮主压群,tribulation_corpse,mid_pressure,断界尸王,雷断尸侯,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dj_mid_01_w4_support,DJ_MID_01,首领前压测群,tribulation_corpse,elite_support_2,断界尸王,雷断尸侯,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dj_mid_01_boss_support,DJ_MID_01,首领伴生群,tribulation_corpse,boss_support,断界尸王,雷断尸侯,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dj_late_01_w1_pack,DJ_LATE_01,开场围压群,tribulation_corpse,opening,祭台尸王,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dj_late_01_w2_support,DJ_LATE_01,精英前压迫群,tribulation_corpse,elite_support_1,祭台尸王,天罚尸将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dj_late_01_w3_pressure,DJ_LATE_01,第二轮主压群,tribulation_corpse,mid_pressure,祭台尸王,天罚尸将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dj_late_01_w4_support,DJ_LATE_01,首领前压测群,tribulation_corpse,elite_support_2,祭台尸王,天罚尸将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dj_late_01_boss_support,DJ_LATE_01,首领伴生群,tribulation_corpse,boss_support,祭台尸王,天罚尸将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zx_early_01_w1_pack,ZX_EARLY_01,开场围压群,illusion_fox,opening,云庭幻狐,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zx_early_01_w2_support,ZX_EARLY_01,精英前压迫群,illusion_fox,elite_support_1,云庭幻狐,踏云狐将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zx_early_01_w3_pressure,ZX_EARLY_01,第二轮主压群,illusion_fox,mid_pressure,云庭幻狐,踏云狐将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zx_early_01_w4_support,ZX_EARLY_01,首领前压测群,illusion_fox,elite_support_2,云庭幻狐,踏云狐将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zx_early_01_boss_support,ZX_EARLY_01,首领伴生群,illusion_fox,boss_support,云庭幻狐,踏云狐将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zx_mid_01_w1_pack,ZX_MID_01,开场围压群,illusion_fox,opening,紫微幻狐,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zx_mid_01_w2_support,ZX_MID_01,精英前压迫群,illusion_fox,elite_support_1,紫微幻狐,宫门狐侯,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zx_mid_01_w3_pressure,ZX_MID_01,第二轮主压群,illusion_fox,mid_pressure,紫微幻狐,宫门狐侯,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zx_mid_01_w4_support,ZX_MID_01,首领前压测群,illusion_fox,elite_support_2,紫微幻狐,宫门狐侯,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zx_mid_01_boss_support,ZX_MID_01,首领伴生群,illusion_fox,boss_support,紫微幻狐,宫门狐侯,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zx_late_01_w1_pack,ZX_LATE_01,开场围压群,illusion_fox,opening,太清幻狐,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zx_late_01_w2_support,ZX_LATE_01,精英前压迫群,illusion_fox,elite_support_1,太清幻狐,仙阙狐妃,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zx_late_01_w3_pressure,ZX_LATE_01,第二轮主压群,illusion_fox,mid_pressure,太清幻狐,仙阙狐妃,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zx_late_01_w4_support,ZX_LATE_01,首领前压测群,illusion_fox,elite_support_2,太清幻狐,仙阙狐妃,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-zx_late_01_boss_support,ZX_LATE_01,首领伴生群,illusion_fox,boss_support,太清幻狐,仙阙狐妃,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jx_early_01_w1_pack,JX_EARLY_01,开场围压群,solar_crow,opening,金乌残灵,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jx_early_01_w2_support,JX_EARLY_01,精英前压迫群,solar_crow,elite_support_1,金乌残灵,曜羽乌将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jx_early_01_w3_pressure,JX_EARLY_01,第二轮主压群,solar_crow,mid_pressure,金乌残灵,曜羽乌将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jx_early_01_w4_support,JX_EARLY_01,首领前压测群,solar_crow,elite_support_2,金乌残灵,曜羽乌将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jx_early_01_boss_support,JX_EARLY_01,首领伴生群,solar_crow,boss_support,金乌残灵,曜羽乌将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jx_mid_01_w1_pack,JX_MID_01,开场围压群,solar_crow,opening,琉璃乌灵,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jx_mid_01_w2_support,JX_MID_01,精英前压迫群,solar_crow,elite_support_1,琉璃乌灵,天廊乌侯,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jx_mid_01_w3_pressure,JX_MID_01,第二轮主压群,solar_crow,mid_pressure,琉璃乌灵,天廊乌侯,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jx_mid_01_w4_support,JX_MID_01,首领前压测群,solar_crow,elite_support_2,琉璃乌灵,天廊乌侯,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jx_mid_01_boss_support,JX_MID_01,首领伴生群,solar_crow,boss_support,琉璃乌灵,天廊乌侯,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jx_late_01_w1_pack,JX_LATE_01,开场围压群,solar_crow,opening,金轮乌灵,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jx_late_01_w2_support,JX_LATE_01,精英前压迫群,solar_crow,elite_support_1,金轮乌灵,金轮乌帅,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jx_late_01_w3_pressure,JX_LATE_01,第二轮主压群,solar_crow,mid_pressure,金轮乌灵,金轮乌帅,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jx_late_01_w4_support,JX_LATE_01,首领前压测群,solar_crow,elite_support_2,金轮乌灵,金轮乌帅,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-jx_late_01_boss_support,JX_LATE_01,首领伴生群,solar_crow,boss_support,金轮乌灵,金轮乌帅,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ty_early_01_w1_pack,TY_EARLY_01,开场围压群,lotus_array,opening,太乙莲魄,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ty_early_01_w2_support,TY_EARLY_01,精英前压迫群,lotus_array,elite_support_1,太乙莲魄,青莲魄将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ty_early_01_w3_pressure,TY_EARLY_01,第二轮主压群,lotus_array,mid_pressure,太乙莲魄,青莲魄将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ty_early_01_w4_support,TY_EARLY_01,首领前压测群,lotus_array,elite_support_2,太乙莲魄,青莲魄将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ty_early_01_boss_support,TY_EARLY_01,首领伴生群,lotus_array,boss_support,太乙莲魄,青莲魄将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ty_mid_01_w1_pack,TY_MID_01,开场围压群,lotus_array,opening,万象莲魄,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ty_mid_01_w2_support,TY_MID_01,精英前压迫群,lotus_array,elite_support_1,万象莲魄,万象莲侯,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ty_mid_01_w3_pressure,TY_MID_01,第二轮主压群,lotus_array,mid_pressure,万象莲魄,万象莲侯,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ty_mid_01_w4_support,TY_MID_01,首领前压测群,lotus_array,elite_support_2,万象莲魄,万象莲侯,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ty_mid_01_boss_support,TY_MID_01,首领伴生群,lotus_array,boss_support,万象莲魄,万象莲侯,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ty_late_01_w1_pack,TY_LATE_01,开场围压群,lotus_array,opening,玄天莲魄,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ty_late_01_w2_support,TY_LATE_01,精英前压迫群,lotus_array,elite_support_1,玄天莲魄,玄阵莲尊,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ty_late_01_w3_pressure,TY_LATE_01,第二轮主压群,lotus_array,mid_pressure,玄天莲魄,玄阵莲尊,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ty_late_01_w4_support,TY_LATE_01,首领前压测群,lotus_array,elite_support_2,玄天莲魄,玄阵莲尊,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-ty_late_01_boss_support,TY_LATE_01,首领伴生群,lotus_array,boss_support,玄天莲魄,玄阵莲尊,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dl_early_01_w1_pack,DL_EARLY_01,开场围压群,astral_whale,opening,星海古鲸,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dl_early_01_w2_support,DL_EARLY_01,精英前压迫群,astral_whale,elite_support_1,星海古鲸,裂海鲸将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dl_early_01_w3_pressure,DL_EARLY_01,第二轮主压群,astral_whale,mid_pressure,星海古鲸,裂海鲸将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dl_early_01_w4_support,DL_EARLY_01,首领前压测群,astral_whale,elite_support_2,星海古鲸,裂海鲸将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dl_early_01_boss_support,DL_EARLY_01,首领伴生群,astral_whale,boss_support,星海古鲸,裂海鲸将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dl_mid_01_w1_pack,DL_MID_01,开场围压群,astral_whale,opening,寂灭古鲸,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dl_mid_01_w2_support,DL_MID_01,精英前压迫群,astral_whale,elite_support_1,寂灭古鲸,长阶鲸侯,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dl_mid_01_w3_pressure,DL_MID_01,第二轮主压群,astral_whale,mid_pressure,寂灭古鲸,长阶鲸侯,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dl_mid_01_w4_support,DL_MID_01,首领前压测群,astral_whale,elite_support_2,寂灭古鲸,长阶鲸侯,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dl_mid_01_boss_support,DL_MID_01,首领伴生群,astral_whale,boss_support,寂灭古鲸,长阶鲸侯,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dl_late_01_w1_pack,DL_LATE_01,开场围压群,astral_whale,opening,道场古鲸,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dl_late_01_w2_support,DL_LATE_01,精英前压迫群,astral_whale,elite_support_1,道场古鲸,无尽鲸君,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dl_late_01_w3_pressure,DL_LATE_01,第二轮主压群,astral_whale,mid_pressure,道场古鲸,无尽鲸君,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dl_late_01_w4_support,DL_LATE_01,首领前压测群,astral_whale,elite_support_2,道场古鲸,无尽鲸君,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dl_late_01_boss_support,DL_LATE_01,首领伴生群,astral_whale,boss_support,道场古鲸,无尽鲸君,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dz_early_01_w1_pack,DZ_EARLY_01,开场围压群,myriad_dragon,opening,混元古龙,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dz_early_01_w2_support,DZ_EARLY_01,精英前压迫群,myriad_dragon,elite_support_1,混元古龙,混元龙将,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dz_early_01_w3_pressure,DZ_EARLY_01,第二轮主压群,myriad_dragon,mid_pressure,混元古龙,混元龙将,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dz_early_01_w4_support,DZ_EARLY_01,首领前压测群,myriad_dragon,elite_support_2,混元古龙,混元龙将,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dz_early_01_boss_support,DZ_EARLY_01,首领伴生群,myriad_dragon,boss_support,混元古龙,混元龙将,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dz_mid_01_w1_pack,DZ_MID_01,开场围压群,myriad_dragon,opening,大道古龙,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dz_mid_01_w2_support,DZ_MID_01,精英前压迫群,myriad_dragon,elite_support_1,大道古龙,大道龙侯,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dz_mid_01_w3_pressure,DZ_MID_01,第二轮主压群,myriad_dragon,mid_pressure,大道古龙,大道龙侯,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dz_mid_01_w4_support,DZ_MID_01,首领前压测群,myriad_dragon,elite_support_2,大道古龙,大道龙侯,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dz_mid_01_boss_support,DZ_MID_01,首领伴生群,myriad_dragon,boss_support,大道古龙,大道龙侯,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dz_late_01_w1_pack,DZ_LATE_01,开场围压群,myriad_dragon,opening,万道古龙,,3,edge_ring,18,0,建立开场围压，迫使玩家尽快进入输出节奏。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dz_late_01_w2_support,DZ_LATE_01,精英前压迫群,myriad_dragon,elite_support_1,万道古龙,万道龙君,2,front_pressure,12,4,第一次强化前加入伴生单位，制造 build 首检。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dz_late_01_w3_pressure,DZ_LATE_01,第二轮主压群,myriad_dragon,mid_pressure,万道古龙,万道龙君,3,cross_stream,20,2,第二波主压敌潮，验证清怪和走位。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dz_late_01_w4_support,DZ_LATE_01,首领前压测群,myriad_dragon,elite_support_2,万道古龙,万道龙君,2,side_compress,14,5,首领前压测波，要求 build 成型。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
-dz_late_01_boss_support,DZ_LATE_01,首领伴生群,myriad_dragon,boss_support,万道古龙,万道龙君,2,boss_guard,10,6,首领登场后的伴生敌群，限制纯站桩输出。,敌群组成是波次层唯一解释表，不允许再临时公式拼敌群。
+enemyGroupId,stageId,groupName,themeTag,groupRole,normalEnemyRef,supportEnemyRef,spawnBatchSize,spawnOriginRule,maxAliveNormal,maxAliveSupport,pressureIntent,notes
+lq_early_01_w01_open,LQ_EARLY_01,开场探压群,wolf_hunt,opening,灰鬃狼妖,铜爪狼将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_w02_stable,LQ_EARLY_01,稳定推进群,wolf_hunt,stable,灰鬃狼妖,铜爪狼将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_w03_mix,LQ_EARLY_01,第一混压群,wolf_hunt,mix,灰鬃狼妖,铜爪狼将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_w04_pre_elite,LQ_EARLY_01,一精英前压场群,wolf_hunt,pre_elite_1,灰鬃狼妖,铜爪狼将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_w06_after_elite,LQ_EARLY_01,一精英后回压群,wolf_hunt,after_elite_1,灰鬃狼妖,铜爪狼将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_w07_cross,LQ_EARLY_01,交错追压群,wolf_hunt,cross,灰鬃狼妖,铜爪狼将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_w08_range,LQ_EARLY_01,远近混压群,wolf_hunt,range_mix,灰鬃狼妖,铜爪狼将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_w09_pre_elite2,LQ_EARLY_01,二精英前压测群,wolf_hunt,pre_elite_2,灰鬃狼妖,铜爪狼将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_w11_rebuild,LQ_EARLY_01,重组敌潮群,wolf_hunt,rebuild,灰鬃狼妖,铜爪狼将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_w12_special,LQ_EARLY_01,特种混成群,wolf_hunt,special,灰鬃狼妖,铜爪狼将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_w13_dense,LQ_EARLY_01,高密围压群,wolf_hunt,dense,灰鬃狼妖,铜爪狼将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_w14_pre_elite3,LQ_EARLY_01,三精英前高压群,wolf_hunt,pre_elite_3,灰鬃狼妖,铜爪狼将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_w16_overdrive,LQ_EARLY_01,终局蓄压群,wolf_hunt,overdrive,灰鬃狼妖,铜爪狼将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_w17_surge,LQ_EARLY_01,终局推进群,wolf_hunt,surge,灰鬃狼妖,铜爪狼将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_w18_pin,LQ_EARLY_01,终局定点群,wolf_hunt,pin,灰鬃狼妖,铜爪狼将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_w19_pre_boss,LQ_EARLY_01,首领前压顶群,wolf_hunt,pre_boss,灰鬃狼妖,铜爪狼将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_early_01_boss_support,LQ_EARLY_01,首领伴生群,wolf_hunt,boss_support,灰鬃狼妖,铜爪狼将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w01_open,LQ_MID_01,开场探压群,wolf_hunt,opening,裂齿狼妖,啸风狼将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w02_stable,LQ_MID_01,稳定推进群,wolf_hunt,stable,裂齿狼妖,啸风狼将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w03_mix,LQ_MID_01,第一混压群,wolf_hunt,mix,裂齿狼妖,啸风狼将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w04_pre_elite,LQ_MID_01,一精英前压场群,wolf_hunt,pre_elite_1,裂齿狼妖,啸风狼将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w06_after_elite,LQ_MID_01,一精英后回压群,wolf_hunt,after_elite_1,裂齿狼妖,啸风狼将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w07_cross,LQ_MID_01,交错追压群,wolf_hunt,cross,裂齿狼妖,啸风狼将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w08_range,LQ_MID_01,远近混压群,wolf_hunt,range_mix,裂齿狼妖,啸风狼将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w09_pre_elite2,LQ_MID_01,二精英前压测群,wolf_hunt,pre_elite_2,裂齿狼妖,啸风狼将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w11_rebuild,LQ_MID_01,重组敌潮群,wolf_hunt,rebuild,裂齿狼妖,啸风狼将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w12_special,LQ_MID_01,特种混成群,wolf_hunt,special,裂齿狼妖,啸风狼将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w13_dense,LQ_MID_01,高密围压群,wolf_hunt,dense,裂齿狼妖,啸风狼将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w14_pre_elite3,LQ_MID_01,三精英前高压群,wolf_hunt,pre_elite_3,裂齿狼妖,啸风狼将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w16_overdrive,LQ_MID_01,终局蓄压群,wolf_hunt,overdrive,裂齿狼妖,啸风狼将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w17_surge,LQ_MID_01,终局推进群,wolf_hunt,surge,裂齿狼妖,啸风狼将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w18_pin,LQ_MID_01,终局定点群,wolf_hunt,pin,裂齿狼妖,啸风狼将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_w19_pre_boss,LQ_MID_01,首领前压顶群,wolf_hunt,pre_boss,裂齿狼妖,啸风狼将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_mid_01_boss_support,LQ_MID_01,首领伴生群,wolf_hunt,boss_support,裂齿狼妖,啸风狼将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w01_open,LQ_LATE_01,开场探压群,wolf_hunt,opening,血鬃狼妖,赤瞳狼将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w02_stable,LQ_LATE_01,稳定推进群,wolf_hunt,stable,血鬃狼妖,赤瞳狼将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w03_mix,LQ_LATE_01,第一混压群,wolf_hunt,mix,血鬃狼妖,赤瞳狼将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w04_pre_elite,LQ_LATE_01,一精英前压场群,wolf_hunt,pre_elite_1,血鬃狼妖,赤瞳狼将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w06_after_elite,LQ_LATE_01,一精英后回压群,wolf_hunt,after_elite_1,血鬃狼妖,赤瞳狼将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w07_cross,LQ_LATE_01,交错追压群,wolf_hunt,cross,血鬃狼妖,赤瞳狼将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w08_range,LQ_LATE_01,远近混压群,wolf_hunt,range_mix,血鬃狼妖,赤瞳狼将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w09_pre_elite2,LQ_LATE_01,二精英前压测群,wolf_hunt,pre_elite_2,血鬃狼妖,赤瞳狼将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w11_rebuild,LQ_LATE_01,重组敌潮群,wolf_hunt,rebuild,血鬃狼妖,赤瞳狼将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w12_special,LQ_LATE_01,特种混成群,wolf_hunt,special,血鬃狼妖,赤瞳狼将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w13_dense,LQ_LATE_01,高密围压群,wolf_hunt,dense,血鬃狼妖,赤瞳狼将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w14_pre_elite3,LQ_LATE_01,三精英前高压群,wolf_hunt,pre_elite_3,血鬃狼妖,赤瞳狼将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w16_overdrive,LQ_LATE_01,终局蓄压群,wolf_hunt,overdrive,血鬃狼妖,赤瞳狼将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w17_surge,LQ_LATE_01,终局推进群,wolf_hunt,surge,血鬃狼妖,赤瞳狼将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w18_pin,LQ_LATE_01,终局定点群,wolf_hunt,pin,血鬃狼妖,赤瞳狼将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_w19_pre_boss,LQ_LATE_01,首领前压顶群,wolf_hunt,pre_boss,血鬃狼妖,赤瞳狼将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lq_late_01_boss_support,LQ_LATE_01,首领伴生群,wolf_hunt,boss_support,血鬃狼妖,赤瞳狼将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w01_open,ZJ_EARLY_01,开场探压群,sword_pressure,opening,残剑灵,断岳剑侍,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w02_stable,ZJ_EARLY_01,稳定推进群,sword_pressure,stable,残剑灵,断岳剑侍,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w03_mix,ZJ_EARLY_01,第一混压群,sword_pressure,mix,残剑灵,断岳剑侍,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w04_pre_elite,ZJ_EARLY_01,一精英前压场群,sword_pressure,pre_elite_1,残剑灵,断岳剑侍,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w06_after_elite,ZJ_EARLY_01,一精英后回压群,sword_pressure,after_elite_1,残剑灵,断岳剑侍,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w07_cross,ZJ_EARLY_01,交错追压群,sword_pressure,cross,残剑灵,断岳剑侍,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w08_range,ZJ_EARLY_01,远近混压群,sword_pressure,range_mix,残剑灵,断岳剑侍,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w09_pre_elite2,ZJ_EARLY_01,二精英前压测群,sword_pressure,pre_elite_2,残剑灵,断岳剑侍,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w11_rebuild,ZJ_EARLY_01,重组敌潮群,sword_pressure,rebuild,残剑灵,断岳剑侍,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w12_special,ZJ_EARLY_01,特种混成群,sword_pressure,special,残剑灵,断岳剑侍,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w13_dense,ZJ_EARLY_01,高密围压群,sword_pressure,dense,残剑灵,断岳剑侍,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w14_pre_elite3,ZJ_EARLY_01,三精英前高压群,sword_pressure,pre_elite_3,残剑灵,断岳剑侍,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w16_overdrive,ZJ_EARLY_01,终局蓄压群,sword_pressure,overdrive,残剑灵,断岳剑侍,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w17_surge,ZJ_EARLY_01,终局推进群,sword_pressure,surge,残剑灵,断岳剑侍,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w18_pin,ZJ_EARLY_01,终局定点群,sword_pressure,pin,残剑灵,断岳剑侍,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_w19_pre_boss,ZJ_EARLY_01,首领前压顶群,sword_pressure,pre_boss,残剑灵,断岳剑侍,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_early_01_boss_support,ZJ_EARLY_01,首领伴生群,sword_pressure,boss_support,残剑灵,断岳剑侍,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w01_open,ZJ_MID_01,开场探压群,sword_pressure,opening,回廊剑魂,锁廊剑将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w02_stable,ZJ_MID_01,稳定推进群,sword_pressure,stable,回廊剑魂,锁廊剑将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w03_mix,ZJ_MID_01,第一混压群,sword_pressure,mix,回廊剑魂,锁廊剑将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w04_pre_elite,ZJ_MID_01,一精英前压场群,sword_pressure,pre_elite_1,回廊剑魂,锁廊剑将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w06_after_elite,ZJ_MID_01,一精英后回压群,sword_pressure,after_elite_1,回廊剑魂,锁廊剑将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w07_cross,ZJ_MID_01,交错追压群,sword_pressure,cross,回廊剑魂,锁廊剑将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w08_range,ZJ_MID_01,远近混压群,sword_pressure,range_mix,回廊剑魂,锁廊剑将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w09_pre_elite2,ZJ_MID_01,二精英前压测群,sword_pressure,pre_elite_2,回廊剑魂,锁廊剑将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w11_rebuild,ZJ_MID_01,重组敌潮群,sword_pressure,rebuild,回廊剑魂,锁廊剑将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w12_special,ZJ_MID_01,特种混成群,sword_pressure,special,回廊剑魂,锁廊剑将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w13_dense,ZJ_MID_01,高密围压群,sword_pressure,dense,回廊剑魂,锁廊剑将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w14_pre_elite3,ZJ_MID_01,三精英前高压群,sword_pressure,pre_elite_3,回廊剑魂,锁廊剑将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w16_overdrive,ZJ_MID_01,终局蓄压群,sword_pressure,overdrive,回廊剑魂,锁廊剑将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w17_surge,ZJ_MID_01,终局推进群,sword_pressure,surge,回廊剑魂,锁廊剑将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w18_pin,ZJ_MID_01,终局定点群,sword_pressure,pin,回廊剑魂,锁廊剑将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_w19_pre_boss,ZJ_MID_01,首领前压顶群,sword_pressure,pre_boss,回廊剑魂,锁廊剑将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_mid_01_boss_support,ZJ_MID_01,首领伴生群,sword_pressure,boss_support,回廊剑魂,锁廊剑将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w01_open,ZJ_LATE_01,开场探压群,sword_pressure,opening,裂锋剑魄,埋锋剑侯,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w02_stable,ZJ_LATE_01,稳定推进群,sword_pressure,stable,裂锋剑魄,埋锋剑侯,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w03_mix,ZJ_LATE_01,第一混压群,sword_pressure,mix,裂锋剑魄,埋锋剑侯,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w04_pre_elite,ZJ_LATE_01,一精英前压场群,sword_pressure,pre_elite_1,裂锋剑魄,埋锋剑侯,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w06_after_elite,ZJ_LATE_01,一精英后回压群,sword_pressure,after_elite_1,裂锋剑魄,埋锋剑侯,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w07_cross,ZJ_LATE_01,交错追压群,sword_pressure,cross,裂锋剑魄,埋锋剑侯,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w08_range,ZJ_LATE_01,远近混压群,sword_pressure,range_mix,裂锋剑魄,埋锋剑侯,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w09_pre_elite2,ZJ_LATE_01,二精英前压测群,sword_pressure,pre_elite_2,裂锋剑魄,埋锋剑侯,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w11_rebuild,ZJ_LATE_01,重组敌潮群,sword_pressure,rebuild,裂锋剑魄,埋锋剑侯,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w12_special,ZJ_LATE_01,特种混成群,sword_pressure,special,裂锋剑魄,埋锋剑侯,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w13_dense,ZJ_LATE_01,高密围压群,sword_pressure,dense,裂锋剑魄,埋锋剑侯,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w14_pre_elite3,ZJ_LATE_01,三精英前高压群,sword_pressure,pre_elite_3,裂锋剑魄,埋锋剑侯,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w16_overdrive,ZJ_LATE_01,终局蓄压群,sword_pressure,overdrive,裂锋剑魄,埋锋剑侯,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w17_surge,ZJ_LATE_01,终局推进群,sword_pressure,surge,裂锋剑魄,埋锋剑侯,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w18_pin,ZJ_LATE_01,终局定点群,sword_pressure,pin,裂锋剑魄,埋锋剑侯,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_w19_pre_boss,ZJ_LATE_01,首领前压顶群,sword_pressure,pre_boss,裂锋剑魄,埋锋剑侯,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zj_late_01_boss_support,ZJ_LATE_01,首领伴生群,sword_pressure,boss_support,裂锋剑魄,埋锋剑侯,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w01_open,JD_EARLY_01,开场探压群,fire_burn,opening,炽骨魔,焚血魔将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w02_stable,JD_EARLY_01,稳定推进群,fire_burn,stable,炽骨魔,焚血魔将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w03_mix,JD_EARLY_01,第一混压群,fire_burn,mix,炽骨魔,焚血魔将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w04_pre_elite,JD_EARLY_01,一精英前压场群,fire_burn,pre_elite_1,炽骨魔,焚血魔将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w06_after_elite,JD_EARLY_01,一精英后回压群,fire_burn,after_elite_1,炽骨魔,焚血魔将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w07_cross,JD_EARLY_01,交错追压群,fire_burn,cross,炽骨魔,焚血魔将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w08_range,JD_EARLY_01,远近混压群,fire_burn,range_mix,炽骨魔,焚血魔将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w09_pre_elite2,JD_EARLY_01,二精英前压测群,fire_burn,pre_elite_2,炽骨魔,焚血魔将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w11_rebuild,JD_EARLY_01,重组敌潮群,fire_burn,rebuild,炽骨魔,焚血魔将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w12_special,JD_EARLY_01,特种混成群,fire_burn,special,炽骨魔,焚血魔将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w13_dense,JD_EARLY_01,高密围压群,fire_burn,dense,炽骨魔,焚血魔将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w14_pre_elite3,JD_EARLY_01,三精英前高压群,fire_burn,pre_elite_3,炽骨魔,焚血魔将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w16_overdrive,JD_EARLY_01,终局蓄压群,fire_burn,overdrive,炽骨魔,焚血魔将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w17_surge,JD_EARLY_01,终局推进群,fire_burn,surge,炽骨魔,焚血魔将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w18_pin,JD_EARLY_01,终局定点群,fire_burn,pin,炽骨魔,焚血魔将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_w19_pre_boss,JD_EARLY_01,首领前压顶群,fire_burn,pre_boss,炽骨魔,焚血魔将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_early_01_boss_support,JD_EARLY_01,首领伴生群,fire_burn,boss_support,炽骨魔,焚血魔将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w01_open,JD_MID_01,开场探压群,fire_burn,opening,熔火魔躯,熔炉魔尉,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w02_stable,JD_MID_01,稳定推进群,fire_burn,stable,熔火魔躯,熔炉魔尉,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w03_mix,JD_MID_01,第一混压群,fire_burn,mix,熔火魔躯,熔炉魔尉,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w04_pre_elite,JD_MID_01,一精英前压场群,fire_burn,pre_elite_1,熔火魔躯,熔炉魔尉,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w06_after_elite,JD_MID_01,一精英后回压群,fire_burn,after_elite_1,熔火魔躯,熔炉魔尉,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w07_cross,JD_MID_01,交错追压群,fire_burn,cross,熔火魔躯,熔炉魔尉,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w08_range,JD_MID_01,远近混压群,fire_burn,range_mix,熔火魔躯,熔炉魔尉,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w09_pre_elite2,JD_MID_01,二精英前压测群,fire_burn,pre_elite_2,熔火魔躯,熔炉魔尉,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w11_rebuild,JD_MID_01,重组敌潮群,fire_burn,rebuild,熔火魔躯,熔炉魔尉,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w12_special,JD_MID_01,特种混成群,fire_burn,special,熔火魔躯,熔炉魔尉,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w13_dense,JD_MID_01,高密围压群,fire_burn,dense,熔火魔躯,熔炉魔尉,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w14_pre_elite3,JD_MID_01,三精英前高压群,fire_burn,pre_elite_3,熔火魔躯,熔炉魔尉,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w16_overdrive,JD_MID_01,终局蓄压群,fire_burn,overdrive,熔火魔躯,熔炉魔尉,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w17_surge,JD_MID_01,终局推进群,fire_burn,surge,熔火魔躯,熔炉魔尉,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w18_pin,JD_MID_01,终局定点群,fire_burn,pin,熔火魔躯,熔炉魔尉,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_w19_pre_boss,JD_MID_01,首领前压顶群,fire_burn,pre_boss,熔火魔躯,熔炉魔尉,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_mid_01_boss_support,JD_MID_01,首领伴生群,fire_burn,boss_support,熔火魔躯,熔炉魔尉,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w01_open,JD_LATE_01,开场探压群,fire_burn,opening,灼心炎魔,渊火魔将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w02_stable,JD_LATE_01,稳定推进群,fire_burn,stable,灼心炎魔,渊火魔将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w03_mix,JD_LATE_01,第一混压群,fire_burn,mix,灼心炎魔,渊火魔将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w04_pre_elite,JD_LATE_01,一精英前压场群,fire_burn,pre_elite_1,灼心炎魔,渊火魔将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w06_after_elite,JD_LATE_01,一精英后回压群,fire_burn,after_elite_1,灼心炎魔,渊火魔将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w07_cross,JD_LATE_01,交错追压群,fire_burn,cross,灼心炎魔,渊火魔将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w08_range,JD_LATE_01,远近混压群,fire_burn,range_mix,灼心炎魔,渊火魔将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w09_pre_elite2,JD_LATE_01,二精英前压测群,fire_burn,pre_elite_2,灼心炎魔,渊火魔将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w11_rebuild,JD_LATE_01,重组敌潮群,fire_burn,rebuild,灼心炎魔,渊火魔将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w12_special,JD_LATE_01,特种混成群,fire_burn,special,灼心炎魔,渊火魔将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w13_dense,JD_LATE_01,高密围压群,fire_burn,dense,灼心炎魔,渊火魔将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w14_pre_elite3,JD_LATE_01,三精英前高压群,fire_burn,pre_elite_3,灼心炎魔,渊火魔将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w16_overdrive,JD_LATE_01,终局蓄压群,fire_burn,overdrive,灼心炎魔,渊火魔将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w17_surge,JD_LATE_01,终局推进群,fire_burn,surge,灼心炎魔,渊火魔将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w18_pin,JD_LATE_01,终局定点群,fire_burn,pin,灼心炎魔,渊火魔将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_w19_pre_boss,JD_LATE_01,首领前压顶群,fire_burn,pre_boss,灼心炎魔,渊火魔将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jd_late_01_boss_support,JD_LATE_01,首领伴生群,fire_burn,boss_support,灼心炎魔,渊火魔将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w01_open,YY_EARLY_01,开场探压群,ice_control,opening,霜牙雪魈,寒魄魈将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w02_stable,YY_EARLY_01,稳定推进群,ice_control,stable,霜牙雪魈,寒魄魈将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w03_mix,YY_EARLY_01,第一混压群,ice_control,mix,霜牙雪魈,寒魄魈将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w04_pre_elite,YY_EARLY_01,一精英前压场群,ice_control,pre_elite_1,霜牙雪魈,寒魄魈将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w06_after_elite,YY_EARLY_01,一精英后回压群,ice_control,after_elite_1,霜牙雪魈,寒魄魈将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w07_cross,YY_EARLY_01,交错追压群,ice_control,cross,霜牙雪魈,寒魄魈将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w08_range,YY_EARLY_01,远近混压群,ice_control,range_mix,霜牙雪魈,寒魄魈将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w09_pre_elite2,YY_EARLY_01,二精英前压测群,ice_control,pre_elite_2,霜牙雪魈,寒魄魈将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w11_rebuild,YY_EARLY_01,重组敌潮群,ice_control,rebuild,霜牙雪魈,寒魄魈将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w12_special,YY_EARLY_01,特种混成群,ice_control,special,霜牙雪魈,寒魄魈将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w13_dense,YY_EARLY_01,高密围压群,ice_control,dense,霜牙雪魈,寒魄魈将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w14_pre_elite3,YY_EARLY_01,三精英前高压群,ice_control,pre_elite_3,霜牙雪魈,寒魄魈将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w16_overdrive,YY_EARLY_01,终局蓄压群,ice_control,overdrive,霜牙雪魈,寒魄魈将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w17_surge,YY_EARLY_01,终局推进群,ice_control,surge,霜牙雪魈,寒魄魈将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w18_pin,YY_EARLY_01,终局定点群,ice_control,pin,霜牙雪魈,寒魄魈将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_w19_pre_boss,YY_EARLY_01,首领前压顶群,ice_control,pre_boss,霜牙雪魈,寒魄魈将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_early_01_boss_support,YY_EARLY_01,首领伴生群,ice_control,boss_support,霜牙雪魈,寒魄魈将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w01_open,YY_MID_01,开场探压群,ice_control,opening,玄冰雪魈,踏冰魈将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w02_stable,YY_MID_01,稳定推进群,ice_control,stable,玄冰雪魈,踏冰魈将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w03_mix,YY_MID_01,第一混压群,ice_control,mix,玄冰雪魈,踏冰魈将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w04_pre_elite,YY_MID_01,一精英前压场群,ice_control,pre_elite_1,玄冰雪魈,踏冰魈将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w06_after_elite,YY_MID_01,一精英后回压群,ice_control,after_elite_1,玄冰雪魈,踏冰魈将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w07_cross,YY_MID_01,交错追压群,ice_control,cross,玄冰雪魈,踏冰魈将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w08_range,YY_MID_01,远近混压群,ice_control,range_mix,玄冰雪魈,踏冰魈将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w09_pre_elite2,YY_MID_01,二精英前压测群,ice_control,pre_elite_2,玄冰雪魈,踏冰魈将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w11_rebuild,YY_MID_01,重组敌潮群,ice_control,rebuild,玄冰雪魈,踏冰魈将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w12_special,YY_MID_01,特种混成群,ice_control,special,玄冰雪魈,踏冰魈将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w13_dense,YY_MID_01,高密围压群,ice_control,dense,玄冰雪魈,踏冰魈将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w14_pre_elite3,YY_MID_01,三精英前高压群,ice_control,pre_elite_3,玄冰雪魈,踏冰魈将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w16_overdrive,YY_MID_01,终局蓄压群,ice_control,overdrive,玄冰雪魈,踏冰魈将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w17_surge,YY_MID_01,终局推进群,ice_control,surge,玄冰雪魈,踏冰魈将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w18_pin,YY_MID_01,终局定点群,ice_control,pin,玄冰雪魈,踏冰魈将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_w19_pre_boss,YY_MID_01,首领前压顶群,ice_control,pre_boss,玄冰雪魈,踏冰魈将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_mid_01_boss_support,YY_MID_01,首领伴生群,ice_control,boss_support,玄冰雪魈,踏冰魈将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w01_open,YY_LATE_01,开场探压群,ice_control,opening,霜魂妖魈,禁地主魈,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w02_stable,YY_LATE_01,稳定推进群,ice_control,stable,霜魂妖魈,禁地主魈,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w03_mix,YY_LATE_01,第一混压群,ice_control,mix,霜魂妖魈,禁地主魈,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w04_pre_elite,YY_LATE_01,一精英前压场群,ice_control,pre_elite_1,霜魂妖魈,禁地主魈,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w06_after_elite,YY_LATE_01,一精英后回压群,ice_control,after_elite_1,霜魂妖魈,禁地主魈,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w07_cross,YY_LATE_01,交错追压群,ice_control,cross,霜魂妖魈,禁地主魈,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w08_range,YY_LATE_01,远近混压群,ice_control,range_mix,霜魂妖魈,禁地主魈,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w09_pre_elite2,YY_LATE_01,二精英前压测群,ice_control,pre_elite_2,霜魂妖魈,禁地主魈,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w11_rebuild,YY_LATE_01,重组敌潮群,ice_control,rebuild,霜魂妖魈,禁地主魈,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w12_special,YY_LATE_01,特种混成群,ice_control,special,霜魂妖魈,禁地主魈,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w13_dense,YY_LATE_01,高密围压群,ice_control,dense,霜魂妖魈,禁地主魈,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w14_pre_elite3,YY_LATE_01,三精英前高压群,ice_control,pre_elite_3,霜魂妖魈,禁地主魈,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w16_overdrive,YY_LATE_01,终局蓄压群,ice_control,overdrive,霜魂妖魈,禁地主魈,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w17_surge,YY_LATE_01,终局推进群,ice_control,surge,霜魂妖魈,禁地主魈,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w18_pin,YY_LATE_01,终局定点群,ice_control,pin,霜魂妖魈,禁地主魈,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_w19_pre_boss,YY_LATE_01,首领前压顶群,ice_control,pre_boss,霜魂妖魈,禁地主魈,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+yy_late_01_boss_support,YY_LATE_01,首领伴生群,ice_control,boss_support,霜魂妖魈,禁地主魈,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w01_open,HS_EARLY_01,开场探压群,thunder_chain,opening,雷羽玄鹏,逐雷鹏将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w02_stable,HS_EARLY_01,稳定推进群,thunder_chain,stable,雷羽玄鹏,逐雷鹏将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w03_mix,HS_EARLY_01,第一混压群,thunder_chain,mix,雷羽玄鹏,逐雷鹏将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w04_pre_elite,HS_EARLY_01,一精英前压场群,thunder_chain,pre_elite_1,雷羽玄鹏,逐雷鹏将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w06_after_elite,HS_EARLY_01,一精英后回压群,thunder_chain,after_elite_1,雷羽玄鹏,逐雷鹏将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w07_cross,HS_EARLY_01,交错追压群,thunder_chain,cross,雷羽玄鹏,逐雷鹏将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w08_range,HS_EARLY_01,远近混压群,thunder_chain,range_mix,雷羽玄鹏,逐雷鹏将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w09_pre_elite2,HS_EARLY_01,二精英前压测群,thunder_chain,pre_elite_2,雷羽玄鹏,逐雷鹏将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w11_rebuild,HS_EARLY_01,重组敌潮群,thunder_chain,rebuild,雷羽玄鹏,逐雷鹏将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w12_special,HS_EARLY_01,特种混成群,thunder_chain,special,雷羽玄鹏,逐雷鹏将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w13_dense,HS_EARLY_01,高密围压群,thunder_chain,dense,雷羽玄鹏,逐雷鹏将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w14_pre_elite3,HS_EARLY_01,三精英前高压群,thunder_chain,pre_elite_3,雷羽玄鹏,逐雷鹏将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w16_overdrive,HS_EARLY_01,终局蓄压群,thunder_chain,overdrive,雷羽玄鹏,逐雷鹏将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w17_surge,HS_EARLY_01,终局推进群,thunder_chain,surge,雷羽玄鹏,逐雷鹏将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w18_pin,HS_EARLY_01,终局定点群,thunder_chain,pin,雷羽玄鹏,逐雷鹏将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_w19_pre_boss,HS_EARLY_01,首领前压顶群,thunder_chain,pre_boss,雷羽玄鹏,逐雷鹏将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_early_01_boss_support,HS_EARLY_01,首领伴生群,thunder_chain,boss_support,雷羽玄鹏,逐雷鹏将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w01_open,HS_MID_01,开场探压群,thunder_chain,opening,裂电玄鹏,雷泽鹏侯,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w02_stable,HS_MID_01,稳定推进群,thunder_chain,stable,裂电玄鹏,雷泽鹏侯,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w03_mix,HS_MID_01,第一混压群,thunder_chain,mix,裂电玄鹏,雷泽鹏侯,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w04_pre_elite,HS_MID_01,一精英前压场群,thunder_chain,pre_elite_1,裂电玄鹏,雷泽鹏侯,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w06_after_elite,HS_MID_01,一精英后回压群,thunder_chain,after_elite_1,裂电玄鹏,雷泽鹏侯,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w07_cross,HS_MID_01,交错追压群,thunder_chain,cross,裂电玄鹏,雷泽鹏侯,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w08_range,HS_MID_01,远近混压群,thunder_chain,range_mix,裂电玄鹏,雷泽鹏侯,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w09_pre_elite2,HS_MID_01,二精英前压测群,thunder_chain,pre_elite_2,裂电玄鹏,雷泽鹏侯,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w11_rebuild,HS_MID_01,重组敌潮群,thunder_chain,rebuild,裂电玄鹏,雷泽鹏侯,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w12_special,HS_MID_01,特种混成群,thunder_chain,special,裂电玄鹏,雷泽鹏侯,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w13_dense,HS_MID_01,高密围压群,thunder_chain,dense,裂电玄鹏,雷泽鹏侯,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w14_pre_elite3,HS_MID_01,三精英前高压群,thunder_chain,pre_elite_3,裂电玄鹏,雷泽鹏侯,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w16_overdrive,HS_MID_01,终局蓄压群,thunder_chain,overdrive,裂电玄鹏,雷泽鹏侯,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w17_surge,HS_MID_01,终局推进群,thunder_chain,surge,裂电玄鹏,雷泽鹏侯,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w18_pin,HS_MID_01,终局定点群,thunder_chain,pin,裂电玄鹏,雷泽鹏侯,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_w19_pre_boss,HS_MID_01,首领前压顶群,thunder_chain,pre_boss,裂电玄鹏,雷泽鹏侯,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_mid_01_boss_support,HS_MID_01,首领伴生群,thunder_chain,boss_support,裂电玄鹏,雷泽鹏侯,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w01_open,HS_LATE_01,开场探压群,thunder_chain,opening,祭坛雷鹏,祭坛镇鹏,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w02_stable,HS_LATE_01,稳定推进群,thunder_chain,stable,祭坛雷鹏,祭坛镇鹏,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w03_mix,HS_LATE_01,第一混压群,thunder_chain,mix,祭坛雷鹏,祭坛镇鹏,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w04_pre_elite,HS_LATE_01,一精英前压场群,thunder_chain,pre_elite_1,祭坛雷鹏,祭坛镇鹏,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w06_after_elite,HS_LATE_01,一精英后回压群,thunder_chain,after_elite_1,祭坛雷鹏,祭坛镇鹏,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w07_cross,HS_LATE_01,交错追压群,thunder_chain,cross,祭坛雷鹏,祭坛镇鹏,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w08_range,HS_LATE_01,远近混压群,thunder_chain,range_mix,祭坛雷鹏,祭坛镇鹏,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w09_pre_elite2,HS_LATE_01,二精英前压测群,thunder_chain,pre_elite_2,祭坛雷鹏,祭坛镇鹏,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w11_rebuild,HS_LATE_01,重组敌潮群,thunder_chain,rebuild,祭坛雷鹏,祭坛镇鹏,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w12_special,HS_LATE_01,特种混成群,thunder_chain,special,祭坛雷鹏,祭坛镇鹏,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w13_dense,HS_LATE_01,高密围压群,thunder_chain,dense,祭坛雷鹏,祭坛镇鹏,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w14_pre_elite3,HS_LATE_01,三精英前高压群,thunder_chain,pre_elite_3,祭坛雷鹏,祭坛镇鹏,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w16_overdrive,HS_LATE_01,终局蓄压群,thunder_chain,overdrive,祭坛雷鹏,祭坛镇鹏,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w17_surge,HS_LATE_01,终局推进群,thunder_chain,surge,祭坛雷鹏,祭坛镇鹏,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w18_pin,HS_LATE_01,终局定点群,thunder_chain,pin,祭坛雷鹏,祭坛镇鹏,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_w19_pre_boss,HS_LATE_01,首领前压顶群,thunder_chain,pre_boss,祭坛雷鹏,祭坛镇鹏,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+hs_late_01_boss_support,HS_LATE_01,首领伴生群,thunder_chain,boss_support,祭坛雷鹏,祭坛镇鹏,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w01_open,LX_EARLY_01,开场探压群,void_distort,opening,裂隙魔眼,虚窥魔将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w02_stable,LX_EARLY_01,稳定推进群,void_distort,stable,裂隙魔眼,虚窥魔将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w03_mix,LX_EARLY_01,第一混压群,void_distort,mix,裂隙魔眼,虚窥魔将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w04_pre_elite,LX_EARLY_01,一精英前压场群,void_distort,pre_elite_1,裂隙魔眼,虚窥魔将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w06_after_elite,LX_EARLY_01,一精英后回压群,void_distort,after_elite_1,裂隙魔眼,虚窥魔将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w07_cross,LX_EARLY_01,交错追压群,void_distort,cross,裂隙魔眼,虚窥魔将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w08_range,LX_EARLY_01,远近混压群,void_distort,range_mix,裂隙魔眼,虚窥魔将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w09_pre_elite2,LX_EARLY_01,二精英前压测群,void_distort,pre_elite_2,裂隙魔眼,虚窥魔将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w11_rebuild,LX_EARLY_01,重组敌潮群,void_distort,rebuild,裂隙魔眼,虚窥魔将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w12_special,LX_EARLY_01,特种混成群,void_distort,special,裂隙魔眼,虚窥魔将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w13_dense,LX_EARLY_01,高密围压群,void_distort,dense,裂隙魔眼,虚窥魔将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w14_pre_elite3,LX_EARLY_01,三精英前高压群,void_distort,pre_elite_3,裂隙魔眼,虚窥魔将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w16_overdrive,LX_EARLY_01,终局蓄压群,void_distort,overdrive,裂隙魔眼,虚窥魔将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w17_surge,LX_EARLY_01,终局推进群,void_distort,surge,裂隙魔眼,虚窥魔将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w18_pin,LX_EARLY_01,终局定点群,void_distort,pin,裂隙魔眼,虚窥魔将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_w19_pre_boss,LX_EARLY_01,首领前压顶群,void_distort,pre_boss,裂隙魔眼,虚窥魔将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_early_01_boss_support,LX_EARLY_01,首领伴生群,void_distort,boss_support,裂隙魔眼,虚窥魔将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w01_open,LX_MID_01,开场探压群,void_distort,opening,折光魔眼,折界瞳将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w02_stable,LX_MID_01,稳定推进群,void_distort,stable,折光魔眼,折界瞳将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w03_mix,LX_MID_01,第一混压群,void_distort,mix,折光魔眼,折界瞳将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w04_pre_elite,LX_MID_01,一精英前压场群,void_distort,pre_elite_1,折光魔眼,折界瞳将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w06_after_elite,LX_MID_01,一精英后回压群,void_distort,after_elite_1,折光魔眼,折界瞳将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w07_cross,LX_MID_01,交错追压群,void_distort,cross,折光魔眼,折界瞳将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w08_range,LX_MID_01,远近混压群,void_distort,range_mix,折光魔眼,折界瞳将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w09_pre_elite2,LX_MID_01,二精英前压测群,void_distort,pre_elite_2,折光魔眼,折界瞳将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w11_rebuild,LX_MID_01,重组敌潮群,void_distort,rebuild,折光魔眼,折界瞳将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w12_special,LX_MID_01,特种混成群,void_distort,special,折光魔眼,折界瞳将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w13_dense,LX_MID_01,高密围压群,void_distort,dense,折光魔眼,折界瞳将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w14_pre_elite3,LX_MID_01,三精英前高压群,void_distort,pre_elite_3,折光魔眼,折界瞳将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w16_overdrive,LX_MID_01,终局蓄压群,void_distort,overdrive,折光魔眼,折界瞳将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w17_surge,LX_MID_01,终局推进群,void_distort,surge,折光魔眼,折界瞳将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w18_pin,LX_MID_01,终局定点群,void_distort,pin,折光魔眼,折界瞳将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_w19_pre_boss,LX_MID_01,首领前压顶群,void_distort,pre_boss,折光魔眼,折界瞳将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_mid_01_boss_support,LX_MID_01,首领伴生群,void_distort,boss_support,折光魔眼,折界瞳将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w01_open,LX_LATE_01,开场探压群,void_distort,opening,空冥魔眼,空冥瞳将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w02_stable,LX_LATE_01,稳定推进群,void_distort,stable,空冥魔眼,空冥瞳将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w03_mix,LX_LATE_01,第一混压群,void_distort,mix,空冥魔眼,空冥瞳将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w04_pre_elite,LX_LATE_01,一精英前压场群,void_distort,pre_elite_1,空冥魔眼,空冥瞳将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w06_after_elite,LX_LATE_01,一精英后回压群,void_distort,after_elite_1,空冥魔眼,空冥瞳将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w07_cross,LX_LATE_01,交错追压群,void_distort,cross,空冥魔眼,空冥瞳将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w08_range,LX_LATE_01,远近混压群,void_distort,range_mix,空冥魔眼,空冥瞳将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w09_pre_elite2,LX_LATE_01,二精英前压测群,void_distort,pre_elite_2,空冥魔眼,空冥瞳将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w11_rebuild,LX_LATE_01,重组敌潮群,void_distort,rebuild,空冥魔眼,空冥瞳将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w12_special,LX_LATE_01,特种混成群,void_distort,special,空冥魔眼,空冥瞳将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w13_dense,LX_LATE_01,高密围压群,void_distort,dense,空冥魔眼,空冥瞳将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w14_pre_elite3,LX_LATE_01,三精英前高压群,void_distort,pre_elite_3,空冥魔眼,空冥瞳将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w16_overdrive,LX_LATE_01,终局蓄压群,void_distort,overdrive,空冥魔眼,空冥瞳将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w17_surge,LX_LATE_01,终局推进群,void_distort,surge,空冥魔眼,空冥瞳将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w18_pin,LX_LATE_01,终局定点群,void_distort,pin,空冥魔眼,空冥瞳将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_w19_pre_boss,LX_LATE_01,首领前压顶群,void_distort,pre_boss,空冥魔眼,空冥瞳将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+lx_late_01_boss_support,LX_LATE_01,首领伴生群,void_distort,boss_support,空冥魔眼,空冥瞳将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w01_open,HT_EARLY_01,开场探压群,stone_crush,opening,荒原石傀,碎岳石将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w02_stable,HT_EARLY_01,稳定推进群,stone_crush,stable,荒原石傀,碎岳石将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w03_mix,HT_EARLY_01,第一混压群,stone_crush,mix,荒原石傀,碎岳石将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w04_pre_elite,HT_EARLY_01,一精英前压场群,stone_crush,pre_elite_1,荒原石傀,碎岳石将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w06_after_elite,HT_EARLY_01,一精英后回压群,stone_crush,after_elite_1,荒原石傀,碎岳石将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w07_cross,HT_EARLY_01,交错追压群,stone_crush,cross,荒原石傀,碎岳石将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w08_range,HT_EARLY_01,远近混压群,stone_crush,range_mix,荒原石傀,碎岳石将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w09_pre_elite2,HT_EARLY_01,二精英前压测群,stone_crush,pre_elite_2,荒原石傀,碎岳石将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w11_rebuild,HT_EARLY_01,重组敌潮群,stone_crush,rebuild,荒原石傀,碎岳石将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w12_special,HT_EARLY_01,特种混成群,stone_crush,special,荒原石傀,碎岳石将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w13_dense,HT_EARLY_01,高密围压群,stone_crush,dense,荒原石傀,碎岳石将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w14_pre_elite3,HT_EARLY_01,三精英前高压群,stone_crush,pre_elite_3,荒原石傀,碎岳石将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w16_overdrive,HT_EARLY_01,终局蓄压群,stone_crush,overdrive,荒原石傀,碎岳石将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w17_surge,HT_EARLY_01,终局推进群,stone_crush,surge,荒原石傀,碎岳石将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w18_pin,HT_EARLY_01,终局定点群,stone_crush,pin,荒原石傀,碎岳石将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_w19_pre_boss,HT_EARLY_01,首领前压顶群,stone_crush,pre_boss,荒原石傀,碎岳石将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_early_01_boss_support,HT_EARLY_01,首领伴生群,stone_crush,boss_support,荒原石傀,碎岳石将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w01_open,HT_MID_01,开场探压群,stone_crush,opening,合元石傀,合元石侯,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w02_stable,HT_MID_01,稳定推进群,stone_crush,stable,合元石傀,合元石侯,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w03_mix,HT_MID_01,第一混压群,stone_crush,mix,合元石傀,合元石侯,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w04_pre_elite,HT_MID_01,一精英前压场群,stone_crush,pre_elite_1,合元石傀,合元石侯,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w06_after_elite,HT_MID_01,一精英后回压群,stone_crush,after_elite_1,合元石傀,合元石侯,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w07_cross,HT_MID_01,交错追压群,stone_crush,cross,合元石傀,合元石侯,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w08_range,HT_MID_01,远近混压群,stone_crush,range_mix,合元石傀,合元石侯,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w09_pre_elite2,HT_MID_01,二精英前压测群,stone_crush,pre_elite_2,合元石傀,合元石侯,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w11_rebuild,HT_MID_01,重组敌潮群,stone_crush,rebuild,合元石傀,合元石侯,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w12_special,HT_MID_01,特种混成群,stone_crush,special,合元石傀,合元石侯,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w13_dense,HT_MID_01,高密围压群,stone_crush,dense,合元石傀,合元石侯,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w14_pre_elite3,HT_MID_01,三精英前高压群,stone_crush,pre_elite_3,合元石傀,合元石侯,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w16_overdrive,HT_MID_01,终局蓄压群,stone_crush,overdrive,合元石傀,合元石侯,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w17_surge,HT_MID_01,终局推进群,stone_crush,surge,合元石傀,合元石侯,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w18_pin,HT_MID_01,终局定点群,stone_crush,pin,合元石傀,合元石侯,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_w19_pre_boss,HT_MID_01,首领前压顶群,stone_crush,pre_boss,合元石傀,合元石侯,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_mid_01_boss_support,HT_MID_01,首领伴生群,stone_crush,boss_support,合元石傀,合元石侯,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w01_open,HT_LATE_01,开场探压群,stone_crush,opening,归一石傀,归殿石君,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w02_stable,HT_LATE_01,稳定推进群,stone_crush,stable,归一石傀,归殿石君,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w03_mix,HT_LATE_01,第一混压群,stone_crush,mix,归一石傀,归殿石君,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w04_pre_elite,HT_LATE_01,一精英前压场群,stone_crush,pre_elite_1,归一石傀,归殿石君,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w06_after_elite,HT_LATE_01,一精英后回压群,stone_crush,after_elite_1,归一石傀,归殿石君,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w07_cross,HT_LATE_01,交错追压群,stone_crush,cross,归一石傀,归殿石君,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w08_range,HT_LATE_01,远近混压群,stone_crush,range_mix,归一石傀,归殿石君,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w09_pre_elite2,HT_LATE_01,二精英前压测群,stone_crush,pre_elite_2,归一石傀,归殿石君,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w11_rebuild,HT_LATE_01,重组敌潮群,stone_crush,rebuild,归一石傀,归殿石君,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w12_special,HT_LATE_01,特种混成群,stone_crush,special,归一石傀,归殿石君,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w13_dense,HT_LATE_01,高密围压群,stone_crush,dense,归一石傀,归殿石君,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w14_pre_elite3,HT_LATE_01,三精英前高压群,stone_crush,pre_elite_3,归一石傀,归殿石君,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w16_overdrive,HT_LATE_01,终局蓄压群,stone_crush,overdrive,归一石傀,归殿石君,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w17_surge,HT_LATE_01,终局推进群,stone_crush,surge,归一石傀,归殿石君,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w18_pin,HT_LATE_01,终局定点群,stone_crush,pin,归一石傀,归殿石君,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_w19_pre_boss,HT_LATE_01,首领前压顶群,stone_crush,pre_boss,归一石傀,归殿石君,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ht_late_01_boss_support,HT_LATE_01,首领伴生群,stone_crush,boss_support,归一石傀,归殿石君,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w01_open,DC_EARLY_01,开场探压群,celestial_snake,opening,星阙灵蛇,巡星蛇将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w02_stable,DC_EARLY_01,稳定推进群,celestial_snake,stable,星阙灵蛇,巡星蛇将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w03_mix,DC_EARLY_01,第一混压群,celestial_snake,mix,星阙灵蛇,巡星蛇将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w04_pre_elite,DC_EARLY_01,一精英前压场群,celestial_snake,pre_elite_1,星阙灵蛇,巡星蛇将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w06_after_elite,DC_EARLY_01,一精英后回压群,celestial_snake,after_elite_1,星阙灵蛇,巡星蛇将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w07_cross,DC_EARLY_01,交错追压群,celestial_snake,cross,星阙灵蛇,巡星蛇将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w08_range,DC_EARLY_01,远近混压群,celestial_snake,range_mix,星阙灵蛇,巡星蛇将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w09_pre_elite2,DC_EARLY_01,二精英前压测群,celestial_snake,pre_elite_2,星阙灵蛇,巡星蛇将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w11_rebuild,DC_EARLY_01,重组敌潮群,celestial_snake,rebuild,星阙灵蛇,巡星蛇将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w12_special,DC_EARLY_01,特种混成群,celestial_snake,special,星阙灵蛇,巡星蛇将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w13_dense,DC_EARLY_01,高密围压群,celestial_snake,dense,星阙灵蛇,巡星蛇将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w14_pre_elite3,DC_EARLY_01,三精英前高压群,celestial_snake,pre_elite_3,星阙灵蛇,巡星蛇将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w16_overdrive,DC_EARLY_01,终局蓄压群,celestial_snake,overdrive,星阙灵蛇,巡星蛇将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w17_surge,DC_EARLY_01,终局推进群,celestial_snake,surge,星阙灵蛇,巡星蛇将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w18_pin,DC_EARLY_01,终局定点群,celestial_snake,pin,星阙灵蛇,巡星蛇将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_w19_pre_boss,DC_EARLY_01,首领前压顶群,celestial_snake,pre_boss,星阙灵蛇,巡星蛇将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_early_01_boss_support,DC_EARLY_01,首领伴生群,celestial_snake,boss_support,星阙灵蛇,巡星蛇将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w01_open,DC_MID_01,开场探压群,celestial_snake,opening,桥巡灵蛇,长桥蛇侯,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w02_stable,DC_MID_01,稳定推进群,celestial_snake,stable,桥巡灵蛇,长桥蛇侯,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w03_mix,DC_MID_01,第一混压群,celestial_snake,mix,桥巡灵蛇,长桥蛇侯,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w04_pre_elite,DC_MID_01,一精英前压场群,celestial_snake,pre_elite_1,桥巡灵蛇,长桥蛇侯,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w06_after_elite,DC_MID_01,一精英后回压群,celestial_snake,after_elite_1,桥巡灵蛇,长桥蛇侯,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w07_cross,DC_MID_01,交错追压群,celestial_snake,cross,桥巡灵蛇,长桥蛇侯,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w08_range,DC_MID_01,远近混压群,celestial_snake,range_mix,桥巡灵蛇,长桥蛇侯,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w09_pre_elite2,DC_MID_01,二精英前压测群,celestial_snake,pre_elite_2,桥巡灵蛇,长桥蛇侯,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w11_rebuild,DC_MID_01,重组敌潮群,celestial_snake,rebuild,桥巡灵蛇,长桥蛇侯,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w12_special,DC_MID_01,特种混成群,celestial_snake,special,桥巡灵蛇,长桥蛇侯,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w13_dense,DC_MID_01,高密围压群,celestial_snake,dense,桥巡灵蛇,长桥蛇侯,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w14_pre_elite3,DC_MID_01,三精英前高压群,celestial_snake,pre_elite_3,桥巡灵蛇,长桥蛇侯,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w16_overdrive,DC_MID_01,终局蓄压群,celestial_snake,overdrive,桥巡灵蛇,长桥蛇侯,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w17_surge,DC_MID_01,终局推进群,celestial_snake,surge,桥巡灵蛇,长桥蛇侯,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w18_pin,DC_MID_01,终局定点群,celestial_snake,pin,桥巡灵蛇,长桥蛇侯,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_w19_pre_boss,DC_MID_01,首领前压顶群,celestial_snake,pre_boss,桥巡灵蛇,长桥蛇侯,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_mid_01_boss_support,DC_MID_01,首领伴生群,celestial_snake,boss_support,桥巡灵蛇,长桥蛇侯,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w01_open,DC_LATE_01,开场探压群,celestial_snake,opening,神庭灵蛇,神庭玄螭,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w02_stable,DC_LATE_01,稳定推进群,celestial_snake,stable,神庭灵蛇,神庭玄螭,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w03_mix,DC_LATE_01,第一混压群,celestial_snake,mix,神庭灵蛇,神庭玄螭,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w04_pre_elite,DC_LATE_01,一精英前压场群,celestial_snake,pre_elite_1,神庭灵蛇,神庭玄螭,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w06_after_elite,DC_LATE_01,一精英后回压群,celestial_snake,after_elite_1,神庭灵蛇,神庭玄螭,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w07_cross,DC_LATE_01,交错追压群,celestial_snake,cross,神庭灵蛇,神庭玄螭,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w08_range,DC_LATE_01,远近混压群,celestial_snake,range_mix,神庭灵蛇,神庭玄螭,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w09_pre_elite2,DC_LATE_01,二精英前压测群,celestial_snake,pre_elite_2,神庭灵蛇,神庭玄螭,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w11_rebuild,DC_LATE_01,重组敌潮群,celestial_snake,rebuild,神庭灵蛇,神庭玄螭,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w12_special,DC_LATE_01,特种混成群,celestial_snake,special,神庭灵蛇,神庭玄螭,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w13_dense,DC_LATE_01,高密围压群,celestial_snake,dense,神庭灵蛇,神庭玄螭,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w14_pre_elite3,DC_LATE_01,三精英前高压群,celestial_snake,pre_elite_3,神庭灵蛇,神庭玄螭,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w16_overdrive,DC_LATE_01,终局蓄压群,celestial_snake,overdrive,神庭灵蛇,神庭玄螭,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w17_surge,DC_LATE_01,终局推进群,celestial_snake,surge,神庭灵蛇,神庭玄螭,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w18_pin,DC_LATE_01,终局定点群,celestial_snake,pin,神庭灵蛇,神庭玄螭,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_w19_pre_boss,DC_LATE_01,首领前压顶群,celestial_snake,pre_boss,神庭灵蛇,神庭玄螭,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dc_late_01_boss_support,DC_LATE_01,首领伴生群,celestial_snake,boss_support,神庭灵蛇,神庭玄螭,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w01_open,DJ_EARLY_01,开场探压群,tribulation_corpse,opening,劫火尸王,劫雷尸将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w02_stable,DJ_EARLY_01,稳定推进群,tribulation_corpse,stable,劫火尸王,劫雷尸将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w03_mix,DJ_EARLY_01,第一混压群,tribulation_corpse,mix,劫火尸王,劫雷尸将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w04_pre_elite,DJ_EARLY_01,一精英前压场群,tribulation_corpse,pre_elite_1,劫火尸王,劫雷尸将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w06_after_elite,DJ_EARLY_01,一精英后回压群,tribulation_corpse,after_elite_1,劫火尸王,劫雷尸将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w07_cross,DJ_EARLY_01,交错追压群,tribulation_corpse,cross,劫火尸王,劫雷尸将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w08_range,DJ_EARLY_01,远近混压群,tribulation_corpse,range_mix,劫火尸王,劫雷尸将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w09_pre_elite2,DJ_EARLY_01,二精英前压测群,tribulation_corpse,pre_elite_2,劫火尸王,劫雷尸将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w11_rebuild,DJ_EARLY_01,重组敌潮群,tribulation_corpse,rebuild,劫火尸王,劫雷尸将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w12_special,DJ_EARLY_01,特种混成群,tribulation_corpse,special,劫火尸王,劫雷尸将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w13_dense,DJ_EARLY_01,高密围压群,tribulation_corpse,dense,劫火尸王,劫雷尸将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w14_pre_elite3,DJ_EARLY_01,三精英前高压群,tribulation_corpse,pre_elite_3,劫火尸王,劫雷尸将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w16_overdrive,DJ_EARLY_01,终局蓄压群,tribulation_corpse,overdrive,劫火尸王,劫雷尸将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w17_surge,DJ_EARLY_01,终局推进群,tribulation_corpse,surge,劫火尸王,劫雷尸将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w18_pin,DJ_EARLY_01,终局定点群,tribulation_corpse,pin,劫火尸王,劫雷尸将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_w19_pre_boss,DJ_EARLY_01,首领前压顶群,tribulation_corpse,pre_boss,劫火尸王,劫雷尸将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_early_01_boss_support,DJ_EARLY_01,首领伴生群,tribulation_corpse,boss_support,劫火尸王,劫雷尸将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w01_open,DJ_MID_01,开场探压群,tribulation_corpse,opening,断界尸王,雷断尸侯,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w02_stable,DJ_MID_01,稳定推进群,tribulation_corpse,stable,断界尸王,雷断尸侯,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w03_mix,DJ_MID_01,第一混压群,tribulation_corpse,mix,断界尸王,雷断尸侯,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w04_pre_elite,DJ_MID_01,一精英前压场群,tribulation_corpse,pre_elite_1,断界尸王,雷断尸侯,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w06_after_elite,DJ_MID_01,一精英后回压群,tribulation_corpse,after_elite_1,断界尸王,雷断尸侯,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w07_cross,DJ_MID_01,交错追压群,tribulation_corpse,cross,断界尸王,雷断尸侯,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w08_range,DJ_MID_01,远近混压群,tribulation_corpse,range_mix,断界尸王,雷断尸侯,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w09_pre_elite2,DJ_MID_01,二精英前压测群,tribulation_corpse,pre_elite_2,断界尸王,雷断尸侯,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w11_rebuild,DJ_MID_01,重组敌潮群,tribulation_corpse,rebuild,断界尸王,雷断尸侯,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w12_special,DJ_MID_01,特种混成群,tribulation_corpse,special,断界尸王,雷断尸侯,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w13_dense,DJ_MID_01,高密围压群,tribulation_corpse,dense,断界尸王,雷断尸侯,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w14_pre_elite3,DJ_MID_01,三精英前高压群,tribulation_corpse,pre_elite_3,断界尸王,雷断尸侯,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w16_overdrive,DJ_MID_01,终局蓄压群,tribulation_corpse,overdrive,断界尸王,雷断尸侯,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w17_surge,DJ_MID_01,终局推进群,tribulation_corpse,surge,断界尸王,雷断尸侯,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w18_pin,DJ_MID_01,终局定点群,tribulation_corpse,pin,断界尸王,雷断尸侯,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_w19_pre_boss,DJ_MID_01,首领前压顶群,tribulation_corpse,pre_boss,断界尸王,雷断尸侯,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_mid_01_boss_support,DJ_MID_01,首领伴生群,tribulation_corpse,boss_support,断界尸王,雷断尸侯,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w01_open,DJ_LATE_01,开场探压群,tribulation_corpse,opening,祭台尸王,天罚尸将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w02_stable,DJ_LATE_01,稳定推进群,tribulation_corpse,stable,祭台尸王,天罚尸将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w03_mix,DJ_LATE_01,第一混压群,tribulation_corpse,mix,祭台尸王,天罚尸将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w04_pre_elite,DJ_LATE_01,一精英前压场群,tribulation_corpse,pre_elite_1,祭台尸王,天罚尸将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w06_after_elite,DJ_LATE_01,一精英后回压群,tribulation_corpse,after_elite_1,祭台尸王,天罚尸将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w07_cross,DJ_LATE_01,交错追压群,tribulation_corpse,cross,祭台尸王,天罚尸将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w08_range,DJ_LATE_01,远近混压群,tribulation_corpse,range_mix,祭台尸王,天罚尸将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w09_pre_elite2,DJ_LATE_01,二精英前压测群,tribulation_corpse,pre_elite_2,祭台尸王,天罚尸将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w11_rebuild,DJ_LATE_01,重组敌潮群,tribulation_corpse,rebuild,祭台尸王,天罚尸将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w12_special,DJ_LATE_01,特种混成群,tribulation_corpse,special,祭台尸王,天罚尸将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w13_dense,DJ_LATE_01,高密围压群,tribulation_corpse,dense,祭台尸王,天罚尸将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w14_pre_elite3,DJ_LATE_01,三精英前高压群,tribulation_corpse,pre_elite_3,祭台尸王,天罚尸将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w16_overdrive,DJ_LATE_01,终局蓄压群,tribulation_corpse,overdrive,祭台尸王,天罚尸将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w17_surge,DJ_LATE_01,终局推进群,tribulation_corpse,surge,祭台尸王,天罚尸将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w18_pin,DJ_LATE_01,终局定点群,tribulation_corpse,pin,祭台尸王,天罚尸将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_w19_pre_boss,DJ_LATE_01,首领前压顶群,tribulation_corpse,pre_boss,祭台尸王,天罚尸将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dj_late_01_boss_support,DJ_LATE_01,首领伴生群,tribulation_corpse,boss_support,祭台尸王,天罚尸将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w01_open,ZX_EARLY_01,开场探压群,illusion_fox,opening,云庭幻狐,踏云狐将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w02_stable,ZX_EARLY_01,稳定推进群,illusion_fox,stable,云庭幻狐,踏云狐将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w03_mix,ZX_EARLY_01,第一混压群,illusion_fox,mix,云庭幻狐,踏云狐将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w04_pre_elite,ZX_EARLY_01,一精英前压场群,illusion_fox,pre_elite_1,云庭幻狐,踏云狐将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w06_after_elite,ZX_EARLY_01,一精英后回压群,illusion_fox,after_elite_1,云庭幻狐,踏云狐将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w07_cross,ZX_EARLY_01,交错追压群,illusion_fox,cross,云庭幻狐,踏云狐将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w08_range,ZX_EARLY_01,远近混压群,illusion_fox,range_mix,云庭幻狐,踏云狐将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w09_pre_elite2,ZX_EARLY_01,二精英前压测群,illusion_fox,pre_elite_2,云庭幻狐,踏云狐将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w11_rebuild,ZX_EARLY_01,重组敌潮群,illusion_fox,rebuild,云庭幻狐,踏云狐将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w12_special,ZX_EARLY_01,特种混成群,illusion_fox,special,云庭幻狐,踏云狐将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w13_dense,ZX_EARLY_01,高密围压群,illusion_fox,dense,云庭幻狐,踏云狐将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w14_pre_elite3,ZX_EARLY_01,三精英前高压群,illusion_fox,pre_elite_3,云庭幻狐,踏云狐将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w16_overdrive,ZX_EARLY_01,终局蓄压群,illusion_fox,overdrive,云庭幻狐,踏云狐将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w17_surge,ZX_EARLY_01,终局推进群,illusion_fox,surge,云庭幻狐,踏云狐将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w18_pin,ZX_EARLY_01,终局定点群,illusion_fox,pin,云庭幻狐,踏云狐将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_w19_pre_boss,ZX_EARLY_01,首领前压顶群,illusion_fox,pre_boss,云庭幻狐,踏云狐将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_early_01_boss_support,ZX_EARLY_01,首领伴生群,illusion_fox,boss_support,云庭幻狐,踏云狐将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w01_open,ZX_MID_01,开场探压群,illusion_fox,opening,紫微幻狐,宫门狐侯,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w02_stable,ZX_MID_01,稳定推进群,illusion_fox,stable,紫微幻狐,宫门狐侯,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w03_mix,ZX_MID_01,第一混压群,illusion_fox,mix,紫微幻狐,宫门狐侯,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w04_pre_elite,ZX_MID_01,一精英前压场群,illusion_fox,pre_elite_1,紫微幻狐,宫门狐侯,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w06_after_elite,ZX_MID_01,一精英后回压群,illusion_fox,after_elite_1,紫微幻狐,宫门狐侯,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w07_cross,ZX_MID_01,交错追压群,illusion_fox,cross,紫微幻狐,宫门狐侯,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w08_range,ZX_MID_01,远近混压群,illusion_fox,range_mix,紫微幻狐,宫门狐侯,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w09_pre_elite2,ZX_MID_01,二精英前压测群,illusion_fox,pre_elite_2,紫微幻狐,宫门狐侯,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w11_rebuild,ZX_MID_01,重组敌潮群,illusion_fox,rebuild,紫微幻狐,宫门狐侯,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w12_special,ZX_MID_01,特种混成群,illusion_fox,special,紫微幻狐,宫门狐侯,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w13_dense,ZX_MID_01,高密围压群,illusion_fox,dense,紫微幻狐,宫门狐侯,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w14_pre_elite3,ZX_MID_01,三精英前高压群,illusion_fox,pre_elite_3,紫微幻狐,宫门狐侯,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w16_overdrive,ZX_MID_01,终局蓄压群,illusion_fox,overdrive,紫微幻狐,宫门狐侯,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w17_surge,ZX_MID_01,终局推进群,illusion_fox,surge,紫微幻狐,宫门狐侯,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w18_pin,ZX_MID_01,终局定点群,illusion_fox,pin,紫微幻狐,宫门狐侯,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_w19_pre_boss,ZX_MID_01,首领前压顶群,illusion_fox,pre_boss,紫微幻狐,宫门狐侯,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_mid_01_boss_support,ZX_MID_01,首领伴生群,illusion_fox,boss_support,紫微幻狐,宫门狐侯,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w01_open,ZX_LATE_01,开场探压群,illusion_fox,opening,太清幻狐,仙阙狐妃,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w02_stable,ZX_LATE_01,稳定推进群,illusion_fox,stable,太清幻狐,仙阙狐妃,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w03_mix,ZX_LATE_01,第一混压群,illusion_fox,mix,太清幻狐,仙阙狐妃,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w04_pre_elite,ZX_LATE_01,一精英前压场群,illusion_fox,pre_elite_1,太清幻狐,仙阙狐妃,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w06_after_elite,ZX_LATE_01,一精英后回压群,illusion_fox,after_elite_1,太清幻狐,仙阙狐妃,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w07_cross,ZX_LATE_01,交错追压群,illusion_fox,cross,太清幻狐,仙阙狐妃,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w08_range,ZX_LATE_01,远近混压群,illusion_fox,range_mix,太清幻狐,仙阙狐妃,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w09_pre_elite2,ZX_LATE_01,二精英前压测群,illusion_fox,pre_elite_2,太清幻狐,仙阙狐妃,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w11_rebuild,ZX_LATE_01,重组敌潮群,illusion_fox,rebuild,太清幻狐,仙阙狐妃,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w12_special,ZX_LATE_01,特种混成群,illusion_fox,special,太清幻狐,仙阙狐妃,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w13_dense,ZX_LATE_01,高密围压群,illusion_fox,dense,太清幻狐,仙阙狐妃,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w14_pre_elite3,ZX_LATE_01,三精英前高压群,illusion_fox,pre_elite_3,太清幻狐,仙阙狐妃,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w16_overdrive,ZX_LATE_01,终局蓄压群,illusion_fox,overdrive,太清幻狐,仙阙狐妃,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w17_surge,ZX_LATE_01,终局推进群,illusion_fox,surge,太清幻狐,仙阙狐妃,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w18_pin,ZX_LATE_01,终局定点群,illusion_fox,pin,太清幻狐,仙阙狐妃,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_w19_pre_boss,ZX_LATE_01,首领前压顶群,illusion_fox,pre_boss,太清幻狐,仙阙狐妃,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+zx_late_01_boss_support,ZX_LATE_01,首领伴生群,illusion_fox,boss_support,太清幻狐,仙阙狐妃,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w01_open,JX_EARLY_01,开场探压群,solar_crow,opening,金乌残灵,曜羽乌将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w02_stable,JX_EARLY_01,稳定推进群,solar_crow,stable,金乌残灵,曜羽乌将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w03_mix,JX_EARLY_01,第一混压群,solar_crow,mix,金乌残灵,曜羽乌将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w04_pre_elite,JX_EARLY_01,一精英前压场群,solar_crow,pre_elite_1,金乌残灵,曜羽乌将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w06_after_elite,JX_EARLY_01,一精英后回压群,solar_crow,after_elite_1,金乌残灵,曜羽乌将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w07_cross,JX_EARLY_01,交错追压群,solar_crow,cross,金乌残灵,曜羽乌将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w08_range,JX_EARLY_01,远近混压群,solar_crow,range_mix,金乌残灵,曜羽乌将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w09_pre_elite2,JX_EARLY_01,二精英前压测群,solar_crow,pre_elite_2,金乌残灵,曜羽乌将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w11_rebuild,JX_EARLY_01,重组敌潮群,solar_crow,rebuild,金乌残灵,曜羽乌将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w12_special,JX_EARLY_01,特种混成群,solar_crow,special,金乌残灵,曜羽乌将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w13_dense,JX_EARLY_01,高密围压群,solar_crow,dense,金乌残灵,曜羽乌将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w14_pre_elite3,JX_EARLY_01,三精英前高压群,solar_crow,pre_elite_3,金乌残灵,曜羽乌将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w16_overdrive,JX_EARLY_01,终局蓄压群,solar_crow,overdrive,金乌残灵,曜羽乌将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w17_surge,JX_EARLY_01,终局推进群,solar_crow,surge,金乌残灵,曜羽乌将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w18_pin,JX_EARLY_01,终局定点群,solar_crow,pin,金乌残灵,曜羽乌将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_w19_pre_boss,JX_EARLY_01,首领前压顶群,solar_crow,pre_boss,金乌残灵,曜羽乌将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_early_01_boss_support,JX_EARLY_01,首领伴生群,solar_crow,boss_support,金乌残灵,曜羽乌将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w01_open,JX_MID_01,开场探压群,solar_crow,opening,琉璃乌灵,天廊乌侯,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w02_stable,JX_MID_01,稳定推进群,solar_crow,stable,琉璃乌灵,天廊乌侯,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w03_mix,JX_MID_01,第一混压群,solar_crow,mix,琉璃乌灵,天廊乌侯,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w04_pre_elite,JX_MID_01,一精英前压场群,solar_crow,pre_elite_1,琉璃乌灵,天廊乌侯,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w06_after_elite,JX_MID_01,一精英后回压群,solar_crow,after_elite_1,琉璃乌灵,天廊乌侯,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w07_cross,JX_MID_01,交错追压群,solar_crow,cross,琉璃乌灵,天廊乌侯,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w08_range,JX_MID_01,远近混压群,solar_crow,range_mix,琉璃乌灵,天廊乌侯,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w09_pre_elite2,JX_MID_01,二精英前压测群,solar_crow,pre_elite_2,琉璃乌灵,天廊乌侯,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w11_rebuild,JX_MID_01,重组敌潮群,solar_crow,rebuild,琉璃乌灵,天廊乌侯,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w12_special,JX_MID_01,特种混成群,solar_crow,special,琉璃乌灵,天廊乌侯,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w13_dense,JX_MID_01,高密围压群,solar_crow,dense,琉璃乌灵,天廊乌侯,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w14_pre_elite3,JX_MID_01,三精英前高压群,solar_crow,pre_elite_3,琉璃乌灵,天廊乌侯,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w16_overdrive,JX_MID_01,终局蓄压群,solar_crow,overdrive,琉璃乌灵,天廊乌侯,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w17_surge,JX_MID_01,终局推进群,solar_crow,surge,琉璃乌灵,天廊乌侯,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w18_pin,JX_MID_01,终局定点群,solar_crow,pin,琉璃乌灵,天廊乌侯,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_w19_pre_boss,JX_MID_01,首领前压顶群,solar_crow,pre_boss,琉璃乌灵,天廊乌侯,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_mid_01_boss_support,JX_MID_01,首领伴生群,solar_crow,boss_support,琉璃乌灵,天廊乌侯,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w01_open,JX_LATE_01,开场探压群,solar_crow,opening,金轮乌灵,金轮乌帅,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w02_stable,JX_LATE_01,稳定推进群,solar_crow,stable,金轮乌灵,金轮乌帅,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w03_mix,JX_LATE_01,第一混压群,solar_crow,mix,金轮乌灵,金轮乌帅,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w04_pre_elite,JX_LATE_01,一精英前压场群,solar_crow,pre_elite_1,金轮乌灵,金轮乌帅,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w06_after_elite,JX_LATE_01,一精英后回压群,solar_crow,after_elite_1,金轮乌灵,金轮乌帅,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w07_cross,JX_LATE_01,交错追压群,solar_crow,cross,金轮乌灵,金轮乌帅,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w08_range,JX_LATE_01,远近混压群,solar_crow,range_mix,金轮乌灵,金轮乌帅,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w09_pre_elite2,JX_LATE_01,二精英前压测群,solar_crow,pre_elite_2,金轮乌灵,金轮乌帅,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w11_rebuild,JX_LATE_01,重组敌潮群,solar_crow,rebuild,金轮乌灵,金轮乌帅,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w12_special,JX_LATE_01,特种混成群,solar_crow,special,金轮乌灵,金轮乌帅,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w13_dense,JX_LATE_01,高密围压群,solar_crow,dense,金轮乌灵,金轮乌帅,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w14_pre_elite3,JX_LATE_01,三精英前高压群,solar_crow,pre_elite_3,金轮乌灵,金轮乌帅,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w16_overdrive,JX_LATE_01,终局蓄压群,solar_crow,overdrive,金轮乌灵,金轮乌帅,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w17_surge,JX_LATE_01,终局推进群,solar_crow,surge,金轮乌灵,金轮乌帅,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w18_pin,JX_LATE_01,终局定点群,solar_crow,pin,金轮乌灵,金轮乌帅,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_w19_pre_boss,JX_LATE_01,首领前压顶群,solar_crow,pre_boss,金轮乌灵,金轮乌帅,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+jx_late_01_boss_support,JX_LATE_01,首领伴生群,solar_crow,boss_support,金轮乌灵,金轮乌帅,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w01_open,TY_EARLY_01,开场探压群,lotus_array,opening,太乙莲魄,青莲魄将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w02_stable,TY_EARLY_01,稳定推进群,lotus_array,stable,太乙莲魄,青莲魄将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w03_mix,TY_EARLY_01,第一混压群,lotus_array,mix,太乙莲魄,青莲魄将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w04_pre_elite,TY_EARLY_01,一精英前压场群,lotus_array,pre_elite_1,太乙莲魄,青莲魄将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w06_after_elite,TY_EARLY_01,一精英后回压群,lotus_array,after_elite_1,太乙莲魄,青莲魄将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w07_cross,TY_EARLY_01,交错追压群,lotus_array,cross,太乙莲魄,青莲魄将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w08_range,TY_EARLY_01,远近混压群,lotus_array,range_mix,太乙莲魄,青莲魄将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w09_pre_elite2,TY_EARLY_01,二精英前压测群,lotus_array,pre_elite_2,太乙莲魄,青莲魄将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w11_rebuild,TY_EARLY_01,重组敌潮群,lotus_array,rebuild,太乙莲魄,青莲魄将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w12_special,TY_EARLY_01,特种混成群,lotus_array,special,太乙莲魄,青莲魄将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w13_dense,TY_EARLY_01,高密围压群,lotus_array,dense,太乙莲魄,青莲魄将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w14_pre_elite3,TY_EARLY_01,三精英前高压群,lotus_array,pre_elite_3,太乙莲魄,青莲魄将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w16_overdrive,TY_EARLY_01,终局蓄压群,lotus_array,overdrive,太乙莲魄,青莲魄将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w17_surge,TY_EARLY_01,终局推进群,lotus_array,surge,太乙莲魄,青莲魄将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w18_pin,TY_EARLY_01,终局定点群,lotus_array,pin,太乙莲魄,青莲魄将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_w19_pre_boss,TY_EARLY_01,首领前压顶群,lotus_array,pre_boss,太乙莲魄,青莲魄将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_early_01_boss_support,TY_EARLY_01,首领伴生群,lotus_array,boss_support,太乙莲魄,青莲魄将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w01_open,TY_MID_01,开场探压群,lotus_array,opening,万象莲魄,万象莲侯,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w02_stable,TY_MID_01,稳定推进群,lotus_array,stable,万象莲魄,万象莲侯,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w03_mix,TY_MID_01,第一混压群,lotus_array,mix,万象莲魄,万象莲侯,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w04_pre_elite,TY_MID_01,一精英前压场群,lotus_array,pre_elite_1,万象莲魄,万象莲侯,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w06_after_elite,TY_MID_01,一精英后回压群,lotus_array,after_elite_1,万象莲魄,万象莲侯,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w07_cross,TY_MID_01,交错追压群,lotus_array,cross,万象莲魄,万象莲侯,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w08_range,TY_MID_01,远近混压群,lotus_array,range_mix,万象莲魄,万象莲侯,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w09_pre_elite2,TY_MID_01,二精英前压测群,lotus_array,pre_elite_2,万象莲魄,万象莲侯,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w11_rebuild,TY_MID_01,重组敌潮群,lotus_array,rebuild,万象莲魄,万象莲侯,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w12_special,TY_MID_01,特种混成群,lotus_array,special,万象莲魄,万象莲侯,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w13_dense,TY_MID_01,高密围压群,lotus_array,dense,万象莲魄,万象莲侯,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w14_pre_elite3,TY_MID_01,三精英前高压群,lotus_array,pre_elite_3,万象莲魄,万象莲侯,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w16_overdrive,TY_MID_01,终局蓄压群,lotus_array,overdrive,万象莲魄,万象莲侯,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w17_surge,TY_MID_01,终局推进群,lotus_array,surge,万象莲魄,万象莲侯,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w18_pin,TY_MID_01,终局定点群,lotus_array,pin,万象莲魄,万象莲侯,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_w19_pre_boss,TY_MID_01,首领前压顶群,lotus_array,pre_boss,万象莲魄,万象莲侯,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_mid_01_boss_support,TY_MID_01,首领伴生群,lotus_array,boss_support,万象莲魄,万象莲侯,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w01_open,TY_LATE_01,开场探压群,lotus_array,opening,玄天莲魄,玄阵莲尊,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w02_stable,TY_LATE_01,稳定推进群,lotus_array,stable,玄天莲魄,玄阵莲尊,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w03_mix,TY_LATE_01,第一混压群,lotus_array,mix,玄天莲魄,玄阵莲尊,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w04_pre_elite,TY_LATE_01,一精英前压场群,lotus_array,pre_elite_1,玄天莲魄,玄阵莲尊,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w06_after_elite,TY_LATE_01,一精英后回压群,lotus_array,after_elite_1,玄天莲魄,玄阵莲尊,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w07_cross,TY_LATE_01,交错追压群,lotus_array,cross,玄天莲魄,玄阵莲尊,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w08_range,TY_LATE_01,远近混压群,lotus_array,range_mix,玄天莲魄,玄阵莲尊,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w09_pre_elite2,TY_LATE_01,二精英前压测群,lotus_array,pre_elite_2,玄天莲魄,玄阵莲尊,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w11_rebuild,TY_LATE_01,重组敌潮群,lotus_array,rebuild,玄天莲魄,玄阵莲尊,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w12_special,TY_LATE_01,特种混成群,lotus_array,special,玄天莲魄,玄阵莲尊,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w13_dense,TY_LATE_01,高密围压群,lotus_array,dense,玄天莲魄,玄阵莲尊,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w14_pre_elite3,TY_LATE_01,三精英前高压群,lotus_array,pre_elite_3,玄天莲魄,玄阵莲尊,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w16_overdrive,TY_LATE_01,终局蓄压群,lotus_array,overdrive,玄天莲魄,玄阵莲尊,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w17_surge,TY_LATE_01,终局推进群,lotus_array,surge,玄天莲魄,玄阵莲尊,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w18_pin,TY_LATE_01,终局定点群,lotus_array,pin,玄天莲魄,玄阵莲尊,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_w19_pre_boss,TY_LATE_01,首领前压顶群,lotus_array,pre_boss,玄天莲魄,玄阵莲尊,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+ty_late_01_boss_support,TY_LATE_01,首领伴生群,lotus_array,boss_support,玄天莲魄,玄阵莲尊,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w01_open,DL_EARLY_01,开场探压群,astral_whale,opening,星海古鲸,裂海鲸将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w02_stable,DL_EARLY_01,稳定推进群,astral_whale,stable,星海古鲸,裂海鲸将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w03_mix,DL_EARLY_01,第一混压群,astral_whale,mix,星海古鲸,裂海鲸将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w04_pre_elite,DL_EARLY_01,一精英前压场群,astral_whale,pre_elite_1,星海古鲸,裂海鲸将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w06_after_elite,DL_EARLY_01,一精英后回压群,astral_whale,after_elite_1,星海古鲸,裂海鲸将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w07_cross,DL_EARLY_01,交错追压群,astral_whale,cross,星海古鲸,裂海鲸将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w08_range,DL_EARLY_01,远近混压群,astral_whale,range_mix,星海古鲸,裂海鲸将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w09_pre_elite2,DL_EARLY_01,二精英前压测群,astral_whale,pre_elite_2,星海古鲸,裂海鲸将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w11_rebuild,DL_EARLY_01,重组敌潮群,astral_whale,rebuild,星海古鲸,裂海鲸将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w12_special,DL_EARLY_01,特种混成群,astral_whale,special,星海古鲸,裂海鲸将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w13_dense,DL_EARLY_01,高密围压群,astral_whale,dense,星海古鲸,裂海鲸将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w14_pre_elite3,DL_EARLY_01,三精英前高压群,astral_whale,pre_elite_3,星海古鲸,裂海鲸将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w16_overdrive,DL_EARLY_01,终局蓄压群,astral_whale,overdrive,星海古鲸,裂海鲸将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w17_surge,DL_EARLY_01,终局推进群,astral_whale,surge,星海古鲸,裂海鲸将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w18_pin,DL_EARLY_01,终局定点群,astral_whale,pin,星海古鲸,裂海鲸将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_w19_pre_boss,DL_EARLY_01,首领前压顶群,astral_whale,pre_boss,星海古鲸,裂海鲸将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_early_01_boss_support,DL_EARLY_01,首领伴生群,astral_whale,boss_support,星海古鲸,裂海鲸将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w01_open,DL_MID_01,开场探压群,astral_whale,opening,寂灭古鲸,长阶鲸侯,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w02_stable,DL_MID_01,稳定推进群,astral_whale,stable,寂灭古鲸,长阶鲸侯,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w03_mix,DL_MID_01,第一混压群,astral_whale,mix,寂灭古鲸,长阶鲸侯,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w04_pre_elite,DL_MID_01,一精英前压场群,astral_whale,pre_elite_1,寂灭古鲸,长阶鲸侯,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w06_after_elite,DL_MID_01,一精英后回压群,astral_whale,after_elite_1,寂灭古鲸,长阶鲸侯,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w07_cross,DL_MID_01,交错追压群,astral_whale,cross,寂灭古鲸,长阶鲸侯,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w08_range,DL_MID_01,远近混压群,astral_whale,range_mix,寂灭古鲸,长阶鲸侯,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w09_pre_elite2,DL_MID_01,二精英前压测群,astral_whale,pre_elite_2,寂灭古鲸,长阶鲸侯,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w11_rebuild,DL_MID_01,重组敌潮群,astral_whale,rebuild,寂灭古鲸,长阶鲸侯,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w12_special,DL_MID_01,特种混成群,astral_whale,special,寂灭古鲸,长阶鲸侯,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w13_dense,DL_MID_01,高密围压群,astral_whale,dense,寂灭古鲸,长阶鲸侯,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w14_pre_elite3,DL_MID_01,三精英前高压群,astral_whale,pre_elite_3,寂灭古鲸,长阶鲸侯,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w16_overdrive,DL_MID_01,终局蓄压群,astral_whale,overdrive,寂灭古鲸,长阶鲸侯,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w17_surge,DL_MID_01,终局推进群,astral_whale,surge,寂灭古鲸,长阶鲸侯,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w18_pin,DL_MID_01,终局定点群,astral_whale,pin,寂灭古鲸,长阶鲸侯,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_w19_pre_boss,DL_MID_01,首领前压顶群,astral_whale,pre_boss,寂灭古鲸,长阶鲸侯,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_mid_01_boss_support,DL_MID_01,首领伴生群,astral_whale,boss_support,寂灭古鲸,长阶鲸侯,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w01_open,DL_LATE_01,开场探压群,astral_whale,opening,道场古鲸,无尽鲸君,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w02_stable,DL_LATE_01,稳定推进群,astral_whale,stable,道场古鲸,无尽鲸君,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w03_mix,DL_LATE_01,第一混压群,astral_whale,mix,道场古鲸,无尽鲸君,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w04_pre_elite,DL_LATE_01,一精英前压场群,astral_whale,pre_elite_1,道场古鲸,无尽鲸君,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w06_after_elite,DL_LATE_01,一精英后回压群,astral_whale,after_elite_1,道场古鲸,无尽鲸君,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w07_cross,DL_LATE_01,交错追压群,astral_whale,cross,道场古鲸,无尽鲸君,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w08_range,DL_LATE_01,远近混压群,astral_whale,range_mix,道场古鲸,无尽鲸君,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w09_pre_elite2,DL_LATE_01,二精英前压测群,astral_whale,pre_elite_2,道场古鲸,无尽鲸君,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w11_rebuild,DL_LATE_01,重组敌潮群,astral_whale,rebuild,道场古鲸,无尽鲸君,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w12_special,DL_LATE_01,特种混成群,astral_whale,special,道场古鲸,无尽鲸君,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w13_dense,DL_LATE_01,高密围压群,astral_whale,dense,道场古鲸,无尽鲸君,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w14_pre_elite3,DL_LATE_01,三精英前高压群,astral_whale,pre_elite_3,道场古鲸,无尽鲸君,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w16_overdrive,DL_LATE_01,终局蓄压群,astral_whale,overdrive,道场古鲸,无尽鲸君,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w17_surge,DL_LATE_01,终局推进群,astral_whale,surge,道场古鲸,无尽鲸君,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w18_pin,DL_LATE_01,终局定点群,astral_whale,pin,道场古鲸,无尽鲸君,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_w19_pre_boss,DL_LATE_01,首领前压顶群,astral_whale,pre_boss,道场古鲸,无尽鲸君,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dl_late_01_boss_support,DL_LATE_01,首领伴生群,astral_whale,boss_support,道场古鲸,无尽鲸君,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w01_open,DZ_EARLY_01,开场探压群,myriad_dragon,opening,混元古龙,混元龙将,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w02_stable,DZ_EARLY_01,稳定推进群,myriad_dragon,stable,混元古龙,混元龙将,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w03_mix,DZ_EARLY_01,第一混压群,myriad_dragon,mix,混元古龙,混元龙将,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w04_pre_elite,DZ_EARLY_01,一精英前压场群,myriad_dragon,pre_elite_1,混元古龙,混元龙将,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w06_after_elite,DZ_EARLY_01,一精英后回压群,myriad_dragon,after_elite_1,混元古龙,混元龙将,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w07_cross,DZ_EARLY_01,交错追压群,myriad_dragon,cross,混元古龙,混元龙将,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w08_range,DZ_EARLY_01,远近混压群,myriad_dragon,range_mix,混元古龙,混元龙将,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w09_pre_elite2,DZ_EARLY_01,二精英前压测群,myriad_dragon,pre_elite_2,混元古龙,混元龙将,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w11_rebuild,DZ_EARLY_01,重组敌潮群,myriad_dragon,rebuild,混元古龙,混元龙将,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w12_special,DZ_EARLY_01,特种混成群,myriad_dragon,special,混元古龙,混元龙将,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w13_dense,DZ_EARLY_01,高密围压群,myriad_dragon,dense,混元古龙,混元龙将,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w14_pre_elite3,DZ_EARLY_01,三精英前高压群,myriad_dragon,pre_elite_3,混元古龙,混元龙将,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w16_overdrive,DZ_EARLY_01,终局蓄压群,myriad_dragon,overdrive,混元古龙,混元龙将,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w17_surge,DZ_EARLY_01,终局推进群,myriad_dragon,surge,混元古龙,混元龙将,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w18_pin,DZ_EARLY_01,终局定点群,myriad_dragon,pin,混元古龙,混元龙将,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_w19_pre_boss,DZ_EARLY_01,首领前压顶群,myriad_dragon,pre_boss,混元古龙,混元龙将,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_early_01_boss_support,DZ_EARLY_01,首领伴生群,myriad_dragon,boss_support,混元古龙,混元龙将,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w01_open,DZ_MID_01,开场探压群,myriad_dragon,opening,大道古龙,大道龙侯,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w02_stable,DZ_MID_01,稳定推进群,myriad_dragon,stable,大道古龙,大道龙侯,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w03_mix,DZ_MID_01,第一混压群,myriad_dragon,mix,大道古龙,大道龙侯,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w04_pre_elite,DZ_MID_01,一精英前压场群,myriad_dragon,pre_elite_1,大道古龙,大道龙侯,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w06_after_elite,DZ_MID_01,一精英后回压群,myriad_dragon,after_elite_1,大道古龙,大道龙侯,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w07_cross,DZ_MID_01,交错追压群,myriad_dragon,cross,大道古龙,大道龙侯,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w08_range,DZ_MID_01,远近混压群,myriad_dragon,range_mix,大道古龙,大道龙侯,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w09_pre_elite2,DZ_MID_01,二精英前压测群,myriad_dragon,pre_elite_2,大道古龙,大道龙侯,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w11_rebuild,DZ_MID_01,重组敌潮群,myriad_dragon,rebuild,大道古龙,大道龙侯,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w12_special,DZ_MID_01,特种混成群,myriad_dragon,special,大道古龙,大道龙侯,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w13_dense,DZ_MID_01,高密围压群,myriad_dragon,dense,大道古龙,大道龙侯,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w14_pre_elite3,DZ_MID_01,三精英前高压群,myriad_dragon,pre_elite_3,大道古龙,大道龙侯,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w16_overdrive,DZ_MID_01,终局蓄压群,myriad_dragon,overdrive,大道古龙,大道龙侯,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w17_surge,DZ_MID_01,终局推进群,myriad_dragon,surge,大道古龙,大道龙侯,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w18_pin,DZ_MID_01,终局定点群,myriad_dragon,pin,大道古龙,大道龙侯,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_w19_pre_boss,DZ_MID_01,首领前压顶群,myriad_dragon,pre_boss,大道古龙,大道龙侯,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_mid_01_boss_support,DZ_MID_01,首领伴生群,myriad_dragon,boss_support,大道古龙,大道龙侯,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w01_open,DZ_LATE_01,开场探压群,myriad_dragon,opening,万道古龙,万道龙君,3,edge_ring,14,0,建立第一波压迫，帮助玩家尽快拿到前几级经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w02_stable,DZ_LATE_01,稳定推进群,myriad_dragon,stable,万道古龙,万道龙君,3,edge_ring,16,0,保持基础压迫，鼓励玩家继续走位拾取经验。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w03_mix,DZ_LATE_01,第一混压群,myriad_dragon,mix,万道古龙,万道龙君,4,cross_stream,18,2,开始引入侧向夹击与小型特种怪。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w04_pre_elite,DZ_LATE_01,一精英前压场群,myriad_dragon,pre_elite_1,万道古龙,万道龙君,4,front_pressure,18,3,为第5波精英拉满心理预期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w06_after_elite,DZ_LATE_01,一精英后回压群,myriad_dragon,after_elite_1,万道古龙,万道龙君,4,side_compress,20,2,让第一次 build 选择开始发力。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w07_cross,DZ_LATE_01,交错追压群,myriad_dragon,cross,万道古龙,万道龙君,5,cross_stream,22,3,同时考验清怪和走位。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w08_range,DZ_LATE_01,远近混压群,myriad_dragon,range_mix,万道古龙,万道龙君,5,backline_mix,22,4,把远程和突进压力叠加到一起。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w09_pre_elite2,DZ_LATE_01,二精英前压测群,myriad_dragon,pre_elite_2,万道古龙,万道龙君,5,front_pressure,24,4,为第10波精英做最终压测。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w11_rebuild,DZ_LATE_01,重组敌潮群,myriad_dragon,rebuild,万道古龙,万道龙君,5,edge_ring,24,3,第10波精英后重建敌潮节奏，准备第三精英前的成型期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w12_special,DZ_LATE_01,特种混成群,myriad_dragon,special,万道古龙,万道龙君,5,cross_stream,26,5,明显提高特种怪占比。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w13_dense,DZ_LATE_01,高密围压群,myriad_dragon,dense,万道古龙,万道龙君,6,side_compress,28,5,密度持续抬升，逼迫 build 真正成型。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w14_pre_elite3,DZ_LATE_01,三精英前高压群,myriad_dragon,pre_elite_3,万道古龙,万道龙君,6,front_pressure,28,6,把 build 推到第三精英检验点。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w16_overdrive,DZ_LATE_01,终局蓄压群,myriad_dragon,overdrive,万道古龙,万道龙君,6,cross_stream,30,6,第15波后进入终局高压期。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w17_surge,DZ_LATE_01,终局推进群,myriad_dragon,surge,万道古龙,万道龙君,6,side_compress,32,7,持续增压，不给空窗。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w18_pin,DZ_LATE_01,终局定点群,myriad_dragon,pin,万道古龙,万道龙君,6,front_pressure,32,8,强化定点打击与封锁感。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_w19_pre_boss,DZ_LATE_01,首领前压顶群,myriad_dragon,pre_boss,万道古龙,万道龙君,6,boss_guard,34,8,首领前最后压力顶峰。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
+dz_late_01_boss_support,DZ_LATE_01,首领伴生群,myriad_dragon,boss_support,万道古龙,万道龙君,3,boss_guard,10,6,第20波首领伴生压力，不喧宾夺主。,当前20波轻肉鸽敌群真源，不允许运行时公式拼群。
