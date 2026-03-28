@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>轻肉鸽页面 HTML 方案总览</title>
+  <style>
+    :root {
+      --bg: #0b1114;
+      --panel: #101a1f;
+      --panel-2: #142329;
+      --line: #2b4b50;
+      --text: #d8ece7;
+      --muted: #8ca8a2;
+      --gold: #d6c18f;
+      --cyan: #78c6c8;
+      --accent: #1c3136;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px;
+      font-family: "PingFang SC", "Songti SC", serif;
+      background:
+        radial-gradient(circle at top, rgba(91, 145, 147, 0.18), transparent 32%),
+        linear-gradient(180deg, #0f171b 0%, #0a0f12 100%);
+      color: var(--text);
+    }
+    h1 { margin: 0 0 10px; font-size: 30px; }
+    .intro {
+      max-width: 920px;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+      max-width: 1200px;
+    }
+    .card {
+      border: 1px solid rgba(120, 198, 200, 0.2);
+      background: linear-gradient(180deg, rgba(16, 26, 31, 0.92), rgba(11, 17, 20, 0.96));
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+    }
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border: 1px solid rgba(214, 193, 143, 0.45);
+      color: var(--gold);
+      border-radius: 999px;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+    .card p, .card li {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+    .card ul {
+      margin: 10px 0 16px 18px;
+      padding: 0;
+    }
+    a.page-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 14px;
+      border: 1px solid rgba(120, 198, 200, 0.28);
+      border-radius: 12px;
+      color: var(--text);
+      text-decoration: none;
+      background: rgba(20, 35, 41, 0.65);
+    }
+  </style>
+</head>
+<body>
+  <h1>轻肉鸽页面 HTML 方案总览</h1>
+  <p class="intro">
+    本目录用于承载当前主线页面的 HTML 交互方案稿。每个页面都同时包含：结构草图、状态说明、图片占位用途、显隐规则、数据依赖与实现提醒。
+    目标不是“画得好看”，而是让实现线程直接看懂页面应该如何落地。
+  </p>
+
+  <div class="grid">
+    <section class="card">
+      <div class="tag">主链入口</div>
+      <h2>轻肉鸽历练选关页</h2>
+      <p>用于定义主推关卡、进入整备、境界阶段提示与主导航关系。</p>
+      <ul>
+        <li>只做选关，不做神通详细管理</li>
+        <li>主推关卡必须一眼可见</li>
+        <li>禁止恢复旧日志探索结构</li>
+      </ul>
+      <a class="page-link" href="./轻肉鸽历练选关页.html">打开方案</a>
+    </section>
+
+    <section class="card">
+      <div class="tag">构筑入口</div>
+      <h2>战前整备页</h2>
+      <p>用于定义 3 神通顺位、待解锁槽位、确认进入战场的行为与状态说明。</p>
+      <ul>
+        <li>只负责整备，不负责选关</li>
+        <li>槽位主导，不允许神通列表抢主视觉</li>
+        <li>未解锁槽位使用固定文案占位</li>
+      </ul>
+      <a class="page-link" href="./战前整备页.html">打开方案</a>
+    </section>
+
+    <section class="card">
+      <div class="tag">战斗核心</div>
+      <h2>轻肉鸽战场页</h2>
+      <p>用于定义实时战斗主画面、战场信息层级、按钮主次、首领压场与中断层关系。</p>
+      <ul>
+        <li>战场是绝对主视觉</li>
+        <li>升级、首领、死亡采用中断层</li>
+        <li>底部按钮只可用，不可抢眼</li>
+      </ul>
+      <a class="page-link" href="./轻肉鸽战场页.html">打开方案</a>
+    </section>
+
+    <section class="card">
+      <div class="tag">高频中断</div>
+      <h2>三选一强化页</h2>
+      <p>用于定义升级中断、候选卡展示、流派摘要、候选不足时的保底逻辑。</p>
+      <ul>
+        <li>必须是主中断层</li>
+        <li>一次只展示 3 张强化卡</li>
+        <li>关闭后直接回到战斗</li>
+      </ul>
+      <a class="page-link" href="./三选一强化页.html">打开方案</a>
+    </section>
+  </div>
+</body>
+</html>

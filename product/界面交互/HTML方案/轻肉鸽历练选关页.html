@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>轻肉鸽历练选关页方案</title>
+  <style>
+    :root {
+      --bg: #0b1114;
+      --panel: #10191d;
+      --panel-2: #132229;
+      --line: #34565f;
+      --text: #dcedea;
+      --muted: #90aaa4;
+      --gold: #d8c38c;
+      --accent: #76c1c8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: "PingFang SC", "Songti SC", serif;
+      background: radial-gradient(circle at top, rgba(118,193,200,0.16), transparent 30%), linear-gradient(180deg, #0f181c 0%, #0a0f11 100%);
+      color: var(--text);
+    }
+    h1 { margin: 0 0 8px; }
+    .meta { color: var(--muted); margin-bottom: 18px; line-height: 1.7; }
+    .layout {
+      display: grid;
+      grid-template-columns: 360px minmax(420px, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+    .phone, .notes {
+      border: 1px solid rgba(118,193,200,0.18);
+      border-radius: 22px;
+      background: rgba(16,25,29,0.92);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+    }
+    .phone {
+      width: 360px;
+      min-height: 720px;
+      padding: 18px;
+    }
+    .notes { padding: 18px 20px; }
+    .top, .mid, .bottom {
+      border: 1px dashed rgba(118,193,200,0.18);
+      border-radius: 16px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    .top { min-height: 120px; }
+    .mid { min-height: 430px; }
+    .bottom { min-height: 82px; margin-bottom: 0; }
+    .title { text-align: center; font-size: 24px; margin: 8px 0 4px; }
+    .sub { text-align: center; color: var(--gold); font-size: 14px; }
+    .panel-title { color: var(--gold); font-size: 12px; margin-bottom: 8px; }
+    .stage-card {
+      border: 1px solid rgba(216,195,140,0.38);
+      border-radius: 14px;
+      background: rgba(19,34,41,0.75);
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+    .stage-card.featured { box-shadow: 0 0 0 1px rgba(216,195,140,0.35) inset; }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+    .pill {
+      display: inline-block;
+      border: 1px solid rgba(118,193,200,0.28);
+      border-radius: 999px;
+      padding: 2px 8px;
+      color: var(--accent);
+      font-size: 12px;
+    }
+    .btn {
+      min-height: 40px;
+      border: 1px solid rgba(118,193,200,0.26);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 12px;
+      background: rgba(19,34,41,0.72);
+      font-size: 13px;
+    }
+    .nav {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    h2 { margin: 0 0 10px; font-size: 18px; }
+    h3 { margin: 18px 0 8px; font-size: 15px; color: var(--gold); }
+    p, li { color: var(--muted); line-height: 1.7; font-size: 14px; }
+    ul { margin: 8px 0 0 18px; padding: 0; }
+    .code {
+      border: 1px solid rgba(118,193,200,0.16);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: rgba(11,17,20,0.72);
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.7;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <h1>轻肉鸽历练选关页</h1>
+  <div class="meta">
+    页面职责：只负责“我现在该打哪一关”。<br />
+    数据真源：`轻肉鸽关卡映射总表.csv`。<br />
+    禁止事项：不承担神通详细管理、不显示 runBag、不恢复旧探索日志。
+  </div>
+
+  <div class="layout">
+    <section class="phone">
+      <div class="top">
+        <div class="panel-title">顶部区 18%</div>
+        <div class="title">历练关卡</div>
+        <div class="sub">【炼气】山门试炼</div>
+      </div>
+
+      <div class="mid">
+        <div class="panel-title">中部区 70%</div>
+        <div class="stage-card featured">
+          <div class="row">
+            <strong>初期 · 野狼谷外围</strong>
+            <span class="pill">主推</span>
+          </div>
+          <div class="row">
+            <span>妖潮方向：四边围压</span>
+            <span>地图：山门雪坪</span>
+          </div>
+          <div class="row">
+            <span>目标：进入整备</span>
+            <span class="btn">前往整备</span>
+          </div>
+        </div>
+
+        <div class="stage-card">
+          <div class="row">
+            <strong>中期 · 野狼谷深处</strong>
+            <span class="pill">未达</span>
+          </div>
+          <div class="row">
+            <span>需先完成初期关卡</span>
+            <span>推荐：御剑 / 火弹</span>
+          </div>
+        </div>
+
+        <div class="stage-card">
+          <div class="row">
+            <strong>后期 · 野狼谷妖巢</strong>
+            <span class="pill">未达</span>
+          </div>
+          <div class="row">
+            <span>需先破境条件满足</span>
+            <span>推荐：冰锥 / 天雷</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div class="panel-title">底部区 12%</div>
+        <div class="nav">
+          <div class="btn">人物</div>
+          <div class="btn">历练</div>
+          <div class="btn">洞府</div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="notes">
+      <h2>实现说明</h2>
+
+      <h3>1. 结构主次</h3>
+      <ul>
+        <li>中部关卡列表必须是绝对主视觉。</li>
+        <li>玩家第一眼应该看到“主推哪一关”，而不是技能、资源或说明文字。</li>
+        <li>每次只展示当前境界的 3 个关卡，不做长列表。</li>
+      </ul>
+
+      <h3>2. 每张关卡卡片必须包含</h3>
+      <ul>
+        <li>关卡名称</li>
+        <li>当前状态：主推 / 已通 / 未达</li>
+        <li>一句敌潮风格摘要</li>
+        <li>一句地图摘要</li>
+        <li>唯一主按钮：`前往整备` 或不可用说明</li>
+      </ul>
+
+      <h3>3. 交互逻辑</h3>
+      <div class="code">点击已解锁关卡卡片 -> 进入战前整备页
+点击未解锁关卡卡片 -> 只提示解锁条件，不跳转
+底部主导航固定可用
+本页不允许展开神通详情和 runBag</div>
+
+      <h3>4. 图片与视觉占位</h3>
+      <ul>
+        <li>当前无需真实图片，但可在卡片左侧预留关卡意象缩略图位。</li>
+        <li>实现线程若看到后续插图占位，应理解为“辅助氛围”，不是点击热区。</li>
+      </ul>
+
+      <h3>5. 数据依赖</h3>
+      <div class="code">读取：
+- stageId
+- 大境界 / 阶段 / 关卡名称
+- themeTag / themeDesc
+- battleMapId
+- modeParamId
+
+来源：
+轻肉鸽关卡映射总表.csv</div>
+    </aside>
+  </div>
+</body>
+</html>

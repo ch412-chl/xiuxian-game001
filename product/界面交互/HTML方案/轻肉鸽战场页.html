@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>轻肉鸽战场页方案</title>
+  <style>
+    :root {
+      --bg: #081013;
+      --panel: rgba(13, 22, 26, 0.82);
+      --line: rgba(118, 193, 200, 0.18);
+      --text: #dcece6;
+      --muted: #8da8a2;
+      --gold: #d8c58c;
+      --cyan: #7fcbd0;
+      --red: #cf766b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: "PingFang SC", "Songti SC", serif;
+      background:
+        radial-gradient(circle at center, rgba(71, 111, 117, 0.2), transparent 36%),
+        linear-gradient(180deg, #0f1619 0%, #080d10 100%);
+      color: var(--text);
+    }
+    h1 { margin: 0 0 8px; }
+    .meta { color: var(--muted); margin-bottom: 18px; line-height: 1.7; }
+    .layout { display: grid; grid-template-columns: 390px minmax(420px,1fr); gap: 20px; }
+    .phone, .notes { border: 1px solid var(--line); border-radius: 22px; background: rgba(10,17,20,0.94); }
+    .phone { padding: 14px; min-height: 760px; position: relative; }
+    .notes { padding: 18px 20px; }
+    .hud-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .hud-box {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+      padding: 8px 10px;
+      min-width: 0;
+    }
+    .battle-stage {
+      border: 1px dashed rgba(118,193,200,0.18);
+      border-radius: 20px;
+      min-height: 470px;
+      padding: 14px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at center, rgba(118,193,200,0.08), transparent 34%),
+        linear-gradient(180deg, rgba(15,24,28,0.75), rgba(8,13,16,0.92));
+    }
+    .boss-bar {
+      border: 1px solid rgba(207,118,107,0.36);
+      border-radius: 10px;
+      background: rgba(39,17,16,0.85);
+      padding: 6px 10px;
+      margin-bottom: 10px;
+    }
+    .boss-fill, .exp-fill, .hp-fill {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+      margin-top: 6px;
+    }
+    .boss-fill span { display: block; height: 100%; width: 78%; background: linear-gradient(90deg, #a13f37, #d4685e); }
+    .exp-fill span { display: block; height: 100%; width: 44%; background: linear-gradient(90deg, #7fcbd0, #4da7ac); }
+    .hp-fill span { display: block; height: 100%; width: 62%; background: linear-gradient(90deg, #d6c58c, #a58a54); }
+    .center-note {
+      position: absolute;
+      inset: 80px 24px 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: rgba(220,236,230,0.8);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    .bottom-bar {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(13,22,26,0.82);
+      padding: 12px;
+    }
+    .action-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .btn {
+      min-height: 40px;
+      border: 1px solid rgba(118,193,200,0.24);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(19,33,40,0.72);
+      font-size: 13px;
+    }
+    h2 { margin: 0 0 10px; font-size: 18px; }
+    h3 { margin: 18px 0 8px; font-size: 15px; color: var(--gold); }
+    p, li { color: var(--muted); line-height: 1.7; font-size: 14px; }
+    ul { margin: 8px 0 0 18px; padding: 0; }
+    .code {
+      border: 1px solid rgba(118,193,200,0.16);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: rgba(8,13,16,0.72);
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.7;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <h1>轻肉鸽战场页</h1>
+  <div class="meta">
+    页面职责：承载 `prepare / wave / elite / boss` 的实时战斗。<br />
+    目标：战场始终是主视觉，信息与按钮只服务战斗，不抢戏。<br />
+    对齐基准：战斗信息组织与中断节奏参考《向僵尸开炮》。
+  </div>
+
+  <div class="layout">
+    <section class="phone">
+      <div class="hud-top">
+        <div class="hud-box">
+          <div>第 12 波 · 妖潮中</div>
+          <div style="margin-top:4px;color:var(--gold);">Lv 9</div>
+          <div class="exp-fill"><span></span></div>
+        </div>
+        <div class="hud-box" style="text-align:right;">
+          <div>关卡：野狼谷外围</div>
+          <div style="margin-top:4px;color:var(--muted);">地图：山门雪坪</div>
+        </div>
+      </div>
+
+      <div class="boss-bar">
+        <div>妖王 · 噬月狼王</div>
+        <div class="boss-fill"><span></span></div>
+      </div>
+
+      <div class="battle-stage">
+        <div class="center-note">
+          战场核心区<br />
+          敌潮、术法、弹道、首领威压都发生在这里。<br />
+          这个区域必须永远是页面第一视觉中心。
+        </div>
+      </div>
+
+      <div class="bottom-bar">
+        <div>我方气血</div>
+        <div class="hp-fill"><span></span></div>
+        <div class="action-row">
+          <div style="color:var(--muted);">底部按钮是次级操作层，只可用，不可抢眼。</div>
+          <div class="actions">
+            <div class="btn">储物袋</div>
+            <div class="btn">怪物详情</div>
+            <div class="btn">撤离</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="notes">
+      <h2>实现说明</h2>
+
+      <h3>1. 第一眼必须看到什么</h3>
+      <ul>
+        <li>敌潮和战场中央，而不是按钮。</li>
+        <li>顶部 HUD 是“辅助读数”，不是主视觉中心。</li>
+        <li>底部条是状态与次级操作，不是操作面板主场。</li>
+      </ul>
+
+      <h3>2. UI 层级</h3>
+      <div class="code">第一层：战场核心层（敌潮 / 角色 / 术法）
+第二层：状态层（波次 / 等级 / 经验 / 气血 / 首领血条）
+第三层：次级操作层（储物袋 / 怪物详情 / 撤离）
+第四层：中断层（升级 / 首领过场 / 复活 / 结算）</div>
+
+      <h3>3. 关键显隐</h3>
+      <ul>
+        <li>`wave / elite`：显示储物袋、怪物详情、撤离。</li>
+        <li>`boss`：显示储物袋、怪物详情，隐藏撤离。</li>
+        <li>`upgrade`：隐藏所有底部按钮，只留升级弹层。</li>
+      </ul>
+
+      <h3>4. 图片占位如何理解</h3>
+      <ul>
+        <li>后续战场背景图是“大氛围层”，不是可点区域。</li>
+        <li>首领立绘 / 敌潮剪影属于战场表现层，不应当替代真实碰撞或逻辑区域。</li>
+        <li>如果 HTML 里出现图片占位，AI 实现时应把它当作层级与用途说明，而不是只当静态装饰。</li>
+      </ul>
+
+      <h3>5. 对齐要求</h3>
+      <div class="code">要像《向僵尸开炮》的地方：
+- 战场是主视觉
+- 升级是高频中断
+- 敌潮压迫持续存在
+
+不能照抄的地方：
+- 枪械语义
+- 军武风 UI
+- 现代末世词汇</div>
+    </aside>
+  </div>
+</body>
+</html>

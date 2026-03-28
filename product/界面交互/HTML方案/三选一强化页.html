@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>三选一强化页方案</title>
+  <style>
+    :root {
+      --bg: #0a1013;
+      --panel: rgba(13, 22, 26, 0.9);
+      --line: rgba(120, 196, 200, 0.18);
+      --text: #deeee7;
+      --muted: #90aaa4;
+      --gold: #d7c287;
+      --cyan: #7bc8cf;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: "PingFang SC", "Songti SC", serif;
+      background: radial-gradient(circle at center, rgba(123,200,207,0.12), transparent 30%), linear-gradient(180deg, #0f171a 0%, #090d10 100%);
+      color: var(--text);
+    }
+    h1 { margin: 0 0 8px; }
+    .meta { color: var(--muted); margin-bottom: 18px; line-height: 1.7; }
+    .layout { display: grid; grid-template-columns: 380px minmax(420px,1fr); gap: 20px; }
+    .phone, .notes { border: 1px solid var(--line); border-radius: 22px; background: rgba(10,16,19,0.94); }
+    .phone { padding: 18px; min-height: 740px; display: flex; align-items: center; justify-content: center; }
+    .notes { padding: 18px 20px; }
+    .overlay {
+      width: 100%;
+      border: 1px solid rgba(123,200,207,0.18);
+      border-radius: 18px;
+      background: rgba(16,27,31,0.96);
+      padding: 18px;
+    }
+    .head {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .head .title { font-size: 24px; color: var(--gold); }
+    .head .sub { margin-top: 6px; color: var(--muted); font-size: 13px; }
+    .cards { display: grid; gap: 12px; }
+    .card {
+      border: 1px solid rgba(123,200,207,0.22);
+      border-radius: 14px;
+      background: rgba(18,32,38,0.75);
+      padding: 12px;
+    }
+    .card .type { color: var(--cyan); font-size: 12px; margin-bottom: 6px; }
+    .card .name { font-size: 17px; margin-bottom: 6px; }
+    .card .desc { color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .summary {
+      margin-top: 14px;
+      border-top: 1px solid rgba(123,200,207,0.16);
+      padding-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    h2 { margin: 0 0 10px; font-size: 18px; }
+    h3 { margin: 18px 0 8px; font-size: 15px; color: var(--gold); }
+    p, li { color: var(--muted); line-height: 1.7; font-size: 14px; }
+    ul { margin: 8px 0 0 18px; padding: 0; }
+    .code {
+      border: 1px solid rgba(123,200,207,0.16);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: rgba(8,13,16,0.72);
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.7;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <h1>三选一强化页</h1>
+  <div class="meta">
+    页面职责：局内升级后的唯一中断层。<br />
+    关键要求：必须居中覆盖战场，暂停战斗，一次只给 3 张候选卡。<br />
+    数据真源：`轻肉鸽局内等级配置总表.csv`、`轻肉鸽升级候选池配置总表.csv`、`轻肉鸽局内强化配置总表.csv`。
+  </div>
+
+  <div class="layout">
+    <section class="phone">
+      <div class="overlay">
+        <div class="head">
+          <div class="title">悟道 · 三选一强化</div>
+          <div class="sub">第 9 波 · Lv 6 · 当前主流派：御剑 / 火弹</div>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <div class="type">神通升阶</div>
+            <div class="name">飞剑增生</div>
+            <div class="desc">御剑术额外生成 1 柄飞剑，前中期清怪效率明显提升。</div>
+          </div>
+          <div class="card">
+            <div class="type">被动道法</div>
+            <div class="name">清心流转</div>
+            <div class="desc">全局冷却缩减 4%，提升所有术法轮转速度。</div>
+          </div>
+          <div class="card">
+            <div class="type">流派联动</div>
+            <div class="name">燎原真火</div>
+            <div class="desc">火弹命中附带灼烧，适合与御剑持续压制形成双轴输出。</div>
+          </div>
+        </div>
+
+        <div class="summary">
+          当前说明：若合法候选不足 3 项，必须按“同流派保底 -> 通用被动保底 -> 低阶通用重复保底”补齐。
+        </div>
+      </div>
+    </section>
+
+    <aside class="notes">
+      <h2>实现说明</h2>
+
+      <h3>1. 为什么必须独立成层</h3>
+      <ul>
+        <li>升级是肉鸽的核心快感，不是战场旁边的一个小抽屉。</li>
+        <li>它必须足够强打断，玩家才能感知“build 正在成型”。</li>
+      </ul>
+
+      <h3>2. 卡片必须表达什么</h3>
+      <ul>
+        <li>类型：神通升阶 / 被动道法 / 流派联动 / 终局强化</li>
+        <li>标题</li>
+        <li>一句效果描述</li>
+        <li>如果和当前主流派强关联，要能看出来</li>
+      </ul>
+
+      <h3>3. 交互逻辑</h3>
+      <div class="code">升级触发 -> 暂停战斗 -> 打开本页
+点击任一强化卡 -> 立即生效
+关闭本页 -> 回到原波次战斗状态
+本页禁止存在“关闭但不选”的路径</div>
+
+      <h3>4. 图片占位说明</h3>
+      <ul>
+        <li>如果后续强化卡加入图标，它只承担识别功能，不应挤压文字说明。</li>
+        <li>AI 看到图片位时，应理解为“卡内媒体槽”，不是整卡点击区之外的额外组件。</li>
+      </ul>
+    </aside>
+  </div>
+</body>
+</html>
