@@ -7,8 +7,8 @@
 1. `CODEX_RULES.md`
 2. `HANDOFF.md`
 3. `README.md`
-4. `product/产品需求/当前产品需求.md`
-5. `product/产品需求/模块需求导航.md`
+4. `product/prd_doc/current_prd.md`
+5. `product/prd_doc/module_map.md`
 6. 目标目录下的 `README.md`
 7. 对应真源文件
 8. 若任务涉及编码，先读 `product/实现规范/实现前自检流程.md`
@@ -27,7 +27,7 @@
 
 ## 相关入口
 - `product/目录索引.md`
-- `product/产品需求/README.md`
+- `product/prd_doc/README.md`
 - `product/实现规范/README.md`
 - `product/界面交互/README.md`
 - `product/数值策划/README.md`

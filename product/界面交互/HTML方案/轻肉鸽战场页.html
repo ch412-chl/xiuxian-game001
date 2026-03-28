@@ -27,15 +27,19 @@
     }
     h1 { margin: 0 0 8px; }
     .meta { color: var(--muted); margin-bottom: 18px; line-height: 1.7; }
-    .layout { display: grid; grid-template-columns: 390px minmax(420px,1fr); gap: 20px; }
+    .layout { display: grid; grid-template-columns: 420px minmax(420px,1fr); gap: 20px; }
     .phone, .notes { border: 1px solid var(--line); border-radius: 22px; background: rgba(10,17,20,0.94); }
-    .phone { padding: 14px; min-height: 760px; position: relative; }
+    .phone { padding: 14px; min-height: 780px; position: relative; overflow: hidden; }
     .notes { padding: 18px 20px; }
     .hud-top {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
       display: flex;
       justify-content: space-between;
       gap: 10px;
-      margin-bottom: 10px;
+      z-index: 3;
     }
     .hud-box {
       border: 1px solid var(--line);
@@ -45,22 +49,24 @@
       min-width: 0;
     }
     .battle-stage {
-      border: 1px dashed rgba(118,193,200,0.18);
-      border-radius: 20px;
-      min-height: 470px;
-      padding: 14px;
-      position: relative;
-      overflow: hidden;
+      position: absolute;
+      inset: 0;
+      padding: 72px 14px 14px;
       background:
-        radial-gradient(circle at center, rgba(118,193,200,0.08), transparent 34%),
-        linear-gradient(180deg, rgba(15,24,28,0.75), rgba(8,13,16,0.92));
+        radial-gradient(circle at 50% 24%, rgba(118,193,200,0.08), transparent 26%),
+        linear-gradient(180deg, rgba(15,24,28,0.72), rgba(8,13,16,0.94));
     }
     .boss-bar {
+      position: absolute;
+      top: 66px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 84px);
       border: 1px solid rgba(207,118,107,0.36);
       border-radius: 10px;
       background: rgba(39,17,16,0.85);
       padding: 6px 10px;
-      margin-bottom: 10px;
+      z-index: 3;
     }
     .boss-fill, .exp-fill, .hp-fill {
       height: 10px;
@@ -72,38 +78,43 @@
     .boss-fill span { display: block; height: 100%; width: 78%; background: linear-gradient(90deg, #a13f37, #d4685e); }
     .exp-fill span { display: block; height: 100%; width: 44%; background: linear-gradient(90deg, #7fcbd0, #4da7ac); }
     .hp-fill span { display: block; height: 100%; width: 62%; background: linear-gradient(90deg, #d6c58c, #a58a54); }
-    .center-note {
+    .enemy-zone {
       position: absolute;
-      inset: 80px 24px 120px;
+      top: 120px;
+      left: 18px;
+      right: 18px;
+      bottom: 140px;
+      border: 1px dashed rgba(118,193,200,0.16);
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: rgba(220,236,230,0.8);
+      color: rgba(220,236,230,0.82);
       line-height: 1.8;
       font-size: 15px;
     }
-    .bottom-bar {
-      margin-top: 12px;
-      border: 1px solid var(--line);
+    .player-zone {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      border: 1px solid rgba(118,193,200,0.24);
       border-radius: 18px;
       background: rgba(13,22,26,0.82);
       padding: 12px;
+      z-index: 3;
     }
-    .action-row {
+    .player-row {
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 12px;
       align-items: center;
       margin-top: 10px;
     }
-    .actions {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .btn {
-      min-height: 40px;
+    .pause-btn {
+      min-height: 36px;
+      min-width: 72px;
       border: 1px solid rgba(118,193,200,0.24);
       border-radius: 12px;
       display: flex;
@@ -132,21 +143,21 @@
   <h1>轻肉鸽战场页</h1>
   <div class="meta">
     页面职责：承载 `prepare / wave / elite / boss` 的实时战斗。<br />
-    目标：战场始终是主视觉，信息与按钮只服务战斗，不抢戏。<br />
-    对齐基准：战斗信息组织与中断节奏参考《向僵尸开炮》。
+    正式基准：玩家固定在底部防线，自动攻击范围内敌人，升级时三选一卡牌强化。<br />
+    对齐基准：战斗信息组织与中断节奏参考《向僵尸开炮》的塔防式肉鸽。
   </div>
 
   <div class="layout">
     <section class="phone">
       <div class="hud-top">
         <div class="hud-box">
-          <div>第 12 波 · 妖潮中</div>
+          <div>第 12 / 20 波 · 妖潮中</div>
           <div style="margin-top:4px;color:var(--gold);">Lv 9</div>
           <div class="exp-fill"><span></span></div>
         </div>
         <div class="hud-box" style="text-align:right;">
-          <div>关卡：野狼谷外围</div>
-          <div style="margin-top:4px;color:var(--muted);">地图：山门雪坪</div>
+          <div>气血</div>
+          <div class="hp-fill"><span></span></div>
         </div>
       </div>
 
@@ -156,23 +167,18 @@
       </div>
 
       <div class="battle-stage">
-        <div class="center-note">
-          战场核心区<br />
-          敌潮、术法、弹道、首领威压都发生在这里。<br />
-          这个区域必须永远是页面第一视觉中心。
+        <div class="enemy-zone">
+          敌潮推进主区域<br />
+          敌人从上方 / 前方持续压近。<br />
+          玩家不移动，防线与自动术法在底部拦截敌潮。
         </div>
       </div>
 
-      <div class="bottom-bar">
-        <div>我方气血</div>
-        <div class="hp-fill"><span></span></div>
-        <div class="action-row">
-          <div style="color:var(--muted);">底部按钮是次级操作层，只可用，不可抢眼。</div>
-          <div class="actions">
-            <div class="btn">储物袋</div>
-            <div class="btn">怪物详情</div>
-            <div class="btn">撤离</div>
-          </div>
+      <div class="player-zone">
+        <div>底部防线 · 玩家固定锚点</div>
+        <div class="player-row">
+          <div style="color:var(--muted);">这里是玩家、法阵、护体、自动施法的主表现区。战斗中不出现常驻底部三按钮。</div>
+          <div class="pause-btn">暂停</div>
         </div>
       </div>
     </section>
@@ -182,41 +188,43 @@
 
       <h3>1. 第一眼必须看到什么</h3>
       <ul>
-        <li>敌潮和战场中央，而不是按钮。</li>
-        <li>顶部 HUD 是“辅助读数”，不是主视觉中心。</li>
-        <li>底部条是状态与次级操作，不是操作面板主场。</li>
+        <li>敌潮推进区与底部防线，而不是按钮。</li>
+        <li>顶部 HUD 是辅助读数，不是主视觉中心。</li>
+        <li>战场中唯一高频交互是升级三选一卡牌。</li>
       </ul>
 
       <h3>2. UI 层级</h3>
-      <div class="code">第一层：战场核心层（敌潮 / 角色 / 术法）
+      <div class="code">第一层：战场核心层（敌潮 / 玩家防线 / 自动术法）
 第二层：状态层（波次 / 等级 / 经验 / 气血 / 首领血条）
-第三层：次级操作层（储物袋 / 怪物详情 / 撤离）
-第四层：中断层（升级 / 首领过场 / 复活 / 结算）</div>
+第三层：暂停入口（极弱存在）
+第四层：中断层（升级 / 首领过场 / 复活 / 结算 / 暂停菜单）</div>
 
       <h3>3. 关键显隐</h3>
       <ul>
-        <li>`wave / elite`：显示储物袋、怪物详情、撤离。</li>
-        <li>`boss`：显示储物袋、怪物详情，隐藏撤离。</li>
-        <li>`upgrade`：隐藏所有底部按钮，只留升级弹层。</li>
+        <li>`wave / elite`：仅显示 HUD 与暂停按钮。</li>
+        <li>`boss`：增加首领血条，仍不显示常驻撤离按钮。</li>
+        <li>`upgrade`：隐藏暂停按钮，只留升级弹层。</li>
       </ul>
 
       <h3>4. 图片占位如何理解</h3>
       <ul>
-        <li>后续战场背景图是“大氛围层”，不是可点区域。</li>
-        <li>首领立绘 / 敌潮剪影属于战场表现层，不应当替代真实碰撞或逻辑区域。</li>
-        <li>如果 HTML 里出现图片占位，AI 实现时应把它当作层级与用途说明，而不是只当静态装饰。</li>
+        <li>战场背景图是大氛围层，不是可点区域。</li>
+        <li>玩家底部法阵 / 立绘属于防线表现层，不等于页面按钮。</li>
+        <li>首领立绘 / 敌潮剪影属于战场表现层，不应当替代逻辑区域。</li>
       </ul>
 
       <h3>5. 对齐要求</h3>
-      <div class="code">要像《向僵尸开炮》的地方：
-- 战场是主视觉
-- 升级是高频中断
-- 敌潮压迫持续存在
+      <div class="code">必须对齐《向僵尸开炮》的地方：
+- 玩家固定在底部
+- 自动攻击
+- 敌潮持续压近
+- 升级三选一卡牌高频中断
 
-不能照抄的地方：
-- 枪械语义
-- 军武风 UI
-- 现代末世词汇</div>
+必须修仙化的地方：
+- 技能语汇
+- 敌人题材
+- 场景意象
+- 卡牌文案</div>
     </aside>
   </div>
 </body>

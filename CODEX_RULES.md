@@ -28,7 +28,7 @@
 1. 先读 `CODEX_RULES.md`
 2. 再读 `HANDOFF.md`
 3. 再读根目录 `README.md`
-4. 再读 `product/产品需求/模块需求导航.md`
+4. 再读 `product/prd_doc/module_map.md`
 5. 再读本次任务直接相关目录下的 `README.md`
 6. 再读任务所需真源文件
 7. 若任务涉及编码，必须先读 `product/实现规范/实现前自检流程.md`
