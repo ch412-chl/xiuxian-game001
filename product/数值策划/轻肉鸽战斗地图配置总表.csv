@@ -1,0 +1,7 @@
+battleMapId,displayName,themeTag,scenePath,width,height,spawnEdgeRule,movementRule,cameraRule,hazardRule,visualIntent,notes
+MAP_LQ_01,野狼谷外围,山门雪坪,Level/Map/level_XIAN_1001,28,18,four_edge_soft_push,free_move_small_arena,follow_soft,none,开场开阔便于起势,炼气初期主图
+MAP_LQ_02,野狼谷深处,妖谷夜道,Level/Map/level_XIAN_1002,26,16,four_edge_pressure,free_move_small_arena,follow_soft,fog_slow_zone,夜谷压迫感更强,炼气后期主图
+MAP_ZJ_01,青云剑墟,剑阵道场,Level/Map/level_XIAN_2001,24,16,front_back_mixed,free_move_medium_arena,follow_soft,sword_array_lane,中期开始引入线性压迫,筑基主图
+MAP_JD_01,赤焰洞庭,火域熔场,Level/Map/level_XIAN_3001,24,15,ring_spawn,free_move_medium_arena,follow_soft,fire_pool_patch,火法与持续伤害场,结丹主图
+MAP_YY_01,寒湖禁地,冰湖禁域,Level/Map/level_XIAN_4001,25,15,side_cross_spawn,free_move_medium_arena,follow_soft,slow_ice_patch,突出走位压力,元婴主图
+MAP_DZ_01,九霄雷崖,雷崖孤台,Level/Map/level_XIAN_14001,22,14,full_ring_pressure,free_move_compact_arena,follow_tight,lightning_strike_lane,终局高压短场,道祖主图

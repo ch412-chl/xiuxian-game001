@@ -1,0 +1,17 @@
+skillUpgradeId,skillId,upgradeLevel,upgradeName,upgradeDesc,changeType,valueA,valueB,valueC,visualTag,isCapstone
+SWORD_UP_01,SKILL_SWORD_RIDER,1,飞剑增生,额外生成1柄飞剑,projectile_count,1,0,0,sword_count,0
+SWORD_UP_02,SKILL_SWORD_RIDER,2,剑意贯穿,飞剑可额外穿透1个目标,pierce_count,1,0,0,sword_pierce,0
+SWORD_UP_03,SKILL_SWORD_RIDER,3,回旋归刃,飞剑命中后回旋一次,return_count,1,0,0,sword_return,0
+SWORD_UP_04,SKILL_SWORD_RIDER,4,万刃归流,飞剑数量与飞行宽度同步提升,capstone_combo,2,15,0,sword_capstone,1
+FIRE_UP_01,SKILL_FIRE_BOLT,1,爆燃火弹,火弹命中后产生小范围爆炸,aoe_radius_pct,20,0,0,fire_burst,0
+FIRE_UP_02,SKILL_FIRE_BOLT,2,燎原真火,火弹附带灼烧,burn_damage_pct,18,3,0,fire_burn,0
+FIRE_UP_03,SKILL_FIRE_BOLT,3,流火分裂,火弹首次命中后分裂1枚,split_count,1,0,0,fire_split,0
+FIRE_UP_04,SKILL_FIRE_BOLT,4,赤阳焚域,爆炸范围与灼烧持续大幅提升,capstone_combo,30,5,0,fire_capstone,1
+ICE_UP_01,SKILL_ICE_SPIKE,1,寒锥穿脉,冰锥额外穿透1个目标,pierce_count,1,0,0,ice_pierce,0
+ICE_UP_02,SKILL_ICE_SPIKE,2,寒霜凝滞,命中附带减速,slow_pct,20,2,0,ice_slow,0
+ICE_UP_03,SKILL_ICE_SPIKE,3,冰域扩散,命中后形成微型冰域,zone_radius_pct,18,0,0,ice_zone,0
+ICE_UP_04,SKILL_ICE_SPIKE,4,玄冰禁界,冰域持续时间和冻结概率大幅提升,capstone_combo,35,15,0,ice_capstone,1
+THUNDER_UP_01,SKILL_THUNDER_CALL,1,雷索初连,天雷可连锁1个额外目标,chain_count,1,0,0,thunder_chain,0
+THUNDER_UP_02,SKILL_THUNDER_CALL,2,劫雷聚顶,对精英与首领伤害提升,elite_boss_damage_pct,22,0,0,thunder_focus,0
+THUNDER_UP_03,SKILL_THUNDER_CALL,3,回雷再劈,首次命中后追加一次复劈,repeat_count,1,0,0,thunder_repeat,0
+THUNDER_UP_04,SKILL_THUNDER_CALL,4,九霄劫引,连锁、复劈、爆发同时提升,capstone_combo,2,2,20,thunder_capstone,1

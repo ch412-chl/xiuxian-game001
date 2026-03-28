@@ -1,0 +1,11 @@
+buffId,buffName,buffType,targetScope,targetRef,stackRule,maxStack,durationType,durationValue,effectType,valueA,valueB,valueC,displayPriority
+BUFF_GLOBAL_CDR_01,清心流转,冷却类,global,,stack_add,10,permanent,0,cooldown_reduce_pct,4,0,0,10
+BUFF_GLOBAL_RANGE_01,灵识外放,范围类,global,,stack_add,8,permanent,0,range_increase_pct,8,0,0,20
+BUFF_GLOBAL_PICKUP_01,聚灵牵引,资源类,player,,stack_add,6,permanent,0,pickup_radius_increase_pct,15,0,0,30
+BUFF_GLOBAL_SURVIVE_01,护体真元,生存类,player,,stack_add,5,permanent,0,shield_max_increase_pct,12,0,0,40
+BUFF_SWORD_PIERCE_01,剑意穿透,弹道类,school,御剑系,stack_add,8,permanent,0,pierce_increase,1,0,0,50
+BUFF_FIRE_AOE_01,真火外扩,范围类,school,火法系,stack_add,8,permanent,0,aoe_radius_increase_pct,10,0,0,60
+BUFF_ICE_SLOW_01,寒意侵骨,控场类,school,冰法系,stack_add,8,permanent,0,slow_strength_increase_pct,8,0,0,70
+BUFF_THUNDER_CHAIN_01,雷劫传导,弹道类,school,雷法系,stack_add,8,permanent,0,chain_count_increase,1,0,0,80
+BUFF_PLAYER_DAMAGE_01,灵压增幅,输出类,global,,stack_add,10,permanent,0,damage_increase_pct,5,0,0,90
+BUFF_PLAYER_HASTE_01,御气疾行,资源类,player,,stack_add,6,permanent,0,move_speed_increase_pct,6,0,0,100
