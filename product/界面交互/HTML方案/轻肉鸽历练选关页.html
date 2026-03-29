@@ -124,14 +124,14 @@
       <div class="top">
         <div class="panel-title">顶部区 18%</div>
         <div class="title">历练关卡</div>
-        <div class="sub">【炼气】山门试炼</div>
+        <div class="sub">主线按通关顺序逐关解锁</div>
       </div>
 
       <div class="mid">
         <div class="panel-title">中部区 70%</div>
         <div class="stage-card featured">
           <div class="row">
-            <strong>初期 · 野狼谷外围</strong>
+            <strong>1. 野狼谷外围</strong>
             <span class="pill">主推</span>
           </div>
           <div class="row">
@@ -146,22 +146,22 @@
 
         <div class="stage-card">
           <div class="row">
-            <strong>中期 · 野狼谷深处</strong>
+            <strong>2. 野狼谷深处</strong>
             <span class="pill">未达</span>
           </div>
           <div class="row">
-            <span>需先完成初期关卡</span>
+            <span>需先通关第 1 关</span>
             <span>推荐：御剑 / 火弹</span>
           </div>
         </div>
 
         <div class="stage-card">
           <div class="row">
-            <strong>后期 · 野狼谷妖巢</strong>
+            <strong>3. 野狼谷妖巢</strong>
             <span class="pill">未达</span>
           </div>
           <div class="row">
-            <span>需先破境条件满足</span>
+            <span>需先通关第 2 关</span>
             <span>推荐：冰锥 / 天雷</span>
           </div>
         </div>
@@ -184,7 +184,7 @@
       <ul>
         <li>中部关卡列表必须是绝对主视觉。</li>
         <li>玩家第一眼应该看到“主推哪一关”，而不是技能、资源或说明文字。</li>
-        <li>每次只展示当前境界的 3 个关卡，不做长列表。</li>
+        <li>关卡列表按主线顺序展示，不再按人物境界分组。</li>
       </ul>
 
       <h3>2. 每张关卡卡片必须包含</h3>
@@ -199,7 +199,7 @@
       <h3>3. 交互逻辑</h3>
       <div class="code">点击已解锁关卡卡片 -> 直接进入轻肉鸽战场页
 点击技能页入口 -> 进入技能页
-点击未解锁关卡卡片 -> 只提示解锁条件，不跳转
+点击未解锁关卡卡片 -> 只提示“需先通关上一关”，不跳转
 底部主导航固定可用
 本页不允许展开神通详情和 runBag</div>
 
@@ -212,7 +212,7 @@
       <h3>5. 数据依赖</h3>
       <div class="code">读取：
 - stageId
-- 大境界 / 阶段 / 关卡名称
+- stageIndex / 关卡名称
 - themeTag / themeDesc
 - battleMapId
 - modeParamId
