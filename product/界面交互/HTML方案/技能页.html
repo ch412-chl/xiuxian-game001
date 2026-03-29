@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>技能页方案</title>
+  <style>
+    :root { --text:#d8ece7; --muted:#8ca8a2; --gold:#d6c18f; }
+    * { box-sizing: border-box; }
+    body { margin:0; padding:28px; font-family:"PingFang SC","Songti SC",serif; background:linear-gradient(180deg,#0f171b 0%,#0a0f12 100%); color:var(--text); }
+    h1 { margin:0 0 12px; font-size:28px; }
+    .layout { display:grid; grid-template-columns:420px minmax(320px,1fr); gap:24px; }
+    .phone,.notes { border:1px solid rgba(120,198,200,0.2); border-radius:20px; background:rgba(16,26,31,0.92); overflow:hidden; }
+    .phone { padding:18px; min-height:760px; }
+    .notes { padding:20px; }
+    .top { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
+    .back,.tag { border:1px solid rgba(120,198,200,0.25); border-radius:999px; padding:6px 12px; color:var(--muted); font-size:12px; }
+    .skills { display:grid; gap:12px; }
+    .skill { border:1px solid rgba(120,198,200,0.18); border-radius:16px; padding:14px; background:rgba(7,12,15,0.68); }
+    .skill strong { display:block; margin-bottom:6px; }
+    .muted { color:var(--muted); font-size:13px; line-height:1.7; }
+    h2 { margin:0 0 10px; font-size:18px; }
+    h3 { margin:18px 0 8px; font-size:15px; color:var(--gold); }
+    ul { margin:8px 0 0 18px; padding:0; }
+    li,p { color:var(--muted); line-height:1.7; font-size:14px; }
+    .code { border:1px solid rgba(118,193,200,0.16); border-radius:12px; padding:10px 12px; background:rgba(8,13,16,0.72); color:var(--text); font-size:13px; line-height:1.7; white-space:pre-line; }
+  </style>
+</head>
+<body>
+  <h1>技能页</h1>
+  <div class="layout">
+    <section class="phone">
+      <div class="top">
+        <div class="back">返回来源页</div>
+        <div class="tag">只展示已解锁技能</div>
+      </div>
+      <div class="skills">
+        <div class="skill"><strong>御剑术</strong><div class="muted">流派：御剑系</div><div class="muted">基础效果：自动追踪前方敌人并连续出剑。</div></div>
+        <div class="skill"><strong>火弹术</strong><div class="muted">流派：火法系</div><div class="muted">基础效果：自动发射火弹，对命中点造成爆裂伤害。</div></div>
+        <div class="skill"><strong>冰锥术</strong><div class="muted">流派：冰法系</div><div class="muted">基础效果：自动直线贯穿并附带减速。</div></div>
+      </div>
+    </section>
+    <aside class="notes">
+      <h2>实现说明</h2>
+      <h3>1. 页面职责</h3>
+      <ul>
+        <li>只负责查看已解锁技能。</li>
+        <li>不承担战前装配、排序、确认进入战斗。</li>
+        <li>技能页是局外认知页，不是 build 操作页。</li>
+      </ul>
+      <h3>2. 关键交互</h3>
+      <div class="code">人物页 / 历练页 -> 技能页
+点击技能卡 -> 展开技能详情
+返回 -> 回到来源页</div>
+      <h3>3. 显隐规则</h3>
+      <ul>
+        <li>只显示已解锁技能。</li>
+        <li>不显示未解锁占位。</li>
+        <li>不显示装配按钮、顺位槽、开始战斗按钮。</li>
+      </ul>
+    </aside>
+  </div>
+</body>
+</html>
